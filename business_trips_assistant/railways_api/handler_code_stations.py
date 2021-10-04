@@ -12,4 +12,4 @@ def get_code_by_city(city):
     return code
 
 
-# get_code_by_city('ЕКА')
+get_code_by_city('ЕКАТЕ')

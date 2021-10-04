@@ -131,3 +131,5 @@ dmypy.json
 
 
 .idea/
+
+.railways_api/migrations/

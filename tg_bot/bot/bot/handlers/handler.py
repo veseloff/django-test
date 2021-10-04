@@ -7,4 +7,4 @@ import logging
 
 @dp.message_handler()
 async def exo(message: Message):
-    await message.answer(f'Ты написал {message.text}.\n Я жду команду /start')
+    await message.answer(f'РўС‹ РЅР°РїРёСЃР°Р» {message.text}.\n РЇ Р¶РґСѓ РєРѕРјР°РЅРґСѓ/start')

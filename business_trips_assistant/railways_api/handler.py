@@ -25,7 +25,7 @@ def get_args_for_request(arg):
 def get_url(args):
     code_city_to = 2030080
     code_city_from = 2030000
-    date = '5.10.2021'
+    date = '10.10.2021'
     url = f'https://pass.rzd.ru/timetable/public/ru' \
           f'?layer_id=5827' \
           f'&dir=0' \

@@ -3,6 +3,7 @@ from .handler import get_trains
 from django.http import HttpResponse
 import json
 
+
 # Create your views here.
 def railways_road(request):
     answer = get_trains(request)

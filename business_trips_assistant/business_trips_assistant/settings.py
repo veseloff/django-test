@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'railways_api.apps.RailwaysApiConfig',
+    'railways_api.apps.RailwaysApiConfig'
 ]
 
 MIDDLEWARE = [
@@ -78,7 +78,7 @@ DATABASES = {
     'default': {
         'NAME': 'business_trips',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'admin_business_trips',
+        'USER': 'postgres',
         'PASSWORD': 'business_trips123',
         'HOST': 'localhost',
         'PORT': 5432
@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 

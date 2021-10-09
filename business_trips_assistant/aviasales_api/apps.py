@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class ApiTestConfig(AppConfig):
-    name = 'api_test'
+    name = 'aviasales_api'

@@ -1,5 +1,5 @@
 """
-WSGI config for as_api_test project.
+WSGI config for business_trips_assistant project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'as_api_test.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'business_trips_assistant.settings')
 
 application = get_wsgi_application()

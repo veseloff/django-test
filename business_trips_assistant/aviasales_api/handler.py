@@ -3,6 +3,7 @@ import json
 
 
 def get_code_city(name_city):
+    '''По названию города возвращает его IATA-код'''
     code_city = name_city
     return code_city
 

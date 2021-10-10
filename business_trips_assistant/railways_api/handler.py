@@ -1,31 +1,40 @@
 import requests
 import json
 import time
+from railways_api.models import City, Station
 
 
-def get_trains(arg):
-    cookies, params = get_args_for_request(arg)
+def get_trains(**kwargs):
+    codes_station_from, codes_station_to, date = get_code_and_date(kwargs)
+    cookies, params = get_rid_and_cookies(codes_station_from[0], codes_station_to[0], date)
+    train_information = []
     time.sleep(0.2)
-    response = requests.get('https://pass.rzd.ru/timetable/public/ru?layer_id=5827', params=params, cookies=cookies)
-    response_json = json.loads(response.text)['tp']
-    train_information = set_train_information(response_json)
+    for code_from in codes_station_from:
+        params['code0'] = code_from
+        for code_to in codes_station_to:
+            params['code1'] = code_to
+            response = requests.get('https://pass.rzd.ru/timetable/public/ru', params=params, cookies=cookies)
+            try:
+                response_json = json.loads(response.text)['tp']
+            except KeyError:
+                print(f'с вокзала {code_from} на {code_to} произошла ошибка, нет поездов')
+            else:
+                train_information.append(set_train_information(response_json))
     return train_information
 
 
-def get_args_for_request(arg):
-    url, params = get_url(arg)
-    response = requests.get(url, params=params)
-    jsessionid = response.cookies['JSESSIONID']
-    rid = response.json()['RID']
-    cookies = {'lang': 'ru', 'JSESSIONID': jsessionid, 'AuthFlag': 'false'}
-    params = {'rid': rid}
-    return cookies, params
+def get_code_and_date(kwargs):
+    city_from = kwargs['city_from'].upper()
+    city_to = kwargs['city_to'].upper()
+    date = kwargs['date']
+    id_city_from = [e.id for e in City.objects.filter(city=city_from)].pop()
+    id_city_to = [e.id for e in City.objects.filter(city=city_to)].pop()
+    codes_stations_from = [station.code for station in Station.objects.filter(city=id_city_from)]
+    codes_stations_to = [station.code for station in Station.objects.filter(city=id_city_to)]
+    return codes_stations_from, codes_stations_to, date
 
 
-def get_url(args):
-    code_city_to = 2030080
-    code_city_from = 2030000
-    date = '10.10.2021'
+def get_rid_and_cookies(code_city_from, code_city_to, date):
     params = {'layer_id': 5827,
               'dir': 0,
               'tfl': 3,
@@ -35,7 +44,12 @@ def get_url(args):
               'dt0': date
               }
     url = f'https://pass.rzd.ru/timetable/public/ru'
-    return url, params
+    response = requests.get(url, params=params)
+    jsessionid = response.cookies['JSESSIONID']
+    rid = response.json()['RID']
+    cookies = {'lang': 'ru', 'JSESSIONID': jsessionid, 'AuthFlag': 'false'}
+    params['rid'] = rid
+    return cookies, params
 
 
 def set_train_information(response_json):
@@ -55,26 +69,3 @@ def set_train_information(response_json):
                     train_information[e['number']]['timeDeltaString1'] = e['timeDeltaString1']
                     train_information[e['number']]['timeInWay'] = e['timeInWay']
     return train_information
-
-
-# def set_train_information(response_json):
-#     train_information = []
-#     for answer in response_json:
-#         for key, value in answer.items():
-#             if key == 'list':
-#                 for e in value:
-#                     trip = {}
-#                     trip['number'] = e['number']
-#                     trip['station0'] = e['station0']
-#                     trip['station1'] = e['station1']
-#                     trip['localDate0'] = e['localDate0']
-#                     trip['localTime0'] = e['localTime0']
-#                     trip['localDate1'] = e['localDate1']
-#                     trip['localTime1'] = e['localTime1']
-#                     trip['timeDeltaString0'] = e['timeDeltaString0']
-#                     trip['timeDeltaString1'] = e['timeDeltaString1']
-#                     trip['timeInWay'] = e['timeInWay']
-#                     train_information.append(trip)
-#     return train_information
-
-

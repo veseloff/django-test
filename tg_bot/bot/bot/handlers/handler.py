@@ -28,10 +28,12 @@ from aiogram.dispatcher.filters import Text
 
 @dp.message_handler(content_types=['document', 'photo'])
 async def handle_docs_photo(message: Message):
-    print("Зашел")
-    print(type(message.photo))
-    print(message.photo[0])
-    print('поймал фото')
+    logging.info('зашёл в метод')
+    if message.document == None:
+        await message.photo[-1].download('я исправил ваш говнокод.jpg')
+    else:
+        await message.document.download('я исправил ваш говнокод часть 2.jpg')
+    logging.info('fff')
     # try:
     #
     #     file_info = dp.get_file(message.document.file_id)

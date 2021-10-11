@@ -26,12 +26,26 @@ def get_trains(**kwargs):
 def get_code_and_date(kwargs):
     city_from = kwargs['city_from'].upper()
     city_to = kwargs['city_to'].upper()
+    station_from = kwargs['station_from'].upper()
+    station_to = kwargs['station_to'].upper()
+    code_station_to = int(kwargs['code_station_to'])
+    code_station_from = int(kwargs['code_station_from'])
     date = kwargs['date']
-    id_city_from = [e.id for e in City.objects.filter(city=city_from)].pop()
-    id_city_to = [e.id for e in City.objects.filter(city=city_to)].pop()
-    codes_stations_from = [station.code for station in Station.objects.filter(city=id_city_from)]
-    codes_stations_to = [station.code for station in Station.objects.filter(city=id_city_to)]
+    codes_stations_from = get_codes(code_station_from, city_from, station_from)
+    codes_stations_to = get_codes(code_station_to, city_to, station_to)
     return codes_stations_from, codes_stations_to, date
+
+
+def get_codes(code_station, city, station):
+    if code_station == 0:
+        if station == 'NULL':
+            id_city = [e.id for e in City.objects.filter(city=city)].pop()
+            codes = [station.code for station in Station.objects.filter(city=id_city)]
+        else:
+            codes = [station.code for station in Station.objects.filter(station__startswith=station)]
+    else:
+        codes = [code_station]
+    return codes
 
 
 def get_rid_and_cookies(code_city_from, code_city_to, date):

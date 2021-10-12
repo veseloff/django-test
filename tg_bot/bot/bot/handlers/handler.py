@@ -1,76 +1,59 @@
-from tg_bot.bot.bot.loader import dp, bot
 import logging
-from tg_bot.bot.bot.loader import dp, bot
-from aiogram.types import Message, CallbackQuery, PhotoSize, File
-from aiogram.dispatcher import FSMContext
-from aiogram.dispatcher.filters import Text
-#from PIL import Image
-
-
-# @dp.message_handler()
-# async def exo(message: Message):
-#     await message.answer(f'Ты написал {message.text}.\n Я жду команду /start')
-
-# @dp.message_handler(content_types=["photo"])
-# def echo_msg(message):
-#     if message.content_type == 'photo':
-#         raw = message.photo[2].file_id
-#         name = raw + ".jpg"
-#         file_info = dp.get_file(raw)
-#         downloaded_file = dp.download_file(file_info.file_path)
-#         with open(name, 'wb') as new_file:
-#             new_file.write(downloaded_file)
-#         img = open(name, 'rb')
-#         # bot.send_message(chatID, "Запрос от\n*{name} {last}*".format(name=message.chat.first_name, last=message.chat.last_name), parse_mode="Markdown") #от кого идет сообщение и его содержание
-#         # bot.send_photo(chatID, img)
-#         # bot.send_message(message.chat.id, "*{name}!*\n\nСпасибо за инфу".format(name=message.chat.first_name, last=message.chat.last_name, text=message.text), parse_mode="Markdown") #то что пойдет юзеру после отправки сообщения
+import requests
+from tg_bot.bot.bot.loader import dp
+from aiogram.types import Message
 
 
 @dp.message_handler(content_types=['document', 'photo'])
 async def handle_docs_photo(message: Message):
     logging.info('зашёл в метод')
-    if message.document == None:
-        await message.photo[-1].download('я исправил ваш говнокод.jpg')
+    if message.document is None:
+        await message.photo[-1].download('чек1.jpg')
+        filename = 'чек1.jpg'
     else:
-        await message.document.download('я исправил ваш говнокод часть 2.jpg')
+        await message.document.download('чек2.jpg')
+        filename = 'чек2.jpg'
+    print(parse_data(get_info_zxing_qrscanner(filename)))
+
     logging.info('fff')
-    # try:
-    #
-    #     file_info = dp.get_file(message.document.file_id)
-    #     downloaded_file = dp.download_file(file_info.file_path)
-    #
-    #     src = 'C:/Python/Project/tg_bot/files/received/' + message.document.file_name;
-    #     with open(src, 'wb') as new_file:
-    #          new_file.write(downloaded_file)
-    #     message.imgbars = (Image.open(arg_image_path), symbols=[ZBarSymbol.QRCODE])
-    #     dp.reply_to(message, "Пожалуй, я сохраню это")
-    #     await message.answer('Test')
-    #
-    # except Exception as e:
-    #     await message.answer('Test failed')
 
 
 @dp.message_handler()
 async def exo(message: Message):
     await message.answer(f'Ты написал {message.text}.\n Я жду команду /start')
+    await message.photo[0].download()
 
-    #
-    #
 
-    #
-    #
-    #
-    #
-    # # @dp.message_handler(content_types=["photo"])
-    # # def echo_msg(message):
-    # #     if message.content_type == 'photo':
-    # #         raw = message.photo[2].file_id
-    # #         name = raw + ".jpg"
-    # #         file_info = dp.get_file(raw)
-    # #         downloaded_file = dp.download_file(file_info.file_path)
-    # #         with open(name, 'wb') as new_file:
-    # #             new_file.write(downloaded_file)
-    # #         img = open(name, 'rb')
-    # #         # bot.send_message(chatID, "Запрос от\n*{name} {last}*".format(name=message.chat.first_name, last=message.chat.last_name), parse_mode="Markdown") #от кого идет сообщение и его содержание
-    # #         # bot.send_photo(chatID, img)
-    # #         # bot.send_message(message.chat.id, "*{name}!*\n\nСпасибо за инфу".format(name=message.chat.first_name, last=message.chat.last_name, text=message.text), parse_mode="Markdown") #то что пойдет юзеру после отправки сообщения
+def parse_data(data):
+    date = data[2:9]
+    sum = data[22:25]
+    fn = data[37:52]
+    fp = data[71:80]
+    return date, sum, fn, fp
+
+
+def qrcode_scanner(url, filename):
+    """
+        отправляет запрос в онлайн сканер qr кодов и получает ответ от сервера (Отправка файла через Request Payload)
+        url - ссылка на скрипт онлайн сканера
+        filename  - путь до файла снимка где находится фотография с qr кодом
+    """
+    with open(filename, 'rb') as f:
+        r = requests.post(url, files={filename: f})
+        result = {"code": r.status_code, "text": r.text}
+    return result
+
+
+def get_info_zxing_qrscanner(filename):
+    url = "https://zxing.org/w/decode"
+    rr = qrcode_scanner(url, filename)
+
+    s = rr["text"]
+    i = s.find("pre")
+    s = s[i + 4:]
+    i = s.find("pre")
+    s = s[:i]
+    s = s.strip("/")
+    s = s.strip("<")
+    s = s.strip(">")
+    return s

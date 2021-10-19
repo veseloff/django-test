@@ -1,11 +1,10 @@
+"""В модуле происхадила запись фикстур"""
 import requests
 from json.decoder import JSONDecodeError
 import json
 import time
 
 # python manage.py loaddata station.json чтобы применить фикстуры
-
-
 def get_alphabet():
     first_char = ord('А')
     alphabet = [chr(i) for i in range(first_char, first_char+32)]

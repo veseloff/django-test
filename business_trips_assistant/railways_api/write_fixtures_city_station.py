@@ -1,11 +1,14 @@
-import requests
+"""апись фикстуры для таблиц города и станции"""
 import time
 import json
-url = 'https://ticket.rzd.ru/api/v1/suggests'
+import requests
+
+
+URL = 'https://ticket.rzd.ru/api/v1/suggests'
 stations = []
-index_station = 1
+INDEX_STATIONS = 1
 cities = []
-index_city = 1
+INDEX_CITY = 1
 with open('citys.txt', 'r', encoding='utf-8') as file:
     for e in file.readlines():
         params = {
@@ -18,7 +21,7 @@ with open('citys.txt', 'r', encoding='utf-8') as file:
         }
         time.sleep(0.2)
 
-        response = requests.get(url=url, params=params).json()
+        response = requests.get(url=URL, params=params).json()
         try:
             trains_dict = response['train']
         except KeyError:
@@ -26,20 +29,21 @@ with open('citys.txt', 'r', encoding='utf-8') as file:
         else:
             city = {}
             city['model'] = 'railways_api.city'
-            city['pk'] = index_city
+            city['pk'] = INDEX_CITY
             city['fields'] = {'city': e.split('\n')[0].upper()}
             cities.append(city)
             for train in response['train']:
                 try:
                     station = {}
                     station['model'] = 'railways_api.station'
-                    station['pk'] = index_station
-                    station['fields'] = {'city': index_city, 'station': train['name'].upper(), 'code': train['expressCode']}
-                    index_station += 1
+                    station['pk'] = INDEX_STATIONS
+                    station['fields'] = {'city': INDEX_CITY, 'station':
+                        train['name'].upper(), 'code': train['expressCode']}
+                    INDEX_STATIONS += 1
                     stations.append(station)
                 except KeyError:
                     print(f"некоректные данные в о станции в городе {e}")
-            index_city += 1
+            INDEX_CITY += 1
 
 
 js_city = json.dumps(cities, ensure_ascii=False, indent=4)
@@ -50,5 +54,3 @@ with open('fixtures\\city.json', 'w', encoding='utf-8') as file:
 js_station = json.dumps(stations, ensure_ascii=False, indent=4)
 with open('fixtures\\station.json', 'w', encoding='utf-8') as file:
     file.write(js_station)
-
-

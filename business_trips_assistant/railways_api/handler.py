@@ -6,10 +6,17 @@ from railways_api.models import City, Station
 
 
 def get_trains(**kwargs):
-    """Принимает информацию о дате поездки, месте отправления и прибытия, возвращает список поездов
+    """
+    С помощью вспомагательных методов вытаскивает куки файлы и параметы,
+     необхадимые для запроса на api ржд, делает запрос,
+     составляет словарь со всеми возможными вариантами,
+     как добраться из одного города(станций) в другой город(станцию)
+    Args:
+        **kwargs: информация о дате поездки, месте отправления, месте прибытия
 
-    :param kwargs:
-    :return:
+    Returns:
+        train_information: словарь содержаций все возможные способы,
+         как добраться из одного города(станций) в другой город(станцию)
     """
     codes_station_from, codes_station_to, date = get_code_and_date(kwargs)
     cookies, params = get_rid_and_cookies(codes_station_from[0], codes_station_to[0], date)
@@ -31,10 +38,15 @@ def get_trains(**kwargs):
 
 
 def get_code_and_date(kwargs):
-    """Возвращает коды вокзалов и дату отправления
+    """
+    Метод филтурует переданные данные и возвращает список кодов станций отправления и прибытия
+    Args:
+        kwargs: информация о дате поездки, месте отправления, месте прибытия
 
-    :param kwargs:
-    :return:
+    Returns:
+        codes_stations_from: список кодов станций отправления
+        codes_stations_to: список кодов станций прибытия
+        date: дата отправления
     """
     city_from = kwargs['city_from'].upper()
     city_to = kwargs['city_to'].upper()
@@ -49,14 +61,18 @@ def get_code_and_date(kwargs):
 
 
 def get_codes(code_station, city, station):
-    """Вспомогательный метод,
-    который находит коды вокзалов по названию города
-    или один код на названию станции
+    """
+    Метод находит коды всех станций, которые имеются в городе, по переданным параметрам,
+    обращаясь к базе данных.
+    Некоторые параметры могут не нести информации.
+    Если code_station == 0, значит пользователь не передал код станции
+    Args:
+        code_station: Int - код станции
+        city: String - город
+        station: String - название станции
 
-    :param code_station:
-    :param city:
-    :param station:
-    :return:
+    Returns: Список с кодами станции, которые имеются в городе
+
     """
     if code_station == 0:
         if station == 'NULL':
@@ -71,14 +87,21 @@ def get_codes(code_station, city, station):
 
 
 def get_rid_and_cookies(code_city_from, code_city_to, date):
-    """Вытаскиваект куки и параметр rid в первом запросе,
-    необходимые для получения информации о поездах
-
-    :param code_city_from:
-    :param code_city_to:
-    :param date:
-    :return:
     """
+    Вытаскиваект куки и параметр rid в первом запросе,
+    необходимые для альнейших запросов на api ржд,
+    для получения информации о поездах
+
+    Args:
+        code_city_from: Int
+        code_city_to: Int
+        date: String
+
+    Returns:
+        cookies: dict - куки файлы
+        params: dict - параметр rid
+    """
+
     params = {'layer_id': 5827,
               'dir': 0,
               'tfl': 3,
@@ -97,10 +120,15 @@ def get_rid_and_cookies(code_city_from, code_city_to, date):
 
 
 def set_train_information(response_json):
-    """Создаёт словарь в котором описывается информация о поездах
+    """
+    Меотд принимает инфорацию о поездах, вытаскивает нужную
+        и формирует словарь с необходимыми данными
+    Args:
+        response_json: Json словарь
 
-    :param response_json:
-    :return:
+    Returns:
+        словарь, в котором хранится информация о поездах:
+        время отправления, время прибытия, время в пути, номер поезда и т.д.
     """
     train_information = {}
     for answer in response_json:

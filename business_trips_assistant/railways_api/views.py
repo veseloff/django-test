@@ -7,10 +7,12 @@ from .handler import get_trains
 # Create your views here.
 def get_path_to_city(request):
     """
-    Метод в request содержит информацию а дате поездки, и месте прибытия и отправки.
-    Возвращает json файл со списком всех поездов
-    :param request:
-    :return:
+    Запускает работу с api ржд и находит все возможные поезда из одного места в другое
+    Args:
+        request: Request содержит информацию а дате поездки, и месте прибытия и отправки
+
+    Returns: json файл со списком всех поездов
+
     """
     # city_to = request.GET['cityTo']
     # city_from = request.GET['cityFrom']
@@ -37,9 +39,12 @@ def get_path_to_city(request):
 
 def get_city_by_prefix(request):
     """
-    Возвращает список городов по префиксу
-    :param request:
-    :return:
+    Метод помогает найти город по переданному префиксу
+    Args:
+        request: Request содержит префикс города
+
+    Returns: json файл со списком городов начинающихся на prefix
+
     """
     # prefix = request.GET['prefix']
     prefix = 'Ека'.upper()
@@ -51,9 +56,12 @@ def get_city_by_prefix(request):
 
 def get_station_by_city(request):
     """
-    Возвращает списск станций из выбранного города
-    :param request:
-    :return:
+    Метод находит все станции в переданном городе
+    Args:
+        request: Request. В  request.GET содержится название города
+
+    Returns:
+        json файл со списком станций в конкретном городе
     """
     # city = request.GET['city'].upper()
     # code = int(request.GET['code'])

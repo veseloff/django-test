@@ -13,3 +13,20 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
     return render(request, 'какой то html шаблон', {'user_form': user_form})
+
+
+def user_login(request):
+    if request.method == "POST":
+        user = authenticate(request, username=request.POST["username"], password=request.POST["password"])
+        if user is not None:
+            login(request, user)
+            return (True, 'index', {})
+        else:
+            return (False, 'login.html', {'invalid':True})
+    else:
+        return (False, 'login.html', {'invalid':False})
+
+
+def user_logout(request):
+    logout(request)
+    return ('login')

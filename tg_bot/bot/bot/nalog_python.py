@@ -2,6 +2,7 @@ import json
 
 import requests
 
+
 class NalogRuPython:
     HOST = 'irkkt-mobile.nalog.ru:8888'
     DEVICE_OS = 'iOS'

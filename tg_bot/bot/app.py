@@ -1,9 +1,9 @@
-from tg_bot.bot.bot.loader import bot
+from tg_bot.bot.bot.loader import dp
 # from tg_bot.bot.config import admin_id
 
 
 async def on_shutdown(dp):
-    await bot.close()
+    await dp.close()
 
 
 if __name__ == '__main__':

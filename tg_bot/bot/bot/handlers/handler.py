@@ -3,7 +3,8 @@ import requests
 from tg_bot.bot.bot.loader import dp
 from aiogram.types import Message
 import json
-from tg_bot.bot.bot.handlers.nalog_python import NalogRuPython
+from tg_bot.bot.bot.nalog_python import NalogRuPython
+from tg_bot.bot.bot.fnl_requests import json_parser
 
 
 @dp.message_handler(content_types=['document', 'photo'])
@@ -19,7 +20,10 @@ async def handle_docs_photo(message: Message):
     client = NalogRuPython()
     qr_code = get_info_zxing_qrscanner(filename).replace("amp;", '')
     ticket = client.get_ticket(qr_code)
-    print(json.dumps(ticket, indent=4, ensure_ascii=False))
+    #  print(json.dumps(ticket, indent=4, ensure_ascii=False))
+    print(ticket)
+    await message.answer(json_parser(ticket))
+    #  await message.answer(json_parser(json.dumps(ticket, indent=4, ensure_ascii=False)))
     value = data[0][6:]
     month = data[0][4:6]
     year = data[0][:4]
@@ -35,7 +39,7 @@ async def exo(message: Message):
 
 
 def parse_data(data):
-    date = data[2:9]
+    date = data[2:10]
     sum = data[22:25]
     fn = data[37:52]
     fp = data[71:80]
@@ -67,4 +71,6 @@ def get_info_zxing_qrscanner(filename):
     s = s.strip("<")
     s = s.strip(">")
     return s
+
+
 

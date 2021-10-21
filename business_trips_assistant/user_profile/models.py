@@ -25,9 +25,7 @@ class BusinessTrip(models.Model):
     credit = models.IntegerField()
     date_start = models.DateField()
     date_finish = models.DateField()
-    trip_to = models.ForeignKey(Trip, on_delete=models.CASCADE)
-    trip_back = models.ForeignKey(Trip, on_delete=models.CASCADE)
-    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+
 
 
 class Hotel(models.Model):

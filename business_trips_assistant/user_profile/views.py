@@ -3,6 +3,14 @@ from django.contrib.auth.models import User
 from .forms import UserRegistrationForm
 
 def register(request):
+    """
+    Регистрация пользователя
+    Args:
+        request: Request
+
+    Returns:
+
+    """
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
@@ -16,6 +24,14 @@ def register(request):
 
 
 def user_login(request):
+    """
+    Аутентификация пользователя
+    Args:
+        request:
+
+    Returns:
+
+    """
     if request.method == "POST":
         user = authenticate(request, username=request.POST["username"], password=request.POST["password"])
         if user is not None:
@@ -28,6 +44,14 @@ def user_login(request):
 
 
 def user_logout(request):
+    """
+    Выход пользователя из системы
+    Args:
+        request:
+
+    Returns:
+
+    """
     logout(request)
     return ('login')
 

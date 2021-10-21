@@ -6,6 +6,14 @@ from railways_api.models import City, Station
 # Миграции не применены
 # Спросить про Внешние ключи на бизнес поездки
 
+class BusinessTrip(models.Model):
+    name = models.CharField(max_length=250)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    credit = models.IntegerField()
+    date_start = models.DateField()
+    date_finish = models.DateField()
+
+
 class Trip(models.Model):
     business_trip = models.ForeignKey(BusinessTrip, on_delete=models.CASCADE)
     transport = models.IntegerField()
@@ -14,18 +22,10 @@ class Trip(models.Model):
     train_number = models.CharField(max_length=10, blank=True)
     date_departure = models.DateField()
     date_arrival = models.DateField()
-    city_from = models.ForeignKey(City, on_delete=models.CASCADE)
-    city_to = models.ForeignKey(City, on_delete=models.CASCADE)
+    city_from = models.ForeignKey(City, on_delete=models.CASCADE, related_name="city_from")
+    city_to = models.ForeignKey(City, on_delete=models.CASCADE, related_name="city_to")
     station_from = models.CharField(max_length=250)
     station_to = models.CharField(max_length=250)
-
-
-class BusinessTrip(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    credit = models.IntegerField()
-    date_start = models.DateField()
-    date_finish = models.DateField()
-
 
 
 class Hotel(models.Model):

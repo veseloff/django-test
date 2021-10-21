@@ -13,8 +13,8 @@ async def handle_docs_photo(message: Message):
     else:
         await message.document.download('чек2.jpg')
         filename = 'чек2.jpg'
-    print(parse_data(get_info_zxing_qrscanner(filename)))
-
+    data = parse_data(get_info_zxing_qrscanner(filename))
+    await message.answer(f'{data[0]} вы совершили покупку на {data[1]} рублей')
     logging.info('fff')
 
 

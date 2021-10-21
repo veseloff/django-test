@@ -2,6 +2,8 @@ import logging
 import requests
 from tg_bot.bot.bot.loader import dp
 from aiogram.types import Message
+import json
+from tg_bot.bot.bot.handlers.nalog_python import NalogRuPython
 
 
 @dp.message_handler(content_types=['document', 'photo'])
@@ -14,7 +16,15 @@ async def handle_docs_photo(message: Message):
         await message.document.download('чек2.jpg')
         filename = 'чек2.jpg'
     data = parse_data(get_info_zxing_qrscanner(filename))
-    await message.answer(f'{data[0]} вы совершили покупку на {data[1]} рублей')
+    client = NalogRuPython()
+    qr_code = get_info_zxing_qrscanner(filename).replace("amp;", '')
+    ticket = client.get_ticket(qr_code)
+    print(json.dumps(ticket, indent=4, ensure_ascii=False))
+    value = data[0][6:]
+    month = data[0][4:6]
+    year = data[0][:4]
+
+    await message.answer(f'{value}.{month}.{year} вы совершили покупку на {data[1]} рублей')
     logging.info('fff')
 
 
@@ -57,3 +67,4 @@ def get_info_zxing_qrscanner(filename):
     s = s.strip("<")
     s = s.strip(">")
     return s
+

@@ -20,16 +20,21 @@ async def handle_docs_photo(message: Message):
     client = NalogRuPython()
     qr_code = get_info_zxing_qrscanner(filename).replace("amp;", '')
     ticket = client.get_ticket(qr_code)
-    #  print(json.dumps(ticket, indent=4, ensure_ascii=False))
+    print(json.dumps(ticket, indent=4, ensure_ascii=False))
     print(ticket)
-    await message.answer(json_parser(ticket))
+    # f"{time_res} Вы купили: {items}, потратив всего: {total_sum}"
+    data_checka = json_parser(ticket)
+    result_answer = ""
+    for el in data_checka[1]:
+        result_answer = result_answer + '\n' + el
+    await message.answer(f"{data_checka[0]} Вы купили: {result_answer}  \n \n Потратив всего: {data_checka[2]} \u20bd")
     #  await message.answer(json_parser(json.dumps(ticket, indent=4, ensure_ascii=False)))
     value = data[0][6:]
     month = data[0][4:6]
     year = data[0][:4]
 
-    await message.answer(f'{value}.{month}.{year} вы совершили покупку на {data[1]} рублей')
-    logging.info('fff')
+    # await message.answer(f'{value}.{month}.{year} вы совершили покупку на {data[1]} рублей')
+    # logging.info('fff')
 
 
 @dp.message_handler()

@@ -8,7 +8,7 @@ def get_business_trip_information(id_user):
         information_trip = {}
         information_trip['name'] = business_trip.name
         information_trip['begin'] = str(business_trip.date_start)
-        information_trip['end'] = str( business_trip.date_finish)
+        information_trip['end'] = str(business_trip.date_finish)
         information_trip['fromCity'] = business_trip.from_city
         information_trip['toCity'] = business_trip.to_city
         information_trip['budget'] = business_trip.credit

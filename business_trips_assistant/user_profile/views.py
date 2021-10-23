@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.http import HttpResponse, JsonResponse
 from .forms import UserRegistrationForm
-
 from .business_trip_information import get_business_trip_information
 import json
+from .models import BusinessTrip
 
 def register(request):
     """
@@ -73,3 +73,13 @@ def get_business_trip(request):
     information = get_business_trip_information(id_user)
     answer_json = json.dumps(information, ensure_ascii=False).encode('utf-8')
     return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
+
+def update_business_trip(request):
+    pass
+
+
+def delete_business_trip(request):
+    # id_b_t = int(request.GET['id_b_t'])
+    b_t = BusinessTrip.objects.get(pk=id_b_t)
+    b_t.delete()
+

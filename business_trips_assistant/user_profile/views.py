@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.http import HttpResponse, JsonResponse
 from .forms import UserRegistrationForm
+
+from .business_trip_information import get_business_trip_information
+import json
 
 def register(request):
     """
@@ -55,4 +59,17 @@ def user_logout(request):
     logout(request)
     return ('login')
 
+def get_business_trip(request):
+    """
+    Метод возвращает краткую информацию о всех командировках пользователя
+    Args:
+        request:
 
+    Returns:
+    Json ответ со списком всех командировок пользователя и краткой информцией о них
+    """
+    # id_user = int(request.GET['id_user'])
+    id_user = 2
+    information = get_business_trip_information(id_user)
+    answer_json = json.dumps(information, ensure_ascii=False).encode('utf-8')
+    return HttpResponse(answer_json, content_type='application/json', charset='utf-8')

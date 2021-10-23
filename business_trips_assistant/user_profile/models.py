@@ -3,8 +3,6 @@ from django.contrib.auth.models import User
 from railways_api.models import City, Station
 
 # transport : 0 - самолёт, 1 - поезд
-# Миграции не применены
-# Спросить про Внешние ключи на бизнес поездки
 
 class BusinessTrip(models.Model):
     name = models.CharField(max_length=250)

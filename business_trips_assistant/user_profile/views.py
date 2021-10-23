@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from .forms import UserRegistrationForm
-from .business_trip_information import get_business_trip_information
+from .handler_business_trip import *
 import json
-from .models import BusinessTrip
+from .models import BusinessTrip, Trip, Hotel
+import datetime
+from .static import TRANSPORT_NAME_MAPPING
+from railways_api.models import City
+
 
 def register(request):
     """
@@ -59,6 +63,7 @@ def user_logout(request):
     logout(request)
     return ('login')
 
+
 def get_business_trip(request):
     """
     Метод возвращает краткую информацию о всех командировках пользователя
@@ -74,12 +79,101 @@ def get_business_trip(request):
     answer_json = json.dumps(information, ensure_ascii=False).encode('utf-8')
     return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
 
+
 def update_business_trip(request):
-    pass
+    """
+    Обновление записи о командировке
+    Args:
+        request:
+
+    Returns:
+
+    """
+    id_b_t = request.POST['id']
+    b_t = BusinessTrip.objects.get(pk=id_b_t)
+    insert_value_business_trip(b_t, request)
+
+
+def update_trip(request):
+    """
+    Обновление поездки
+    Args:
+        request:
+
+    Returns:
+
+    """
+    id_b_t = int(request.POST['id_b_t'])
+    is_first = int(request.POST[is_first])
+    trip = Trip.objects.filter(business_trip_id=id_b_t).get(is_first=is_first)
+    insert_value_trip(trip, request)
+
+
+def update_hotel(request):
+    """
+    Обновление данных об отеле
+    Args:
+        request:
+
+    Returns:
+
+    """
+    id_b_t = request.POST['id']
+    hotel = Hotel.objects.get(business_trip_id=id_b_t)
+    insert_value_hotel(hotel, request)
 
 
 def delete_business_trip(request):
-    # id_b_t = int(request.GET['id_b_t'])
+    """
+    Удаление записи о командировке
+    Args:
+        request:
+
+    Returns:
+
+    """
+    id_b_t = int(request.GET['id_b_t'])
     b_t = BusinessTrip.objects.get(pk=id_b_t)
     b_t.delete()
 
+
+def create_business_trip(request):
+    """
+    Создание командировки
+    Args:
+        request:
+
+    Returns:
+
+    """
+    b_t = BusinessTrip.objects.create()
+    insert_value_business_trip(b_t)
+    return HttpResponse(b_t.pk)
+
+
+def create_trip(request):
+    """
+    Создание поездки
+    Args:
+        request:
+
+    Returns:
+
+    """
+    id_b_t = int(request.POST['id_b_t'])
+    trip = Trip.objects.create(business_trip_id=id_b_t)
+    insert_value_trip(trip, request)
+
+
+def create_hotel(request):
+    """
+    Создание отеля
+    Args:
+        request:
+
+    Returns:
+
+    """
+    id_b_t = int(request.POST['id_b_t'])
+    hotel = Hotel.objects.create(business_trip_id=id_b_t)
+    insert_value_hotel(hotel)

@@ -33,6 +33,9 @@ class Hotel(models.Model):
     name = models.CharField(max_length=150)
     adress = models.CharField(max_length=150)
     price = models.FloatField()
+    date_check_in = models.DateField()
+    date_departure = models.DateField()
+
 
 
 # class Credit(models.Model):

@@ -23,7 +23,6 @@ def get_business_trip_information(id_user):
 
 
 def insert_value_business_trip(b_t, request):
-    id_b_t = request.POST['id']
     name = request.POST['name']
     from_city = request.POST['from_city']
     to_city = request.POST['to_city']

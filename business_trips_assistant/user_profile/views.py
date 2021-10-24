@@ -146,8 +146,16 @@ def create_business_trip(request):
     Returns:
 
     """
-    b_t = BusinessTrip.objects.create()
-    insert_value_business_trip(b_t)
+    b_t = BusinessTrip.objects.create(
+        user_id=2,
+        name='Казанская',  # request.POST['name']
+        from_city = "Москва", # request.POST['from_city']
+        to_city = 'Питер',  # request.POST['to_city']
+        credit = 200000,  # request.POST['credit']
+        date_start = datetime.date.today(), # datetime.datetime.strptime(request.POST['date_start'], '%d.%m.%Y').date()
+        date_finish = datetime.date.today(), # datetime.datetime.strptime(request.POST['date_finish'], '%d.%m.%Y').date()
+    )
+    b_t.save()
     return HttpResponse(b_t.pk)
 
 
@@ -161,8 +169,19 @@ def create_trip(request):
 
     """
     id_b_t = int(request.POST['id_b_t'])
-    trip = Trip.objects.create(business_trip_id=id_b_t)
-    insert_value_trip(trip, request)
+    trip = Trip.objects.create(
+        business_trip_id=id_b_t,
+        transport = int(request.POST['transport']),  # обсудить с серёжей
+        price_ticket = int(request.POST['price_ticket']),
+        is_first = int(request.POST['is_first']),
+        transport_number = request.POST['transport_number'],
+        date_departure = datetime.datetime.strptime(request.POST['date_departure'], '%d.%m.%Y').date(),
+        date_arrival = datetime.datetime.strptime(request.POST['date_arrival'], '%d.%m.%Y').date(),
+        city_from_id = City.objects.get(pk=int(request.POST['city_from'])),
+        city_to_id = City.objects.get(pk=int(request.POST['city_to'])),
+        station_from = request.POST['station_from'],
+        station_to = request.POST['station_to']
+    )
 
 
 def create_hotel(request):
@@ -174,6 +193,14 @@ def create_hotel(request):
     Returns:
 
     """
-    id_b_t = int(request.POST['id_b_t'])
-    hotel = Hotel.objects.create(business_trip_id=id_b_t)
-    insert_value_hotel(hotel)
+    # id_b_t = int(request.POST['id_b_t'])
+    id_b_t = 6
+    hotel = Hotel.objects.create(
+        business_trip_id=id_b_t,
+        link = "https://www.booking.com/hotel/ru/tatarstan.ru.html?aid=392478;label=yandex-Xr8Nkncm7BlYkhcbwqgFvg-5162451508;sid=5f6fde6ca34db032d507269b1925c632;sig=v1Op2qVr7B",#request.POST['link']
+        name = 'Татарстан', #request.POST['name']
+        price = 12354, #float(request.POST['price'])
+        adress = "Мира 32", #request.POST['adress']
+        date_check_in = datetime.date.today(),#datetime.datetime.strptime(request.POST['check_in'], '%d.%m.%Y').date()
+        date_departure = datetime.date.today(), #datetime.datetime.strptime(request.POST['departure'], '%d.%m.%Y').date()
+    )

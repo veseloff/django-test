@@ -1,0 +1,59 @@
+.body_container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 25px;
+    width: 875px;
+    background-color: #F9F9F9;
+}
+
+.body_container>div {
+    height: 60px;
+}
+
+.first_row {
+    display: grid;
+    grid-template-columns: 1fr 30px;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.exit {
+    font-size: 20px;
+    width: 30px;
+}
+
+.button {
+    margin-top: 20px;
+    composes: button from "./../../App.module.css";
+}
+
+.save {
+    width: 130px;
+}
+
+.second_row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.third_row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.third_row_first_group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.third_row_second_group {
+    display: grid;
+    grid-template-columns: 1fr 130px;
+    gap: 25px;
+}
+

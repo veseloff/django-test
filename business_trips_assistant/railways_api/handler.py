@@ -28,11 +28,8 @@ def get_trains(**kwargs):
             params['code1'] = code_to
             response = requests.get('https://pass.rzd.ru/timetable/public/ru',
                                     params=params, cookies=cookies)
-            try:
-                response_json = json.loads(response.text)['tp']
-            except KeyError:
-                pass
-            else:
+            response_json = json.loads(response.text).get('tp')
+            if response_json != None:
                 train_information.append(set_train_information(response_json))
     return train_information
 
@@ -48,12 +45,12 @@ def get_code_and_date(kwargs):
         codes_stations_to: список кодов станций прибытия
         date: дата отправления
     """
-    city_from = kwargs['city_from'].upper()
-    city_to = kwargs['city_to'].upper()
-    station_from = kwargs['station_from'].upper()
-    station_to = kwargs['station_to'].upper()
-    code_station_to = int(kwargs['code_station_to'])
-    code_station_from = int(kwargs['code_station_from'])
+    city_from = kwargs['city_from'].upper() if kwargs['city_from'] != None else None
+    city_to = kwargs['city_to'].upper() if kwargs['city_to'] != None else None
+    station_from = kwargs['station_from'].upper() if kwargs['station_from'] != None else None
+    station_to = kwargs['station_to'].upper() if kwargs['station_to'] != None else None
+    code_station_to = int(kwargs['code_station_to']) if kwargs['code_station_to'] != None else None
+    code_station_from = int(kwargs['code_station_from']) if kwargs['code_station_from'] != None else None
     date = kwargs['date']
     codes_stations_from = get_codes(code_station_from, city_from, station_from)
     codes_stations_to = get_codes(code_station_to, city_to, station_to)
@@ -74,8 +71,8 @@ def get_codes(code_station, city, station):
     Returns: Список с кодами станции, которые имеются в городе
 
     """
-    if code_station == 0:
-        if station == 'NULL':
+    if code_station == None:
+        if station == None:
             id_city = [e.id for e in City.objects.filter(city=city)].pop()
             codes = [station.code for station in Station.objects.filter(city=id_city)]
         else:
@@ -135,15 +132,16 @@ def set_train_information(response_json):
         for key, value in answer.items():
             if key == 'list':
                 for info in value:
+                    print(info)
                     train_information[info['number']] = {}
                     train_information[info['number']]['station0'] = info['station0']
                     train_information[info['number']]['station1'] = info['station1']
-                    train_information[info['number']]['localDate0'] = info['localDate0']
-                    train_information[info['number']]['localTime0'] = info['localTime0']
-                    train_information[info['number']]['localDate1'] = info['localDate1']
-                    train_information[info['number']]['localTime1'] = info['localTime1']
-                    train_information[info['number']]['timeDeltaString0'] = info['timeDeltaString0']
-                    train_information[info['number']]['timeDeltaString1'] = info['timeDeltaString1']
+                    train_information[info['number']]['localDate0'] = info.get('localDate0', info['date0'])
+                    train_information[info['number']]['localTime0'] = info.get('localTime0', info['time0'])
+                    train_information[info['number']]['localDate1'] = info.get('localDate1', info['date1'])
+                    train_information[info['number']]['localTime1'] = info.get('localTime1', info['time1'])
+                    train_information[info['number']]['timeDeltaString0'] = info.get('timeDeltaString0', 'МСК')
+                    train_information[info['number']]['timeDeltaString1'] = info.get('timeDeltaString1', 'МСК')
                     train_information[info['number']]['timeInWay'] = info['timeInWay']
 
     return train_information

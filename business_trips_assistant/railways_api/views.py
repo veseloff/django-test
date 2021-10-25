@@ -58,7 +58,7 @@ def get_station_by_city(request):
         json файл со списком станций в конкретном городе
     """
     code = request.GET.get('code')
-    if code != None:
+    if code is not None:
         code = int(code)
     else:
         city = request.GET['city'].upper()

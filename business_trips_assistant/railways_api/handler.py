@@ -3,6 +3,7 @@ import time
 import json
 import requests
 from railways_api.models import City, Station
+from django.http import HttpResponse
 
 
 def get_trains(**kwargs):
@@ -19,13 +20,12 @@ def get_trains(**kwargs):
          как добраться из одного города(станций) в другой город(станцию)
     """
     codes_station_from, codes_station_to, date = get_code_and_date(kwargs)
-    cookies, params = get_rid_and_cookies(codes_station_from[0], codes_station_to[0], date)
     train_information = []
-    time.sleep(0.2)
     for code_from in codes_station_from:
-        params['code0'] = code_from
         for code_to in codes_station_to:
-            params['code1'] = code_to
+            cookies, params = get_rid_and_cookies(code_from, code_to, date)
+            if params is None: continue
+            time.sleep(0.2)
             response = requests.get('https://pass.rzd.ru/timetable/public/ru',
                                     params=params, cookies=cookies)
             response_json = response.json().get('tp')
@@ -98,7 +98,7 @@ def get_rid_and_cookies(code_city_from, code_city_to, date):
         cookies: dict - куки файлы
         params: dict - параметр rid
     """
-
+    url = 'https://pass.rzd.ru/timetable/public/ru'
     params = {'layer_id': 5827,
               'dir': 0,
               'tfl': 3,
@@ -107,13 +107,15 @@ def get_rid_and_cookies(code_city_from, code_city_to, date):
               'code1': code_city_to,
               'dt0': date
               }
-    url = 'https://pass.rzd.ru/timetable/public/ru'
     response = requests.get(url, params=params)
     jsessionid = response.cookies['JSESSIONID']
-    rid = response.json()['RID']
+    rid = response.json().get('RID')
     cookies = {'lang': 'ru', 'JSESSIONID': jsessionid, 'AuthFlag': 'false'}
-    params['rid'] = rid
+    if rid is not None:
+        params['rid'] = rid
+    else: params = None
     return cookies, params
+
 
 
 def set_train_information(response_json):

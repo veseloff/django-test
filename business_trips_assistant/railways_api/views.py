@@ -14,12 +14,12 @@ def get_path_to_city(request):
     Returns: json файл со списком всех поездов
 
     """
-    city_to = request.GET['cityTo'].upper()
-    city_from = request.GET['cityFrom'].upper()
-    station_to = request.GET['stationTo'].upper()
-    station_from = request.GET['stationFrom'].upper()
-    code_station_to = request.GET['codeStationTo']
-    code_station_from = request.GET['codeStationFrom']
+    city_to = request.GET.get('cityTo')
+    city_from = request.GET.get('cityFrom')
+    station_to = request.GET.get('stationTo')
+    station_from = request.GET.get('stationFrom')
+    code_station_to = request.GET.get('codeStationTo')
+    code_station_from = request.GET.get('codeStationFrom')
     date = request.GET['date']
     answer = get_trains(city_to=city_to,
                         city_from=city_from,
@@ -57,10 +57,13 @@ def get_station_by_city(request):
     Returns:
         json файл со списком станций в конкретном городе
     """
-    city = request.GET['city'].upper()
-    code = int(request.GET['code'])
-    if code == 0:
+    code = request.GET.get('code')
+    if code is not None:
+        code = int(code)
+    else:
+        city = request.GET['city'].upper()
         code = [city.id for city in City.objects.filter(city=city)].pop()
+
     stations = [{"station": station.station, "code": station.code}
                 for station in Station.objects.filter(city=code)]
     answer_json = json.dumps(stations, ensure_ascii=False).encode('utf-8')

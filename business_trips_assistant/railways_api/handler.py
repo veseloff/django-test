@@ -3,6 +3,7 @@ import time
 import json
 import requests
 from railways_api.models import City, Station
+from django.http import HttpResponse
 
 
 def get_trains(**kwargs):
@@ -19,20 +20,16 @@ def get_trains(**kwargs):
          как добраться из одного города(станций) в другой город(станцию)
     """
     codes_station_from, codes_station_to, date = get_code_and_date(kwargs)
-    cookies, params = get_rid_and_cookies(codes_station_from[0], codes_station_to[0], date)
     train_information = []
-    time.sleep(0.2)
     for code_from in codes_station_from:
-        params['code0'] = code_from
         for code_to in codes_station_to:
-            params['code1'] = code_to
+            cookies, params = get_rid_and_cookies(code_from, code_to, date)
+            if params is None: continue
+            time.sleep(0.2)
             response = requests.get('https://pass.rzd.ru/timetable/public/ru',
                                     params=params, cookies=cookies)
-            try:
-                response_json = json.loads(response.text)['tp']
-            except KeyError:
-                pass
-            else:
+            response_json = response.json().get('tp')
+            if response_json is not None:
                 train_information.append(set_train_information(response_json))
     return train_information
 
@@ -48,12 +45,12 @@ def get_code_and_date(kwargs):
         codes_stations_to: список кодов станций прибытия
         date: дата отправления
     """
-    city_from = kwargs['city_from'].upper()
-    city_to = kwargs['city_to'].upper()
-    station_from = kwargs['station_from'].upper()
-    station_to = kwargs['station_to'].upper()
-    code_station_to = int(kwargs['code_station_to'])
-    code_station_from = int(kwargs['code_station_from'])
+    city_from = kwargs['city_from'].upper() if kwargs['city_from'] is not None else None
+    city_to = kwargs['city_to'].upper() if kwargs['city_to'] is not None else None
+    station_from = kwargs['station_from'].upper() if kwargs['station_from'] is not None else None
+    station_to = kwargs['station_to'].upper() if kwargs['station_to'] is not None else None
+    code_station_to = int(kwargs['code_station_to']) if kwargs['code_station_to'] is not None else None
+    code_station_from = int(kwargs['code_station_from']) if kwargs['code_station_from'] is not None else None
     date = kwargs['date']
     codes_stations_from = get_codes(code_station_from, city_from, station_from)
     codes_stations_to = get_codes(code_station_to, city_to, station_to)
@@ -74,8 +71,8 @@ def get_codes(code_station, city, station):
     Returns: Список с кодами станции, которые имеются в городе
 
     """
-    if code_station == 0:
-        if station == 'NULL':
+    if code_station is None:
+        if station is None:
             id_city = [e.id for e in City.objects.filter(city=city)].pop()
             codes = [station.code for station in Station.objects.filter(city=id_city)]
         else:
@@ -101,7 +98,7 @@ def get_rid_and_cookies(code_city_from, code_city_to, date):
         cookies: dict - куки файлы
         params: dict - параметр rid
     """
-
+    url = 'https://pass.rzd.ru/timetable/public/ru'
     params = {'layer_id': 5827,
               'dir': 0,
               'tfl': 3,
@@ -110,13 +107,15 @@ def get_rid_and_cookies(code_city_from, code_city_to, date):
               'code1': code_city_to,
               'dt0': date
               }
-    url = 'https://pass.rzd.ru/timetable/public/ru'
     response = requests.get(url, params=params)
     jsessionid = response.cookies['JSESSIONID']
-    rid = response.json()['RID']
+    rid = response.json().get('RID')
     cookies = {'lang': 'ru', 'JSESSIONID': jsessionid, 'AuthFlag': 'false'}
-    params['rid'] = rid
+    if rid is not None:
+        params['rid'] = rid
+    else: params = None
     return cookies, params
+
 
 
 def set_train_information(response_json):
@@ -138,12 +137,12 @@ def set_train_information(response_json):
                     train_information[info['number']] = {}
                     train_information[info['number']]['station0'] = info['station0']
                     train_information[info['number']]['station1'] = info['station1']
-                    train_information[info['number']]['localDate0'] = info['localDate0']
-                    train_information[info['number']]['localTime0'] = info['localTime0']
-                    train_information[info['number']]['localDate1'] = info['localDate1']
-                    train_information[info['number']]['localTime1'] = info['localTime1']
-                    train_information[info['number']]['timeDeltaString0'] = info['timeDeltaString0']
-                    train_information[info['number']]['timeDeltaString1'] = info['timeDeltaString1']
+                    train_information[info['number']]['localDate0'] = info.get('localDate0', info['date0'])
+                    train_information[info['number']]['localTime0'] = info.get('localTime0', info['time0'])
+                    train_information[info['number']]['localDate1'] = info.get('localDate1', info['date1'])
+                    train_information[info['number']]['localTime1'] = info.get('localTime1', info['time1'])
+                    train_information[info['number']]['timeDeltaString0'] = info.get('timeDeltaString0', 'МСК')
+                    train_information[info['number']]['timeDeltaString1'] = info.get('timeDeltaString1', 'МСК')
                     train_information[info['number']]['timeInWay'] = info['timeInWay']
 
     return train_information

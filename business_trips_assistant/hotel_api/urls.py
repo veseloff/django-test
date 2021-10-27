@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import get_path_to_city, get_city_by_prefix, get_station_by_city
+from .views import get_hotels
 
 urlpatterns = [
-
+    path('hotels', get_hotels),
 ]

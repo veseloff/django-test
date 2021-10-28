@@ -2,6 +2,7 @@ from django.http import HttpResponse
 import requests
 from bs4 import BeautifulSoup
 import lxml
+import re
 
 
 URL = 'https://www.booking.com/searchresults.ru.html?'
@@ -13,15 +14,17 @@ HEADERS = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
                      'image/avif,image/webp,image/apng,*/*;q=0.8,'
                      'application/signed-exchange;v=b3;q=0.9'
            }
+SOUP = ''
 city = 'Екатеринбург'
 check_in = {'d': 22, 'm': 11, 'y': 2021}
 check_out = {'d': 26, 'm': 11, 'y': 2021}
+star = 3
 PARAMS = {'sb': 1,
           'src': 'searchresults',
           'src_elem': 'sb',
-          # 'ss': city,
-          # 'ssne': city,
-          # 'ssne_untouched': city,
+          'ss': city,
+          'ssne': city,
+          'ssne_untouched': city,
           'checkin_year': check_in['y'],
           'checkin_month': check_in['m'],
           'checkin_monthday': check_in['d'],
@@ -32,7 +35,7 @@ PARAMS = {'sb': 1,
           'group_children': 0,
           'no_rooms': 1,
           'sb_changed_group': 1,
-          'from_sf': 1
+          'from_sf': 1,
           # 'nflt': f'class%3D{star}',
           # 'offset': 0
           }
@@ -51,15 +54,17 @@ def set_params(**kwargs):
     date_check_in = kwargs.get('check_in')
     date_check_out = kwargs.get('check_out')
 
-def get_hotels_and_navigation(**kwargs):
+
+def get_hotels(**kwargs):
+    global SOUP
     response = requests.get(URL, headers=HEADERS, params=PARAMS)
     soup = BeautifulSoup(response.text, 'lxml')
+    SOUP = soup
     items = soup.find_all('div', class_="_5d6c618c8")
     hotels = []
-    is_next, is_previous = get_navigation(soup)
     for item in items:
         hotels.append(set_hotels(item))
-    return hotels, is_next, is_previous
+    return hotels
 
 
 def set_hotels(item):
@@ -78,20 +83,9 @@ def set_hotels(item):
     return hotel
 
 
-def get_navigation(soup):
-    battons = soup.find_all('button', class_="_4310f7077 _fd15ae127")
-    is_next, is_previous = False, False
-    if len(battons) > 0:
-        buttons_disable = soup.select("button._4310f7077[disabled]")
-        is_next, is_previous = True, True
-        if len(buttons_disable) > 0:
-            b_d = buttons_disable[0].get('aria-label')
-            if b_d == 'Предыдущая страница':
-                is_previous = False
-            elif b_d == 'Следующая страница':
-                is_next = False
-    return is_next, is_previous
+def get_count_hotels():
+    count_hotels = SOUP.find('div', class_='ea52000380').find('h1', class_='_30227359d _0db903e42').get_text()
+    count_hotels = int(re.findall('\d+', count_hotels).pop())
+    return count_hotels
 
-hotel, n, p = get_hotels_and_navigation()
-
-print(hotel)
+get_hotels()

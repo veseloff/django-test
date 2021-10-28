@@ -14,7 +14,7 @@ def get_business_trip_information(id_user):
         information_trip['toCity'] = business_trip.to_city
         information_trip['budget'] = business_trip.credit
         hotels = Hotel.objects.filter(business_trip=business_trip)
-        information_trip['hotel'] = hotels.pop().name if len(hotels) > 0 else None
+        information_trip['hotel'] = hotels[0].name if len(hotels) > 0 else None
         transport = list(set([TRANSPORT_NAME_MAPPING[transport.transport]
                          for transport in Trip.objects.filter(business_trip_id=business_trip)]))
         information_trip['transport'] = transport

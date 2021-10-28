@@ -36,8 +36,8 @@ PARAMS = {'sb': 1,
           'no_rooms': 1,
           'sb_changed_group': 1,
           'from_sf': 1,
-          # 'nflt': f'class%3D{star}',
-          # 'offset': 0
+          'nflt': f'class%3D{star}',
+          'offset': 50
           }
 
 
@@ -56,15 +56,14 @@ def set_params(**kwargs):
 
 
 def get_hotels(**kwargs):
-    global SOUP
     response = requests.get(URL, headers=HEADERS, params=PARAMS)
     soup = BeautifulSoup(response.text, 'lxml')
-    SOUP = soup
     items = soup.find_all('div', class_="_5d6c618c8")
+    count_hotels = get_count_hotels(soup)
     hotels = []
     for item in items:
         hotels.append(set_hotels(item))
-    return hotels
+    return hotels, count_hotels
 
 
 def set_hotels(item):
@@ -83,9 +82,11 @@ def set_hotels(item):
     return hotel
 
 
-def get_count_hotels():
-    count_hotels = SOUP.find('div', class_='ea52000380').find('h1', class_='_30227359d _0db903e42').get_text()
+def get_count_hotels(soup):
+    count_hotels = soup.find('div', class_='ea52000380').find('h1', class_='_30227359d _0db903e42').get_text()
     count_hotels = int(re.findall('\d+', count_hotels).pop())
     return count_hotels
 
 get_hotels()
+
+

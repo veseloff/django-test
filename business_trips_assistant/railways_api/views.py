@@ -3,7 +3,9 @@ import json
 from django.http import HttpResponse
 from railways_api.models import Station, City
 from .handler import get_trains
-
+from .serializer import CitySerializer
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 # Create your views here.
 def get_path_to_city(request):
     """
@@ -32,6 +34,22 @@ def get_path_to_city(request):
     return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
 
 
+# def get_city_by_prefix(request):
+#     """
+#     Метод помогает найти город по переданному префиксу
+#     Args:
+#         request: Request содержит префикс города
+#
+#     Returns: json файл со списком городов начинающихся на prefix
+#
+#     """
+#     prefix = request.GET['prefix'].upper()
+#     cities = City.objects.filter(city__startswith=prefix)
+#     stations_to_json = [{'city': e.city, 'cityCode': e.id} for e in cities]
+#     answer_json = json.dumps(stations_to_json, ensure_ascii=False).encode('utf-8')
+#     return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
+
+@api_view(['GET'])
 def get_city_by_prefix(request):
     """
     Метод помогает найти город по переданному префиксу
@@ -41,11 +59,12 @@ def get_city_by_prefix(request):
     Returns: json файл со списком городов начинающихся на prefix
 
     """
-    prefix = request.GET['prefix'].upper()
+    # prefix = request.GET['prefix'].upper()
+    prefix = 'АЛ'
     cities = City.objects.filter(city__startswith=prefix)
-    stations_to_json = [{'city': e.city, 'cityCode': e.id} for e in cities]
-    answer_json = json.dumps(stations_to_json, ensure_ascii=False).encode('utf-8')
-    return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
+    city = CitySerializer(cities, many=True).data
+    print(city)
+    return Response(city)
 
 
 def get_station_by_city(request):

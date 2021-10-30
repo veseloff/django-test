@@ -1,8 +1,11 @@
+import {businessTripsAPI} from "../api/api";
+
+const SET_BT = "BT/SET-BT";
 const ADD_BT = "BT/ADD-BT";
 const EDIT_BT = "BT/EDIT-BT";
 const REMOVE_BT = "BT/REMOVE-BT";
 
-let initialState = {
+let initialState = {/*
     nextId: 2,
     businessTrips: [
         {
@@ -41,20 +44,16 @@ let initialState = {
             dateTo: "2021-07-13",
             status: "Активная", //todo: or "В процессе" or "Началась"
         },
-    ]
+    ]*/
+
 }
 
 const BusinessTripsReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_BT:
+            return {...state, businessTrips: action.items};
         case ADD_BT:
-            return {
-                ...state,
-                nextId: state.nextId + 1,
-                businessTrips: [
-                    ...state.businessTrips,
-                    action.businessTrip
-                ]
-            };
+            return {...state, nextId: state.nextId + 1, businessTrips: [...state.businessTrips, action.businessTrip]};
         case EDIT_BT:
             let index = -1;
             state.businessTrips.find((bt, i) => {
@@ -74,13 +73,20 @@ const BusinessTripsReducer = (state = initialState, action) => {
             }
             return state;
         case REMOVE_BT:
-            return {
-                ...state,
-                businessTrips: state.businessTrips.filter(bt => bt.id !== action.id),
-            };
+            return {...state, businessTrips: state.businessTrips.filter(bt => bt.id !== action.id)};
         default:
             return state;
     }
+}
+
+const setBusinessTrips = (items) => ({type: SET_BT, items});
+
+export const setBusinessTripsTC = () => async (dispatch) => {
+    //dispatch(toggleIsFetching(true));
+    const data = await businessTripsAPI.getBusinessTrips();
+    //dispatch(toggleIsFetching(false));
+    dispatch(setBusinessTrips(data.items));
+    //dispatch(setTotalUsersCount(data.totalCount));
 }
 
 export const addBusinessTrip = (businessTrip) => ({type: ADD_BT, businessTrip: businessTrip});

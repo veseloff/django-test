@@ -1,6 +1,6 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import BusinessTripsReducer from "./businessTripsReducer";
-//import thunkMiddleware from "redux-thunk";
+import thunkMiddleware from "redux-thunk";
 //import {reducer as formReducer} from "redux-form";
 
 const reducers = combineReducers({
@@ -8,5 +8,5 @@ const reducers = combineReducers({
 });
 
 
-//const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-export default createStore(reducers/*, composeEnhancers(applyMiddleware(thunkMiddleware))*/);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+export default createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)));

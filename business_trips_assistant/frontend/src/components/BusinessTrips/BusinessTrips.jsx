@@ -1,12 +1,19 @@
 import classes from "./BusinessTrips.module.css";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {addBusinessTrip, removeBusinessTrip} from "../../redux/businessTripsReducer";
+import {addBusinessTrip, removeBusinessTrip, setBusinessTripsTC} from "../../redux/businessTripsReducer";
 import BusinessTripConstructor from "./BusinessTripConstructor/BusinessTripConstructor";
 import {NavLink} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const BusinessTrips = (props) => {
+    const [status, setStatus] = useState("Все");
+    const [businessTrips, setBusinessTrips] = useState(props.businessTrips);
+
+    useEffect(() => {
+        props.setBusinessTripsTC();
+    });
+
     const onDelete = (id) => {
         props.removeBusinessTrip(id);
         setBusinessTrips(props.businessTrips.filter(bt => (bt.status === status || status === "Все") && bt.id !== id));
@@ -37,9 +44,6 @@ const BusinessTrips = (props) => {
         }
     }
 
-    const [status, setStatus] = useState("Все");
-    const [businessTrips, setBusinessTrips] = useState(props.businessTrips);
-
     return (
         <div className={classes.body_container}>
             <div className={classes.new_bt}>
@@ -59,11 +63,12 @@ const BusinessTrips = (props) => {
                 </button>
             </div>
             <div>
-                {
+                {businessTrips}
+                {/*{
                     businessTrips.map((businessTrip) =>
                         <BusinessTripConstructor businessTrip={businessTrip}
                                                  onDelete={onDelete}/>)
-                }
+                }*/}
             </div>
         </div>
     );
@@ -76,4 +81,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default compose(connect(mapStateToProps, {addBusinessTrip, removeBusinessTrip}))(BusinessTrips);
+export default compose(connect(mapStateToProps, {setBusinessTripsTC, addBusinessTrip, removeBusinessTrip}))(BusinessTrips);

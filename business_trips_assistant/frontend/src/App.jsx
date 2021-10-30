@@ -36,33 +36,7 @@ const App = () => {
                                     <Route exact path={"/business-trips/:businessTripId?/expenses"}
                                            render={() => <Expenses/>}/>
                                     <Route path={"/business-trips/:businessTripId?/report"} render={() => <Report/>}/>
-
-                                    {/*<Route path={"/"}>
-                                    <Redirect to={"/404"}/>
-                                </Route>*/}
                                 </Switch>
-                                {/*<Navigation id={this.props.id}/>
-                        <div className={classes.content}>
-                            <Suspense fallback={<Preloader/>}>
-                                <Switch>
-                                    <Route path={"/profile/:userId?"} render={() => <Profile/>}/>
-                                    <Route exact path={"/profile"}>
-                                        <Redirect to={"/login"}/>
-                                    </Route>
-                                    <Route path={"/profile/null"}>
-                                        <Redirect to={"/login"}/>
-                                    </Route>
-                                    <Route path={"/messages"} render={() => <Messages/>}/>
-                                    <Route exact path={"/users"} render={() => <UsersContainer/>}/>
-                                    <Route path={"/404"} render={() => <NotFound/>}/>
-                                    <Route path={"/music/"} render={() => <Music/>}/>
-
-                                    <Route path={"/"}>
-                                        <Redirect to={"/404"}/>
-                                    </Route>
-                                </Switch>
-                            </Suspense>
-                        </div>*/}
                             </div>
                         </div>
                     </Route>

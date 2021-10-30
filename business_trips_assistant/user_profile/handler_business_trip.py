@@ -4,9 +4,10 @@ import datetime
 
 def get_business_trip_information(id_user):
     business_trips = BusinessTrip.objects.filter(user_id=id_user)
-    trips = {}
+    trips = []
     for business_trip in business_trips:
         information_trip = {}
+        information_trip['id'] = business_trip.pk
         information_trip['name'] = business_trip.name
         information_trip['begin'] = str(business_trip.date_start)
         information_trip['end'] = str(business_trip.date_finish)
@@ -18,7 +19,7 @@ def get_business_trip_information(id_user):
         transport = list(set([TRANSPORT_NAME_MAPPING[transport.transport]
                          for transport in Trip.objects.filter(business_trip_id=business_trip)]))
         information_trip['transport'] = transport
-        trips[business_trip.pk] = information_trip
+        trips.append(information_trip)
     return trips
 
 

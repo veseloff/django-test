@@ -4,10 +4,10 @@ from .parser_booking import get_hotels
 import json
 
 # Create your views here.
-def get_hotels(request):
-    city = request.GET['city']
-    offset = request.GET.get('offset')
-    star = request.GET.get('star')
+def get_hotels_json(request):
+    # city = request.GET['city']
+    # offset = request.GET.get('offset')
+    # star = request.GET.get('star')
     hotel, count_hotels = get_hotels()
     answer = {'count_hotels': count_hotels, 'hotels': hotel}
     answer_json = json.dumps(answer, ensure_ascii=False)

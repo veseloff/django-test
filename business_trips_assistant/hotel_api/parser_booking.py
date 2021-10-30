@@ -56,6 +56,7 @@ def set_params(**kwargs):
 
 
 def get_hotels(**kwargs):
+    # set_params(kwargs)
     response = requests.get(URL, headers=HEADERS, params=PARAMS)
     soup = BeautifulSoup(response.text, 'lxml')
     items = soup.find_all('div', class_="_5d6c618c8")
@@ -86,7 +87,4 @@ def get_count_hotels(soup):
     count_hotels = soup.find('div', class_='ea52000380').find('h1', class_='_30227359d _0db903e42').get_text()
     count_hotels = int(re.findall('\d+', count_hotels).pop())
     return count_hotels
-
-get_hotels()
-
 

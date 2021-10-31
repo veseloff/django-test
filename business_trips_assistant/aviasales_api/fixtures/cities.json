@@ -1,1360 +1,1360 @@
 [
     {
-        "pk": "MRV",
         "fields": {
             "city": "МИНЕРАЛЬНЫЕ ВОДЫ"
         },
+        "pk": "MRV",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "VKT",
         "fields": {
             "city": "ВОРКУТА"
         },
+        "pk": "VKT",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KLF",
         "fields": {
             "city": "КАЛУГА"
         },
+        "pk": "KLF",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "TJM",
         "fields": {
             "city": "ТЮМЕНЬ"
         },
+        "pk": "TJM",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "OSW",
         "fields": {
             "city": "ОРСК"
         },
+        "pk": "OSW",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "JOK",
         "fields": {
             "city": "ЙОШКАР-ОЛА"
         },
+        "pk": "JOK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "REN",
         "fields": {
             "city": "ОРЕНБУРГ"
         },
+        "pk": "REN",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "GOJ",
         "fields": {
             "city": "НИЖНИЙ НОВГОРОД"
         },
+        "pk": "GOJ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "PVS",
         "fields": {
             "city": "ПОСЁЛОК ПРОВИДЕНИЯ"
         },
+        "pk": "PVS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "RTW",
         "fields": {
             "city": "САРАТОВ"
         },
+        "pk": "RTW",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "GYG",
         "fields": {
             "city": "МАГАН"
         },
+        "pk": "GYG",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NJC",
         "fields": {
             "city": "НИЖНЕВАРТОВСК"
         },
+        "pk": "NJC",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KYZ",
         "fields": {
             "city": "КЫЗЫЛ"
         },
+        "pk": "KYZ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "LDG",
         "fields": {
             "city": "ЛЕШУКОНСКОЕ"
         },
+        "pk": "LDG",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ZKP",
         "fields": {
             "city": "ЗЫРЯНКА"
         },
+        "pk": "ZKP",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "VVO",
         "fields": {
             "city": "ВЛАДИВОСТОК"
         },
+        "pk": "VVO",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "IGT",
         "fields": {
             "city": "НАЗРАНЬ"
         },
+        "pk": "IGT",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "PKC",
         "fields": {
             "city": "ПЕТРОПАВЛОВСК-КАМЧАТСКИЙ"
         },
+        "pk": "PKC",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "GDX",
         "fields": {
             "city": "МАГАДАН"
         },
+        "pk": "GDX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "EGO",
         "fields": {
             "city": "БЕЛГОРОД"
         },
+        "pk": "EGO",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "VUS",
         "fields": {
             "city": "ВЕЛИКИЙ УСТЮГ"
         },
+        "pk": "VUS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "OHH",
         "fields": {
             "city": "ОХА"
         },
+        "pk": "OHH",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "EIE",
         "fields": {
             "city": "ЕНИСЕЙСК"
         },
+        "pk": "EIE",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ESL",
         "fields": {
             "city": "ЭЛИСТА"
         },
+        "pk": "ESL",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "RGK",
         "fields": {
             "city": "ГОРНО-АЛТАЙСК"
         },
+        "pk": "RGK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "MQF",
         "fields": {
             "city": "МАГНИТОГОРСК"
         },
+        "pk": "MQF",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "TYD",
         "fields": {
             "city": "ТЫНДА"
         },
+        "pk": "TYD",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "SLY",
         "fields": {
             "city": "САЛЕХАРД"
         },
+        "pk": "SLY",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NBC",
         "fields": {
             "city": "НАБЕРЕЖНЫЕ ЧЕЛНЫ (НИЖНЕКАМСК)"
         },
+        "pk": "NBC",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ULY",
         "fields": {
             "city": "УЛЬЯНОВСК"
         },
+        "pk": "ULY",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NER",
         "fields": {
             "city": "НЕРЮНГРИ"
         },
+        "pk": "NER",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "USK",
         "fields": {
             "city": "УСИНСК"
         },
+        "pk": "USK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KPW",
         "fields": {
             "city": "КЕПЕРВЕЕМ"
         },
+        "pk": "KPW",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "PES",
         "fields": {
             "city": "ПЕТРОЗАВОДСК"
         },
+        "pk": "PES",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "CEE",
         "fields": {
             "city": "ЧЕРЕПОВЕЦ"
         },
+        "pk": "CEE",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "RAT",
         "fields": {
             "city": "РАДУЖНЫЙ"
         },
+        "pk": "RAT",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "TGP",
         "fields": {
             "city": "БОР"
         },
+        "pk": "TGP",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "OMS",
         "fields": {
             "city": "ОМСК"
         },
+        "pk": "OMS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "CEK",
         "fields": {
             "city": "ЧЕЛЯБИНСК"
         },
+        "pk": "CEK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KCK",
         "fields": {
             "city": "КИРЕНСК"
         },
+        "pk": "KCK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KXK",
         "fields": {
             "city": "КОМСОМОЛЬСК-НА-АМУРЕ"
         },
+        "pk": "KXK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KJA",
         "fields": {
             "city": "КРАСНОЯРСК"
         },
+        "pk": "KJA",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NOI",
         "fields": {
             "city": "НОВОРОССИЙСК"
         },
+        "pk": "NOI",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "TOX",
         "fields": {
             "city": "ТОБОЛЬСК"
         },
+        "pk": "TOX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "HTA",
         "fields": {
             "city": "ЧИТА"
         },
+        "pk": "HTA",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "DYR",
         "fields": {
             "city": "АНАДЫРЬ"
         },
+        "pk": "DYR",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "OVB",
         "fields": {
             "city": "НОВОСИБИРСК"
         },
+        "pk": "OVB",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "IAA",
         "fields": {
             "city": "ИГАРКА"
         },
+        "pk": "IAA",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "PEE",
         "fields": {
             "city": "ПЕРМЬ"
         },
+        "pk": "PEE",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ABA",
         "fields": {
             "city": "АБАКАН"
         },
+        "pk": "ABA",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NYM",
         "fields": {
             "city": "НАДЫМ"
         },
+        "pk": "NYM",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "UFA",
         "fields": {
             "city": "УФА"
         },
+        "pk": "UFA",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "IKT",
         "fields": {
             "city": "ИРКУТСК"
         },
+        "pk": "IKT",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NEF",
         "fields": {
             "city": "НЕФТЕКАМСК"
         },
+        "pk": "NEF",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "GVN",
         "fields": {
             "city": "СОВЕТСКАЯ ГАВАНЬ"
         },
+        "pk": "GVN",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "SEK",
         "fields": {
             "city": "СРЕДНЕКОЛЫМСК"
         },
+        "pk": "SEK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "OGZ",
         "fields": {
             "city": "ВЛАДИКАВКАЗ"
         },
+        "pk": "OGZ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ONK",
         "fields": {
             "city": "ОЛЕНЁК"
         },
+        "pk": "ONK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NUX",
         "fields": {
             "city": "НОВЫЙ УРЕНГОЙ"
         },
+        "pk": "NUX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "TQL",
         "fields": {
             "city": "ТАРКО-САЛЕ"
         },
+        "pk": "TQL",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "LED",
         "fields": {
             "city": "САНКТ-ПЕТЕРБУРГ"
         },
+        "pk": "LED",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "RZN",
         "fields": {
             "city": "РЯЗАНЬ"
         },
+        "pk": "RZN",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "YKS",
         "fields": {
             "city": "ЯКУТСК"
         },
+        "pk": "YKS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "CYX",
         "fields": {
             "city": "ЧЕРСКИЙ"
         },
+        "pk": "CYX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NOJ",
         "fields": {
             "city": "НОЯБРЬСК"
         },
+        "pk": "NOJ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "UUA",
         "fields": {
             "city": "БУГУЛЬМА"
         },
+        "pk": "UUA",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "CKL",
         "fields": {
             "city": "ЧКАЛОВСКИЙ"
         },
+        "pk": "CKL",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "САЙ",
         "fields": {
             "city": "СУЛОМАЙ"
         },
+        "pk": "САЙ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KGD",
         "fields": {
             "city": "КАЛИНИНГРАД"
         },
+        "pk": "KGD",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NSK",
         "fields": {
             "city": "НОРИЛЬСК"
         },
+        "pk": "NSK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "MQJ",
         "fields": {
             "city": "ХОНУУ"
         },
+        "pk": "MQJ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "RZH",
         "fields": {
             "city": "ПРЕОБРАЖЕНИЕ"
         },
+        "pk": "RZH",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NLI",
         "fields": {
             "city": "НИКОЛАЕВСК-НА-АМУРЕ"
         },
+        "pk": "NLI",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "LPK",
         "fields": {
             "city": "ЛИПЕЦК"
         },
+        "pk": "LPK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ACS",
         "fields": {
             "city": "АЧИНСК"
         },
+        "pk": "ACS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "IAR",
         "fields": {
             "city": "ЯРОСЛАВЛЬ"
         },
+        "pk": "IAR",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ULK",
         "fields": {
             "city": "ЛЕНСК"
         },
+        "pk": "ULK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ITU",
         "fields": {
             "city": "ИТУРУП"
         },
+        "pk": "ITU",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "OEL",
         "fields": {
             "city": "ОРЁЛ"
         },
+        "pk": "OEL",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "UUD",
         "fields": {
             "city": "УЛАН-УДЭ"
         },
+        "pk": "UUD",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "LNX",
         "fields": {
             "city": "СМОЛЕНСК"
         },
+        "pk": "LNX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "DHG",
         "fields": {
             "city": "ДАЛЬНЕГОРСК"
         },
+        "pk": "DHG",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "SWV",
         "fields": {
             "city": "ЭВЕНСК"
         },
+        "pk": "SWV",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "AER",
         "fields": {
             "city": "СОЧИ"
         },
+        "pk": "AER",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KVX",
         "fields": {
             "city": "КИРОВ"
         },
+        "pk": "KVX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "TYA",
         "fields": {
             "city": "ТУЛА"
         },
+        "pk": "TYA",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "BZK",
         "fields": {
             "city": "БРЯНСК"
         },
+        "pk": "BZK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "GDZ",
         "fields": {
             "city": "ГЕЛЕНДЖИК"
         },
+        "pk": "GDZ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "IJK",
         "fields": {
             "city": "ИЖЕВСК"
         },
+        "pk": "IJK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "CSY",
         "fields": {
             "city": "ЧЕБОКСАРЫ"
         },
+        "pk": "CSY",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "PYJ",
         "fields": {
             "city": "УДАЧНЫЙ"
         },
+        "pk": "PYJ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "TLY",
         "fields": {
             "city": "ПЛАСТУН"
         },
+        "pk": "TLY",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "OHO",
         "fields": {
             "city": "ОХОТСК"
         },
+        "pk": "OHO",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "OKT",
         "fields": {
             "city": "ОКТЯБРЬСКИЙ"
         },
+        "pk": "OKT",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "PEZ",
         "fields": {
             "city": "ПЕНЗА"
         },
+        "pk": "PEZ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KRO",
         "fields": {
             "city": "КУРГАН"
         },
+        "pk": "KRO",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "SUK",
         "fields": {
             "city": "БАТАГАЙ-АЛЫТА"
         },
+        "pk": "SUK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ROV",
         "fields": {
             "city": "РОСТОВ-НА-ДОНУ"
         },
+        "pk": "ROV",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "UTS",
         "fields": {
             "city": "УСТЬ-ЦИЛЬМА"
         },
+        "pk": "UTS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "GRV",
         "fields": {
             "city": "ГРОЗНЫЙ"
         },
+        "pk": "GRV",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "OLZ",
         "fields": {
             "city": "ОЛЁКМИНСК"
         },
+        "pk": "OLZ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "SWT",
         "fields": {
             "city": "СТРЕЖЕВОЙ"
         },
+        "pk": "SWT",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "VGD",
         "fields": {
             "city": "ВОЛОГДА"
         },
+        "pk": "VGD",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KLD",
         "fields": {
             "city": "ТВЕРЬ"
         },
+        "pk": "KLD",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "OVS",
         "fields": {
             "city": "СОВЕТСКИЙ"
         },
+        "pk": "OVS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "IWA",
         "fields": {
             "city": "ИВАНОВО"
         },
+        "pk": "IWA",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KKQ",
         "fields": {
             "city": "КРАСНОСЕЛЬКУП"
         },
+        "pk": "KKQ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ZIX",
         "fields": {
             "city": "ЖИГАНСК"
         },
+        "pk": "ZIX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "UKX",
         "fields": {
             "city": "УСТЬ-КУТ"
         },
+        "pk": "UKX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "SGC",
         "fields": {
             "city": "СУРГУТ"
         },
+        "pk": "SGC",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "CSH",
         "fields": {
             "city": "СОЛОВЕЦКИЙ"
         },
+        "pk": "CSH",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "MOW",
         "fields": {
             "city": "МОСКВА"
         },
+        "pk": "MOW",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "GDG",
         "fields": {
             "city": "МАГДАГАЧИ"
         },
+        "pk": "GDG",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "SYS",
         "fields": {
             "city": "САСКЫЛАХ"
         },
+        "pk": "SYS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "RYB",
         "fields": {
             "city": "РЫБИНСК"
         },
+        "pk": "RYB",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "BQG",
         "fields": {
             "city": "БОГОРОДСКОЕ"
         },
+        "pk": "BQG",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ODO",
         "fields": {
             "city": "БОДАЙБО"
         },
+        "pk": "ODO",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KUF",
         "fields": {
             "city": "САМАРА"
         },
+        "pk": "KUF",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "THX",
         "fields": {
             "city": "ТУРУХАНСК"
         },
+        "pk": "THX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "BQS",
         "fields": {
             "city": "БЛАГОВЕЩЕНСК"
         },
+        "pk": "BQS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "UKG",
         "fields": {
             "city": "УСТЬ-КУЙГА"
         },
+        "pk": "UKG",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "URJ",
         "fields": {
             "city": "УРАЙ"
         },
+        "pk": "URJ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KZN",
         "fields": {
             "city": "КАЗАНЬ"
         },
+        "pk": "KZN",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "SBT",
         "fields": {
             "city": "САБЕТТА"
         },
+        "pk": "SBT",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KRR",
         "fields": {
             "city": "КРАСНОДАР"
         },
+        "pk": "KRR",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "DEE",
         "fields": {
             "city": "ЮЖНО-КУРИЛЬСК"
         },
+        "pk": "DEE",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KVK",
         "fields": {
             "city": "КИРОВСК (АПАТИТЫ)"
         },
+        "pk": "KVK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "IRM",
         "fields": {
             "city": "ИГРИМ"
         },
+        "pk": "IRM",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "PKV",
         "fields": {
             "city": "ПСКОВ"
         },
+        "pk": "PKV",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "TLK",
         "fields": {
             "city": "ТАЛАКАН"
         },
+        "pk": "TLK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "HMA",
         "fields": {
             "city": "ХАНТЫ-МАНСИЙСК"
         },
+        "pk": "HMA",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "HTG",
         "fields": {
             "city": "ХАТАНГА"
         },
+        "pk": "HTG",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "PEX",
         "fields": {
             "city": "ПЕЧОРА"
         },
+        "pk": "PEX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "SVX",
         "fields": {
             "city": "ЕКАТЕРИНБУРГ"
         },
+        "pk": "SVX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "TOF",
         "fields": {
             "city": "ТОМСК"
         },
+        "pk": "TOF",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KHV",
         "fields": {
             "city": "ХАБАРОВСК"
         },
+        "pk": "KHV",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KGP",
         "fields": {
             "city": "КОГАЛЫМ"
         },
+        "pk": "KGP",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "DPT",
         "fields": {
             "city": "ДЕПУТАТСКИЙ"
         },
+        "pk": "DPT",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KEJ",
         "fields": {
             "city": "КЕМЕРОВО"
         },
+        "pk": "KEJ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ZZO",
         "fields": {
             "city": "ЗОНАЛЬНОЕ"
         },
+        "pk": "ZZO",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "SKX",
         "fields": {
             "city": "САРАНСК"
         },
+        "pk": "SKX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "EKS",
         "fields": {
             "city": "ШАХТЁРСК"
         },
+        "pk": "EKS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "MMK",
         "fields": {
             "city": "МУРМАНСК"
         },
+        "pk": "MMK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "AAQ",
         "fields": {
             "city": "АНАПА"
         },
+        "pk": "AAQ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "VLK",
         "fields": {
             "city": "ВОЛГОДОНСК"
         },
+        "pk": "VLK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "SCW",
         "fields": {
             "city": "СЫКТЫВКАР"
         },
+        "pk": "SCW",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "EYK",
         "fields": {
             "city": "БЕЛОЯРСКИЙ"
         },
+        "pk": "EYK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "VOG",
         "fields": {
             "city": "ВОЛГОГРАД"
         },
+        "pk": "VOG",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "BGN",
         "fields": {
             "city": "БЕЛАЯ ГОРА"
         },
+        "pk": "BGN",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "INA",
         "fields": {
             "city": "ИНТА"
         },
+        "pk": "INA",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NYA",
         "fields": {
             "city": "НЯГАНЬ"
         },
+        "pk": "NYA",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ASF",
         "fields": {
             "city": "АСТРАХАНЬ"
         },
+        "pk": "ASF",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ARH",
         "fields": {
             "city": "АРХАНГЕЛЬСК"
         },
+        "pk": "ARH",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "EZV",
         "fields": {
             "city": "БЕРЁЗОВО"
         },
+        "pk": "EZV",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "BWO",
         "fields": {
             "city": "БАЛАКОВО"
         },
+        "pk": "BWO",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NYR",
         "fields": {
             "city": "НЮРБА"
         },
+        "pk": "NYR",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NVR",
         "fields": {
             "city": "ВЕЛИКИЙ НОВГОРОД"
         },
+        "pk": "NVR",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "PWE",
         "fields": {
             "city": "ПЕВЕК"
         },
+        "pk": "PWE",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "VLU",
         "fields": {
             "city": "ВЕЛИКИЕ ЛУКИ"
         },
+        "pk": "VLU",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "YMK",
         "fields": {
             "city": "МЫС-КАМЕННЫЙ"
         },
+        "pk": "YMK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "TBW",
         "fields": {
             "city": "ТАМБОВ"
         },
+        "pk": "TBW",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "DKS",
         "fields": {
             "city": "ДИКСОН"
         },
+        "pk": "DKS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NOZ",
         "fields": {
             "city": "НОВОКУЗНЕЦК"
         },
+        "pk": "NOZ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "UCT",
         "fields": {
             "city": "УХТА"
         },
+        "pk": "UCT",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KMW",
         "fields": {
             "city": "КОСТРОМА"
         },
+        "pk": "KMW",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "VOZ",
         "fields": {
             "city": "ВОРОНЕЖ"
         },
+        "pk": "VOZ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "VYI",
         "fields": {
             "city": "ВИЛЮЙСК"
         },
+        "pk": "VYI",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NGK",
         "fields": {
             "city": "НОГЛИКИ"
         },
+        "pk": "NGK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "BAX",
         "fields": {
             "city": "БАРНАУЛ"
         },
+        "pk": "BAX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "SUY",
         "fields": {
             "city": "СУНТАР"
         },
+        "pk": "SUY",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KSZ",
         "fields": {
             "city": "КОТЛАС"
         },
+        "pk": "KSZ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "CKH",
         "fields": {
             "city": "ЧОКУРДАХ"
         },
+        "pk": "CKH",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NAL",
         "fields": {
             "city": "НАЛЬЧИК"
         },
+        "pk": "NAL",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "TGK",
         "fields": {
             "city": "ТАГАНРОГ"
         },
+        "pk": "TGK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "BCX",
         "fields": {
             "city": "БЕЛОРЕЦК"
         },
+        "pk": "BCX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "UMS",
         "fields": {
             "city": "УСТЬ-МАЯ"
         },
+        "pk": "UMS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "UUS",
         "fields": {
             "city": "ЮЖНО-САХАЛИНСК"
         },
+        "pk": "UUS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "STW",
         "fields": {
             "city": "СТАВРОПОЛЬ"
         },
+        "pk": "STW",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NFG",
         "fields": {
             "city": "НЕФТЕЮГАНСК"
         },
+        "pk": "NFG",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "VHV",
         "fields": {
             "city": "ВЕРХНЕВИЛЮЙСК"
         },
+        "pk": "VHV",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "IKS",
         "fields": {
             "city": "ТИКСИ"
         },
+        "pk": "IKS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "KVR",
         "fields": {
             "city": "КАВАЛЕРОВО"
         },
+        "pk": "KVR",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ADH",
         "fields": {
             "city": "АЛДАН"
         },
+        "pk": "ADH",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "BVV",
         "fields": {
             "city": "ИТУРУП"
         },
+        "pk": "BVV",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "BTK",
         "fields": {
             "city": "БРАТСК"
         },
+        "pk": "BTK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "UIK",
         "fields": {
             "city": "УСТЬ-ИЛИМСК"
         },
+        "pk": "UIK",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "NNM",
         "fields": {
             "city": "НАРЬЯН-МАР"
         },
+        "pk": "NNM",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "MCX",
         "fields": {
             "city": "МАХАЧКАЛА"
         },
+        "pk": "MCX",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "MJZ",
         "fields": {
             "city": "МИРНЫЙ"
         },
+        "pk": "MJZ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "ERG",
         "fields": {
             "city": "ЕРБОГАЧЁН"
         },
+        "pk": "ERG",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "BQJ",
         "fields": {
             "city": "БАТАГАЙ"
         },
+        "pk": "BQJ",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "URS",
         "fields": {
             "city": "КУРСК"
         },
+        "pk": "URS",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "AMV",
         "fields": {
             "city": "АМДЕРМА"
         },
+        "pk": "AMV",
         "model": "aviasales_api.city"
     },
     {
-        "pk": "USR",
         "fields": {
             "city": "УСТЬ-НЕРА"
         },
+        "pk": "USR",
         "model": "aviasales_api.city"
     }
 ]

@@ -1,19 +1,15 @@
 from .models import BusinessTrip, Trip, Hotel
 from .static import TRANSPORT_NAME_MAPPING
 import datetime
+from railways_api.models import City
 
 def get_business_trip_information(id_user):
     business_trips = BusinessTrip.objects.filter(user_id=id_user)
     trips = []
     for business_trip in business_trips:
-        information_trip = {}
-        information_trip['id'] = business_trip.pk
-        information_trip['name'] = business_trip.name
-        information_trip['begin'] = str(business_trip.date_start)
-        information_trip['end'] = str(business_trip.date_finish)
-        information_trip['fromCity'] = business_trip.from_city
-        information_trip['toCity'] = business_trip.to_city
-        information_trip['budget'] = business_trip.credit
+        information_trip = {'id': business_trip.pk, 'name': business_trip.name, 'begin': str(business_trip.date_start),
+                            'end': str(business_trip.date_finish), 'fromCity': business_trip.from_city,
+                            'toCity': business_trip.to_city, 'budget': business_trip.credit}
         hotels = Hotel.objects.filter(business_trip=business_trip)
         information_trip['hotel'] = hotels[0].name if len(hotels) > 0 else None
         transport = list(set([TRANSPORT_NAME_MAPPING[transport.transport]

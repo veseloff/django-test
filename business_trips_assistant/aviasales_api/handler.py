@@ -1,11 +1,11 @@
 import requests
 import json
+from .models import City
 
 
 def get_code_city(name_city):
     '''По названию города возвращает его IATA-код'''
-    code_city = name_city
-    return code_city
+    return name_city
 
 
 def get_information_flight(response):
@@ -34,3 +34,5 @@ def get_request(name_city_departure, name_city_arrival, depart_date, return_date
 def get_air_ticket(name_city_departure, name_city_arrival, depart_date, return_date):
     response = get_request(name_city_departure, name_city_arrival, depart_date, return_date)
     return get_information_flight(response)
+
+

@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 import requests
 from bs4 import BeautifulSoup
 import lxml
@@ -15,33 +14,8 @@ HEADERS = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
                      'application/signed-exchange;v=b3;q=0.9'
            }
 
-city = 'Екатеринбург'
-# check_in = {'d': 22, 'm': 11, 'y': 2021}
-# check_out = {'d': 26, 'm': 11, 'y': 2021}
-# star = 3
-PARAMS = {'sb': 1,
-          'src': 'searchresults',
-          'src_elem': 'sb',
-          # 'ss': city,
-          # 'ssne': city,
-          # 'ssne_untouched': city,
-          # 'checkin_year': check_in['y'],
-          # 'checkin_month': check_in['m'],
-          # 'checkin_monthday': check_in['d'],
-          # 'checkout_year': check_out['y'],
-          # 'checkout_month': check_out['m'],
-          # 'checkout_monthday': check_out['d'],
-          'group_adults': 1,
-          'group_children': 0,
-          'no_rooms': 1,
-          'sb_changed_group': 1,
-          'from_sf': 1,
-          # 'nflt': f'class%3D{star}',
-          # 'offset': 50
-          }
 
-
-def set_params(**kwargs):
+def get_params(kwargs):
     """
     Метод устанавливает параметры для запроса
     Args:
@@ -50,22 +24,25 @@ def set_params(**kwargs):
     Returns:
 
     """
+    params = {'sb': 1, 'src': 'searchresults', 'src_elem': 'sb', 'group_adults': 1,
+              'group_children': 0, 'no_rooms': 1, 'sb_changed_group': 1, 'from_sf': 1}
     city = kwargs.get('city')
-    PARAMS['ss'] = city
-    PARAMS['ssne'] = city
-    PARAMS['ssne_untouched'] = city
+    params['ss'] = city
+    params['ssne'] = city
+    params['ssne_untouched'] = city
     offset = kwargs.get('offset')
-    PARAMS['offset'] = offset
+    params['offset'] = offset
     star = kwargs['star']
     if star is not None:
-        PARAMS['nflt'] = f'class%3D{star}'
+        params['nflt'] = f'class%3D{star}'
     date_check_in = kwargs.get('check_in')
     date_check_out = kwargs.get('check_out')
-    set_date('checkin_year', 'checkin_month', 'checkin_monthday', date_check_in)
+    set_date('checkin_year', 'checkin_month', 'checkin_monthday', date_check_in, params)
     set_date('checkout_year', 'checkout_month', 'checkout_monthday', date_check_out)
+    return params
 
 
-def set_date(year, month, day, date_check):
+def set_date(year, month, day, date_check, params):
     """
     Устаналивает параметры даты
     Args:
@@ -77,9 +54,10 @@ def set_date(year, month, day, date_check):
     Returns:
 
     """
-    PARAMS[year] = date_check[2]
-    PARAMS[month] = date_check[1]
-    PARAMS[day] = date_check[0]
+    params[year] = date_check[2]
+    params[month] = date_check[1]
+    params[day] = date_check[0]
+    return params
 
 
 def get_hotels(**kwargs):
@@ -91,8 +69,8 @@ def get_hotels(**kwargs):
     Returns:
 
     """
-    set_params(kwargs)
-    response = requests.get(URL, headers=HEADERS, params=PARAMS)
+    params = get_params(kwargs)
+    response = requests.get(URL, headers=HEADERS, params=params)
     soup = BeautifulSoup(response.text, 'lxml')
     items = soup.find_all('div', class_="_5d6c618c8")
     count_hotels = get_count_hotels(soup)

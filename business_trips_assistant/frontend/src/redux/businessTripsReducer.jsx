@@ -5,10 +5,10 @@ const ADD_BT = "BT/ADD-BT";
 const EDIT_BT = "BT/EDIT-BT";
 const REMOVE_BT = "BT/REMOVE-BT";
 
-let initialState = {/*
+let initialState = {
     nextId: 2,
-    businessTrips: [
-        {
+    businessTrips: []
+        /*{
             id: 0,
             name: "Первая командировка",
             fromCity: "Санкт-Петербург",
@@ -51,7 +51,7 @@ let initialState = {/*
 const BusinessTripsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_BT:
-            return {...state, businessTrips: action.items};
+            return {...state, businessTrips: [...action.items]};
         case ADD_BT:
             return {...state, nextId: state.nextId + 1, businessTrips: [...state.businessTrips, action.businessTrip]};
         case EDIT_BT:
@@ -79,13 +79,13 @@ const BusinessTripsReducer = (state = initialState, action) => {
     }
 }
 
-const setBusinessTrips = (items) => ({type: SET_BT, items});
+const setBusinessTrips = (items) => ({type: SET_BT, items: items});
 
 export const setBusinessTripsTC = () => async (dispatch) => {
     //dispatch(toggleIsFetching(true));
     const data = await businessTripsAPI.getBusinessTrips();
     //dispatch(toggleIsFetching(false));
-    dispatch(setBusinessTrips(data.items));
+    dispatch(setBusinessTrips(data));
     //dispatch(setTotalUsersCount(data.totalCount));
 }
 

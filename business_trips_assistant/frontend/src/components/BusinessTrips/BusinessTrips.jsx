@@ -12,7 +12,7 @@ const BusinessTrips = (props) => {
 
     useEffect(() => {
         props.setBusinessTripsTC();
-    });
+    }, []);
 
     const onDelete = (id) => {
         props.removeBusinessTrip(id);
@@ -63,7 +63,7 @@ const BusinessTrips = (props) => {
                 </button>
             </div>
             <div>
-                {businessTrips}
+                {console.log(props.businessTrips[0])}
                 {/*{
                     businessTrips.map((businessTrip) =>
                         <BusinessTripConstructor businessTrip={businessTrip}

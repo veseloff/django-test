@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import index
+from .views import get_air_ticket
 
 urlpatterns = [
-    path('ggg', index),
+    path('ticket_avia/', get_air_ticket),
 ]

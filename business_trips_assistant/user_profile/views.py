@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import UserRegistrationForm
@@ -42,11 +43,11 @@ def user_login(request):
         user = authenticate(request, username=request.POST["username"], password=request.POST["password"])
         if user is not None:
             login(request, user)
-            return (True, 'index', {})
+            return True, 'index', {}
         else:
-            return (False, 'login.html', {'invalid':True})
+            return False, 'login.html', {'invalid': True}
     else:
-        return (False, 'login.html', {'invalid':False})
+        return False, 'login.html', {'invalid': False}
 
 
 def user_logout(request):
@@ -59,7 +60,7 @@ def user_logout(request):
 
     """
     logout(request)
-    return ('login')
+    return 'login'
 
 
 def get_business_trip(request):

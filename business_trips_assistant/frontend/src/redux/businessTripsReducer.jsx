@@ -86,7 +86,6 @@ export const setBusinessTripsTC = () => async (dispatch) => {
     const data = await businessTripsAPI.getBusinessTrips();
     //dispatch(toggleIsFetching(false));
     dispatch(setBusinessTrips(data));
-    //dispatch(setTotalUsersCount(data.totalCount));
 }
 
 export const addBusinessTrip = (businessTrip) => ({type: ADD_BT, businessTrip: businessTrip});

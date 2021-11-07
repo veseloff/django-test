@@ -7,10 +7,12 @@ const BusinessTripConstructor = (props) => {
     const [visibility, setVisibility] = useState(false);
 
     const convertDate = (date) => {
-        const parseDate = date.split("-");
-        if (parseDate.length === 3)
-            return `${parseDate[2]}.${parseDate[1]}.${parseDate[0]}`;
-        return date;
+        if (date !== undefined) {
+            const parseDate = date.split("-");
+            if (parseDate.length === 3)
+                return `${parseDate[2]}.${parseDate[1]}.${parseDate[0]}`;
+            return date;
+        }
     };
 
     return (
@@ -43,11 +45,11 @@ const BusinessTripConstructor = (props) => {
                     {props.businessTrip.fromCity} - {props.businessTrip.toCity}
                 </div>
                 <div>
-                    Статус: {props.businessTrip.status}
+                    Статус: {props.businessTrip.status || "Неизвестно"}
                 </div>
             </div>
             <div>
-                С {convertDate(props.businessTrip.begin)} по {convertDate(props.businessTrip.end)}
+                С {convertDate(props.businessTrip.begin) || "Неизвестно"} по {convertDate(props.businessTrip.end) || "Неизвестно"}
             </div>
             <div>
                 <div>
@@ -59,10 +61,10 @@ const BusinessTripConstructor = (props) => {
             </div>
             <div>
                 <div>
-                    Туда: {convertDate(props.businessTrip.dateFrom)}
+                    Туда: {convertDate(props.businessTrip.dateFrom) || "Неизвестно"}
                 </div>
                 <div>
-                    Обратно: {convertDate(props.businessTrip.dateTo)}
+                    Обратно: {convertDate(props.businessTrip.dateTo) || "Неизвестно"}
                 </div>
             </div>
             <div className={classes.button_container}>

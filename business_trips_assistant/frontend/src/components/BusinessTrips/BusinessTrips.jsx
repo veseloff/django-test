@@ -8,7 +8,6 @@ import {useEffect, useState} from "react";
 
 const BusinessTrips = (props) => {
     const [status, setStatus] = useState("Все");
-    const [businessTrips, setBusinessTrips] = useState(props.businessTrips);
 
     useEffect(() => {
         props.setBusinessTripsTC();
@@ -16,13 +15,7 @@ const BusinessTrips = (props) => {
 
     const onDelete = (id) => {
         props.removeBusinessTrip(id);
-        setBusinessTrips(props.businessTrips.filter(bt => (bt.status === status || status === "Все") && bt.id !== id));
     }
-
-    const onFilter = () => {
-        setBusinessTrips(props.businessTrips.filter(bt => (bt.status === status || status === "Все")));
-    }
-
 
     const changeFilter = () => {
         switch (status) {
@@ -58,17 +51,15 @@ const BusinessTrips = (props) => {
                 <div onClick={changeFilter}>
                     Статус: {status}
                 </div>
-                <button className={classes.button} onClick={onFilter}>
-                    Фильтровать
-                </button>
             </div>
             <div>
-                {console.log(props.businessTrips[0])}
-                {/*{
-                    businessTrips.map((businessTrip) =>
-                        <BusinessTripConstructor businessTrip={businessTrip}
-                                                 onDelete={onDelete}/>)
-                }*/}
+                {
+                    props.businessTrips
+                        .filter(bt => (bt.status === status || status === "Все"))
+                        .map((businessTrip) =>
+                            <BusinessTripConstructor businessTrip={businessTrip}
+                                                     onDelete={onDelete}/>)
+                }
             </div>
         </div>
     );
@@ -81,4 +72,8 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default compose(connect(mapStateToProps, {setBusinessTripsTC, addBusinessTrip, removeBusinessTrip}))(BusinessTrips);
+export default compose(connect(mapStateToProps, {
+    setBusinessTripsTC,
+    addBusinessTrip,
+    removeBusinessTrip
+}))(BusinessTrips);

@@ -3,6 +3,7 @@ from .static import TRANSPORT_NAME_MAPPING
 import datetime
 from railways_api.models import City
 
+
 def get_business_trip_information(id_user):
     business_trips = BusinessTrip.objects.filter(user_id=id_user)
     trips = []
@@ -53,7 +54,7 @@ def insert_value_hotel(hotel, request):
     hotel.link = request.POST['link']
     hotel.name = request.POST['name']
     hotel.price = float(request.POST['price'])
-    hotel.adress = request.POST['adress']
+    hotel.address = request.POST['address']
     hotel.date_check_in = datetime.datetime.strptime(request.POST['check_in'], '%d.%m.%Y').date()
     hotel.date_departure = datetime.datetime.strptime(request.POST['departure'], '%d.%m.%Y').date()
     hotel.save()

@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
-from railways_api.models import City, Station
+from railways_api.models import City
+
 
 # transport : 0 - самолёт, 1 - поезд
-
 class BusinessTrip(models.Model):
     name = models.CharField(max_length=250)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='profile')
@@ -12,6 +12,7 @@ class BusinessTrip(models.Model):
     credit = models.IntegerField()
     date_start = models.DateField()
     date_finish = models.DateField()
+    status = models.IntegerField()
 
 
 class Trip(models.Model):
@@ -27,16 +28,19 @@ class Trip(models.Model):
     station_from = models.CharField(max_length=250)
     station_to = models.CharField(max_length=250)
 
+
 class Hotel(models.Model):
     business_trip = models.ForeignKey(BusinessTrip, on_delete=models.CASCADE)
     link = models.URLField()
     name = models.CharField(max_length=150)
-    adress = models.CharField(max_length=150)
+    address = models.CharField(max_length=150)
     price = models.FloatField()
     date_check_in = models.DateField()
     date_departure = models.DateField()
 
 
-
-# class Credit(models.Model):
-#     business_trip = models.ForeignKey(BusinessTrip, on_delete=models.CASCADE)
+class Cheque(models.Model):
+    business_trip = models.ForeignKey(BusinessTrip, on_delete=models.CASCADE)
+    amount = models.FloatField()
+    date_time = models.DateTimeField()
+    report = models.TextField()

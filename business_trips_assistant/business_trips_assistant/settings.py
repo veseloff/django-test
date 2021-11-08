@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from os import getenv
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,10 +79,10 @@ WSGI_APPLICATION = 'business_trips_assistant.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': 'business_trips',
+        'NAME': getenv('NAME_DATA_BASE'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'postgres',
-        'PASSWORD': 'business_trips123',
+        'USER': getenv('USER_DATA_BASE'),
+        'PASSWORD': getenv('PASSWORD_DATA_BASE'),
         'HOST': 'localhost',
         'PORT': 5432
     }

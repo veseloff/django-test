@@ -1,7 +1,7 @@
+"""Модуль отвечает за парсинг и выгрузку отелей с booking.com"""
+import re
 import requests
 from bs4 import BeautifulSoup
-import lxml
-import re
 
 
 URL = 'https://www.booking.com/searchresults.ru.html?'
@@ -35,10 +35,10 @@ def get_params(kwargs):
     star = kwargs['star']
     if star is not None:
         params['nflt'] = f'class%3D{star}'
-    date_check_in = kwargs.get('check_in')
-    date_check_out = kwargs.get('check_out')
+    date_check_in = kwargs['check_in'].split('-')
+    date_check_out = kwargs['check_out'].split('-')
     set_date('checkin_year', 'checkin_month', 'checkin_monthday', date_check_in, params)
-    set_date('checkout_year', 'checkout_month', 'checkout_monthday', date_check_out)
+    set_date('checkout_year', 'checkout_month', 'checkout_monthday', date_check_out, params)
     return params
 
 
@@ -50,13 +50,14 @@ def set_date(year, month, day, date_check, params):
         month:
         day:
         date_check:
+        params:
 
     Returns:
 
     """
-    params[year] = date_check[2]
+    params[year] = date_check[0]
     params[month] = date_check[1]
-    params[day] = date_check[0]
+    params[day] = date_check[2]
     return params
 
 
@@ -113,7 +114,7 @@ def get_count_hotels(soup):
     Returns:
 
     """
-    count_hotels = soup.find('div', class_='ea52000380').find('h1', class_='_30227359d _0db903e42').get_text()
-    count_hotels = int(re.findall('\d+', count_hotels).pop())
+    count_hotels = soup.find('div', class_='ea52000380')\
+        .find('h1', class_='_30227359d _0db903e42').get_text()
+    count_hotels = int(re.findall(r'\d+', count_hotels).pop())
     return count_hotels
-

@@ -10,8 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from os import getenv
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+
+load_dotenv()
+not_exist_names = []
+variables_env = ['CHROMEDRIVER', 'PASSWORD_DATA_BASE', 'NAME_DATA_BASE',
+                 'USER_DATA_BASE', 'HOST_DATA_BASE', 'PORT_DATA_BASE']
+for variable in variables_env:
+    if os.environ.get(variable) is None:
+        not_exist_names.append(variable)
+assert not not_exist_names, f'{not_exist_names}'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,12 +90,12 @@ WSGI_APPLICATION = 'business_trips_assistant.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': getenv('NAME_DATA_BASE'),
+        'NAME': os.getenv('NAME_DATA_BASE'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': getenv('USER_DATA_BASE'),
-        'PASSWORD': getenv('PASSWORD_DATA_BASE'),
-        'HOST': getenv('HOST_DATA_BASE'),
-        'PORT': getenv('PORT_DATA_BASE')
+        'USER': os.getenv('USER_DATA_BASE'),
+        'PASSWORD': os.getenv('PASSWORD_DATA_BASE'),
+        'HOST': os.getenv('HOST_DATA_BASE'),
+        'PORT': os.getenv('PORT_DATA_BASE')
     }
 }
 

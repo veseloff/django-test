@@ -2,7 +2,6 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from dotenv import load_dotenv
 
 
 def main():
@@ -20,9 +19,4 @@ def main():
 
 
 if __name__ == '__main__':
-    load_dotenv()
-    variables_env = ['CHROMEDRIVER', 'PASSWORD_DATA_BASE', 'NAME_DATA_BASE',
-                     'USER_DATA_BASE', 'HOST_DATA_BASE', 'PORT_DATA_BASE']
-    for variable in variables_env:
-        assert os.environ.get(variable) is not None
     main()

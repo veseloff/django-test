@@ -1,5 +1,4 @@
 aiogram==2.15
-aiohttp==3.7.4.post0
 asgiref==3.4.1
 astroid==2.8.2
 async-generator==1.10

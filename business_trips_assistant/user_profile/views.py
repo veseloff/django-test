@@ -1,12 +1,14 @@
+"""Представление модуль отвечающего за акаунт пользователя и его командировки"""
+import json
+from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.http import HttpResponse
-from .forms import UserRegistrationForm
-from .handler_business_trip import *
-import json
-from .models import BusinessTrip, Trip, Hotel
-import datetime
 from railways_api.models import City
+from .forms import UserRegistrationForm
+from .handler_business_trip import get_business_trip_information, insert_value_business_trip, \
+    insert_value_hotel, insert_value_trip
+from .models import BusinessTrip, Trip, Hotel
 
 
 def register(request):
@@ -40,7 +42,8 @@ def user_login(request):
 
     """
     if request.method == "POST":
-        user = authenticate(request, username=request.POST["username"], password=request.POST["password"])
+        user = authenticate(request, username=request.POST["username"],
+                            password=request.POST["password"])
         if user is not None:
             login(request, user)
             return True, 'index', {}
@@ -151,8 +154,8 @@ def create_business_trip(request):
         from_city=request.POST['from_city'],
         to_city=request.POST['to_city'],
         credit=request.POST['credit'],
-        date_start=datetime.datetime.strptime(request.POST['date_start'], '%d.%m.%Y').date(),
-        date_finish=datetime.datetime.strptime(request.POST['date_finish'], '%d.%m.%Y').date()
+        date_start=datetime.strptime(request.POST['date_start'], '%d.%m.%Y').date(),
+        date_finish=datetime.strptime(request.POST['date_finish'], '%d.%m.%Y').date()
     )
     b_t.save()
     return HttpResponse(b_t.pk)
@@ -174,8 +177,8 @@ def create_trip(request):
         price_ticket=int(request.POST['price_ticket']),
         is_first=int(request.POST['is_first']),
         transport_number=request.POST['transport_number'],
-        date_departure=datetime.datetime.strptime(request.POST['date_departure'], '%d.%m.%Y').date(),
-        date_arrival=datetime.datetime.strptime(request.POST['date_arrival'], '%d.%m.%Y').date(),
+        date_departure=datetime.strptime(request.POST['date_departure'], '%d.%m.%Y').date(),
+        date_arrival=datetime.strptime(request.POST['date_arrival'], '%d.%m.%Y').date(),
         city_from_id=City.objects.get(pk=int(request.POST['city_from'])),
         city_to_id=City.objects.get(pk=int(request.POST['city_to'])),
         station_from=request.POST['station_from'],
@@ -200,7 +203,7 @@ def create_hotel(request):
         name=request.POST['name'],
         price=float(request.POST['price']),
         address=request.POST['address'],
-        date_check_in=datetime.datetime.strptime(request.POST['check_in'], '%d.%m.%Y').date(),
-        date_departure=datetime.datetime.strptime(request.POST['departure'], '%d.%m.%Y').date()
+        date_check_in=datetime.strptime(request.POST['check_in'], '%d.%m.%Y').date(),
+        date_departure=datetime.strptime(request.POST['departure'], '%d.%m.%Y').date()
     )
     hotel.save()

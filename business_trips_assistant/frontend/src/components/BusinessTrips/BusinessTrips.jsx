@@ -1,7 +1,7 @@
 import classes from "./BusinessTrips.module.css";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {addBusinessTrip, removeBusinessTrip, setBusinessTripsTC} from "../../redux/businessTripsReducer";
+import {removeBusinessTrip, setBusinessTripsTC} from "../../redux/businessTripsReducer";
 import BusinessTripConstructor from "./BusinessTripConstructor/BusinessTripConstructor";
 import {NavLink} from "react-router-dom";
 import {useEffect, useState} from "react";
@@ -74,6 +74,5 @@ const mapStateToProps = (state) => {
 
 export default compose(connect(mapStateToProps, {
     setBusinessTripsTC,
-    addBusinessTrip,
     removeBusinessTrip
 }))(BusinessTrips);

@@ -47,8 +47,8 @@ const BusinessTripInfoForm = (props) => {
         budget: '',
         transport: [""],
         hotel: "Неизвестно",
-        dateFrom: "Неизвестно", //todo: refactor name
-        dateTo: "Неизвестно", //todo: refactor name
+        //dateFrom: "Неизвестно", //todo: refactor name
+        //dateTo: "Неизвестно", //todo: refactor name
         status: "Запланирована",
     }
 
@@ -68,13 +68,13 @@ const BusinessTripInfoForm = (props) => {
                     budget: values.budget,
                     transport: values.transport,
                     hotel: values.hotel,
-                    dateFrom: values.dateFrom, //todo: refactor name
-                    dateTo: values.dateTo, //todo: refactor name
+                    //dateFrom: values.dateFrom, //todo: refactor name
+                    //dateTo: values.dateTo, //todo: refactor name
                     status: values.status,
                 }
 
                 if (props.id === props.countBusinessTrips)
-                    props.addBusinessTrip(bt);
+                    props.postBusinessTripsTC(bt);
                 else
                     props.editBusinessTrip(props.id, bt);
             }}>

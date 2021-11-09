@@ -8,44 +8,6 @@ const REMOVE_BT = "BT/REMOVE-BT";
 let initialState = {
     nextId: 2,
     businessTrips: []
-        /*{
-            id: 0,
-            name: "Первая командировка",
-            fromCity: "Санкт-Петербург",
-            toCity: "Москва",
-            //begin: new Date(2021, 8, 30),
-            //end: new Date(2021, 9, 10),
-            begin: "2021-08-30",
-            end: "2021-09-10",
-            budget: 50000,
-            transport: ["поезд", "самолёт"],
-            hotel: "Centeral",
-            //dateFrom: new Date(2021, 8, 30), //todo: refactor name
-            //dateTo: new Date(2021, 9, 9), //todo: refactor name
-            dateFrom: "2021-08-30", //todo: refactor name
-            dateTo: "2021-09-09", //todo: refactor name
-            status: "Завершённая",
-        },
-        {
-            id: 1,
-            name: "Командировка столичная",
-            fromCity: "Мурманск",
-            toCity: "Москва",
-            //begin: new Date(2021, 7, 1),
-            //end: new Date(2021, 7, 15),
-            begin: "2021-07-01",
-            end: "2021-07-15",
-            budget: 100000,
-            transport: ["поезд"],
-            hotel: "КОСМОС",
-            //dateFrom: new Date(2021, 7, 1),
-            //dateTo: new Date(2021, 7, 13),
-            dateFrom: "2021-07-01",
-            dateTo: "2021-07-13",
-            status: "Активная", //todo: or "В процессе" or "Началась"
-        },
-    ]*/
-
 }
 
 const BusinessTripsReducer = (state = initialState, action) => {
@@ -79,16 +41,44 @@ const BusinessTripsReducer = (state = initialState, action) => {
     }
 }
 
-const setBusinessTrips = (items) => ({type: SET_BT, items: items});
-
 export const setBusinessTripsTC = () => async (dispatch) => {
-    //dispatch(toggleIsFetching(true));
     const data = await businessTripsAPI.getBusinessTrips();
-    //dispatch(toggleIsFetching(false));
     dispatch(setBusinessTrips(data));
 }
 
-export const addBusinessTrip = (businessTrip) => ({type: ADD_BT, businessTrip: businessTrip});
+export const postBusinessTripsTC = (bt) => async (dispatch) => {
+    bt = {
+        user_id: 1,
+        date_start: "2021-10-24",
+        credit: 50000,
+        date_finish: "2021-11-06",
+        from_city: "Екатеринбург",
+        hotel: "КОСМОС",
+        id: 2,
+        name: "Столичная командировка",
+        to_city: "Москва",
+        transport: ['Самолёт', 'Поезд'],
+    }
+    console.log(bt)
+    const data = await businessTripsAPI.postBusinessTrips(bt);                      //todo: VsALT - вызов post запроса
+}
+
+export const putBusinessTripsTC = () => async (dispatch) => {
+    //dispatch(toggleIsFetching(true));
+    const data = await businessTripsAPI.postBusinessTrips();
+    //dispatch(toggleIsFetching(false));
+    dispatch(editBusinessTrip(data));
+}
+
+export const deleteBusinessTripsTC = () => async (dispatch) => {
+    //dispatch(toggleIsFetching(true));
+    const data = await businessTripsAPI.postBusinessTrips();
+    //dispatch(toggleIsFetching(false));
+    dispatch(removeBusinessTrip(data));
+}
+
+const setBusinessTrips = (items) => ({type: SET_BT, items: items});
+const addBusinessTrip = (businessTrip) => ({type: ADD_BT, businessTrip: businessTrip});
 export const editBusinessTrip = (id, businessTrip) => ({type: EDIT_BT, id: id, businessTrip: businessTrip});
 export const removeBusinessTrip = (id) => ({type: REMOVE_BT, id: id});
 

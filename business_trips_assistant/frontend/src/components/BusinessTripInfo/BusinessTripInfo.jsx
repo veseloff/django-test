@@ -2,7 +2,7 @@ import {NavLink, withRouter} from "react-router-dom";
 import classes from "./BusinessTripInfo.module.css";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {addBusinessTrip, editBusinessTrip} from "../../redux/businessTripsReducer";
+import {editBusinessTrip, postBusinessTripsTC} from "../../redux/businessTripsReducer";
 import BusinessTripInfoForm from "./BusinessTripInfoForm/BusinessTripInfoForm";
 
 const BusinessTripInfo = (props) => {
@@ -78,4 +78,5 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default compose(connect(mapStateToProps, {addBusinessTrip, editBusinessTrip}), withRouter)(BusinessTripInfo);
+export default compose(connect(mapStateToProps,
+    {postBusinessTripsTC, editBusinessTrip}), withRouter)(BusinessTripInfo);

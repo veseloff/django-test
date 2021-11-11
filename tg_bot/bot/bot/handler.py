@@ -1,9 +1,10 @@
 import requests
 import re
-from tg_bot.bot.bot.loader import dp
+from tg_bot.bot.bot.loader import dp, bot, db
 from aiogram.types import Message
 from tg_bot.bot.bot.nalog_python import NalogRuPython
 from tg_bot.bot.bot.fnl_requests import json_parser
+
 
 
 @dp.message_handler(content_types=['document', 'photo'])

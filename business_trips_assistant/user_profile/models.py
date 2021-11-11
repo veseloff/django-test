@@ -44,3 +44,9 @@ class Cheque(models.Model):
     amount = models.FloatField()
     date_time = models.DateTimeField()
     report = models.TextField()
+
+
+class UserTelegram(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_telegram = models.IntegerField()
+    tag_telegram = models.CharField(max_length=150)

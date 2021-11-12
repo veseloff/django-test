@@ -1,6 +1,7 @@
 """Модуль для работы с API Aviasales"""
 import requests
 import json
+from .models import City
 
 
 def get_code_city(name_city):
@@ -10,7 +11,8 @@ def get_code_city(name_city):
         name_city: содержит название города на русском языке
     Returns: код города в формате IATA
     """
-    return name_city
+    city_inf = City.objects.get(city=name_city.upper())
+    return city_inf.code
 
 
 def get_information_flight(response):

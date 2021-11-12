@@ -1,6 +1,5 @@
 """Модуль обрабатывает запросы с клиента, связанные с API Aviasales"""
 from .handler import get_request, get_information_flight
-from .models import City
 from django.http import HttpResponse
 
 

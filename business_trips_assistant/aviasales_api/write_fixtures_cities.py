@@ -2,6 +2,8 @@ import json
 
 
 # python manage.py loaddata cities.json чтобы применить фикстуры
+
+
 data_to_json = []
 
 with open('D:\\Users\\Desktop\\cities.json', 'r', encoding='utf-8') as cities_json:

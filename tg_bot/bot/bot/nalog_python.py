@@ -1,5 +1,5 @@
 import json
-
+from tg_bot.bot.bot.pars_sms import main
 import requests
 
 
@@ -22,7 +22,7 @@ class NalogRuPython:
         """
         Authorization using phone and SMS code
         """
-        self.__phone = str(input('Input phone in +70000000000 format: '))
+        self.__phone = "+79046415872"
 
         url = f'https://{self.HOST}/v2/auth/phone/request'
         payload = {
@@ -42,7 +42,7 @@ class NalogRuPython:
 
         resp = requests.post(url, json=payload, headers=headers)
 
-        self.__code = input('Input code from SMS: ')
+        self.__code = main()
 
         url = f'https://{self.HOST}/v2/auth/phone/verify'
         payload = {

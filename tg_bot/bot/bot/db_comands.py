@@ -4,15 +4,19 @@ from loader import db
 class DBCommands:
     pool = db
     ADD_NEW_CHEQUE = "INSERT INTO user_profile_cheque (amount, date_time, report, business_trip_id) " \
-                     "VALUES (%s, %s, %s, %s)"
+                     "VALUES ($1, $2, $3, $4)"
 
-    ADD_NEW_USER = "INSERT INTO user_profile_uesr_telegram (id_telegram, user_id, tag) " \
-                   "VALUES (%s, %s, %s, %s)"
+    FIND_BUSINESS_TRIP = "SELECT id, name FROM user_profile_businesstrip WHERE status=1 AND user_id=$1"
+
+    FIND_USER_ID_IN_SYSTEM = "SELECT user_id FROM user_profile_usertelegram WHERE "
 
     async def add_new_cheque(self, args):
         command = self.ADD_NEW_CHEQUE
-        await self.pool.fetchval(command, args)
+        return await self.pool.fetchval(command, *args)
 
-    async def add_new_user(self, args):
-        command = self.ADD_NEW_USER
-        await self.pool.fetchval(command, args)
+    async def find_business_trip(self, user_id):
+        command = self.FIND_BUSINESS_TRIP
+        return await self.pool.fetchval(command, user_id)
+
+    async def find_user_id(self, tag):
+        pass

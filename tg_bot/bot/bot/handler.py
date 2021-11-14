@@ -15,6 +15,15 @@ db = DBCommands()
 
 @dp.message_handler(commands=['start'])
 async def get_id(message: Message, state: FSMContext):
+    """
+    Получение id пользователя в telegram
+    Args:
+        message:
+        state:
+
+    Returns:
+
+    """
     user_id = message.from_user.id
     await message.answer(f'Ваш id: {user_id}')
     await state.update_data(user_id=user_id)
@@ -22,6 +31,15 @@ async def get_id(message: Message, state: FSMContext):
 
 @dp.callback_query_handler(text_contains="choice_bt", state=None)
 async def choose_business_trip(call: CallbackQuery, state: FSMContext):
+    """
+    Уточнение командировки
+    Args:
+        call:
+        state:
+
+    Returns:
+
+    """
     await call.answer(cache_time=60)
     user_id = await state.get_data('user_id')
     await Scanner.ChooseBusinessTrip.set()

@@ -1,0 +1,5427 @@
+[
+    {
+        "model": "railways_api.city",
+        "pk": 1,
+        "fields": {
+            "city": "АБАЗА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 2,
+        "fields": {
+            "city": "АБАКАН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 3,
+        "fields": {
+            "city": "АБДУЛИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 4,
+        "fields": {
+            "city": "АБИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 5,
+        "fields": {
+            "city": "АГРЫЗ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 6,
+        "fields": {
+            "city": "АЗОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 7,
+        "fields": {
+            "city": "АКСАЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 8,
+        "fields": {
+            "city": "АЛАПАЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 9,
+        "fields": {
+            "city": "АЛАТЫРЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 10,
+        "fields": {
+            "city": "АЛДАН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 11,
+        "fields": {
+            "city": "АЛЕЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 12,
+        "fields": {
+            "city": "АЛЕКСАНДРОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 13,
+        "fields": {
+            "city": "АЛЕКСАНДРОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 14,
+        "fields": {
+            "city": "АЛЕКСЕЕВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 15,
+        "fields": {
+            "city": "АЛЕКСИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 16,
+        "fields": {
+            "city": "АЛЗАМАЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 17,
+        "fields": {
+            "city": "АЛУШТА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 18,
+        "fields": {
+            "city": "АЛЬМЕТЬЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 19,
+        "fields": {
+            "city": "АМУРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 20,
+        "fields": {
+            "city": "АНАПА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 21,
+        "fields": {
+            "city": "АНГАРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 22,
+        "fields": {
+            "city": "АНДРЕАПОЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 23,
+        "fields": {
+            "city": "АПАТИТЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 24,
+        "fields": {
+            "city": "АПРЕЛЕВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 25,
+        "fields": {
+            "city": "АРАМИЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 26,
+        "fields": {
+            "city": "АРГУН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 27,
+        "fields": {
+            "city": "АРДАТОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 28,
+        "fields": {
+            "city": "АРЗАМАС"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 29,
+        "fields": {
+            "city": "АРКАДАК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 30,
+        "fields": {
+            "city": "АРМАВИР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 31,
+        "fields": {
+            "city": "АРСЕНЬЕВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 32,
+        "fields": {
+            "city": "АРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 33,
+        "fields": {
+            "city": "АРТЁМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 34,
+        "fields": {
+            "city": "АРТЁМОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 35,
+        "fields": {
+            "city": "АРХАНГЕЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 36,
+        "fields": {
+            "city": "АСБЕСТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 37,
+        "fields": {
+            "city": "АСИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 38,
+        "fields": {
+            "city": "АСТРАХАНЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 39,
+        "fields": {
+            "city": "АТКАРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 40,
+        "fields": {
+            "city": "АЧИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 41,
+        "fields": {
+            "city": "АША"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 42,
+        "fields": {
+            "city": "БАБАЕВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 43,
+        "fields": {
+            "city": "БАБУШКИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 44,
+        "fields": {
+            "city": "БАГРАТИОНОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 45,
+        "fields": {
+            "city": "БАЙКАЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 46,
+        "fields": {
+            "city": "БАКСАН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 47,
+        "fields": {
+            "city": "БАЛАБАНОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 48,
+        "fields": {
+            "city": "БАЛАКОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 49,
+        "fields": {
+            "city": "БАЛАХНА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 50,
+        "fields": {
+            "city": "БАЛАШИХА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 51,
+        "fields": {
+            "city": "БАЛАШОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 52,
+        "fields": {
+            "city": "БАЛТИЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 53,
+        "fields": {
+            "city": "БАРАБИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 54,
+        "fields": {
+            "city": "БАРНАУЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 55,
+        "fields": {
+            "city": "БАРЫШ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 56,
+        "fields": {
+            "city": "БАТАЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 57,
+        "fields": {
+            "city": "БАХЧИСАРАЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 58,
+        "fields": {
+            "city": "БЕЖЕЦК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 59,
+        "fields": {
+            "city": "БЕЛАЯ КАЛИТВА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 60,
+        "fields": {
+            "city": "БЕЛГОРОД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 61,
+        "fields": {
+            "city": "БЕЛОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 62,
+        "fields": {
+            "city": "БЕЛОГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 63,
+        "fields": {
+            "city": "БЕЛОГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 64,
+        "fields": {
+            "city": "БЕЛОМОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 65,
+        "fields": {
+            "city": "БЕЛОРЕЦК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 66,
+        "fields": {
+            "city": "БЕЛОРЕЧЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 67,
+        "fields": {
+            "city": "БЕЛОЯРСКИЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 68,
+        "fields": {
+            "city": "БЕЛЫЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 69,
+        "fields": {
+            "city": "БЕРДСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 70,
+        "fields": {
+            "city": "БЕРЕЗНИКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 71,
+        "fields": {
+            "city": "БЕРЁЗОВСКИЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 72,
+        "fields": {
+            "city": "БЕРЁЗОВСКИЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 73,
+        "fields": {
+            "city": "БЕСЛАН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 74,
+        "fields": {
+            "city": "БИЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 75,
+        "fields": {
+            "city": "БИКИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 76,
+        "fields": {
+            "city": "БИРОБИДЖАН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 77,
+        "fields": {
+            "city": "БИРЮСИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 78,
+        "fields": {
+            "city": "БИРЮЧ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 79,
+        "fields": {
+            "city": "БЛАГОВЕЩЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 80,
+        "fields": {
+            "city": "БЛАГОВЕЩЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 81,
+        "fields": {
+            "city": "БОБРОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 82,
+        "fields": {
+            "city": "БОГДАНОВИЧ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 83,
+        "fields": {
+            "city": "БОГОТОЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 84,
+        "fields": {
+            "city": "БОЛОГОЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 85,
+        "fields": {
+            "city": "БОЛХОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 86,
+        "fields": {
+            "city": "БОР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 87,
+        "fields": {
+            "city": "БОРЗЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 88,
+        "fields": {
+            "city": "БОРИСОГЛЕБСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 89,
+        "fields": {
+            "city": "БОРОВИЧИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 90,
+        "fields": {
+            "city": "БОРОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 91,
+        "fields": {
+            "city": "БОРОДИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 92,
+        "fields": {
+            "city": "БРАТСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 93,
+        "fields": {
+            "city": "БРОННИЦЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 94,
+        "fields": {
+            "city": "БРЯНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 95,
+        "fields": {
+            "city": "БУГУЛЬМА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 96,
+        "fields": {
+            "city": "БУГУРУСЛАН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 97,
+        "fields": {
+            "city": "БУДЁННОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 98,
+        "fields": {
+            "city": "БУЗУЛУК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 99,
+        "fields": {
+            "city": "БУИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 100,
+        "fields": {
+            "city": "БУЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 101,
+        "fields": {
+            "city": "ВАЛДАЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 102,
+        "fields": {
+            "city": "ВАЛУЙКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 103,
+        "fields": {
+            "city": "ВЕЛИЖ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 104,
+        "fields": {
+            "city": "ВЕЛИКИЕ ЛУКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 105,
+        "fields": {
+            "city": "ВЕЛИКИЙ НОВГОРОД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 106,
+        "fields": {
+            "city": "ВЕЛИКИЙ УСТЮГ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 107,
+        "fields": {
+            "city": "ВЕЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 108,
+        "fields": {
+            "city": "ВЕНЁВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 109,
+        "fields": {
+            "city": "ВЕРЕЩАГИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 110,
+        "fields": {
+            "city": "ВЕРХНИЙ УФАЛЕЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 111,
+        "fields": {
+            "city": "ВЕРХНЯЯ САЛДА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 112,
+        "fields": {
+            "city": "ВЕРХОТУРЬЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 113,
+        "fields": {
+            "city": "ВЕСЬЕГОНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 114,
+        "fields": {
+            "city": "ВИХОРЕВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 115,
+        "fields": {
+            "city": "ВИЧУГА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 116,
+        "fields": {
+            "city": "ВЛАДИВОСТОК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 117,
+        "fields": {
+            "city": "ВЛАДИКАВКАЗ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 118,
+        "fields": {
+            "city": "ВЛАДИМИР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 119,
+        "fields": {
+            "city": "ВОЛГОГРАД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 120,
+        "fields": {
+            "city": "ВОЛГОДОНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 121,
+        "fields": {
+            "city": "ВОЛЖСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 122,
+        "fields": {
+            "city": "ВОЛЖСКИЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 123,
+        "fields": {
+            "city": "ВОЛОГДА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 124,
+        "fields": {
+            "city": "ВОЛОДАРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 125,
+        "fields": {
+            "city": "ВОЛОКОЛАМСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 126,
+        "fields": {
+            "city": "ВОЛОСОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 127,
+        "fields": {
+            "city": "ВОЛХОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 128,
+        "fields": {
+            "city": "ВОЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 129,
+        "fields": {
+            "city": "ВОРКУТА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 130,
+        "fields": {
+            "city": "ВОРОНЕЖ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 131,
+        "fields": {
+            "city": "ВОРСМА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 132,
+        "fields": {
+            "city": "ВОСКРЕСЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 133,
+        "fields": {
+            "city": "ВОТКИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 134,
+        "fields": {
+            "city": "ВСЕВОЛОЖСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 135,
+        "fields": {
+            "city": "ВЫБОРГ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 136,
+        "fields": {
+            "city": "ВЫШНИЙ ВОЛОЧЁК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 137,
+        "fields": {
+            "city": "ВЯЗНИКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 138,
+        "fields": {
+            "city": "ВЯЗЬМА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 139,
+        "fields": {
+            "city": "ВЯТСКИЕ ПОЛЯНЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 140,
+        "fields": {
+            "city": "ГАВРИЛОВ ПОСАД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 141,
+        "fields": {
+            "city": "ГАГАРИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 142,
+        "fields": {
+            "city": "ГАЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 143,
+        "fields": {
+            "city": "ГАЛИЧ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 144,
+        "fields": {
+            "city": "ГАТЧИНА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 145,
+        "fields": {
+            "city": "ГВАРДЕЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 146,
+        "fields": {
+            "city": "ГЕОРГИЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 147,
+        "fields": {
+            "city": "ГЛАЗОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 148,
+        "fields": {
+            "city": "ГОЛИЦЫНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 149,
+        "fields": {
+            "city": "ГОРБАТОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 150,
+        "fields": {
+            "city": "ГОРОДЕЦ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 151,
+        "fields": {
+            "city": "ГОРОДИЩЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 152,
+        "fields": {
+            "city": "ГОРОХОВЕЦ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 153,
+        "fields": {
+            "city": "ГОРЯЧИЙ КЛЮЧ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 154,
+        "fields": {
+            "city": "ГРОЗНЫЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 155,
+        "fields": {
+            "city": "ГРЯЗИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 156,
+        "fields": {
+            "city": "ГРЯЗОВЕЦ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 157,
+        "fields": {
+            "city": "ГУБАХА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 158,
+        "fields": {
+            "city": "ГУБКИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 159,
+        "fields": {
+            "city": "ГУДЕРМЕС"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 160,
+        "fields": {
+            "city": "ГУЛЬКЕВИЧИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 161,
+        "fields": {
+            "city": "ГУРЬЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 162,
+        "fields": {
+            "city": "ГУРЬЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 163,
+        "fields": {
+            "city": "ГУСЕВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 164,
+        "fields": {
+            "city": "ГУСЬ-ХРУСТАЛЬНЫЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 165,
+        "fields": {
+            "city": "ДАВЛЕКАНОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 166,
+        "fields": {
+            "city": "ДАГЕСТАНСКИЕ ОГНИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 167,
+        "fields": {
+            "city": "ДАЛМАТОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 168,
+        "fields": {
+            "city": "ДАЛЬНЕРЕЧЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 169,
+        "fields": {
+            "city": "ДАНИЛОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 170,
+        "fields": {
+            "city": "ДЕДОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 171,
+        "fields": {
+            "city": "ДЕРБЕНТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 172,
+        "fields": {
+            "city": "ДЖАНКОЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 173,
+        "fields": {
+            "city": "ДЗЕРЖИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 174,
+        "fields": {
+            "city": "ДИВНОГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 175,
+        "fields": {
+            "city": "ДИМИТРОВГРАД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 176,
+        "fields": {
+            "city": "ДМИТРИЕВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 177,
+        "fields": {
+            "city": "ДМИТРОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 178,
+        "fields": {
+            "city": "ДМИТРОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 179,
+        "fields": {
+            "city": "ДНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 180,
+        "fields": {
+            "city": "ДОЛИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 181,
+        "fields": {
+            "city": "ДОМОДЕДОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 182,
+        "fields": {
+            "city": "ДОНЕЦК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 183,
+        "fields": {
+            "city": "ДОНСКОЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 184,
+        "fields": {
+            "city": "ДРЕЗНА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 185,
+        "fields": {
+            "city": "ДУБНА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 186,
+        "fields": {
+            "city": "ДУБОВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 187,
+        "fields": {
+            "city": "ДУДИНКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 188,
+        "fields": {
+            "city": "ДЯТЬКОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 189,
+        "fields": {
+            "city": "ЕВПАТОРИЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 190,
+        "fields": {
+            "city": "ЕГОРЬЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 191,
+        "fields": {
+            "city": "ЕЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 192,
+        "fields": {
+            "city": "ЕКАТЕРИНБУРГ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 193,
+        "fields": {
+            "city": "ЕЛЕЦ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 194,
+        "fields": {
+            "city": "ЕЛИЗОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 195,
+        "fields": {
+            "city": "ЕЛЬНЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 196,
+        "fields": {
+            "city": "ЕМАНЖЕЛИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 197,
+        "fields": {
+            "city": "ЕНИСЕЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 198,
+        "fields": {
+            "city": "ЕРМОЛИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 199,
+        "fields": {
+            "city": "ЕРШОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 200,
+        "fields": {
+            "city": "ЕССЕНТУКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 201,
+        "fields": {
+            "city": "ЕФРЕМОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 202,
+        "fields": {
+            "city": "ЖЕЛЕЗНОВОДСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 203,
+        "fields": {
+            "city": "ЖЕРДЕВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 204,
+        "fields": {
+            "city": "ЖИГУЛЁВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 205,
+        "fields": {
+            "city": "ЖУКОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 206,
+        "fields": {
+            "city": "ЖУКОВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 207,
+        "fields": {
+            "city": "ЗАВОДОУКОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 208,
+        "fields": {
+            "city": "ЗАВОЛЖСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 209,
+        "fields": {
+            "city": "ЗАВОЛЖЬЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 210,
+        "fields": {
+            "city": "ЗАИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 211,
+        "fields": {
+            "city": "ЗАПАДНАЯ ДВИНА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 212,
+        "fields": {
+            "city": "ЗАРЕЧНЫЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 213,
+        "fields": {
+            "city": "ЗАРЕЧНЫЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 214,
+        "fields": {
+            "city": "ЗАРИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 215,
+        "fields": {
+            "city": "ЗВЕНИГОРОД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 216,
+        "fields": {
+            "city": "ЗВЕРЕВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 217,
+        "fields": {
+            "city": "ЗЕЛЕНОГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 218,
+        "fields": {
+            "city": "ЗЕЛЕНОГРАДСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 219,
+        "fields": {
+            "city": "ЗЕЛЕНОДОЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 220,
+        "fields": {
+            "city": "ЗЕЛЕНОКУМСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 221,
+        "fields": {
+            "city": "ЗЕРНОГРАД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 222,
+        "fields": {
+            "city": "ЗИМА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 223,
+        "fields": {
+            "city": "ЗЛАТОУСТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 224,
+        "fields": {
+            "city": "ЗЛЫНКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 225,
+        "fields": {
+            "city": "ЗНАМЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 226,
+        "fields": {
+            "city": "ЗУБЦОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 227,
+        "fields": {
+            "city": "ЗУЕВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 228,
+        "fields": {
+            "city": "ИВАНГОРОД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 229,
+        "fields": {
+            "city": "ИВАНОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 230,
+        "fields": {
+            "city": "ИВАНТЕЕВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 231,
+        "fields": {
+            "city": "ИВДЕЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 232,
+        "fields": {
+            "city": "ИЖЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 233,
+        "fields": {
+            "city": "ИЗБЕРБАШ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 234,
+        "fields": {
+            "city": "ИНЗА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 235,
+        "fields": {
+            "city": "ИНСАР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 236,
+        "fields": {
+            "city": "ИНТА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 237,
+        "fields": {
+            "city": "ИРБИТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 238,
+        "fields": {
+            "city": "ИРКУТСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 239,
+        "fields": {
+            "city": "ИСИЛЬКУЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 240,
+        "fields": {
+            "city": "ИСКИТИМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 241,
+        "fields": {
+            "city": "ИСТРА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 242,
+        "fields": {
+            "city": "ИШИМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 243,
+        "fields": {
+            "city": "ЙОШКАР-ОЛА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 244,
+        "fields": {
+            "city": "КАДНИКОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 245,
+        "fields": {
+            "city": "КАЗАНЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 246,
+        "fields": {
+            "city": "КАЛАЧ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 247,
+        "fields": {
+            "city": "КАЛАЧИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 248,
+        "fields": {
+            "city": "КАЛИНИНГРАД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 249,
+        "fields": {
+            "city": "КАЛИНИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 250,
+        "fields": {
+            "city": "КАЛТАН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 251,
+        "fields": {
+            "city": "КАЛУГА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 252,
+        "fields": {
+            "city": "КАЛЯЗИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 253,
+        "fields": {
+            "city": "КАМБАРКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 254,
+        "fields": {
+            "city": "КАМЕНКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 255,
+        "fields": {
+            "city": "КАМЕННОГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 256,
+        "fields": {
+            "city": "КАМЕНСК-УРАЛЬСКИЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 257,
+        "fields": {
+            "city": "КАМЕНЬ-НА-ОБИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 258,
+        "fields": {
+            "city": "КАМЕШКОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 259,
+        "fields": {
+            "city": "КАМЫШИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 260,
+        "fields": {
+            "city": "КАМЫШЛОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 261,
+        "fields": {
+            "city": "КАНАШ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 262,
+        "fields": {
+            "city": "КАНДАЛАКША"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 263,
+        "fields": {
+            "city": "КАНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 264,
+        "fields": {
+            "city": "КАРАБАНОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 265,
+        "fields": {
+            "city": "КАРАБУЛАК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 266,
+        "fields": {
+            "city": "КАРАСУК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 267,
+        "fields": {
+            "city": "КАРАЧАЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 268,
+        "fields": {
+            "city": "КАРАЧЕВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 269,
+        "fields": {
+            "city": "КАРГАТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 270,
+        "fields": {
+            "city": "КАРПИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 271,
+        "fields": {
+            "city": "КАРТАЛЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 272,
+        "fields": {
+            "city": "КАСИМОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 273,
+        "fields": {
+            "city": "КАТАЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 274,
+        "fields": {
+            "city": "КАЧКАНАР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 275,
+        "fields": {
+            "city": "КАШИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 276,
+        "fields": {
+            "city": "КАШИРА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 277,
+        "fields": {
+            "city": "КЕДРОВЫЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 278,
+        "fields": {
+            "city": "КЕМЕРОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 279,
+        "fields": {
+            "city": "КЕМЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 280,
+        "fields": {
+            "city": "КЕРЧЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 281,
+        "fields": {
+            "city": "КИЗЕЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 282,
+        "fields": {
+            "city": "КИЗИЛЮРТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 283,
+        "fields": {
+            "city": "КИЗЛЯР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 284,
+        "fields": {
+            "city": "КИМОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 285,
+        "fields": {
+            "city": "КИНГИСЕПП"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 286,
+        "fields": {
+            "city": "КИНЕЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 287,
+        "fields": {
+            "city": "КИНЕШМА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 288,
+        "fields": {
+            "city": "КИРЖАЧ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 289,
+        "fields": {
+            "city": "КИРИЛЛОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 290,
+        "fields": {
+            "city": "КИРИШИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 291,
+        "fields": {
+            "city": "КИРОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 292,
+        "fields": {
+            "city": "КИРОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 293,
+        "fields": {
+            "city": "КИРОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 294,
+        "fields": {
+            "city": "КИРОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 295,
+        "fields": {
+            "city": "КИРС"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 296,
+        "fields": {
+            "city": "КИРСАНОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 297,
+        "fields": {
+            "city": "КИСЕЛЁВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 298,
+        "fields": {
+            "city": "КИСЛОВОДСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 299,
+        "fields": {
+            "city": "КЛИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 300,
+        "fields": {
+            "city": "КЛИНЦЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 301,
+        "fields": {
+            "city": "КОВРОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 302,
+        "fields": {
+            "city": "КОВЫЛКИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 303,
+        "fields": {
+            "city": "КОГАЛЫМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 304,
+        "fields": {
+            "city": "КОДИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 305,
+        "fields": {
+            "city": "КОЗЕЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 306,
+        "fields": {
+            "city": "КОЗЛОВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 307,
+        "fields": {
+            "city": "КОЗЬМОДЕМЬЯНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 308,
+        "fields": {
+            "city": "КОЛА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 309,
+        "fields": {
+            "city": "КОЛОГРИВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 310,
+        "fields": {
+            "city": "КОЛОМНА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 311,
+        "fields": {
+            "city": "КОЛЬЧУГИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 312,
+        "fields": {
+            "city": "КОММУНАР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 313,
+        "fields": {
+            "city": "КОМСОМОЛЬСК-НА-АМУРЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 314,
+        "fields": {
+            "city": "КОМСОМОЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 315,
+        "fields": {
+            "city": "КОНАКОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 316,
+        "fields": {
+            "city": "КОНДОПОГА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 317,
+        "fields": {
+            "city": "КОРАБЛИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 318,
+        "fields": {
+            "city": "КОРЕНОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 319,
+        "fields": {
+            "city": "КОРОЛЁВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 320,
+        "fields": {
+            "city": "КОРСАКОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 321,
+        "fields": {
+            "city": "КОСТЕРЁВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 322,
+        "fields": {
+            "city": "КОСТОМУКША"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 323,
+        "fields": {
+            "city": "КОСТРОМА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 324,
+        "fields": {
+            "city": "КОТЕЛЬНИКОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 325,
+        "fields": {
+            "city": "КОТЕЛЬНИЧ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 326,
+        "fields": {
+            "city": "КОТЛАС"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 327,
+        "fields": {
+            "city": "КОТОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 328,
+        "fields": {
+            "city": "КОХМА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 329,
+        "fields": {
+            "city": "КРАСАВИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 330,
+        "fields": {
+            "city": "КРАСНОАРМЕЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 331,
+        "fields": {
+            "city": "КРАСНОАРМЕЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 332,
+        "fields": {
+            "city": "КРАСНОГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 333,
+        "fields": {
+            "city": "КРАСНОДАР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 334,
+        "fields": {
+            "city": "КРАСНОКАМЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 335,
+        "fields": {
+            "city": "КРАСНОКАМСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 336,
+        "fields": {
+            "city": "КРАСНОТУРЬИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 337,
+        "fields": {
+            "city": "КРАСНОУФИМСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 338,
+        "fields": {
+            "city": "КРАСНОЯРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 339,
+        "fields": {
+            "city": "КРАСНЫЙ КУТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 340,
+        "fields": {
+            "city": "КРАСНЫЙ СУЛИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 341,
+        "fields": {
+            "city": "КРАСНЫЙ ХОЛМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 342,
+        "fields": {
+            "city": "КРЫМСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 343,
+        "fields": {
+            "city": "КУБИНКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 344,
+        "fields": {
+            "city": "КУВАНДЫК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 345,
+        "fields": {
+            "city": "КУВШИНОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 346,
+        "fields": {
+            "city": "КУЗНЕЦК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 347,
+        "fields": {
+            "city": "КУЙБЫШЕВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 348,
+        "fields": {
+            "city": "КУКМОР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 349,
+        "fields": {
+            "city": "КУМЕРТАУ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 350,
+        "fields": {
+            "city": "КУНГУР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 351,
+        "fields": {
+            "city": "КУПИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 352,
+        "fields": {
+            "city": "КУРГАН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 353,
+        "fields": {
+            "city": "КУРЛОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 354,
+        "fields": {
+            "city": "КУРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 355,
+        "fields": {
+            "city": "КУРЧАТОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 356,
+        "fields": {
+            "city": "КУШВА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 357,
+        "fields": {
+            "city": "КЫЗЫЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 358,
+        "fields": {
+            "city": "КЫШТЫМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 359,
+        "fields": {
+            "city": "ЛАБИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 360,
+        "fields": {
+            "city": "ЛАБЫТНАНГИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 361,
+        "fields": {
+            "city": "ЛАДУШКИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 362,
+        "fields": {
+            "city": "ЛАНГЕПАС"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 363,
+        "fields": {
+            "city": "ЛЕНИНСК-КУЗНЕЦКИЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 364,
+        "fields": {
+            "city": "ЛЕНИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 365,
+        "fields": {
+            "city": "ЛЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 366,
+        "fields": {
+            "city": "ЛЕРМОНТОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 367,
+        "fields": {
+            "city": "ЛЕСНОЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 368,
+        "fields": {
+            "city": "ЛЕСОЗАВОДСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 369,
+        "fields": {
+            "city": "ЛЕСОСИБИРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 370,
+        "fields": {
+            "city": "ЛИВНЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 371,
+        "fields": {
+            "city": "ЛИПЕЦК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 372,
+        "fields": {
+            "city": "ЛИПКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 373,
+        "fields": {
+            "city": "ЛИСКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 374,
+        "fields": {
+            "city": "ЛИХОСЛАВЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 375,
+        "fields": {
+            "city": "ЛОБНЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 376,
+        "fields": {
+            "city": "ЛОДЕЙНОЕ ПОЛЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 377,
+        "fields": {
+            "city": "ЛУГА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 378,
+        "fields": {
+            "city": "ЛУЗА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 379,
+        "fields": {
+            "city": "ЛУКОЯНОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 380,
+        "fields": {
+            "city": "ЛУХОВИЦЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 381,
+        "fields": {
+            "city": "ЛЫСЬВА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 382,
+        "fields": {
+            "city": "ЛЬГОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 383,
+        "fields": {
+            "city": "ЛЮБАНЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 384,
+        "fields": {
+            "city": "ЛЮБЕРЦЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 385,
+        "fields": {
+            "city": "ЛЮБИМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 386,
+        "fields": {
+            "city": "ЛЮДИНОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 387,
+        "fields": {
+            "city": "МАГНИТОГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 388,
+        "fields": {
+            "city": "МАЙКОП"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 389,
+        "fields": {
+            "city": "МАКАРОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 390,
+        "fields": {
+            "city": "МАКУШИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 391,
+        "fields": {
+            "city": "МАЛАЯ ВИШЕРА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 392,
+        "fields": {
+            "city": "МАЛОАРХАНГЕЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 393,
+        "fields": {
+            "city": "МАЛОЯРОСЛАВЕЦ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 394,
+        "fields": {
+            "city": "МАМОНОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 395,
+        "fields": {
+            "city": "МАНТУРОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 396,
+        "fields": {
+            "city": "МАРИИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 397,
+        "fields": {
+            "city": "МАРКС"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 398,
+        "fields": {
+            "city": "МАХАЧКАЛА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 399,
+        "fields": {
+            "city": "МЕГИОН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 400,
+        "fields": {
+            "city": "МЕДНОГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 401,
+        "fields": {
+            "city": "МЕЖДУРЕЧЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 402,
+        "fields": {
+            "city": "МЕЛЕУЗ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 403,
+        "fields": {
+            "city": "МЕНДЕЛЕЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 404,
+        "fields": {
+            "city": "МИАСС"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 405,
+        "fields": {
+            "city": "МИКУНЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 406,
+        "fields": {
+            "city": "МИЛЛЕРОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 407,
+        "fields": {
+            "city": "МИНЕРАЛЬНЫЕ ВОДЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 408,
+        "fields": {
+            "city": "МИНУСИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 409,
+        "fields": {
+            "city": "МИНЬЯР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 410,
+        "fields": {
+            "city": "МИХАЙЛОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 411,
+        "fields": {
+            "city": "МИХАЙЛОВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 412,
+        "fields": {
+            "city": "МИХАЙЛОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 413,
+        "fields": {
+            "city": "МИХАЙЛОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 414,
+        "fields": {
+            "city": "МИЧУРИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 415,
+        "fields": {
+            "city": "МОГОЧА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 416,
+        "fields": {
+            "city": "МОЖАЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 417,
+        "fields": {
+            "city": "МОЖГА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 418,
+        "fields": {
+            "city": "МОЗДОК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 419,
+        "fields": {
+            "city": "МОРОЗОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 420,
+        "fields": {
+            "city": "МОРШАНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 421,
+        "fields": {
+            "city": "МОСКВА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 422,
+        "fields": {
+            "city": "МУРАШИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 423,
+        "fields": {
+            "city": "МУРИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 424,
+        "fields": {
+            "city": "МУРМАНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 425,
+        "fields": {
+            "city": "МУРОМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 426,
+        "fields": {
+            "city": "МЦЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 427,
+        "fields": {
+            "city": "МЫСКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 428,
+        "fields": {
+            "city": "МЫТИЩИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 429,
+        "fields": {
+            "city": "НАБЕРЕЖНЫЕ ЧЕЛНЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 430,
+        "fields": {
+            "city": "НАВАШИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 431,
+        "fields": {
+            "city": "НАЗАРОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 432,
+        "fields": {
+            "city": "НАЗРАНЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 433,
+        "fields": {
+            "city": "НАЗЫВАЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 434,
+        "fields": {
+            "city": "НАЛЬЧИК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 435,
+        "fields": {
+            "city": "НАХОДКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 436,
+        "fields": {
+            "city": "НЕВЕЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 437,
+        "fields": {
+            "city": "НЕВЕЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 438,
+        "fields": {
+            "city": "НЕВИННОМЫССК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 439,
+        "fields": {
+            "city": "НЕВЬЯНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 440,
+        "fields": {
+            "city": "НЕЛИДОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 441,
+        "fields": {
+            "city": "НЕРЕХТА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 442,
+        "fields": {
+            "city": "НЕРЮНГРИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 443,
+        "fields": {
+            "city": "НЕСТЕРОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 444,
+        "fields": {
+            "city": "НЕФТЕКАМСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 445,
+        "fields": {
+            "city": "НЕЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 446,
+        "fields": {
+            "city": "НИЖНЕВАРТОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 447,
+        "fields": {
+            "city": "НИЖНЕКАМСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 448,
+        "fields": {
+            "city": "НИЖНЕУДИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 449,
+        "fields": {
+            "city": "НИЖНИЙ НОВГОРОД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 450,
+        "fields": {
+            "city": "НИЖНИЙ ТАГИЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 451,
+        "fields": {
+            "city": "НИЖНЯЯ САЛДА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 452,
+        "fields": {
+            "city": "НИЖНЯЯ ТУРА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 453,
+        "fields": {
+            "city": "НИКОЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 454,
+        "fields": {
+            "city": "НИКОЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 455,
+        "fields": {
+            "city": "НИКОЛЬСКОЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 456,
+        "fields": {
+            "city": "НОВОЗЫБКОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 457,
+        "fields": {
+            "city": "НОВОКУЗНЕЦК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 458,
+        "fields": {
+            "city": "НОВОКУЙБЫШЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 459,
+        "fields": {
+            "city": "НОВОМОСКОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 460,
+        "fields": {
+            "city": "НОВОРОССИЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 461,
+        "fields": {
+            "city": "НОВОСИБИРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 462,
+        "fields": {
+            "city": "НОВОСОКОЛЬНИКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 463,
+        "fields": {
+            "city": "НОВОТРОИЦК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 464,
+        "fields": {
+            "city": "НОВОУЗЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 465,
+        "fields": {
+            "city": "НОВОУРАЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 466,
+        "fields": {
+            "city": "НОВОХОПЁРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 467,
+        "fields": {
+            "city": "НОВОЧЕРКАССК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 468,
+        "fields": {
+            "city": "НОВОШАХТИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 469,
+        "fields": {
+            "city": "НОВЫЙ ОСКОЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 470,
+        "fields": {
+            "city": "НОВЫЙ УРЕНГОЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 471,
+        "fields": {
+            "city": "НОГИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 472,
+        "fields": {
+            "city": "НОЯБРЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 473,
+        "fields": {
+            "city": "НУРЛАТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 474,
+        "fields": {
+            "city": "НЯГАНЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 475,
+        "fields": {
+            "city": "НЯНДОМА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 476,
+        "fields": {
+            "city": "ОБЛУЧЬЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 477,
+        "fields": {
+            "city": "ОБНИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 478,
+        "fields": {
+            "city": "ОБЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 479,
+        "fields": {
+            "city": "ОДИНЦОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 480,
+        "fields": {
+            "city": "ОЗЁРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 481,
+        "fields": {
+            "city": "ОЗЁРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 482,
+        "fields": {
+            "city": "ОЗЁРЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 483,
+        "fields": {
+            "city": "ОКТЯБРЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 484,
+        "fields": {
+            "city": "ОКТЯБРЬСКИЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 485,
+        "fields": {
+            "city": "ОКУЛОВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 486,
+        "fields": {
+            "city": "ОЛЕНЕГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 487,
+        "fields": {
+            "city": "ОЛОНЕЦ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 488,
+        "fields": {
+            "city": "ОМСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 489,
+        "fields": {
+            "city": "ОНЕГА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 490,
+        "fields": {
+            "city": "ОРЕНБУРГ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 491,
+        "fields": {
+            "city": "ОРЕХОВО-ЗУЕВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 492,
+        "fields": {
+            "city": "ОРЛОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 493,
+        "fields": {
+            "city": "ОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 494,
+        "fields": {
+            "city": "ОРЁЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 495,
+        "fields": {
+            "city": "ОСА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 496,
+        "fields": {
+            "city": "ОСИННИКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 497,
+        "fields": {
+            "city": "ОСТАШКОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 498,
+        "fields": {
+            "city": "ОСТРОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 499,
+        "fields": {
+            "city": "ОСТРОВНОЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 500,
+        "fields": {
+            "city": "ОСТРОГОЖСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 501,
+        "fields": {
+            "city": "ОТРАДНОЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 502,
+        "fields": {
+            "city": "ОЧЁР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 503,
+        "fields": {
+            "city": "ПАВЛОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 504,
+        "fields": {
+            "city": "ПАВЛОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 505,
+        "fields": {
+            "city": "ПАВЛОВСКИЙ ПОСАД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 506,
+        "fields": {
+            "city": "ПАЛЛАСОВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 507,
+        "fields": {
+            "city": "ПАРТИЗАНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 508,
+        "fields": {
+            "city": "ПЕНЗА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 509,
+        "fields": {
+            "city": "ПЕРВОМАЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 510,
+        "fields": {
+            "city": "ПЕРВОУРАЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 511,
+        "fields": {
+            "city": "ПЕРЕВОЗ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 512,
+        "fields": {
+            "city": "ПЕРЕСВЕТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 513,
+        "fields": {
+            "city": "ПЕРМЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 514,
+        "fields": {
+            "city": "ПЕСТОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 515,
+        "fields": {
+            "city": "ПЕТРОВ ВАЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 516,
+        "fields": {
+            "city": "ПЕТРОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 517,
+        "fields": {
+            "city": "ПЕТРОЗАВОДСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 518,
+        "fields": {
+            "city": "ПЕТУХОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 519,
+        "fields": {
+            "city": "ПЕТУШКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 520,
+        "fields": {
+            "city": "ПЕЧОРА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 521,
+        "fields": {
+            "city": "ПЕЧОРЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 522,
+        "fields": {
+            "city": "ПИКАЛЁВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 523,
+        "fields": {
+            "city": "ПИОНЕРСКИЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 524,
+        "fields": {
+            "city": "ПИТКЯРАНТА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 525,
+        "fields": {
+            "city": "ПЛАВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 526,
+        "fields": {
+            "city": "ПЛАСТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 527,
+        "fields": {
+            "city": "ПЛЁС"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 528,
+        "fields": {
+            "city": "ПОВОРИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 529,
+        "fields": {
+            "city": "ПОДОЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 530,
+        "fields": {
+            "city": "ПОДПОРОЖЬЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 531,
+        "fields": {
+            "city": "ПОКРОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 532,
+        "fields": {
+            "city": "ПОКРОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 533,
+        "fields": {
+            "city": "ПОЛЕВСКОЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 534,
+        "fields": {
+            "city": "ПОЛЕССК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 535,
+        "fields": {
+            "city": "ПОЛЯРНЫЕ ЗОРИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 536,
+        "fields": {
+            "city": "ПОЛЯРНЫЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 537,
+        "fields": {
+            "city": "ПОРОНАЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 538,
+        "fields": {
+            "city": "ПОРХОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 539,
+        "fields": {
+            "city": "ПОХВИСТНЕВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 540,
+        "fields": {
+            "city": "ПОЧЕП"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 541,
+        "fields": {
+            "city": "ПОЧИНОК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 542,
+        "fields": {
+            "city": "ПРАВДИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 543,
+        "fields": {
+            "city": "ПРИВОЛЖСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 544,
+        "fields": {
+            "city": "ПРИМОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 545,
+        "fields": {
+            "city": "ПРИМОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 546,
+        "fields": {
+            "city": "ПРИОЗЕРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 547,
+        "fields": {
+            "city": "ПРОКОПЬЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 548,
+        "fields": {
+            "city": "ПРОЛЕТАРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 549,
+        "fields": {
+            "city": "ПСКОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 550,
+        "fields": {
+            "city": "ПУГАЧЁВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 551,
+        "fields": {
+            "city": "ПУСТОШКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 552,
+        "fields": {
+            "city": "ПУШКИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 553,
+        "fields": {
+            "city": "ПЫТАЛОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 554,
+        "fields": {
+            "city": "ПЫТЬ-ЯХ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 555,
+        "fields": {
+            "city": "ПЯТИГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 556,
+        "fields": {
+            "city": "РАДУЖНЫЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 557,
+        "fields": {
+            "city": "РАДУЖНЫЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 558,
+        "fields": {
+            "city": "РАМЕНСКОЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 559,
+        "fields": {
+            "city": "РАССКАЗОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 560,
+        "fields": {
+            "city": "РЕВДА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 561,
+        "fields": {
+            "city": "РЕЖ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 562,
+        "fields": {
+            "city": "РЕУТОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 563,
+        "fields": {
+            "city": "РЖЕВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 564,
+        "fields": {
+            "city": "РОДНИКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 565,
+        "fields": {
+            "city": "РОСЛАВЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 566,
+        "fields": {
+            "city": "РОССОШЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 567,
+        "fields": {
+            "city": "РОСТОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 568,
+        "fields": {
+            "city": "РТИЩЕВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 569,
+        "fields": {
+            "city": "РУБЦОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 570,
+        "fields": {
+            "city": "РУДНЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 571,
+        "fields": {
+            "city": "РУЗА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 572,
+        "fields": {
+            "city": "РУЗАЕВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 573,
+        "fields": {
+            "city": "РЫБИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 574,
+        "fields": {
+            "city": "РЫБНОЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 575,
+        "fields": {
+            "city": "РЯЖСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 576,
+        "fields": {
+            "city": "РЯЗАНЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 577,
+        "fields": {
+            "city": "САКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 578,
+        "fields": {
+            "city": "САЛАВАТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 579,
+        "fields": {
+            "city": "САЛАИР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 580,
+        "fields": {
+            "city": "САЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 581,
+        "fields": {
+            "city": "САМАРА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 582,
+        "fields": {
+            "city": "САНКТ-ПЕТЕРБУРГ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 583,
+        "fields": {
+            "city": "САРАНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 584,
+        "fields": {
+            "city": "САРАПУЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 585,
+        "fields": {
+            "city": "САРАТОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 586,
+        "fields": {
+            "city": "САСОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 587,
+        "fields": {
+            "city": "САФОНОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 588,
+        "fields": {
+            "city": "САЯНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 589,
+        "fields": {
+            "city": "СВЕТЛОГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 590,
+        "fields": {
+            "city": "СВОБОДНЫЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 591,
+        "fields": {
+            "city": "СЕБЕЖ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 592,
+        "fields": {
+            "city": "СЕВАСТОПОЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 593,
+        "fields": {
+            "city": "СЕВЕРОБАЙКАЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 594,
+        "fields": {
+            "city": "СЕВЕРОДВИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 595,
+        "fields": {
+            "city": "СЕВЕРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 596,
+        "fields": {
+            "city": "СЕГЕЖА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 597,
+        "fields": {
+            "city": "СЕЛЬЦО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 598,
+        "fields": {
+            "city": "СЕМИЛУКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 599,
+        "fields": {
+            "city": "СЕМЁНОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 600,
+        "fields": {
+            "city": "СЕРГАЧ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 601,
+        "fields": {
+            "city": "СЕРГИЕВ ПОСАД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 602,
+        "fields": {
+            "city": "СЕРДОБСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 603,
+        "fields": {
+            "city": "СЕРОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 604,
+        "fields": {
+            "city": "СЕРПУХОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 605,
+        "fields": {
+            "city": "СИБАЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 606,
+        "fields": {
+            "city": "СИМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 607,
+        "fields": {
+            "city": "СИМФЕРОПОЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 608,
+        "fields": {
+            "city": "СКОВОРОДИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 609,
+        "fields": {
+            "city": "СКОПИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 610,
+        "fields": {
+            "city": "СЛАВГОРОД"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 611,
+        "fields": {
+            "city": "СЛАВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 612,
+        "fields": {
+            "city": "СЛАНЦЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 613,
+        "fields": {
+            "city": "СЛЮДЯНКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 614,
+        "fields": {
+            "city": "СМОЛЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 615,
+        "fields": {
+            "city": "СОВЕТСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 616,
+        "fields": {
+            "city": "СОВЕТСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 617,
+        "fields": {
+            "city": "СОВЕТСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 618,
+        "fields": {
+            "city": "СОВЕТСКИЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 619,
+        "fields": {
+            "city": "СОКОЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 620,
+        "fields": {
+            "city": "СОЛИКАМСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 621,
+        "fields": {
+            "city": "СОЛЬВЫЧЕГОДСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 622,
+        "fields": {
+            "city": "СОЛЬЦЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 623,
+        "fields": {
+            "city": "СОРОЧИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 624,
+        "fields": {
+            "city": "СОРТАВАЛА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 625,
+        "fields": {
+            "city": "СОСНОВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 626,
+        "fields": {
+            "city": "СОСНОВЫЙ БОР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 627,
+        "fields": {
+            "city": "СОСНОГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 628,
+        "fields": {
+            "city": "СОЧИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 629,
+        "fields": {
+            "city": "СПАС-ДЕМЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 630,
+        "fields": {
+            "city": "СПАССК-ДАЛЬНИЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 631,
+        "fields": {
+            "city": "СПАССК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 632,
+        "fields": {
+            "city": "СРЕТЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 633,
+        "fields": {
+            "city": "СТАВРОПОЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 634,
+        "fields": {
+            "city": "СТАРАЯ РУССА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 635,
+        "fields": {
+            "city": "СТАРИЦА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 636,
+        "fields": {
+            "city": "СТАРЫЙ ОСКОЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 637,
+        "fields": {
+            "city": "СТЕРЛИТАМАК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 638,
+        "fields": {
+            "city": "СТРОИТЕЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 639,
+        "fields": {
+            "city": "СТРУНИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 640,
+        "fields": {
+            "city": "СТУПИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 641,
+        "fields": {
+            "city": "СУВОРОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 642,
+        "fields": {
+            "city": "СУДАК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 643,
+        "fields": {
+            "city": "СУОЯРВИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 644,
+        "fields": {
+            "city": "СУРАЖ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 645,
+        "fields": {
+            "city": "СУРГУТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 646,
+        "fields": {
+            "city": "СУРОВИКИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 647,
+        "fields": {
+            "city": "СУХИНИЧИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 648,
+        "fields": {
+            "city": "СУХОЙ ЛОГ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 649,
+        "fields": {
+            "city": "СЫЗРАНЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 650,
+        "fields": {
+            "city": "СЫКТЫВКАР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 651,
+        "fields": {
+            "city": "СЫСЕРТЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 652,
+        "fields": {
+            "city": "СЫЧЁВКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 653,
+        "fields": {
+            "city": "ТАВДА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 654,
+        "fields": {
+            "city": "ТАГАНРОГ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 655,
+        "fields": {
+            "city": "ТАЙГА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 656,
+        "fields": {
+            "city": "ТАЙШЕТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 657,
+        "fields": {
+            "city": "ТАЛДОМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 658,
+        "fields": {
+            "city": "ТАЛИЦА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 659,
+        "fields": {
+            "city": "ТАМБОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 660,
+        "fields": {
+            "city": "ТАРА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 661,
+        "fields": {
+            "city": "ТАТАРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 662,
+        "fields": {
+            "city": "ТАШТАГОЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 663,
+        "fields": {
+            "city": "ТВЕРЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 664,
+        "fields": {
+            "city": "ТЕЙКОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 665,
+        "fields": {
+            "city": "ТЕРЕК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 666,
+        "fields": {
+            "city": "ТИМАШЁВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 667,
+        "fields": {
+            "city": "ТИХВИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 668,
+        "fields": {
+            "city": "ТИХОРЕЦК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 669,
+        "fields": {
+            "city": "ТОБОЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 670,
+        "fields": {
+            "city": "ТОГУЧИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 671,
+        "fields": {
+            "city": "ТОЛЬЯТТИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 672,
+        "fields": {
+            "city": "ТОМАРИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 673,
+        "fields": {
+            "city": "ТОММОТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 674,
+        "fields": {
+            "city": "ТОМСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 675,
+        "fields": {
+            "city": "ТОПКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 676,
+        "fields": {
+            "city": "ТОРЖОК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 677,
+        "fields": {
+            "city": "ТОРОПЕЦ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 678,
+        "fields": {
+            "city": "ТОСНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 679,
+        "fields": {
+            "city": "ТРОИЦК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 680,
+        "fields": {
+            "city": "ТУАПСЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 681,
+        "fields": {
+            "city": "ТУЙМАЗЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 682,
+        "fields": {
+            "city": "ТУЛА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 683,
+        "fields": {
+            "city": "ТУЛУН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 684,
+        "fields": {
+            "city": "ТУРИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 685,
+        "fields": {
+            "city": "ТЫНДА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 686,
+        "fields": {
+            "city": "ТЮМЕНЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 687,
+        "fields": {
+            "city": "УГЛИЧ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 688,
+        "fields": {
+            "city": "УДОМЛЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 689,
+        "fields": {
+            "city": "УЖУР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 690,
+        "fields": {
+            "city": "УЗЛОВАЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 691,
+        "fields": {
+            "city": "УЛАН-УДЭ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 692,
+        "fields": {
+            "city": "УЛЬЯНОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 693,
+        "fields": {
+            "city": "УНЕЧА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 694,
+        "fields": {
+            "city": "УРАЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 695,
+        "fields": {
+            "city": "УРЕНЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 696,
+        "fields": {
+            "city": "УРЖУМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 697,
+        "fields": {
+            "city": "УСИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 698,
+        "fields": {
+            "city": "УСМАНЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 699,
+        "fields": {
+            "city": "УСОЛЬЕ-СИБИРСКОЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 700,
+        "fields": {
+            "city": "УСОЛЬЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 701,
+        "fields": {
+            "city": "УССУРИЙСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 702,
+        "fields": {
+            "city": "УСТЬ-ИЛИМСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 703,
+        "fields": {
+            "city": "УСТЬ-КАТАВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 704,
+        "fields": {
+            "city": "УСТЬ-КУТ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 705,
+        "fields": {
+            "city": "УСТЬ-ЛАБИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 706,
+        "fields": {
+            "city": "УФА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 707,
+        "fields": {
+            "city": "УХТА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 708,
+        "fields": {
+            "city": "УЯР"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 709,
+        "fields": {
+            "city": "ФЕОДОСИЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 710,
+        "fields": {
+            "city": "ФОКИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 711,
+        "fields": {
+            "city": "ФОКИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 712,
+        "fields": {
+            "city": "ФРЯЗИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 713,
+        "fields": {
+            "city": "ФУРМАНОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 714,
+        "fields": {
+            "city": "ХАБАРОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 715,
+        "fields": {
+            "city": "ХАДЫЖЕНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 716,
+        "fields": {
+            "city": "ХАРАБАЛИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 717,
+        "fields": {
+            "city": "ХАРОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 718,
+        "fields": {
+            "city": "ХИЛОК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 719,
+        "fields": {
+            "city": "ХИМКИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 720,
+        "fields": {
+            "city": "ХОЛМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 721,
+        "fields": {
+            "city": "ХОЛМСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 722,
+        "fields": {
+            "city": "ХОТЬКОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 723,
+        "fields": {
+            "city": "ЦИВИЛЬСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 724,
+        "fields": {
+            "city": "ЧАПАЕВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 725,
+        "fields": {
+            "city": "ЧЕБАРКУЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 726,
+        "fields": {
+            "city": "ЧЕБОКСАРЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 727,
+        "fields": {
+            "city": "ЧЕГЕМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 728,
+        "fields": {
+            "city": "ЧЕЛЯБИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 729,
+        "fields": {
+            "city": "ЧЕРЕМХОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 730,
+        "fields": {
+            "city": "ЧЕРЕПАНОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 731,
+        "fields": {
+            "city": "ЧЕРЕПОВЕЦ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 732,
+        "fields": {
+            "city": "ЧЕРКЕССК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 733,
+        "fields": {
+            "city": "ЧЕРНУШКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 734,
+        "fields": {
+            "city": "ЧЕРНЯХОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 735,
+        "fields": {
+            "city": "ЧЕХОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 736,
+        "fields": {
+            "city": "ЧИТА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 737,
+        "fields": {
+            "city": "ЧКАЛОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 738,
+        "fields": {
+            "city": "ЧУДОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 739,
+        "fields": {
+            "city": "ЧУЛЫМ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 740,
+        "fields": {
+            "city": "ШАДРИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 741,
+        "fields": {
+            "city": "ШАЛИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 742,
+        "fields": {
+            "city": "ШАРЬЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 743,
+        "fields": {
+            "city": "ШАТУРА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 744,
+        "fields": {
+            "city": "ШАХУНЬЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 745,
+        "fields": {
+            "city": "ШЕЛЕХОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 746,
+        "fields": {
+            "city": "ШИЛКА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 747,
+        "fields": {
+            "city": "ШИМАНОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 748,
+        "fields": {
+            "city": "ШИХАНЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 749,
+        "fields": {
+            "city": "ШУМЕРЛЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 750,
+        "fields": {
+            "city": "ШУМИХА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 751,
+        "fields": {
+            "city": "ШУЯ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 752,
+        "fields": {
+            "city": "ЩИГРЫ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 753,
+        "fields": {
+            "city": "ЩУЧЬЕ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 754,
+        "fields": {
+            "city": "ЩЁКИНО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 755,
+        "fields": {
+            "city": "ЩЁЛКОВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 756,
+        "fields": {
+            "city": "ЭЛЕКТРОГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 757,
+        "fields": {
+            "city": "ЭЛЕКТРОСТАЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 758,
+        "fields": {
+            "city": "ЭЛЕКТРОУГЛИ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 759,
+        "fields": {
+            "city": "ЭЛИСТА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 760,
+        "fields": {
+            "city": "ЮЖА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 761,
+        "fields": {
+            "city": "ЮЖНО-САХАЛИНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 762,
+        "fields": {
+            "city": "ЮРГА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 763,
+        "fields": {
+            "city": "ЮРЬЕВ-ПОЛЬСКИЙ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 764,
+        "fields": {
+            "city": "ЮРЬЕВЕЦ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 765,
+        "fields": {
+            "city": "ЮХНОВ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 766,
+        "fields": {
+            "city": "ЯДРИН"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 767,
+        "fields": {
+            "city": "ЯКУТСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 768,
+        "fields": {
+            "city": "ЯЛТА"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 769,
+        "fields": {
+            "city": "ЯЛУТОРОВСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 770,
+        "fields": {
+            "city": "ЯНАУЛ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 771,
+        "fields": {
+            "city": "ЯРАНСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 772,
+        "fields": {
+            "city": "ЯРОСЛАВЛЬ"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 773,
+        "fields": {
+            "city": "ЯРЦЕВО"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 774,
+        "fields": {
+            "city": "ЯСНОГОРСК"
+        }
+    },
+    {
+        "model": "railways_api.city",
+        "pk": 775,
+        "fields": {
+            "city": "ЯХРОМА"
+        }
+    }
+]

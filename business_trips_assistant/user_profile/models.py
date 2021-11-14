@@ -50,3 +50,4 @@ class UserTelegram(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     id_telegram = models.IntegerField()
     tag_telegram = models.CharField(max_length=150)
+    telephone = models.CharField(max_length=11, blank=True)

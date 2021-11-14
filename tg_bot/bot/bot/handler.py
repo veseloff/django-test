@@ -26,7 +26,6 @@ async def get_id(message: Message, state: FSMContext):
     """
     user_id = message.from_user.id
     await message.answer(f'Ваш id: {user_id}')
-    await state.update_data(user_id=user_id)
 
 
 @dp.callback_query_handler(text_contains="choice_bt", state=None)
@@ -41,9 +40,11 @@ async def choose_business_trip(call: CallbackQuery, state: FSMContext):
 
     """
     await call.answer(cache_time=60)
-    user_id = await state.get_data('user_id')
+    user_id_telegram = call.from_user.id
+    user_id_system = await db.find_user_id(user_id_telegram)
     await Scanner.ChooseBusinessTrip.set()
-    business_trip = await db.find_business_trip(user_id)
+    business_trip = await db.find_business_trip(user_id_system)
+    print(business_trip)
 
 
 @dp.message_handler(content_types=['document', 'photo'])

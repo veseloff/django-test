@@ -8,7 +8,7 @@ class DBCommands:
 
     FIND_BUSINESS_TRIP = "SELECT id, name FROM user_profile_businesstrip WHERE status=1 AND user_id=$1"
 
-    FIND_USER_ID_IN_SYSTEM = "SELECT user_id FROM user_profile_usertelegram WHERE "
+    FIND_USER_ID_IN_SYSTEM = "SELECT user_id FROM user_profile_usertelegram WHERE id_telegram=$1"
 
     async def add_new_cheque(self, args):
         command = self.ADD_NEW_CHEQUE
@@ -18,5 +18,6 @@ class DBCommands:
         command = self.FIND_BUSINESS_TRIP
         return await self.pool.fetchval(command, user_id)
 
-    async def find_user_id(self, tag):
-        pass
+    async def find_user_id(self, telegram_id):
+        command = self.FIND_USER_ID_IN_SYSTEM
+        return await self.pool.fetchval(command, telegram_id)

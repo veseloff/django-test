@@ -55,10 +55,22 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = False
+CSRF_COOKIE_HTTPONLY = False
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
+    'http://127.0.0.1:8000',
+    'http://127.0.0.1:3000',
 )
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',
+    'http://127.0.0.1:8000',
+    'localhost:3000',
+    '127.0.0.1:8000',
+    'http://127.0.0.1:3000',
+    '127.0.0.1:3000',
+]
 
 ROOT_URLCONF = 'business_trips_assistant.urls'
 

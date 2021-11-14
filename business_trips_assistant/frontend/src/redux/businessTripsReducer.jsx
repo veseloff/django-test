@@ -1,4 +1,5 @@
 import {businessTripsAPI} from "../api/api";
+import Cookies from 'js-cookie';
 
 const SET_BT = "BT/SET-BT";
 const ADD_BT = "BT/ADD-BT";
@@ -46,6 +47,12 @@ export const setBusinessTripsTC = () => async (dispatch) => {
     dispatch(setBusinessTrips(data));
 }
 
+export const setCsrfTC = () => async (dispatch) => {
+    const data = await businessTripsAPI.getCsrf();
+    console.log(data);
+    dispatch(() => Cookies.set('csrftoken', data));
+}
+
 export const postBusinessTripsTC = (bt) => async (dispatch) => {
     bt = {
         user_id: 1,
@@ -60,7 +67,9 @@ export const postBusinessTripsTC = (bt) => async (dispatch) => {
         transport: ['Самолёт', 'Поезд'],
     }
     console.log(bt)
-    const data = await businessTripsAPI.postBusinessTrips(bt);                      //todo: VsALT - вызов post запроса
+    const data = await businessTripsAPI.getCsrf();
+    dispatch(() => Cookies.set('csrftoken', data));
+    businessTripsAPI.postBusinessTrips(bt).then(result => console.log(result));                      //todo: VsALT - вызов post запроса
 }
 
 export const putBusinessTripsTC = () => async (dispatch) => {

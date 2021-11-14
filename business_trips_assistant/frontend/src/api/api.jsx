@@ -1,4 +1,6 @@
-function getCookie(name) {
+import Cookies from 'js-cookie';
+
+/*function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
         const cookies = document.cookie.split(';');
@@ -12,8 +14,9 @@ function getCookie(name) {
         }
     }
     return cookieValue;
-}
-const csrftoken = getCookie('csrftoken');
+}*/
+
+//const csrftoken = getCookie('csrftoken');
 
 export const businessTripsAPI = {
     async getBusinessTrips() {
@@ -22,25 +25,27 @@ export const businessTripsAPI = {
             .then(data => data)
             .catch(error => console.error(error))
     },
+    async getCsrf() {
+        return await fetch('http://127.0.0.1:8000/account/get_csrf/')
+            .then(response => response.text())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
     async postBusinessTrips(bt) {                                                    //todo: VsALT - post запрос на бэк
         const url = 'http://127.0.0.1:8000/account/create_business_trip/';
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    "Accept": "application/json",
-                    'Content-Type':'application/json',
-                    //'Content-Type': 'application/json;charset=utf-8',
-                    //'X-CSRFToken': csrftoken,
-                    //'Access-Control-Allow-Credentials': true
-                },
-                body: JSON.stringify(bt),
-                //credentials: 'include'
-            });
-            const json = await response.json();
-            console.log('Успех:', JSON.stringify(json));
-        } catch (error) {
-            console.error('Ошибка:', error);
-        }
+        const csrftoken = Cookies.get('csrftoken');
+        return await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+                //'Access-Control-Allow-Credentials': true,
+            },
+            body: JSON.stringify(bt),
+            //credentials: 'include',
+        }).then(response => response.text())
+            .then(data => data)
+            .catch(error => console.error(error))
     },
 }

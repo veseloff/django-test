@@ -3,6 +3,7 @@ import {NavLink} from "react-router-dom";
 import {Formik, Form} from 'formik';
 import cn from "classnames";
 import TextInput from "../../Common/TextInput";
+import Cookies from 'js-cookie';
 
 const validate = (values) => {
     const errors = {};
@@ -73,8 +74,12 @@ const BusinessTripInfoForm = (props) => {
                     status: values.status,
                 }
 
-                if (props.id === props.countBusinessTrips)
+                if (props.id === props.countBusinessTrips) {
+                    /*props.setCsrfTC();
+                    console.log("1")
+                    console.log(Cookies.get('csrftoken'))*/
                     props.postBusinessTripsTC(bt);
+                }
                 else
                     props.editBusinessTrip(props.id, bt);
             }}>

@@ -44,27 +44,35 @@ async def choose_business_trip(call: CallbackQuery, state: FSMContext):
     user_id_system = await db.find_user_id(user_id_telegram)
     await Scanner.ChooseBusinessTrip.set()
     business_trip = await db.find_business_trip(user_id_system)
-    print(business_trip)
+    await call.message.answer(f'Текущая командировка: {business_trip["name"]}')
+    await state.update_data(b_t_id=business_trip['id'])
 
 
-@dp.message_handler(content_types=['document', 'photo'])
-async def handle_docs_photo(message: Message):
-    if message.document is None:
-        await message.photo[-1].download('чек1.jpg')
-        filename = 'чек1.jpg'
-    else:
-        await message.document.download('чек2.jpg')
-        filename = 'чек2.jpg'
-    client = NalogRuPython()
-    qr_code = get_info_zxing_qrscanner(filename)
-    ticket = client.get_ticket(qr_code)
-    data_checka = json_parser(ticket)
-    arg = (data_checka[2], datetime.now(), "Сыр 3", 1)
-    await db.add_new_cheque(arg)
-    result_answer = ""
-    for el in data_checka[1]:
-        result_answer = result_answer + '\n' + el
-    await message.answer(f"{data_checka[0]} Вы купили: {result_answer}  \n \n Потратив всего: {data_checka[2]} \u20bd")
+@dp.message_handler(content_types=['document', 'photo'], state=Scanner.ChooseBusinessTrip)
+async def handle_docs_photo(message: Message, state: FSMContext):
+    # if message.document is None:
+    #     await message.photo[-1].download('чек1.jpg')
+    #     filename = 'чек1.jpg'
+    # else:
+    #     await message.document.download('чек2.jpg')
+    #     filename = 'чек2.jpg'
+    # client = NalogRuPython()
+    # qr_code = get_info_zxing_qrscanner(filename)
+    # ticket = client.get_ticket(qr_code)
+    # data_checka = json_parser(ticket)
+    # arg = (data_checka[2], datetime.now(), "Сыр 3", 1)
+    # await db.add_new_cheque(arg)
+    # result_answer = ""
+    # for el in data_checka[1]:
+    #     result_answer = result_answer + '\n' + el
+    # report = f"{data_checka[0]} Вы купили: {result_answer}  \n \n Потратив всего: {data_checka[2]} \u20bd"
+    # await message.answer(report)
+    report = "Обед 111"
+    b_t_data = await state.get_data()
+    b_t_id = b_t_data.get('b_t_id')
+    params_to_insert = (111, datetime.now(), report, b_t_id)
+    await db.add_new_cheque(params_to_insert)
+    await message.answer('Чек успешно добавлен')
 
 
 @dp.message_handler()

@@ -12,4 +12,4 @@ from config import TOKEN
 #
 # asyncio.run(main())
 
-requests.get(f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id=&text={123}&parse_mode=HTML")
+requests.get(f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id=413900526&text={123}&parse_mode=HTML")

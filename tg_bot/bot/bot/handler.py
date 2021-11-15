@@ -6,7 +6,7 @@ from tg_bot.bot.bot.nalog_python import NalogRuPython
 from tg_bot.bot.bot.fnl_requests import json_parser
 from db_comands import DBCommands
 from datetime import datetime
-from keyboard import choice_bt
+from keyboard import choice_bt, yes_no
 from state import Scanner
 
 
@@ -42,10 +42,38 @@ async def choose_business_trip(call: CallbackQuery, state: FSMContext):
     await call.answer(cache_time=60)
     user_id_telegram = call.from_user.id
     user_id_system = await db.find_user_id(user_id_telegram)
-    await Scanner.ChooseBusinessTrip.set()
+    params = ('79122165385', user_id_telegram)
+    await db.update_phone(params)
+    await Scanner.ChoosePhone.set()
     business_trip = await db.find_business_trip(user_id_system)
-    await call.message.answer(f'Текущая командировка: {business_trip["name"]}')
+    await call.message.answer(f'Текущая командировка: {business_trip["name"]}', reply_markup=yes_no)
     await state.update_data(b_t_id=business_trip['id'])
+
+
+
+@dp.callback_query_handler(text_contains="yes", state=Scanner.ChoosePhone)
+async def choose_number_phone(call: CallbackQuery, state: FSMContext):
+    """
+    Уточнение командировки
+    Args:
+        call:
+        state:
+
+    Returns:
+
+    """
+    await call.answer(cache_time=60)
+    data = await state.get_data()
+    phone = data.get("phone")
+    if phone is None:
+        phone = db.find_phone(call.from_user.id)
+        if phone == '': #?????
+            await Scanner.InsertPhone.set()
+            return await call.message.answer('Кажется у нас нет вашего номера телефона,'
+                                             ' пожалуйста введите его в формате +7ХХХХХХХХХХ')
+        else:
+            await state.update_data(phone=phone)
+    return await call.message.answer(f'Отправьте фото чека')
 
 
 @dp.message_handler(content_types=['document', 'photo'], state=Scanner.ChooseBusinessTrip)

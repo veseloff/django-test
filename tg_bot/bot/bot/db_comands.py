@@ -12,7 +12,7 @@ class DBCommands:
 
     FIND_TELEPHONE = "SELECT telephone FROM user_profile_usertelegram WHERE id_telegram=$1"
 
-    ADD_TELEPHONE = "INSERT INTO user_profile_usertelegram ()"
+    UPDATE_TELEPHONE = "UPDATE user_profile_usertelegram SET telephone=$1 WHERE id_telegram=$2"
 
     async def add_new_cheque(self, args):
         command = self.ADD_NEW_CHEQUE
@@ -25,3 +25,11 @@ class DBCommands:
     async def find_user_id(self, telegram_id):
         command = self.FIND_USER_ID_IN_SYSTEM
         return await self.pool.fetchval(command, telegram_id)
+
+    async def find_phone(self, telegram_id):
+        command = self.FIND_TELEPHONE
+        return await self.pool.fetchval(command, telegram_id)
+
+    async def update_phone(self, args):
+        command = self.UPDATE_TELEPHONE
+        return await self.pool.fetchval(command, *args)

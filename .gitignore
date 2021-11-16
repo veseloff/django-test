@@ -133,4 +133,4 @@ dmypy.json
 .idea/
 
 .business_trips_assistant/railways_api/migrations/
-/node_modules
+.business_trips_assistant/frontend/node_modules

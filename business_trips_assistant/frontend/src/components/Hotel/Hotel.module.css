@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    height: 55px;
+    width: 100%;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.header_container {
+    display: flex;
+    justify-content: space-between;
+    width: 875px;
+}
+
+.profile_name_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 130px;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: grey;
+}

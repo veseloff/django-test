@@ -1,3 +1,4 @@
+from django.middleware import csrf
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.http import HttpResponse
@@ -8,6 +9,7 @@ from .models import BusinessTrip, Trip, Hotel
 import datetime
 from .static import TRANSPORT_NAME_MAPPING
 from railways_api.models import City
+from django.views.decorators.csrf import csrf_exempt
 
 
 def register(request):
@@ -46,9 +48,9 @@ def user_login(request):
             login(request, user)
             return (True, 'index', {})
         else:
-            return (False, 'login.html', {'invalid':True})
+            return (False, 'login.html', {'invalid': True})
     else:
-        return (False, 'login.html', {'invalid':False})
+        return (False, 'login.html', {'invalid': False})
 
 
 def user_logout(request):
@@ -137,6 +139,11 @@ def delete_business_trip(request):
     b_t.delete()
 
 
+def get_csrf(request):
+    return HttpResponse("{0}".format(csrf.get_token(request)), content_type="text/plain")
+
+
+#@csrf_exempt
 def create_business_trip(request):
     """
     Создание командировки
@@ -146,14 +153,20 @@ def create_business_trip(request):
     Returns:
 
     """
+    #return HttpResponse('Hello world')
+    print("=========================================================================")
+    print("")
+    print(request.POST)
+    print("")
+    print("=========================================================================")
     b_t = BusinessTrip.objects.create(
         user_id=2,
-        name= request.POST['name'],
-        from_city = request.POST['from_city'],
-        to_city = request.POST['to_city'],
-        credit = request.POST['credit'],
-        date_start = datetime.datetime.strptime(request.POST['date_start'], '%d.%m.%Y').date(),
-        date_finish = datetime.datetime.strptime(request.POST['date_finish'], '%d.%m.%Y').date()
+        name=request.POST['name'],
+        from_city=request.POST['from_city'],
+        to_city=request.POST['to_city'],
+        credit=request.POST['credit'],
+        date_start=datetime.datetime.strptime(request.POST['date_start'], '%d.%m.%Y').date(),
+        date_finish=datetime.datetime.strptime(request.POST['date_finish'], '%d.%m.%Y').date()
     )
     b_t.save()
     return HttpResponse(b_t.pk)
@@ -171,16 +184,16 @@ def create_trip(request):
     id_b_t = int(request.POST['id_b_t'])
     trip = Trip.objects.create(
         business_trip_id=id_b_t,
-        transport = int(request.POST['transport']),  # обсудить с серёжей
-        price_ticket = int(request.POST['price_ticket']),
-        is_first = int(request.POST['is_first']),
-        transport_number = request.POST['transport_number'],
-        date_departure = datetime.datetime.strptime(request.POST['date_departure'], '%d.%m.%Y').date(),
-        date_arrival = datetime.datetime.strptime(request.POST['date_arrival'], '%d.%m.%Y').date(),
-        city_from_id = City.objects.get(pk=int(request.POST['city_from'])),
-        city_to_id = City.objects.get(pk=int(request.POST['city_to'])),
-        station_from = request.POST['station_from'],
-        station_to = request.POST['station_to']
+        transport=int(request.POST['transport']),  # обсудить с серёжей
+        price_ticket=int(request.POST['price_ticket']),
+        is_first=int(request.POST['is_first']),
+        transport_number=request.POST['transport_number'],
+        date_departure=datetime.datetime.strptime(request.POST['date_departure'], '%d.%m.%Y').date(),
+        date_arrival=datetime.datetime.strptime(request.POST['date_arrival'], '%d.%m.%Y').date(),
+        city_from_id=City.objects.get(pk=int(request.POST['city_from'])),
+        city_to_id=City.objects.get(pk=int(request.POST['city_to'])),
+        station_from=request.POST['station_from'],
+        station_to=request.POST['station_to']
     )
 
 
@@ -196,10 +209,10 @@ def create_hotel(request):
     id_b_t = int(request.POST['id_b_t'])
     hotel = Hotel.objects.create(
         business_trip_id=id_b_t,
-        link = request.POST['link'],
-        name = request.POST['name'],
-        price = float(request.POST['price']),
-        adress = request.POST['adress'],
-        date_check_in = datetime.datetime.strptime(request.POST['check_in'], '%d.%m.%Y').date(),
-        date_departure = datetime.datetime.strptime(request.POST['departure'], '%d.%m.%Y').date()
+        link=request.POST['link'],
+        name=request.POST['name'],
+        price=float(request.POST['price']),
+        adress=request.POST['adress'],
+        date_check_in=datetime.datetime.strptime(request.POST['check_in'], '%d.%m.%Y').date(),
+        date_departure=datetime.datetime.strptime(request.POST['departure'], '%d.%m.%Y').date()
     )

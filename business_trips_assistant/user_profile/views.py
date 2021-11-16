@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.http import HttpResponse
 from railways_api.models import City
-from .forms import UserRegistrationForm
+from django.contrib.auth.models import User
 from .handler_business_trip import get_business_trip_information, insert_value_business_trip, \
     insert_value_hotel, insert_value_trip
 from .models import BusinessTrip, Trip, Hotel
@@ -21,15 +21,15 @@ def register(request):
 
     """
     if request.method == 'POST':
-        user_form = UserRegistrationForm(request.POST)
-        if user_form.is_valid():
-            new_user = user_form.save(commit=False)
-            new_user.set_password(user_form.cleaned_data['password'])
-            new_user.save()
-            return render(request, 'какой то html шаблон', {'new_user': new_user})
-    else:
-        user_form = UserRegistrationForm()
-    return render(request, 'какой то html шаблон', {'user_form': user_form})
+        password = request.POST['password']
+        username = request.POST['username']
+        email = request.POST['email']
+        first_name = request.POST.get('firstName')
+        last_name = request.POST.get('lastName')
+        user = User.objects.create_user(username, email, password, first_name=first_name, last_name=last_name)
+        user.save()
+        return HttpResponse(user)
+    return HttpResponse(None)
 
 
 def user_login(request):
@@ -46,11 +46,8 @@ def user_login(request):
                             password=request.POST["password"])
         if user is not None:
             login(request, user)
-            return True, 'index', {}
-        else:
-            return False, 'login.html', {'invalid': True}
-    else:
-        return False, 'login.html', {'invalid': False}
+            return HttpResponse(user.pk)
+    return HttpResponse(None)
 
 
 def user_logout(request):
@@ -63,7 +60,7 @@ def user_logout(request):
 
     """
     logout(request)
-    return 'login'
+    return HttpResponse(status=200)
 
 
 def get_business_trip(request):
@@ -75,8 +72,7 @@ def get_business_trip(request):
     Returns:
     Json ответ со списком всех командировок пользователя и краткой информцией о них
     """
-    # id_user = int(request.GET['id_user'])
-    id_user = 2
+    id_user = int(request.GET['id_user'])
     information = get_business_trip_information(id_user)
     answer_json = json.dumps(information, ensure_ascii=False).encode('utf-8')
     return HttpResponse(answer_json, content_type='application/json', charset='utf-8')

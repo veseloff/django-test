@@ -38,7 +38,7 @@ export const businessTripsAPI = {
             method: 'POST',
             //mode: 'same-origin',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8',
                 'X-CSRFToken': csrftoken,
                 //'Access-Control-Allow-Credentials': true,
             },

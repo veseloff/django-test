@@ -54,18 +54,6 @@ export const setCsrfTC = () => async (dispatch) => {
 }
 
 export const postBusinessTripsTC = (bt) => async (dispatch) => {
-    bt = {
-        user_id: 1,
-        date_start: "2021-10-24",
-        credit: 50000,
-        date_finish: "2021-11-06",
-        from_city: "Екатеринбург",
-        hotel: "КОСМОС",
-        id: 2,
-        name: "Столичная командировка",
-        to_city: "Москва",
-        transport: ['Самолёт', 'Поезд'],
-    }
     console.log(bt)
     const data = await businessTripsAPI.getCsrf();
     dispatch(() => Cookies.set('csrftoken', data));

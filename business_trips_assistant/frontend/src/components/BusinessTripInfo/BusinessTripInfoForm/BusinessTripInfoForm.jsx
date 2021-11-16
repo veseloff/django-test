@@ -60,6 +60,7 @@ const BusinessTripInfoForm = (props) => {
 
             onSubmit={(values) => {
                 const bt = {
+                    user_id: 2,
                     id: values.id,
                     name: values.name,
                     fromCity: values.fromCity,

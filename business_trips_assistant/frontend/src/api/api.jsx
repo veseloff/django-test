@@ -22,7 +22,7 @@ export const businessTripsAPI = {
     async getBusinessTrips() {
         return await fetch('http://127.0.0.1:8000/account/all_business_trip/')
             .then(response => response.json())
-            .then(data => data)
+            .then(data => console.log(data))
             .catch(error => console.error(error))
     },
     async getCsrf() {

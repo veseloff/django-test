@@ -1,9 +1,13 @@
+from django.middleware import csrf
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 """Представление модуль отвечающего за акаунт пользователя и его командировки"""
 import json
 from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from railways_api.models import City
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from .handler_business_trip import get_business_trip_information, insert_value_business_trip, \
     insert_value_hotel, insert_value_trip

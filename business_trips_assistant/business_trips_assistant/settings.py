@@ -10,7 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+
+load_dotenv()
+not_exist_names = []
+variables_env = ['CHROMEDRIVER', 'PASSWORD_DATA_BASE', 'NAME_DATA_BASE',
+                 'USER_DATA_BASE', 'HOST_DATA_BASE', 'PORT_DATA_BASE']
+for variable in variables_env:
+    if os.environ.get(variable) is None:
+        not_exist_names.append(variable)
+assert not not_exist_names, f'{not_exist_names}'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +53,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'railways_api.apps.RailwaysApiConfig',
     'user_profile.apps.UserProfileConfig',
+    'hotel_api.apps.HotelApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -55,10 +68,24 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = False
+CSRF_COOKIE_HTTPONLY = False
+
+CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
+    'http://127.0.0.1:8000',
+    'http://127.0.0.1:3000',
 )
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',
+    'http://127.0.0.1:8000',
+    'localhost:3000',
+    '127.0.0.1:8000',
+    'http://127.0.0.1:3000',
+    '127.0.0.1:3000',
+]
 
 ROOT_URLCONF = 'business_trips_assistant.urls'
 
@@ -86,12 +113,12 @@ WSGI_APPLICATION = 'business_trips_assistant.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': 'business_trips',
+        'NAME': os.getenv('NAME_DATA_BASE'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'postgres',
-        'PASSWORD': 'business_trips123',
-        'HOST': 'localhost',
-        'PORT': 5432
+        'USER': os.getenv('USER_DATA_BASE'),
+        'PASSWORD': os.getenv('PASSWORD_DATA_BASE'),
+        'HOST': os.getenv('HOST_DATA_BASE'),
+        'PORT': os.getenv('PORT_DATA_BASE')
     }
 }
 

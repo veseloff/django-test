@@ -44,7 +44,8 @@ const BusinessTripsReducer = (state = initialState, action) => {
 
 export const setBusinessTripsTC = () => async (dispatch) => {
     const data = await businessTripsAPI.getBusinessTrips();
-    dispatch(setBusinessTrips(data));
+    if (data !== undefined)
+        dispatch(setBusinessTrips(data));
 }
 
 export const setCsrfTC = () => async (dispatch) => {
@@ -54,10 +55,11 @@ export const setCsrfTC = () => async (dispatch) => {
 }
 
 export const postBusinessTripsTC = (bt) => async (dispatch) => {
-    console.log(bt)
     const data = await businessTripsAPI.getCsrf();
-    dispatch(() => Cookies.set('csrftoken', data));
-    businessTripsAPI.postBusinessTrips(bt).then(result => console.log(result));                      //todo: VsALT - вызов post запроса
+    if (data !== undefined) {
+        dispatch(() => Cookies.set('csrftoken', data));
+        businessTripsAPI.postBusinessTrips(bt).then(result => console.log(result));
+    }                 //todo: VsALT - вызов post запроса
 }
 
 export const putBusinessTripsTC = () => async (dispatch) => {

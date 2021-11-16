@@ -136,3 +136,4 @@ dmypy.json
 .idea/
 
 .business_trips_assistant/railways_api/migrations/
+/node_modules

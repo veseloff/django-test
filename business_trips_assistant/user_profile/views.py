@@ -143,7 +143,7 @@ def get_csrf(request):
     return HttpResponse("{0}".format(csrf.get_token(request)), content_type="text/plain")
 
 
-#@csrf_exempt
+@csrf_exempt
 def create_business_trip(request):
     """
     Создание командировки
@@ -153,20 +153,29 @@ def create_business_trip(request):
     Returns:
 
     """
+    dictData = json.loads(request.body)
     #return HttpResponse('Hello world')
     print("=========================================================================")
     print("")
-    print(request.POST)
+    print(dictData["user_id"])
+    print(dictData["begin"])
+    print(dictData["budget"])
+    print(dictData["end"])
+    print(dictData["fromCity"])
+    print(dictData["hotel"])
+    print(dictData["name"])
+    print(dictData["toCity"])
+    print(dictData["transport"])
     print("")
     print("=========================================================================")
     b_t = BusinessTrip.objects.create(
-        user_id=2,
-        name=request.POST['name'],
-        from_city=request.POST['from_city'],
-        to_city=request.POST['to_city'],
-        credit=request.POST['credit'],
-        date_start=datetime.datetime.strptime(request.POST['date_start'], '%d.%m.%Y').date(),
-        date_finish=datetime.datetime.strptime(request.POST['date_finish'], '%d.%m.%Y').date()
+        user_id=dictData['user_id'],
+        name=dictData['name'],
+        from_city=dictData['fromCity'],
+        to_city=dictData['toCity'],
+        credit=dictData['budget'],
+        date_start=datetime.datetime.strptime(dictData['begin'], '%Y-%m-%d').date(),
+        date_finish=datetime.datetime.strptime(dictData['end'], '%Y-%m-%d').date()
     )
     b_t.save()
     return HttpResponse(b_t.pk)

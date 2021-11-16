@@ -2,13 +2,12 @@
 import json
 from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render
 from django.http import HttpResponse
 from railways_api.models import City
 from django.contrib.auth.models import User
 from .handler_business_trip import get_business_trip_information, insert_value_business_trip, \
     insert_value_hotel, insert_value_trip
-from .models import BusinessTrip, Trip, Hotel
+from .models import BusinessTrip, Trip, Hotel, UserTelegram
 
 
 def register(request):
@@ -30,6 +29,42 @@ def register(request):
         user.save()
         return HttpResponse(user)
     return HttpResponse(None)
+
+
+def register_telegram(request):
+    """
+    Регистрация через телеграм
+    Args:
+        request:
+
+    Returns:
+
+    """
+    if request.method == 'POST':
+        username = request.POST['username']
+        telegram_id = request.POST['telegram_id']
+        first_name = request.POST.get('firstName')
+        last_name = request.POST.get('lastName')
+        user = User.objects.create_user(username, first_name=first_name, last_name=last_name)
+        user.save()
+        user_telegram = UserTelegram.objects.create(user=user, id_telegram=telegram_id)
+        user_telegram.save()
+        return HttpResponse(user)
+    return HttpResponse(None)
+
+
+def login_telegram(request):
+    """
+    Логинизация через телеграм
+    Args:
+        request:
+
+    Returns:
+
+    """
+    id_telegram = request.POST['id_telegram']
+    user_telegram = UserTelegram.objects.get(id_telegram=id_telegram)
+    return HttpResponse(user_telegram.user)
 
 
 def user_login(request):

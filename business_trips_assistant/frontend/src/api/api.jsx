@@ -36,8 +36,8 @@ export const businessTripsAPI = {
         const csrftoken = Cookies.get('csrftoken');
         return await fetch(url, {
             method: 'POST',
+            //mode: 'same-origin',
             headers: {
-                'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrftoken,
                 //'Access-Control-Allow-Credentials': true,

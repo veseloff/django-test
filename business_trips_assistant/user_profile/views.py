@@ -143,7 +143,7 @@ def get_csrf(request):
     return HttpResponse("{0}".format(csrf.get_token(request)), content_type="text/plain")
 
 
-@csrf_exempt
+#@csrf_exempt
 def create_business_trip(request):
     """
     Создание командировки
@@ -153,21 +153,7 @@ def create_business_trip(request):
     Returns:
 
     """
-    dictData = json.loads(request.body)
-    #return HttpResponse('Hello world')
-    print("=========================================================================")
-    print("")
-    print(dictData["user_id"])
-    print(dictData["begin"])
-    print(dictData["budget"])
-    print(dictData["end"])
-    print(dictData["fromCity"])
-    print(dictData["hotel"])
-    print(dictData["name"])
-    print(dictData["toCity"])
-    print(dictData["transport"])
-    print("")
-    print("=========================================================================")
+    dictData = json.loads(request.body.decode("utf-8"))
     b_t = BusinessTrip.objects.create(
         user_id=dictData['user_id'],
         name=dictData['name'],

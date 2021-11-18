@@ -59,7 +59,7 @@ export const postBusinessTripsTC = (bt) => async (dispatch) => {
     if (data !== undefined) {
         dispatch(() => Cookies.set('csrftoken', data));
         businessTripsAPI.postBusinessTrips(bt).then(result => console.log(result));
-    }                 //todo: VsALT - вызов post запроса
+    }
 }
 
 export const putBusinessTripsTC = () => async (dispatch) => {
@@ -69,11 +69,12 @@ export const putBusinessTripsTC = () => async (dispatch) => {
     dispatch(editBusinessTrip(data));
 }
 
-export const deleteBusinessTripsTC = () => async (dispatch) => {
-    //dispatch(toggleIsFetching(true));
-    const data = await businessTripsAPI.postBusinessTrips();
-    //dispatch(toggleIsFetching(false));
-    dispatch(removeBusinessTrip(data));
+export const deleteBusinessTripsTC = (id) => async (dispatch) => {
+    const data = await businessTripsAPI.getCsrf();
+    if (data !== undefined) {
+        dispatch(() => Cookies.set('csrftoken', data));
+        businessTripsAPI.deleteBusinessTrips(id).then(result => console.log(result));
+    }
 }
 
 const setBusinessTrips = (items) => ({type: SET_BT, items: items});

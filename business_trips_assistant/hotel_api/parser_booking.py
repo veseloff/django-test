@@ -92,11 +92,11 @@ def pars_hotels(item):
     """
     hotel = {}
     val = item.find('h3', class_="_23bf57b84")
-    hotel['stars'] = len(item.find_all('span', class_="_3ae5d40db _617879812 _6ab38b430"))
+    hotel['star'] = len(item.find_all('span', class_="_3ae5d40db _617879812 _6ab38b430"))
     hotel['name'] = val.find('div', class_="fde444d7ef _c445487e2").get_text()
     evaluation = item.find('div', class_="_29c344764").find('div', class_="_9c5f726ff bd528f9ea6")
     if evaluation is not None:
-        hotel['user evaluation'] = evaluation.get_text()
+        hotel['evaluation'] = evaluation.get_text()
     price = item.find('div', class_="_ad89d43ce"). \
         find('div', class_="_84f6fd780 _f98eca565"). \
         find('span', class_="fde444d7ef _e885fdc12").get_text().split()

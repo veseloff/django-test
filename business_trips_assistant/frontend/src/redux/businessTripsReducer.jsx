@@ -56,7 +56,7 @@ export const setCsrfTC = () => async (dispatch) => {
 export const postBusinessTripsTC = (bt) => async (dispatch) => {
     console.log(bt)
     const data = await businessTripsAPI.getCsrf();
-    dispatch(() => Cookies.set('csrftoken', data));
+    // dispatch(() => Cookies.set('csrftoken', data));
     businessTripsAPI.postBusinessTrips(bt).then(result => console.log(result));                      //todo: VsALT - вызов post запроса
 }
 

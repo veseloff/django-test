@@ -13,5 +13,4 @@ urlpatterns = [
     path('create_business_trip/', create_business_trip),
     path('create_trip/', create_trip),
     path('create_hotel/', create_hotel),
-    path('get_csrf/', get_csrf),
 ]

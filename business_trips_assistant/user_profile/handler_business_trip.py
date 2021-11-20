@@ -1,4 +1,5 @@
 """Модуль отвечает за создание и обвновление командировок, отелей, поездок"""
+import json
 from datetime import datetime
 from railways_api.models import City
 from .models import BusinessTrip, Trip, Hotel
@@ -30,22 +31,22 @@ def get_business_trip_information(id_user):
     return trips
 
 
-def insert_value_business_trip(b_t, request):
+def insert_value_business_trip(b_t, body):
     """
     Обновление информации о командировке
     Args:
         b_t:
-        request:
+        body:
 
     Returns:
 
     """
-    name = request.POST['name']
-    from_city = request.POST['from_city']
-    to_city = request.POST['to_city']
-    credit = request.POST['credit']
-    date_start = datetime.strptime(request.POST['date_start'], '%d.%m.%Y').date()
-    date_finish = datetime.strptime(request.POST['date_finish'], '%d.%m.%Y').date()
+    name = body['name']
+    from_city = body['fromCity']
+    to_city = body['toCity']
+    credit = body['budget']
+    date_start = datetime.strptime(body['begin'], '%Y-%m-%d').date()
+    date_finish = datetime.strptime(body['end'], '%Y-%m-%d').date()
     b_t.name = name
     b_t.from_city = from_city
     b_t.to_city = to_city
@@ -55,43 +56,57 @@ def insert_value_business_trip(b_t, request):
     b_t.save()
 
 
-def insert_value_trip(trip, request):
+def insert_value_trip(trip, body):
     """
     Обновление информации о поездке
     Args:
         trip:
-        request:
+        body:
 
     Returns:
 
     """
-    trip.transport = int(request.POST['transport'])  # обсудить с серёжей
-    trip.price_ticket = int(request.POST['price_ticket'])
-    trip.is_first = int(request.POST['is_first'])
-    trip.transport_number = request.POST['transport_number']
-    trip.date_departure = datetime.strptime(request.POST['date_departure'], '%d.%m.%Y').date()
-    trip.date_arrival = datetime.strptime(request.POST['date_arrival'], '%d.%m.%Y').date()
-    trip.city_from = City.objects.get(pk=int(request.POST['city_from']))
-    trip.city_to = City.objects.get(pk=int(request.POST['city_to']))
-    trip.station_from = request.POST['station_from']
-    trip.station_to = request.POST['station_to']
+    trip.transport = int(body['transport'])  # обсудить с серёжей
+    trip.price_ticket = int(body['priceTicket'])
+    trip.is_first = int(body['isFirst'])
+    trip.transport_number = body['transportNumber']
+    trip.date_check_out = datetime.strptime(body['dateDeparture'], '%Y-%m-%d').date()
+    trip.date_arrival = datetime.strptime(body['dateArrival'], '%Y-%m-%d').date()
+    trip.city_from = City.objects.get(pk=int(body['cityFrom']))
+    trip.city_to = City.objects.get(pk=int(body['cityTo']))
+    trip.station_from = body['stationFrom']
+    trip.station_to = body['stationTo']
     trip.save()
 
 
-def insert_value_hotel(hotel, request):
+def insert_value_hotel(hotel, body):
     """
     Обновление информации об отеле
     Args:
         hotel:
+        body:
+
+    Returns:
+
+    """
+    hotel.link = body['link']
+    hotel.name = body['name']
+    hotel.price = float(body['price'])
+    hotel.address = body.get('address')
+    hotel.date_check_in = datetime.strptime(body['checkIn'], '%Y-%m-%d').date()
+    hotel.date_check_out = datetime.strptime(body['checkOut'], '%Y-%m-%d').date()
+    hotel.save()
+
+
+def get_body_request(request):
+    """
+    Возвращает тело запроса
+    Args:
         request:
 
     Returns:
 
     """
-    hotel.link = request.POST['link']
-    hotel.name = request.POST['name']
-    hotel.price = float(request.POST['price'])
-    hotel.address = request.POST['address']
-    hotel.date_check_in = datetime.strptime(request.POST['check_in'], '%d.%m.%Y').date()
-    hotel.date_departure = datetime.strptime(request.POST['departure'], '%d.%m.%Y').date()
-    hotel.save()
+    body_byte = request.body.decode('utf-8')
+    body = json.loads(body_byte)
+    return body

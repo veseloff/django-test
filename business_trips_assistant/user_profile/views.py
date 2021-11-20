@@ -1,16 +1,12 @@
-from django.middleware import csrf
-from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 """Представление модуль отвечающего за акаунт пользователя и его командировки"""
 import json
 from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
-from railways_api.models import City
-from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
+from railways_api.models import City
 from .handler_business_trip import get_business_trip_information, insert_value_business_trip, \
-    insert_value_hotel, insert_value_trip
+    insert_value_hotel, insert_value_trip, get_body_request
 from .models import BusinessTrip, Trip, Hotel, UserTelegram
 
 
@@ -24,12 +20,14 @@ def register(request):
 
     """
     if request.method == 'POST':
-        password = request.POST['password']
-        username = request.POST['username']
-        email = request.POST['email']
-        first_name = request.POST.get('firstName')
-        last_name = request.POST.get('lastName')
-        user = User.objects.create_user(username, email, password, first_name=first_name, last_name=last_name)
+        body = get_body_request(request)
+        password = body['password']
+        username = body['username']
+        email = body['email']
+        first_name = body.get('firstName')
+        last_name = body.get('lastName')
+        user = User.objects.create_user(username, email,
+                                        password, first_name=first_name, last_name=last_name)
         user.save()
         return HttpResponse(user)
     return HttpResponse(None)
@@ -44,11 +42,12 @@ def register_telegram(request):
     Returns:
 
     """
+    body = get_body_request(request)
     if request.method == 'POST':
-        username = request.POST['username']
-        telegram_id = request.POST['telegram_id']
-        first_name = request.POST.get('firstName')
-        last_name = request.POST.get('lastName')
+        username = body['username']
+        telegram_id = body['telegramId']
+        first_name = body.get('firstName')
+        last_name = body.get('lastName')
         user = User.objects.create_user(username, first_name=first_name, last_name=last_name)
         user.save()
         user_telegram = UserTelegram.objects.create(user=user, id_telegram=telegram_id)
@@ -111,7 +110,7 @@ def get_business_trip(request):
     Returns:
     Json ответ со списком всех командировок пользователя и краткой информцией о них
     """
-    id_user = int(request.GET['id_user'])
+    id_user = int(request.GET['userId'])
     information = get_business_trip_information(id_user)
     answer_json = json.dumps(information, ensure_ascii=False).encode('utf-8')
     return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
@@ -126,8 +125,8 @@ def update_business_trip(request):
     Returns:
 
     """
-    id_b_t = request.POST['id']
-    b_t = BusinessTrip.objects.get(pk=id_b_t)
+    body = get_body_request(request)
+    b_t = BusinessTrip.objects.get(pk=body['idBT'])
     insert_value_business_trip(b_t, request)
 
 
@@ -140,8 +139,9 @@ def update_trip(request):
     Returns:
 
     """
-    id_b_t = int(request.POST['id_b_t'])
-    is_first = int(request.POST['is_first'])
+    body = get_body_request(request)
+    id_b_t = int(body['idBT'])
+    is_first = int(body['isFirst'])
     trip = Trip.objects.filter(business_trip_id=id_b_t).get(is_first=is_first)
     insert_value_trip(trip, request)
 
@@ -155,7 +155,8 @@ def update_hotel(request):
     Returns:
 
     """
-    id_b_t = request.POST['id']
+    body = get_body_request(request)
+    id_b_t = body['idBT']
     hotel = Hotel.objects.get(business_trip_id=id_b_t)
     insert_value_hotel(hotel, request)
 
@@ -169,8 +170,8 @@ def delete_business_trip(request):
     Returns:
 
     """
-    id_b_t = int(request.GET['id_b_t'])
-    b_t = BusinessTrip.objects.get(pk=id_b_t)
+    body = get_body_request(request)
+    b_t = BusinessTrip.objects.get(pk=body['idBT'])
     b_t.delete()
 
 
@@ -183,17 +184,18 @@ def create_business_trip(request):
     Returns:
 
     """
+    body = get_body_request(request)
     b_t = BusinessTrip.objects.create(
-        user_id=2,
-        name=request.POST['name'],
-        from_city=request.POST['from_city'],
-        to_city=request.POST['to_city'],
-        credit=request.POST['credit'],
-        date_start=datetime.strptime(request.POST['date_start'], '%d.%m.%Y').date(),
-        date_finish=datetime.strptime(request.POST['date_finish'], '%d.%m.%Y').date()
+        user_id=body['userId'],
+        name=body['name'],
+        from_city=body['fromCity'],
+        to_city=body['toCity'],
+        credit=body.get('budget'),
+        date_start=datetime.strptime(body['begin'], '%Y-%m-%d').date(),
+        date_finish=datetime.strptime(body['end'], '%Y-%m-%d').date()
     )
     b_t.save()
-    return HttpResponse(b_t.pk)
+    return HttpResponse(b_t)
 
 
 def create_trip(request):
@@ -205,21 +207,22 @@ def create_trip(request):
     Returns:
 
     """
-    id_b_t = int(request.POST['id_b_t'])
+    body = get_body_request(request)
     trip = Trip.objects.create(
-        business_trip_id=id_b_t,
-        transport=int(request.POST['transport']),  # обсудить с серёжей
-        price_ticket=int(request.POST['price_ticket']),
-        is_first=int(request.POST['is_first']),
-        transport_number=request.POST['transport_number'],
-        date_departure=datetime.strptime(request.POST['date_departure'], '%d.%m.%Y').date(),
-        date_arrival=datetime.strptime(request.POST['date_arrival'], '%d.%m.%Y').date(),
-        city_from_id=City.objects.get(pk=int(request.POST['city_from'])),
-        city_to_id=City.objects.get(pk=int(request.POST['city_to'])),
-        station_from=request.POST['station_from'],
-        station_to=request.POST['station_to']
+        business_trip_id=int(request.POST['idBT']),
+        transport=int(body['transport']),
+        price_ticket=int(body['priceTicket']),
+        is_first=int(body['isFirst']),
+        transport_number=body['transportNumber'],
+        date_departure=datetime.strptime(body['dateDeparture'], '%Y-%m-%d').date(),
+        date_arrival=datetime.strptime(body['dateArrival'], '%Y-%m-%d').date(),
+        city_from_id=City.objects.get(pk=int(body['cityFrom'])),
+        city_to_id=City.objects.get(pk=int(body['cityTo'])),
+        station_from=body['stationFrom'],
+        station_to=body['stationTo']
     )
     trip.save()
+    return HttpResponse(trip)
 
 
 def create_hotel(request):
@@ -231,14 +234,14 @@ def create_hotel(request):
     Returns:
 
     """
-    id_b_t = int(request.POST['id_b_t'])
+    body = get_body_request(request)
     hotel = Hotel.objects.create(
-        business_trip_id=id_b_t,
-        link=request.POST['link'],
-        name=request.POST['name'],
-        price=float(request.POST['price']),
-        address=request.POST['address'],
-        date_check_in=datetime.strptime(request.POST['check_in'], '%d.%m.%Y').date(),
-        date_departure=datetime.strptime(request.POST['departure'], '%d.%m.%Y').date()
+        business_trip_id=int(body['idBT']),
+        link=body['link'],
+        name=body['name'],
+        price=float(body['price']),
+        address=body.get('address'),
+        date_check_in=datetime.strptime(body['checkIn'], '%Y-%m-%d').date(),
+        date_departure=datetime.strptime(body['checkOut'], '%Y-%m-%d').date()
     )
     hotel.save()

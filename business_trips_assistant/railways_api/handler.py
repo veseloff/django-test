@@ -1,9 +1,7 @@
 """Модуль для работы с api ржд"""
 import time
-import json
 import requests
 from railways_api.models import City, Station
-from django.http import HttpResponse
 
 
 def get_trains(**kwargs):
@@ -45,12 +43,12 @@ def get_code_and_date(kwargs):
         codes_stations_to: список кодов станций прибытия
         date: дата отправления
     """
-    city_from = kwargs['city_from'].upper() if kwargs['city_from'] is not None else None
-    city_to = kwargs['city_to'].upper() if kwargs['city_to'] is not None else None
-    station_from = kwargs['station_from'].upper() if kwargs['station_from'] is not None else None
-    station_to = kwargs['station_to'].upper() if kwargs['station_to'] is not None else None
-    code_station_to = int(kwargs['code_station_to']) if kwargs['code_station_to'] is not None else None
-    code_station_from = int(kwargs['code_station_from']) if kwargs['code_station_from'] is not None else None
+    city_from = kwargs['cityFrom'].upper() if kwargs['cityFrom'] is not None else None
+    city_to = kwargs['cityTo'].upper() if kwargs['cityTo'] is not None else None
+    station_from = kwargs['stationFrom'].upper() if kwargs['stationFrom'] is not None else None
+    station_to = kwargs['stationTo'].upper() if kwargs['stationTo'] is not None else None
+    code_station_to = int(kwargs['codeStationTo']) if kwargs['codeStationTo'] is not None else None
+    code_station_from = int(kwargs['codeStationFrom']) if kwargs['codeStationFrom'] is not None else None
     date = kwargs['date']
     codes_stations_from = get_codes(code_station_from, city_from, station_from)
     codes_stations_to = get_codes(code_station_to, city_to, station_to)
@@ -115,7 +113,6 @@ def get_rid_and_cookies(code_city_from, code_city_to, date):
         params['rid'] = rid
     else: params = None
     return cookies, params
-
 
 
 def set_train_information(response_json):

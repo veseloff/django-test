@@ -9,7 +9,7 @@ class BusinessTrip(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='profile')
     from_city = models.CharField(max_length=150)
     to_city = models.CharField(max_length=150)
-    credit = models.IntegerField()
+    credit = models.IntegerField(blank=True)
     date_start = models.DateField()
     date_finish = models.DateField()
     status = models.IntegerField()
@@ -33,10 +33,10 @@ class Hotel(models.Model):
     business_trip = models.ForeignKey(BusinessTrip, on_delete=models.CASCADE)
     link = models.URLField()
     name = models.CharField(max_length=150)
-    address = models.CharField(max_length=150)
+    address = models.CharField(max_length=150, blank=True)
     price = models.FloatField()
     date_check_in = models.DateField()
-    date_departure = models.DateField()
+    date_check_out = models.DateField()
 
 
 class Cheque(models.Model):
@@ -49,5 +49,4 @@ class Cheque(models.Model):
 class UserTelegram(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     id_telegram = models.IntegerField()
-    tag_telegram = models.CharField(max_length=150)
     telephone = models.CharField(max_length=11, blank=True)

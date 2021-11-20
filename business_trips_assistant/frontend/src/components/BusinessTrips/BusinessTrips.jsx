@@ -54,11 +54,13 @@ const BusinessTrips = (props) => {
             </div>
             <div>
                 {
-                    props.businessTrips
-                        .filter(bt => (bt.status === status || status === "Все"))
-                        .map((businessTrip) =>
-                            <BusinessTripConstructor businessTrip={businessTrip}
-                                                     onDelete={onDelete}/>)
+                    props.businessTrips !== undefined
+                        ? props.businessTrips
+                            .filter(bt => (bt.status === status || status === "Все"))
+                            .map((businessTrip) =>
+                                <BusinessTripConstructor businessTrip={businessTrip}
+                                                         onDelete={onDelete}/>)
+                        : null
                 }
             </div>
         </div>

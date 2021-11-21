@@ -22,7 +22,7 @@ export const businessTripsAPI = {
     async getBusinessTrips() {
         return await fetch('/account/all_business_trip/')
             .then(response => response.json())
-            .then(data => data)
+            .then(data => console.log(data))
             .catch(error => console.error(error))
     },
     async getCsrf() {

@@ -4,3 +4,8 @@ TRANSPORT_NAME_MAPPING = {
 }
 
 
+BUSINESS_TRIP_STATUS_MAPPING = {
+    0: 'Закончена',
+    1: 'Действующая',
+    2: 'Будущая'
+}

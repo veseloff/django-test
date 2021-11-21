@@ -177,13 +177,6 @@ def delete_business_trip(request):
     b_t.delete()
 
 
-<<<<<<< HEAD
-def get_csrf(request):
-    return HttpResponse("{0}".format(csrf.get_token(request)), content_type="text/plain")
-
-
-=======
->>>>>>> origin/master
 def create_business_trip(request):
     """
     Создание командировки
@@ -193,11 +186,8 @@ def create_business_trip(request):
     Returns:
 
     """
-<<<<<<< HEAD
-    dictData = json.loads(request.body.decode("utf-8"))
-=======
+
     body = get_body_request(request)
->>>>>>> origin/master
     b_t = BusinessTrip.objects.create(
         user_id=body['userId'],
         name=body['name'],

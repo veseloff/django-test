@@ -1,20 +1,34 @@
 import classes from "./Transport.module.css";
-import logo from "./../../assets/logo.png";
+import TransportForm from "./TransportForm/TransportForm";
+import {compose} from "redux";
+import {connect} from "react-redux";
+import {editBusinessTrip, postBusinessTripsTC, setCsrfTC} from "../../redux/businessTripsReducer";
+import {withRouter} from "react-router-dom";
+import TransportConstructor from "./TransportConstructor/TransportConstructor";
 
-function Transport() {
+const Transport = (props) => {
+    const id = Number(props.match.params.businessTripId || props.countBusinessTrips);
     return (
-        <header className={classes.header}>
-            <div className={classes.header_container}>
-                <img src={logo}/>
-                <div className={classes.profile_name_container}>
-                    <div>
-                        ProfileName
-                    </div>
-                    <div className={classes.avatar}/>
-                </div>
+        <div className={classes.body_container}>
+            <TransportForm {...props} id={id}/>
+            <div className={classes.body_wrapper}>
+                {
+                    props.businessTrips !== undefined
+                        ? props.businessTrips
+                            .map((businessTrip) =>
+                                <TransportConstructor businessTrip={businessTrip}/>)
+                        : null
+                }
             </div>
-        </header>
+        </div>
     );
 }
 
-export default Transport;
+const mapStateToProps = (state) => {
+    return {
+        businessTrips: state.businessTripsData.businessTrips,
+    }
+};
+
+export default compose(connect(mapStateToProps,
+    {postBusinessTripsTC, editBusinessTrip, setCsrfTC}), withRouter)(Transport);

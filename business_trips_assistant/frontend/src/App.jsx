@@ -30,7 +30,7 @@ const App = () => {
                                     <Route exact path={"/business-trips"} render={() => <BusinessTrips/>}/>
                                     <Route exact path={"/business-trips/:businessTripId?"}
                                            render={() => <BusinessTripInfo/>}/>
-                                    <Route exact path={"/business-trips/:businessTripId?/transport"}
+                                    <Route exact path={"/business-trips/:businessTripId?/transport/:direction?"}
                                            render={() => <Transport/>}/>
                                     <Route exact path={"/business-trips/:businessTripId?/hotel"} render={() => <Hotel/>}/>
                                     <Route exact path={"/business-trips/:businessTripId?/expenses"}

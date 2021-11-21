@@ -1,8 +1,11 @@
-import classes from "./BusinessTripInfoForm.module.css";
+import classes from "./TransportForm.module.css";
 import {NavLink} from "react-router-dom";
 import {Formik, Form} from 'formik';
 import cn from "classnames";
 import TextInput from "../../Common/TextInput";
+import CheckBox from "../../Common/CheckBox";
+import {useState} from "react";
+import SmartTextInput from "../../Common/SmartTextInput";
 
 const validate = (values) => {
     const errors = {};
@@ -11,18 +14,6 @@ const validate = (values) => {
         errors.name = 'Обязательно';
     } else if (values.name.length > 30) {
         errors.name = 'Должно быть 30 символов или меньше';
-    }
-
-    if (!values.fromCity) {
-        errors.fromCity = 'Обязательно';
-    } else if (values.fromCity.length > 20) {
-        errors.fromCity = 'Должно быть 20 символов или меньше';
-    }
-
-    if (!values.toCity) {
-        errors.toCity = 'Обязательно';
-    } else if (values.toCity.length > 20) {
-        errors.toCity = 'Должно быть 20 символов или меньше';
     }
 
     if (!values.begin) {
@@ -36,12 +27,14 @@ const validate = (values) => {
     return errors;
 };
 
-const BusinessTripInfoForm = (props) => {
+const TransportForm = (props) => {
     const businessTrip = props.businessTrips.find((bt) => bt.id === props.id) || {
         id: props.id,
         name: '',
         fromCity: '',
         toCity: '',
+        fromStation: '',
+        toStation: '',
         begin: '',
         end: '',
         budget: '',
@@ -51,7 +44,8 @@ const BusinessTripInfoForm = (props) => {
         //dateTo: "Неизвестно", //todo: refactor name
         status: "Запланирована",
     }
-
+    const [checkboxTo, setCheckboxTo] = useState(false);
+    const [checkboxFrom, setCheckboxFrom] = useState(false);
     return (
         <Formik
             initialValues={businessTrip}
@@ -75,59 +69,75 @@ const BusinessTripInfoForm = (props) => {
                 }
 
                 if (props.id === props.countBusinessTrips) {
-                    /*props.setCsrfTC();
-                    console.log("1")
-                    console.log(Cookies.get('csrftoken'))*/
                     props.postBusinessTripsTC(bt);
-                }
-                else
+                } else
                     props.editBusinessTrip(props.id, bt);
             }}>
             <Form className={classes.body_container}>
                 <div className={classes.first_row}>
-                    <TextInput
-                        name="name"
-                        type="text"
-                        placeholder="Название командировки..."
-                        label="Название командировки"
-                    />
+                    <div>
+                        Транспорт
+                    </div>
                     <NavLink to={`/business-trips`} className={cn(classes.button, classes.exit)}>
                         &#8592; {/*todo: exit icon*/}
                     </NavLink>
                 </div>
-                <div className={classes.second_row}>
+                <div className={classes.row}>
                     <TextInput
                         name="fromCity"
                         type="text"
                         placeholder="Откуда..."
                         label="Откуда"
+                        disabled={true}
                     />
                     <TextInput
                         name="toCity"
                         type="text"
                         placeholder="Куда..."
                         label="Куда"
+                        disabled={true}
                     />
                 </div>
-                <div className={classes.third_row}>
-                    <div className={classes.third_row_first_group}>
-                        <TextInput
-                            name="begin"
-                            type="date"
-                            label="Начало"
-                        />
+                <div className={classes.row}>
+                    <SmartTextInput
+                        name="fromStation"
+                        type="text"
+                        placeholder="Станция/Аэропорт..."
+                        disabled={checkboxFrom}
+                    />
+                    <SmartTextInput
+                        name="toStation"
+                        type="text"
+                        placeholder="Станция/Аэропорт..."
+                        disabled={checkboxTo}
+                    />
+                </div>
+                <div className={classes.checkbox_row}>
+                    <CheckBox
+                        name="fromAnyStation"
+                        type="checkbox"
+                        label="Любая станция/аэропорт"
+                        onClick={() => setCheckboxFrom(!checkboxFrom)}
+                    />
+                    <CheckBox
+                        name="toAnyStation"
+                        type="checkbox"
+                        label="Любая станция/аэропорт"
+                        onClick={() => setCheckboxTo(!checkboxTo)}
+                    />
+                </div>
+                <div className={classes.last_row}>
+                    <TextInput
+                        name="type"
+                        type="text"
+                        placeholder="Вид транспорта..."
+                        label="Вид транспорта"
+                    />
+                    <div className={classes.third_row_second_group}>
                         <TextInput
                             name="end"
                             type="date"
-                            label="Конец"
-                        />
-                    </div>
-                    <div className={classes.third_row_second_group}>
-                        <TextInput
-                            name="budget"
-                            type="number"
-                            placeholder="Бюджет..."
-                            label="Бюджет"
+                            label="Отправление"
                         />
                         <button type="submit" className={cn(classes.button, classes.save)}>
                             Сохранить
@@ -139,4 +149,4 @@ const BusinessTripInfoForm = (props) => {
     );
 };
 
-export default BusinessTripInfoForm;
+export default TransportForm;

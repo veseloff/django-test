@@ -1,28 +1,16 @@
-.header {
+.body_container {
     display: flex;
-    justify-content: space-around;
-    height: 55px;
-    width: 100%;
-    color: #000000;
-    background-color: #ffffff;
-}
-
-.header_container {
-    display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 25px;
     width: 875px;
+    background-color: #F9F9F9;
 }
 
-.profile_name_container {
+.body_wrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 130px;
-}
-
-.avatar {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background-color: grey;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 25px;
 }

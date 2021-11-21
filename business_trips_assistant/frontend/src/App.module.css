@@ -1,7 +1,6 @@
 .app_wrapper {
     display: grid;
     grid-template-rows: 1fr 55px;
-    /*крч, если не прописать эти 55px, то там внизу будет пустое пространство на это кол-во пикселей*/
     height: 100vh;
 }
 

@@ -15,7 +15,7 @@ const BusinessTripInfo = (props) => {
                     <div className={classes.header}>
                         Транспорт
                     </div>
-                    <NavLink to={`/business-trips/${id}/transport`}>
+                    <NavLink to={`/business-trips/${id}/transport/there`}>
                         Туда:
                         <div className={classes.description}>
                             <div>Поезд 025А</div>
@@ -23,7 +23,7 @@ const BusinessTripInfo = (props) => {
                             <div>30.09.2021 - 1.10.2021</div>
                         </div>
                     </NavLink>
-                    <NavLink to={`/business-trips/${id}/transport`}>
+                    <NavLink to={`/business-trips/${id}/transport/back`}>
                         Обратно:
                         <div className={classes.description}>
                             <div>Самолёт SU 38</div>

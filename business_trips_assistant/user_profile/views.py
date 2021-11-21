@@ -143,7 +143,6 @@ def get_csrf(request):
     return HttpResponse("{0}".format(csrf.get_token(request)), content_type="text/plain")
 
 
-#@csrf_exempt
 def create_business_trip(request):
     """
     Создание командировки

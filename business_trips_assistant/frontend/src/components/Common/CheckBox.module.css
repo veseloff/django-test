@@ -1,0 +1,16 @@
+.input_text_wrapper {
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.label {
+    font-size: 15px;
+}
+
+.input_text {
+    margin-left: 0;
+    border: 1px solid #C4C4C4;
+    height: 17px;
+    width: 17px;
+}

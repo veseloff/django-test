@@ -49,7 +49,7 @@ const BusinessTripsReducer = (state = initialState, action) => {
 }
 
 export const setBusinessTripsTC = () => async (dispatch) => {
-    const data = await businessTripsAPI.getBusinessTrips();
+    const data = await businessTripsAPI.getBusinessTrips(2);
     if (data !== undefined)
         dispatch(setBusinessTrips(data));
 }

@@ -40,8 +40,6 @@ const TransportForm = (props) => {
         budget: '',
         transport: [""],
         hotel: "Неизвестно",
-        //dateFrom: "Неизвестно", //todo: refactor name
-        //dateTo: "Неизвестно", //todo: refactor name
         status: "Запланирована",
     }
     const [checkboxTo, setCheckboxTo] = useState(false);
@@ -63,12 +61,10 @@ const TransportForm = (props) => {
                     budget: values.budget,
                     transport: values.transport,
                     hotel: values.hotel,
-                    //dateFrom: values.dateFrom, //todo: refactor name
-                    //dateTo: values.dateTo, //todo: refactor name
                     status: values.status,
                 }
 
-                if (props.id === props.countBusinessTrips) {
+                if (props.id === 'new') {
                     props.postBusinessTripsTC(bt);
                 } else
                     props.editBusinessTrip(props.id, bt);

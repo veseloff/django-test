@@ -38,6 +38,7 @@ const validate = (values) => {
 
 const BusinessTripInfoForm = (props) => {
     const businessTrip = props.businessTrips.find((bt) => bt.id === props.id) || {
+        userId: 2,
         name: '',
         fromCity: '',
         toCity: '',
@@ -56,7 +57,7 @@ const BusinessTripInfoForm = (props) => {
 
             onSubmit={(values) => {
                 const bt = {
-                    user_id: 2,
+                    userId: 2,
                     name: values.name,
                     fromCity: values.fromCity,
                     toCity: values.toCity,

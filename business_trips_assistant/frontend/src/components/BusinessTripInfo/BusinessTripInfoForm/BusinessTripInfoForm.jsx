@@ -38,7 +38,6 @@ const validate = (values) => {
 
 const BusinessTripInfoForm = (props) => {
     const businessTrip = props.businessTrips.find((bt) => bt.id === props.id) || {
-        id: props.id,
         name: '',
         fromCity: '',
         toCity: '',
@@ -47,8 +46,6 @@ const BusinessTripInfoForm = (props) => {
         budget: '',
         transport: [""],
         hotel: "Неизвестно",
-        //dateFrom: "Неизвестно", //todo: refactor name
-        //dateTo: "Неизвестно", //todo: refactor name
         status: "Запланирована",
     }
 
@@ -60,7 +57,6 @@ const BusinessTripInfoForm = (props) => {
             onSubmit={(values) => {
                 const bt = {
                     user_id: 2,
-                    id: values.id,
                     name: values.name,
                     fromCity: values.fromCity,
                     toCity: values.toCity,
@@ -69,17 +65,11 @@ const BusinessTripInfoForm = (props) => {
                     budget: values.budget,
                     transport: values.transport,
                     hotel: values.hotel,
-                    //dateFrom: values.dateFrom, //todo: refactor name
-                    //dateTo: values.dateTo, //todo: refactor name
                     status: values.status,
                 }
 
-                if (props.id === props.countBusinessTrips) {
-                    /*props.setCsrfTC();
-                    console.log("1")
-                    console.log(Cookies.get('csrftoken'))*/
+                if (props.id === 'new')
                     props.postBusinessTripsTC(bt);
-                }
                 else
                     props.editBusinessTrip(props.id, bt);
             }}>

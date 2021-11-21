@@ -7,7 +7,9 @@ import {withRouter} from "react-router-dom";
 import TransportConstructor from "./TransportConstructor/TransportConstructor";
 
 const Transport = (props) => {
-    const id = Number(props.match.params.businessTripId || props.countBusinessTrips);
+    const id = isNaN(Number(props.match.params.businessTripId))
+        ? (props.businessTrip.id || 'new')
+        : Number(props.match.params.businessTripId);
     return (
         <div className={classes.body_container}>
             <TransportForm {...props} id={id}/>

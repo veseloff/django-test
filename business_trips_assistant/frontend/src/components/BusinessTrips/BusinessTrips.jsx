@@ -43,7 +43,7 @@ const BusinessTrips = (props) => {
                 <div>
                     Новая командировка
                 </div>
-                <NavLink to={`/business-trips/${props.countBusinessTrips}`} className={classes.button}>
+                <NavLink to={`/business-trips/new`} className={classes.button}>
                     Создать
                 </NavLink>
             </div>
@@ -69,7 +69,6 @@ const BusinessTrips = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        countBusinessTrips: state.businessTripsData.nextId,
         businessTrips: state.businessTripsData.businessTrips,
     }
 };

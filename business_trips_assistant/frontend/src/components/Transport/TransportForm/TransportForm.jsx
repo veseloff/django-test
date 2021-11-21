@@ -78,7 +78,7 @@ const TransportForm = (props) => {
                     <div>
                         Транспорт
                     </div>
-                    <NavLink to={`/business-trips`} className={cn(classes.button, classes.exit)}>
+                    <NavLink to={`/business-trips/${props.id}`} className={cn(classes.button, classes.exit)}>
                         &#8592; {/*todo: exit icon*/}
                     </NavLink>
                 </div>

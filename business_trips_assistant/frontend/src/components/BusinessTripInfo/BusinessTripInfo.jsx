@@ -6,7 +6,9 @@ import {setCsrfTC, editBusinessTrip, postBusinessTripsTC} from "../../redux/busi
 import BusinessTripInfoForm from "./BusinessTripInfoForm/BusinessTripInfoForm";
 
 const BusinessTripInfo = (props) => {
-    const id = Number(props.match.params.businessTripId || props.countBusinessTrips);
+    const id = isNaN(Number(props.match.params.businessTripId))
+        ? (props.businessTrip.id || 'new')
+        : Number(props.match.params.businessTripId);
     return (
         <div className={classes.body_container}>
             <BusinessTripInfoForm {...props} id={id}/>
@@ -72,8 +74,8 @@ const BusinessTripInfo = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        countBusinessTrips: state.businessTripsData.nextId,
         businessTrips: state.businessTripsData.businessTrips,
+        businessTrip: state.businessTripsData.businessTrip,
     }
 };
 

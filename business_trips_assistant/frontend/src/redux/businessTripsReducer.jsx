@@ -1,22 +1,28 @@
 import {businessTripsAPI} from "../api/api";
 import Cookies from 'js-cookie';
 
+const SET_BTs = "BT/SET-BTs";
 const SET_BT = "BT/SET-BT";
+const SET_ID = "BT/SET-ID";
 const ADD_BT = "BT/ADD-BT";
 const EDIT_BT = "BT/EDIT-BT";
 const REMOVE_BT = "BT/REMOVE-BT";
 
 let initialState = {
-    nextId: 2,
-    businessTrips: []
+    businessTrips: [],
+    businessTrip: {},
 }
 
 const BusinessTripsReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_BTs:
+            return {...state, businessTrips: [...action.items], businessTrip: {}};
         case SET_BT:
-            return {...state, businessTrips: [...action.items]};
+            return {...state, businessTrip: {...state.businessTrip, ...action.items}};
+        case SET_ID:
+            return {...state, businessTrip: {...state.businessTrip, id: action.item}};
         case ADD_BT:
-            return {...state, nextId: state.nextId + 1, businessTrips: [...state.businessTrips, action.businessTrip]};
+            return {...state, businessTrips: [...state.businessTrips, action.businessTrip]};
         case EDIT_BT:
             let index = -1;
             state.businessTrips.find((bt, i) => {
@@ -55,10 +61,12 @@ export const setCsrfTC = () => async (dispatch) => {
 }
 
 export const postBusinessTripsTC = (bt) => async (dispatch) => {
-    const data = await businessTripsAPI.getCsrf();
-    if (data !== undefined) {
-        dispatch(() => Cookies.set('csrftoken', data));
-        businessTripsAPI.postBusinessTrips(bt).then(result => console.log(result));
+    const dataCsrf = await businessTripsAPI.getCsrf();
+    if (dataCsrf !== undefined) {
+        dispatch(() => Cookies.set('csrftoken', dataCsrf));
+        await businessTripsAPI.postBusinessTrips(bt).then(result => {
+            dispatch(setBusinessTripId(result));
+        });
     }
 }
 
@@ -77,7 +85,9 @@ export const deleteBusinessTripsTC = (id) => async (dispatch) => {
     }
 }
 
-const setBusinessTrips = (items) => ({type: SET_BT, items: items});
+const setBusinessTrips = (items) => ({type: SET_BTs, items: items});
+const setBusinessTrip = (items) => ({type: SET_BT, items: items});
+const setBusinessTripId = (item) => ({type: SET_ID, item: item});
 const addBusinessTrip = (businessTrip) => ({type: ADD_BT, businessTrip: businessTrip});
 export const editBusinessTrip = (id, businessTrip) => ({type: EDIT_BT, id: id, businessTrip: businessTrip});
 export const removeBusinessTrip = (id) => ({type: REMOVE_BT, id: id});

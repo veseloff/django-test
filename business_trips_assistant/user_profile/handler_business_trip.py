@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 from railways_api.models import City
 from .models import BusinessTrip, Trip, Hotel
-from .static import TRANSPORT_NAME_MAPPING
+from .static import TRANSPORT_NAME_MAPPING, BUSINESS_TRIP_STATUS_MAPPING
 
 
 def get_business_trip_information(id_user):
@@ -114,7 +114,8 @@ def serialize_business_trip(business_trip):
 
     """
     info_trip = {'id': business_trip.pk, 'name': business_trip.name,
-                 'begin': str(business_trip.date_start), 'status': business_trip.status,
+                 'begin': str(business_trip.date_start),
+                 'status': BUSINESS_TRIP_STATUS_MAPPING[business_trip.status],
                  'end': str(business_trip.date_finish), 'fromCity': business_trip.from_city,
                  'toCity': business_trip.to_city, 'budget': business_trip.credit}
     return info_trip

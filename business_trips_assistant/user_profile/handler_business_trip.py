@@ -18,10 +18,7 @@ def get_business_trip_information(id_user):
     business_trips = BusinessTrip.objects.filter(user_id=id_user)
     trips = []
     for business_trip in business_trips:
-        info_trip = {'id': business_trip.pk, 'name': business_trip.name,
-                     'begin': str(business_trip.date_start),
-                     'end': str(business_trip.date_finish), 'fromCity': business_trip.from_city,
-                     'toCity': business_trip.to_city, 'budget': business_trip.credit}
+        info_trip = serialize_business_trip(business_trip)
         hotels = Hotel.objects.filter(business_trip=business_trip)
         info_trip['hotel'] = hotels[0].name if len(hotels) > 0 else None
         transport = list(set([TRANSPORT_NAME_MAPPING[transport.transport]
@@ -110,3 +107,52 @@ def get_body_request(request):
     body_byte = request.body.decode('utf-8')
     body = json.loads(body_byte)
     return body
+
+
+def serialize_business_trip(business_trip):
+    """
+    Возвращает сериализованную информацию о поездке
+    Args:
+        business_trip:
+
+    Returns:
+
+    """
+    info_trip = {'id': business_trip.pk, 'name': business_trip.name,
+                 'begin': str(business_trip.date_start),
+                 'end': str(business_trip.date_finish), 'fromCity': business_trip.from_city,
+                 'toCity': business_trip.to_city, 'budget': business_trip.credit}
+    return info_trip
+
+
+def serialize_trip(trip):
+    """
+    Сериализация поездки
+    Args:
+        trip:
+
+    Returns:
+
+    """
+    info_trip = {'isFirst': trip.is_first, 'priceTicket': trip.price_ticket,
+                 'transport': trip.transport, 'transportNumber': trip.transport_number,
+                 'stationFrom': trip.station_from, 'station_to': trip.station_to,
+                 'cityFrom': trip.city_from.city, 'cityTo': trip.city_to.city,
+                 'dateArrival': str(trip.date_arrival), 'dateDeparture': str(trip.date_departure)}
+    return info_trip
+
+
+def serialize_hotel(hotel: Hotel):
+    """
+    Сериализация отелей
+    Args:
+        hotel:
+
+    Returns:
+
+    """
+    info_trip = {'link': hotel.link, 'address': hotel.address,
+                 'name': hotel.name, 'price': hotel.price,
+                 'checkIn': str(hotel.date_check_in), 'checkOut': str(hotel.date_check_out)}
+    return info_trip
+

@@ -194,7 +194,8 @@ def create_business_trip(request):
         to_city=body['toCity'],
         credit=body.get('budget'),
         date_start=datetime.strptime(body['begin'], '%Y-%m-%d').date(),
-        date_finish=datetime.strptime(body['end'], '%Y-%m-%d').date()
+        date_finish=datetime.strptime(body['end'], '%Y-%m-%d').date(),
+        status=body['status']
     )
     b_t.save()
     return HttpResponse(b_t)

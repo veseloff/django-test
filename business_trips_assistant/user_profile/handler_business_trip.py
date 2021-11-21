@@ -38,18 +38,13 @@ def insert_value_business_trip(b_t, body):
     Returns:
 
     """
-    name = body['name']
-    from_city = body['fromCity']
-    to_city = body['toCity']
-    credit = body['budget']
-    date_start = datetime.strptime(body['begin'], '%Y-%m-%d').date()
-    date_finish = datetime.strptime(body['end'], '%Y-%m-%d').date()
-    b_t.name = name
-    b_t.from_city = from_city
-    b_t.to_city = to_city
-    b_t.credit = credit
-    b_t.date_start = date_start
-    b_t.date_finish = date_finish
+    b_t.name = body['name']
+    b_t.from_city = body['fromCity']
+    b_t.to_city = body['toCity']
+    b_t.credit = body['budget']
+    b_t.date_start = datetime.strptime(body['begin'], '%Y-%m-%d').date()
+    b_t.date_finish = datetime.strptime(body['end'], '%Y-%m-%d').date()
+    b_t.status = body['status']
     b_t.save()
 
 
@@ -119,7 +114,7 @@ def serialize_business_trip(business_trip):
 
     """
     info_trip = {'id': business_trip.pk, 'name': business_trip.name,
-                 'begin': str(business_trip.date_start),
+                 'begin': str(business_trip.date_start), 'status': business_trip.status,
                  'end': str(business_trip.date_finish), 'fromCity': business_trip.from_city,
                  'toCity': business_trip.to_city, 'budget': business_trip.credit}
     return info_trip

@@ -1,7 +1,7 @@
 import classes from "./BusinessTrips.module.css";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {removeBusinessTrip, setBusinessTripsTC} from "../../redux/businessTripsReducer";
+import {deleteBusinessTripsTC, setBusinessTripsTC} from "../../redux/businessTripsReducer";
 import BusinessTripConstructor from "./BusinessTripConstructor/BusinessTripConstructor";
 import {NavLink} from "react-router-dom";
 import {useEffect, useState} from "react";
@@ -14,7 +14,7 @@ const BusinessTrips = (props) => {
     }, []);
 
     const onDelete = (id) => {
-        props.removeBusinessTrip(id);
+        props.deleteBusinessTripsTC(id);
     }
 
     const changeFilter = () => {
@@ -75,5 +75,5 @@ const mapStateToProps = (state) => {
 
 export default compose(connect(mapStateToProps, {
     setBusinessTripsTC,
-    removeBusinessTrip
+    deleteBusinessTripsTC,
 }))(BusinessTrips);

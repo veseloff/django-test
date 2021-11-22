@@ -27,19 +27,30 @@ export const businessTripsAPI = {
             .then(data => data)
             .catch(error => console.error(error))
     },
-    async deleteBusinessTrips(id) {
-        const url = '/account/create_business_trip/';
+    async putBusinessTrips(idBT, bt) {
+        const url = '/account/update_business_trip/';
         const csrftoken = Cookies.get('csrftoken');
         return await fetch(url, {
-            method: 'DELETE',
-            //mode: 'same-origin',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
                 'X-CSRFToken': csrftoken,
-                //'Access-Control-Allow-Credentials': true,
             },
-            body: JSON.stringify(id),
-            //credentials: 'include',
+            body: JSON.stringify({idBT, bt}),
+        }).then(response => response.json())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+    async deleteBusinessTrips(idBT) {
+        const url = '/account/delete_business_trip/';
+        const csrftoken = Cookies.get('csrftoken');
+        return await fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify({idBT}),
         }).then(response => response.text())
             .then(data => data)
             .catch(error => console.error(error))

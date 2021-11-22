@@ -70,18 +70,21 @@ export const postBusinessTripsTC = (bt) => async (dispatch) => {
     }
 }
 
-export const putBusinessTripsTC = () => async (dispatch) => {
-    //dispatch(toggleIsFetching(true));
-    const data = await businessTripsAPI.postBusinessTrips();
-    //dispatch(toggleIsFetching(false));
-    dispatch(editBusinessTrip(data));
+export const putBusinessTripsTC = (idBT, bt) => async (dispatch) => {
+    const dataCsrf = await businessTripsAPI.getCsrf();
+    if (dataCsrf !== undefined) {
+        dispatch(() => Cookies.set('csrftoken', dataCsrf));
+        await businessTripsAPI.putBusinessTrips(idBT, bt)
+    }
 }
 
 export const deleteBusinessTripsTC = (id) => async (dispatch) => {
     const data = await businessTripsAPI.getCsrf();
     if (data !== undefined) {
         dispatch(() => Cookies.set('csrftoken', data));
-        businessTripsAPI.deleteBusinessTrips(id).then(result => console.log(result));
+        await businessTripsAPI.deleteBusinessTrips(id).then(() => {
+            dispatch(setBusinessTripsTC());
+        });
     }
 }
 
@@ -90,6 +93,6 @@ const setBusinessTrip = (items) => ({type: SET_BT, items: items});
 const setBusinessTripId = (item) => ({type: SET_ID, item: item});
 const addBusinessTrip = (businessTrip) => ({type: ADD_BT, businessTrip: businessTrip});
 export const editBusinessTrip = (id, businessTrip) => ({type: EDIT_BT, id: id, businessTrip: businessTrip});
-export const removeBusinessTrip = (id) => ({type: REMOVE_BT, id: id});
+const removeBusinessTrip = (id) => ({type: REMOVE_BT, id: id});
 
 export default BusinessTripsReducer;

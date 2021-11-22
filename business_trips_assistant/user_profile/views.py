@@ -129,7 +129,8 @@ def update_business_trip(request):
     """
     body = get_body_request(request)
     b_t = BusinessTrip.objects.get(pk=body['idBT'])
-    insert_value_business_trip(b_t, request)
+    insert_value_business_trip(b_t, body['bt'])
+    return HttpResponse(b_t.pk)
 
 
 def update_trip(request):
@@ -175,6 +176,7 @@ def delete_business_trip(request):
     body = get_body_request(request)
     b_t = BusinessTrip.objects.get(pk=body['idBT'])
     b_t.delete()
+    return HttpResponse("ok")
 
 
 def create_business_trip(request):
@@ -199,7 +201,7 @@ def create_business_trip(request):
         status=1
     )
     b_t.save()
-    return HttpResponse(b_t)
+    return HttpResponse(b_t.pk)
 
 
 def create_trip(request):

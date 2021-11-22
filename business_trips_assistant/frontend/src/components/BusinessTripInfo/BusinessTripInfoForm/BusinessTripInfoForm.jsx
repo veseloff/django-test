@@ -72,7 +72,7 @@ const BusinessTripInfoForm = (props) => {
                 if (props.id === 'new')
                     props.postBusinessTripsTC(bt);
                 else
-                    props.editBusinessTrip(props.id, bt);
+                    props.putBusinessTripsTC(props.id, bt);
             }}>
             <Form className={classes.body_container}>
                 <div className={classes.first_row}>

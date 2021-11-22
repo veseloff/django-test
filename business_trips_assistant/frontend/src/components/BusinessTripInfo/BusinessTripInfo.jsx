@@ -2,13 +2,15 @@ import {NavLink, withRouter} from "react-router-dom";
 import classes from "./BusinessTripInfo.module.css";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {setCsrfTC, editBusinessTrip, postBusinessTripsTC} from "../../redux/businessTripsReducer";
+import {setCsrfTC, editBusinessTrip, postBusinessTripsTC, putBusinessTripsTC} from "../../redux/businessTripsReducer";
 import BusinessTripInfoForm from "./BusinessTripInfoForm/BusinessTripInfoForm";
 
 const BusinessTripInfo = (props) => {
     const id = isNaN(Number(props.match.params.businessTripId))
         ? (props.businessTrip.id || 'new')
         : Number(props.match.params.businessTripId);
+    console.log(id);
+    console.log(props.businessTrip.id);
     return (
         <div className={classes.body_container}>
             <BusinessTripInfoForm {...props} id={id}/>
@@ -80,4 +82,4 @@ const mapStateToProps = (state) => {
 };
 
 export default compose(connect(mapStateToProps,
-    {postBusinessTripsTC, editBusinessTrip, setCsrfTC}), withRouter)(BusinessTripInfo);
+    {postBusinessTripsTC, putBusinessTripsTC, setCsrfTC}), withRouter)(BusinessTripInfo);

@@ -8,6 +8,8 @@ class DBCommands:
 
     FIND_BUSINESS_TRIP = "SELECT * FROM user_profile_businesstrip WHERE status=1 AND user_id=$1"
 
+    FIND_CLOSE_BUSINESS_TRIP = "SELECT * FROM user_profile_businesstrip WHERE status=0 AND user_id=$1"
+
     FIND_USER_ID_IN_SYSTEM = "SELECT user_id FROM user_profile_usertelegram WHERE id_telegram=$1"
 
     FIND_TELEPHONE = "SELECT telephone FROM user_profile_usertelegram WHERE id_telegram=$1"
@@ -33,3 +35,7 @@ class DBCommands:
     async def update_phone(self, args):
         command = self.UPDATE_TELEPHONE
         return await self.pool.fetchval(command, *args)
+
+    async def find_close_business_trip(self, user_id):
+        command = self.FIND_CLOSE_BUSINESS_TRIP
+        return await self.pool.fetch(command, user_id)

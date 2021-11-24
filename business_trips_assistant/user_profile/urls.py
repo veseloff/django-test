@@ -12,5 +12,7 @@ urlpatterns = [
     path('delete_business_trip/', delete_business_trip),
     path('create_business_trip/', create_business_trip),
     path('create_trip/', create_trip),
-    path('create_hotel', create_hotel),
+    path('create_hotel/', create_hotel),
+    path('get_csrf/', get_csrf),
+    path('info_business_trip/', get_full_info_business_trip)
 ]

@@ -1,0 +1,94 @@
+.business_trip {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr) 130px;
+    gap: 10px;
+    grid-auto-columns: minmax(100px, auto);
+    box-sizing: border-box;
+    border-bottom: 1px solid #C4C4C4;
+    padding: 10px 0;
+    height: 100px;
+    width: 100%;
+    font-family: Roboto, monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+    color: #8B8B8B;
+}
+
+.delete_wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: flex;
+}
+
+.delete_container {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: white;
+}
+
+.button_wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.name {
+    font-family: Roboto, monospace;
+    font-size: 20px;
+    font-style: normal;
+    text-align: left;
+    color: black;
+}
+
+.button_container {
+    display: grid;
+    gap: 10px;
+    grid-template-rows: 20px 1fr;
+}
+
+.button_container>div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    composes: button from "./../../../App.module.css";
+}
+
+.delete_button {
+    width: 20px;
+    height: 20px;
+}
+
+.delete {
+    background-color: #B04632;
+}
+
+.delete:hover {
+    background-color: #933B27;
+}
+
+.delete:active {
+    background-color: #6E2F1A;
+}
+
+
+
+

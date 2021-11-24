@@ -1,3 +1,4 @@
+"""Обработчик сообщений"""
 from scaner import read_qr
 from tg_bot.bot.bot.loader import dp
 from aiogram.types import Message, CallbackQuery
@@ -5,9 +6,11 @@ from aiogram.dispatcher import FSMContext
 from tg_bot.bot.bot.nalog_python import NalogRuPython
 from tg_bot.bot.bot.fnl_requests import json_parser
 from db_comands import DBCommands
-from keyboard import choice_bt, yes_no, close_bt, yes_close, change_phone, close_all
+from keyboard import choice_bt, yes_no, close_bt, yes_close,\
+    change_phone, close_all
 from state import Scanner
 import re
+import os
 
 
 db = DBCommands()
@@ -70,7 +73,7 @@ async def choose_number_phone(call: CallbackQuery, state: FSMContext):
     phone = data.get("phone")
     if phone is None:
         phone = await db.find_phone(call.from_user.id)
-        if phone is None:
+        if len(phone) == 0:
             await Scanner.InsertPhone.set()
             return await call.message.answer('Кажется у нас нет вашего номера телефона,'
                                              ' пожалуйста введите его в формате +7ХХХХХХХХХХ,'
@@ -138,6 +141,15 @@ async def code_confirmation(message: Message, state: FSMContext):
 
 @dp.message_handler(content_types=['document', 'photo'], state=Scanner)
 async def handle_docs_photo(message: Message, state: FSMContext):
+    """
+    Получаем и обрабатываем чек
+    Args:
+        message:
+        state:
+
+    Returns:
+
+    """
     data = await state.get_data()
     id_b_t = data['b_t_id']
     filename = f'{id_b_t}.png'
@@ -146,6 +158,7 @@ async def handle_docs_photo(message: Message, state: FSMContext):
     else:
         await message.document.download(filename)
     qr_code = read_qr(filename)
+    os.remove(filename)
     client = data['client']
     ticket = client.get_ticket(qr_code)
     date_answer, items, check_amount, date_db = json_parser(ticket)
@@ -220,4 +233,12 @@ async def close(call: CallbackQuery, state: FSMContext):
 
 @dp.message_handler()
 async def choose_action(message: Message):
+    """
+    Начало общения
+    Args:
+        message:
+
+    Returns:
+
+    """
     await message.answer('Выберите действие', reply_markup=choice_bt)

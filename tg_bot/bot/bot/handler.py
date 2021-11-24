@@ -1,13 +1,13 @@
-from scaner import get_info_zxing_qrscanner
-from tg_bot.bot.bot.loader import dp, bot
+from scaner import read_qr
+from tg_bot.bot.bot.loader import dp
 from aiogram.types import Message, CallbackQuery
 from aiogram.dispatcher import FSMContext
 from tg_bot.bot.bot.nalog_python import NalogRuPython
 from tg_bot.bot.bot.fnl_requests import json_parser
 from db_comands import DBCommands
-from datetime import datetime
-from keyboard import choice_bt, yes_no, close_bt, yes_close
+from keyboard import choice_bt, yes_no, close_bt, yes_close, change_phone, close_all
 from state import Scanner
+import re
 
 
 db = DBCommands()
@@ -19,7 +19,6 @@ async def get_id(message: Message):
     Получение id пользователя в telegram при первом запуске или команде start
     Args:
         message:
-        state:
 
     Returns:
 
@@ -58,7 +57,7 @@ async def choose_business_trip(call: CallbackQuery, state: FSMContext):
 @dp.callback_query_handler(text_contains="yes", state=Scanner.ChooseBusinessTrip)
 async def choose_number_phone(call: CallbackQuery, state: FSMContext):
     """
-    Уточнение командировки
+    Проверка номера телефона и отправка кода для регистрации на фнс
     Args:
         call:
         state:
@@ -70,24 +69,27 @@ async def choose_number_phone(call: CallbackQuery, state: FSMContext):
     data = await state.get_data()
     phone = data.get("phone")
     if phone is None:
-        phone = db.find_phone(call.from_user.id)
+        phone = await db.find_phone(call.from_user.id)
         if phone is None:
             await Scanner.InsertPhone.set()
             return await call.message.answer('Кажется у нас нет вашего номера телефона,'
                                              ' пожалуйста введите его в формате +7ХХХХХХХХХХ,'
-                                             'это нужно для подтверждения смс-кода')
+                                             'это нужно для подтверждения смс-кода', reply_markup=close_all)
         else:
+            phone = f'+{phone}'
             await state.update_data(phone=phone)
-    await Scanner.AddCheque.set()
-    return await call.message.answer(f'Отправьте фото чека.\n'
-                                     f'Дождитесь сообщения об успешной обработке чека, '
-                                     f'перед следущей отправкой.')
+    client = NalogRuPython(phone)
+    await state.update_data(client=client)
+    await Scanner.CodeConfirmation.set()
+    await call.message.answer(f'На ваш номер телефона {phone} сейчас придёт код с смс подтверждением, '
+                              'отправьте его нам.'
+                              'Введите код без пробелов и прочих символов.', reply_markup=change_phone)
 
 
 @dp.callback_query_handler(text_contains="no", state=Scanner.ChooseBusinessTrip)
 async def find_close_bt(call: CallbackQuery, state: FSMContext):
     """
-    Уточнение командировки
+    Найти последнюю законченную командировку
     Args:
         call:
         state:
@@ -104,42 +106,113 @@ async def find_close_bt(call: CallbackQuery, state: FSMContext):
         await call.message.answer(f'Добавить чек к {last_b_t["name"]}?', reply_markup=yes_close)
         await state.update_data(b_t_id=last_b_t['id'])
     else:
-        await call.message.answer('У вас нет законченных командировок')
+        await call.message.answer('У вас нет законченных командировок', reply_markup=close_all)
         await state.finish()
 
 
-@dp.message_handler(content_types=['document', 'photo'], state=Scanner.AddCheque)
+@dp.message_handler(state=Scanner.CodeConfirmation)
+async def code_confirmation(message: Message, state: FSMContext):
+    """
+    Подтверждение смс кода с сайта фнс
+    Args:
+        message:
+        state:
+
+    Returns:
+
+    """
+    code = message.text.split(' ')
+    data = await state.get_data()
+    client = data['client']
+    status = client.code_confirmation(code)
+    if status == 200:
+        await state.update_data(client=client)
+        await Scanner.AddCheque.set()
+        await message.answer(f'Отправьте фото чека.\n'
+                             f'Дождитесь сообщения об успешной обработке чека, '
+                             f'перед следущей отправкой.')
+    else:
+        await message.answer('Вы ввели неверный код, или ввели лишний символ попробуйте ещё раз',
+                             reply_markup=close_all)
+
+
+@dp.message_handler(content_types=['document', 'photo'], state=Scanner)
 async def handle_docs_photo(message: Message, state: FSMContext):
     data = await state.get_data()
     id_b_t = data['b_t_id']
+    filename = f'{id_b_t}.png'
     if message.document is None:
-        await message.photo[-1].download(f'{id_b_t}')
+        await message.photo[-1].download(filename)
     else:
-        await message.document.download(f'{id_b_t}')
-    filename = str(id_b_t)
-
-    client = NalogRuPython()
-    qr_code = get_info_zxing_qrscanner(filename)
+        await message.document.download(filename)
+    qr_code = read_qr(filename)
+    client = data['client']
     ticket = client.get_ticket(qr_code)
-    data_cheque = json_parser(ticket)
+    date_answer, items, check_amount, date_db = json_parser(ticket)
+    report = f'Дата покупки: {date_answer}\n'
+    for item in items:
+        report += f'{item}\n'
+    report += f'Сумма покупки {check_amount}'
+    await message.answer(report, reply_markup=close_all)
 
-    arg = (data_cheque[2], datetime.now(), "Сыр 3", 1)
-    await db.add_new_cheque(arg)
-    result_answer = ""
-    for el in data_cheque[1]:
-        result_answer = result_answer + '\n' + el
-    report = f"{data_cheque[0]} Вы купили: {result_answer}  \n \n Потратив всего: {data_cheque[2]} \u20bd"
-    await message.answer(report)
-    report = "Обед 111"
-    b_t_data = await state.get_data()
-    b_t_id = b_t_data.get('b_t_id')
-    params_to_insert = (111, datetime.now(), report, b_t_id)
-    await db.add_new_cheque(params_to_insert)
-    await message.answer('Чек успешно добавлен, мо')
+    arg_to_db = (check_amount, date_db, report, id_b_t)
+    await db.add_new_cheque(arg_to_db)
+    await message.answer('Чек успешно добавлен.', reply_markup=close_all)
+
+
+@dp.message_handler(state=Scanner.InsertPhone)
+async def insert_phone(message: Message, state: FSMContext):
+    """
+    Добавить номер телефона
+    Args:
+        message:
+        state:
+
+    Returns:
+
+    """
+    phone = message.text
+    if re.fullmatch(r'\+79\d{9}', phone):
+        params = (phone[1:], message.from_user.id)
+        await db.update_phone(params)
+        await state.update_data(phone=phone)
+        client = NalogRuPython(phone)
+        await state.update_data(client=client)
+        await Scanner.CodeConfirmation.set()
+        await message.answer(f'На ваш номер телефона {phone} сейчас придёт код с смс подтверждением, '
+                             'отправьте его нам.'
+                             'Введите код без пробелов и прочих символов.', reply_markup=close_all)
+    else:
+        await message.answer('Не корректный номер телефона', reply_markup=close_all)
+
+
+@dp.callback_query_handler(text_contains='change_phone', state=Scanner.CodeConfirmation)
+async def update_phone(call: CallbackQuery):
+    """
+    Изменить номер телефона
+    Args:
+        call:
+
+    Returns:
+
+    """
+    await call.answer(cache_time=60)
+    await Scanner.InsertPhone.set()
+    return await call.message.answer('Введите номер телефона в формате +7ХХХХХХХХХХ,'
+                                     'это нужно для подтверждения смс-кода', reply_markup=close_all)
 
 
 @dp.callback_query_handler(text_contains="close", state=Scanner)
 async def close(call: CallbackQuery, state: FSMContext):
+    """
+    Выйти из всех состояний
+    Args:
+        call:
+        state:
+
+    Returns:
+
+    """
     await call.answer(cache_time=60)
     await call.message.answer('Чтобы начать сначала, напишите что угодно')
     await state.finish()
@@ -148,4 +221,3 @@ async def close(call: CallbackQuery, state: FSMContext):
 @dp.message_handler()
 async def choose_action(message: Message):
     await message.answer('Выберите действие', reply_markup=choice_bt)
-

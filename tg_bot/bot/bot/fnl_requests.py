@@ -1,4 +1,5 @@
-import time as t
+import time
+import datetime
 
 
 def json_parser(json):
@@ -17,12 +18,13 @@ def json_parser(json):
         12: "декабря"
     }
 
-    date = json["operation"]["date"]
-    total_sum = json["operation"]["sum"] / 100
+    date_time_str = json["operation"]["date"]
+    check_amount = json["operation"]["sum"] / 100
     items = []
     for item in json["ticket"]["document"]["receipt"]["items"]:
         items.append(f"* {item['name']} - {str(item['sum']/100)} \u20bd")
-    time_s = t.strptime(date[:10], "%Y-%m-%d")
-    time_res = f"{time_s.tm_mday} {months[time_s.tm_mon]} {time_s.tm_year} года"
-    return time_res, items, total_sum
+    date = time.strptime(date_time_str, "%Y-%m-%dT%H:%M")
+    time_res = f"{date.tm_mday} {months[date.tm_mon]} {date.tm_year} года"
+    date = datetime.datetime(date.tm_year, date.tm_mon, date.tm_mday, date.tm_hour, date.tm_min)
+    return time_res, items, check_amount, date
 

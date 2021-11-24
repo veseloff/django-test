@@ -6,3 +6,5 @@ class Scanner(StatesGroup):
     ChoosePhone = State()
     InsertPhone = State()
     AddCheque = State()
+    CodeConfirmation = State()
+

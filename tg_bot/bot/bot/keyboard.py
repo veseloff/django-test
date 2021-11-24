@@ -20,3 +20,13 @@ close_bt.insert(close)
 yes_close = InlineKeyboardMarkup(row_width=2)
 yes_close.insert(yes)
 yes_close.insert(close)
+
+
+change_phone = InlineKeyboardMarkup(row_width=2)
+phone = InlineKeyboardButton(text='Изменить номер телефона', callback_data='change_phone')
+change_phone.insert(phone)
+change_phone.insert(close)
+
+
+close_all = InlineKeyboardMarkup(row_width=1)
+close_all.insert(close)

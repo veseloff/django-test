@@ -1,5 +1,3 @@
-import json
-
 import requests
 
 
@@ -13,16 +11,25 @@ class NalogRuPython:
     ACCEPT_LANGUAGE = 'ru-RU;q=1, en-US;q=0.9'
     CLIENT_SECRET = 'IyvrAbKt9h/8p6a7QPh8gpkXYQ4='
     OS = 'Android'
+    HEADERS = {
+            'Host': HOST,
+            'Accept': ACCEPT,
+            'Device-OS': DEVICE_OS,
+            'Device-Id': DEVICE_ID,
+            'clientVersion': CLIENT_VERSION,
+            'Accept-Language': ACCEPT_LANGUAGE,
+            'User-Agent': USER_AGENT,
+        }
 
-    def __init__(self):
+    def __init__(self, phone):
         self.__session_id = None
-        self.set_session_id()
+        self.set_session_id(phone)
 
-    def set_session_id(self) -> None:
+    def set_session_id(self, phone) -> None:
         """
         Authorization using phone and SMS code
         """
-        self.__phone = str(input('Input phone in +70000000000 format: '))
+        self.__phone = phone
 
         url = f'https://{self.HOST}/v2/auth/phone/request'
         payload = {
@@ -30,61 +37,28 @@ class NalogRuPython:
             'client_secret': self.CLIENT_SECRET,
             'os': self.OS
         }
-        headers = {
-            'Host': self.HOST,
-            'Accept': self.ACCEPT,
-            'Device-OS': self.DEVICE_OS,
-            'Device-Id': self.DEVICE_ID,
-            'clientVersion': self.CLIENT_VERSION,
-            'Accept-Language': self.ACCEPT_LANGUAGE,
-            'User-Agent': self.USER_AGENT,
-        }
+        resp = requests.post(url, json=payload, headers=self.HEADERS)
 
-        resp = requests.post(url, json=payload, headers=headers)
-
-        self.__code = input('Input code from SMS: ')
+    def code_confirmation(self, code):
+        self.__code = code
 
         url = f'https://{self.HOST}/v2/auth/phone/verify'
         payload = {
-        'phone': self.__phone,
-        'client_secret': self.CLIENT_SECRET,
-        'code': self.__code,
-        "os": self.OS
+            'phone': self.__phone,
+            'client_secret': self.CLIENT_SECRET,
+            'code': self.__code,
+            "os": self.OS
         }
 
-        resp = requests.post(url, json=payload, headers=headers)
+        resp = requests.post(url, json=payload, headers=self.HEADERS)
+        if resp.status_code == 200:
+            self.__session_id = resp.json()['sessionId']
+            self.__refresh_token = resp.json()['refresh_token']
+            return 200
+        else:
+            return 402
 
-        self.__session_id = resp.json()['sessionId']
-        self.__refresh_token = resp.json()['refresh_token']
-
-    def refresh_token_function(self) -> None:
-        url = f'https://{self.HOST}/v2/mobile/users/refresh'
-        payload = {
-            'refresh_token': self.__refresh_token,
-            'client_secret': self.CLIENT_SECRET
-        }
-
-        headers = {
-            'Host': self.HOST,
-            'Accept': self.ACCEPT,
-            'Device-OS': self.DEVICE_OS,
-            'Device-Id': self.DEVICE_ID,
-            'clientVersion': self.CLIENT_VERSION,
-            'Accept-Language': self.ACCEPT_LANGUAGE,
-            'User-Agent': self.USER_AGENT,
-        }
-
-        resp = requests.post(url, json=payload, headers=headers)
-
-        self.__session_id = resp.json()['sessionId']
-        self.__refresh_token = resp.json()['refresh_token']
-
-    def _get_ticket_id(self, qr: str) -> str:
-        """
-        Get ticker id by info from qr code
-        :param qr: text from qr code. Example "t=20200727T174700&s=746.00&fn=9285000100206366&i=34929&fp=3951774668&n=1"
-        :return: Ticket id. Example "5f3bc6b953d5cb4f4e43a06c"
-        """
+    def _get_ticket_id(self, qr: str):
         url = f'https://{self.HOST}/v2/ticket'
         payload = {'qr': qr}
         headers = {
@@ -102,12 +76,7 @@ class NalogRuPython:
 
         return resp.json()["id"]
 
-    def get_ticket(self, qr: str) -> dict:
-        """
-        Get JSON ticket
-        :param qr: text from qr code. Example "t=20200727T174700&s=746.00&fn=9285000100206366&i=34929&fp=3951774668&n=1"
-        :return: JSON ticket
-        """
+    def get_ticket(self, qr: str):
         ticket_id = self._get_ticket_id(qr)
         url = f'https://{self.HOST}/v2/tickets/{ticket_id}'
         headers = {
@@ -125,15 +94,3 @@ class NalogRuPython:
         resp = requests.get(url, headers=headers)
 
         return resp.json()
-
-
-if __name__ == '__main__':
-    client = NalogRuPython()
-    qr_code = "t=20200709T2008&s=7273.00&fn=9282440300688488&i=14186&fp=1460060363&n=1"
-    ticket = client.get_ticket(qr_code)
-    print(json.dumps(ticket, indent=4, ensure_ascii=False))
-
-    client.refresh_token_function()
-    qr_code = "t=20200924T1837&s=349.93&fn=9282440300682838&i=46534&fp=1273019065&n=1"
-    ticket = client.get_ticket(qr_code)
-    print(json.dumps(ticket, indent=4, ensure_ascii=False))

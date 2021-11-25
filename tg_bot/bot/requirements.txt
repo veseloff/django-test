@@ -13,6 +13,7 @@ cffi==1.15.0
 charset-normalizer==2.0.7
 cryptography==36.0.0
 Django==3.2.9
+django-cors-headers==3.10.0
 frozenlist==1.2.0
 h11==0.12.0
 idna==3.3
@@ -20,6 +21,7 @@ multidict==5.2.0
 numpy==1.21.4
 opencv-python==4.5.4.60
 outcome==1.1.0
+psycopg2==2.9.2
 pycparser==2.21
 pyOpenSSL==21.0.0
 python-dotenv==0.19.2

@@ -4,7 +4,10 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 choice_bt = InlineKeyboardMarkup(row_width=1)
 b_t = InlineKeyboardButton(text="Выбрать командировку для добавления чека",
                            callback_data='choice_bt')
+get_id = InlineKeyboardButton(text='Получить id', callback_data='get_id')
 choice_bt.insert(b_t)
+choice_bt.insert(get_id)
+
 
 yes_no = InlineKeyboardMarkup(row_width=2)
 yes = InlineKeyboardButton(text="Да", callback_data='yes')

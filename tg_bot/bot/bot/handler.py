@@ -4,7 +4,7 @@ from tg_bot.bot.bot.loader import dp
 from aiogram.types import Message, CallbackQuery
 from aiogram.dispatcher import FSMContext
 from tg_bot.bot.bot.nalog_python import NalogRuPython
-from tg_bot.bot.bot.fnl_requests import json_parser
+from tg_bot.bot.bot.parse_fns_answer import parser_fns
 from db_comands import DBCommands
 from keyboard import choice_bt, yes_no, close_bt, yes_close,\
     change_phone, close_all
@@ -16,18 +16,19 @@ import os
 db = DBCommands()
 
 
-@dp.message_handler(commands=['start'])
-async def get_id(message: Message):
+@dp.callback_query_handler(text_contains='get_id')
+async def get_id(call: CallbackQuery):
     """
-    Получение id пользователя в telegram при первом запуске или команде start
+    Получение id пользователя в telegram
     Args:
-        message:
+        call:
 
     Returns:
 
     """
-    user_id = message.from_user.id
-    await message.answer(f'Ваш id: {user_id}')
+    await call.answer(cache_time=60)
+    user_id = call.from_user.id
+    await call.message.answer(f'Ваш id: {user_id}')
 
 
 @dp.callback_query_handler(text_contains="choice_bt", state=None)
@@ -75,12 +76,18 @@ async def choose_number_phone(call: CallbackQuery, state: FSMContext):
         phone = await db.find_phone(call.from_user.id)
         if len(phone) == 0:
             await Scanner.InsertPhone.set()
-            return await call.message.answer('Кажется у нас нет вашего номера телефона,'
+            return await call.message.answer('Кажется, у нас нет вашего номера телефона,'
                                              ' пожалуйста введите его в формате +7ХХХХХХХХХХ,'
                                              'это нужно для подтверждения смс-кода', reply_markup=close_all)
         else:
+            if re.fullmatch(r'89\d{9}', phone):
+                phone = '7' + phone[1:]
             phone = f'+{phone}'
             await state.update_data(phone=phone)
+    if re.fullmatch(r'\+79\d{9}', phone) is None:
+        await Scanner.InsertPhone.set()
+        return await call.message.answer('Ваше телефон введёт неверно, введите его в формате +7ХХХХХХХХХХ',
+                                         reply_markup=close_all)
     client = NalogRuPython(phone)
     await state.update_data(client=client)
     await Scanner.CodeConfirmation.set()
@@ -161,7 +168,7 @@ async def handle_docs_photo(message: Message, state: FSMContext):
     os.remove(filename)
     client = data['client']
     ticket = client.get_ticket(qr_code)
-    date_answer, items, check_amount, date_db = json_parser(ticket)
+    date_answer, items, check_amount, date_db = parser_fns(ticket)
     report = f'Дата покупки: {date_answer}\n'
     for item in items:
         report += f'{item}\n'
@@ -227,7 +234,7 @@ async def close(call: CallbackQuery, state: FSMContext):
 
     """
     await call.answer(cache_time=60)
-    await call.message.answer('Чтобы начать сначала, напишите что угодно')
+    await call.message.answer('Чтобы начать сначала, напишите что угодно или нажмите /start')
     await state.finish()
 
 

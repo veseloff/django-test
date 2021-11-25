@@ -1,3 +1,4 @@
+"""Взаимодействие с фнс"""
 import requests
 
 
@@ -40,6 +41,14 @@ class NalogRuPython:
         resp = requests.post(url, json=payload, headers=self.HEADERS)
 
     def code_confirmation(self, code):
+        """
+        Подтверждение смс кода
+        Args:
+            code:
+
+        Returns:
+
+        """
         self.__code = code
 
         url = f'https://{self.HOST}/v2/auth/phone/verify'
@@ -59,6 +68,14 @@ class NalogRuPython:
             return 402
 
     def _get_ticket_id(self, qr: str):
+        """
+        Получение id сессии
+        Args:
+            qr:
+
+        Returns:
+
+        """
         url = f'https://{self.HOST}/v2/ticket'
         payload = {'qr': qr}
         headers = {
@@ -77,6 +94,14 @@ class NalogRuPython:
         return resp.json()["id"]
 
     def get_ticket(self, qr: str):
+        """
+        Ответ от фнс
+        Args:
+            qr:
+
+        Returns:
+
+        """
         ticket_id = self._get_ticket_id(qr)
         url = f'https://{self.HOST}/v2/tickets/{ticket_id}'
         headers = {

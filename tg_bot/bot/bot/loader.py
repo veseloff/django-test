@@ -1,9 +1,8 @@
+"""Загрузка бота, диспатчера, бд"""
 import logging
-
 from aiogram import Bot
 from aiogram import Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-
 from config import TOKEN
 from sql import create_pool
 

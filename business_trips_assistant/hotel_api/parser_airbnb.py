@@ -104,7 +104,7 @@ def parse_hotels(items):
             .find('div', class_='_1e541ba5')
         hotel['link'] = constant + div.find('a').get('href')
         hotel['name'] = div.find('div', class_='_12oal24')\
-            .find('span', class_='_1whrsux9').get_text()
+            .find('span', class_='_im5s6sq').get_text()
         hotel['price'] = get_amount(div)
         val = div.find('div', class_='_1hxyyw3')
         hotel['evaluation'] \
@@ -138,7 +138,8 @@ def get_count_hotels(soup):
         count_hotels
     """
     count_hotels_text = soup.find('div', class_='_z4lmgp').find('div', class_='_16twsl1q') \
-        .find('main', id='site-content').find_all('div', class_='_1gw6tte')[5]\
-        .find('div', class_='_1h559tl').get_text()
+        .find('main', id='site-content').find_all('div', class_='_1gw6tte')[4]\
+        .find('div', class_='_le6wlg').find('div', class_='_1h559tl').get_text()
+
     count_hotels = re.findall(r'\d+', count_hotels_text)[2]
     return count_hotels

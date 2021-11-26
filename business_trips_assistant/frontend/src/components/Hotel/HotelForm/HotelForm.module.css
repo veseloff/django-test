@@ -1,0 +1,58 @@
+.body_container>div {
+    height: 50px;
+}
+
+.first_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    font-family: Roboto, monospace;
+    font-size: 20px;
+    font-style: normal;
+}
+
+.first_row>div {
+    margin-top: 20px;
+    width: 30px;
+    font-size: 20px;
+}
+
+.exit {
+    font-size: 20px;
+    width: 30px;
+}
+
+.button {
+    margin-top: 20px;
+    composes: button from "../../../App.module.css";
+}
+
+.save {
+    width: 130px;
+}
+
+.second_row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.third_row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.third_row_first_group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.third_row_second_group {
+    display: grid;
+    grid-template-columns: 1fr 130px;
+    gap: 25px;
+}
+

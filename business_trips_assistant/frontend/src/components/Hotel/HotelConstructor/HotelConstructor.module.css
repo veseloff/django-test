@@ -1,8 +1,8 @@
-.business_trip {
-    grid-template-columns: 2fr repeat(3, 1fr) 130px;
+.hotels {
+    grid-template-columns: 3fr repeat(2, 2fr) 130px;
+    composes: body_content_wrapper from '../../../App.module.css';
     border-top: 1px solid #C4C4C4;
     border-bottom: 0;
-    composes: body_content_wrapper from '../../../App.module.css';
 }
 
 .button_wrapper {

@@ -56,3 +56,13 @@ export const businessTripsAPI = {
             .catch(error => console.error(error))
     },
 }
+
+export const hotelsAPI = {
+    async getHotels(city, offset, star, option, checkIn, checkOut) {
+        const url = `/hotel/hotels_${option}?city=${city}&offset=${offset}&star=${star}&check_in=${checkIn}&check_out=${checkOut}`;
+        return await fetch(url)
+            .then(response => response.json())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+}

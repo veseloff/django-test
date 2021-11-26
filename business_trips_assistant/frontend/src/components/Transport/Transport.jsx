@@ -2,7 +2,7 @@ import classes from "./Transport.module.css";
 import TransportForm from "./TransportForm/TransportForm";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {editBusinessTrip, postBusinessTripsTC, setCsrfTC} from "../../redux/businessTripsReducer";
+import {postBusinessTripsTC, setCsrfTC} from "../../redux/businessTripsReducer";
 import {withRouter} from "react-router-dom";
 import TransportConstructor from "./TransportConstructor/TransportConstructor";
 
@@ -33,4 +33,4 @@ const mapStateToProps = (state) => {
 };
 
 export default compose(connect(mapStateToProps,
-    {postBusinessTripsTC, editBusinessTrip, setCsrfTC}), withRouter)(Transport);
+    {postBusinessTripsTC, setCsrfTC}), withRouter)(Transport);

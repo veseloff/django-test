@@ -2,10 +2,10 @@ import classes from "./TransportForm.module.css";
 import {NavLink} from "react-router-dom";
 import {Formik, Form} from 'formik';
 import cn from "classnames";
-import TextInput from "../../Common/TextInput";
-import CheckBox from "../../Common/CheckBox";
+import TextInput from "../../Common/FormControl/TextInput";
+import CheckBox from "../../Common/FormControl/CheckBox";
 import {useState} from "react";
-import SmartTextInput from "../../Common/SmartTextInput";
+import SmartTextInput from "../../Common/FormControl/SmartTextInput";
 
 const validate = (values) => {
     const errors = {};

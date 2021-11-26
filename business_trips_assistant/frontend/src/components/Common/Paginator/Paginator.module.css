@@ -1,0 +1,28 @@
+.pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid #C4C4C4;
+}
+
+.pages div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    margin: 0 5px;
+    padding: 0 5px;
+    border-radius: 15px;
+}
+
+.hoverPage:hover {
+    background-color: #C4C4C4;
+}
+
+.selectedPage {
+    color: white;
+    background-color: #1B496C !important;
+}

@@ -1,10 +1,12 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import BusinessTripsReducer from "./businessTripsReducer";
+import hotelReducer from "./hotelReducer";
 import thunkMiddleware from "redux-thunk";
 //import {reducer as formReducer} from "redux-form";
 
 const reducers = combineReducers({
     businessTripsData: BusinessTripsReducer,
+    hotelsData: hotelReducer,
 });
 
 

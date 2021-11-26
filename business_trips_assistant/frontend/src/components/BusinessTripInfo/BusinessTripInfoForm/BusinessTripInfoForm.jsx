@@ -2,7 +2,7 @@ import classes from "./BusinessTripInfoForm.module.css";
 import {NavLink} from "react-router-dom";
 import {Formik, Form} from 'formik';
 import cn from "classnames";
-import TextInput from "../../Common/TextInput";
+import TextInput from "../../Common/FormControl/TextInput";
 
 const validate = (values) => {
     const errors = {};

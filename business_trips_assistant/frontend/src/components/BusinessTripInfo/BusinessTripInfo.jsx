@@ -9,8 +9,6 @@ const BusinessTripInfo = (props) => {
     const id = isNaN(Number(props.match.params.businessTripId))
         ? (props.businessTrip.id || 'new')
         : Number(props.match.params.businessTripId);
-    console.log(id);
-    console.log(props.businessTrip.id);
     return (
         <div className={classes.body_container}>
             <BusinessTripInfoForm {...props} id={id}/>

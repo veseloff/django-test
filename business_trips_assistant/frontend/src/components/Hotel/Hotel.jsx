@@ -9,6 +9,10 @@ import Paginator from "../Common/Paginator/Paginator";
 import {useEffect, useState} from "react";
 
 const Hotel = (props) => {
+    const id = isNaN(Number(props.match.params.businessTripId))
+        ? (props.businessTrip.id || 'new')
+        : Number(props.match.params.businessTripId);
+
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 25;
 
@@ -21,7 +25,7 @@ const Hotel = (props) => {
 
     return (
         <div className={classes.body_container}>
-            <HotelForm {...props} currentPage={currentPage}/>
+            <HotelForm {...props} id={id} currentPage={currentPage}/>
             <div className={classes.body_wrapper}>
                 {
                     props.hotels !== undefined
@@ -42,7 +46,7 @@ const mapStateToProps = (state) => {
         hotels: state.hotelsData.hotels,
         hotelsDataSearch: state.hotelsData.hotelsDataSearch,
         count: state.hotelsData.count,
-        businessTrips: state.businessTripsData.businessTrips,
+        businessTrip: state.businessTripsData.businessTrip,
     }
 };
 

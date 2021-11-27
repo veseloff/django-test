@@ -37,6 +37,11 @@ const validate = (values) => {
 };
 
 const BusinessTripInfoForm = (props) => {
+    const map = new Map();
+    map.set("Закончена", 0);
+    map.set("Действующая", 1);
+    map.set("Будущая", 2);
+
     const businessTrip = props.businessTrips.find((bt) => bt.id === props.id) || {
         userId: 2,
         name: '',
@@ -47,7 +52,7 @@ const BusinessTripInfoForm = (props) => {
         budget: '',
         transport: [""],
         hotel: "Неизвестно",
-        status: "Запланирована",
+        status: "Будущая",
     }
 
     return (
@@ -66,7 +71,7 @@ const BusinessTripInfoForm = (props) => {
                     budget: values.budget,
                     transport: values.transport,
                     hotel: values.hotel,
-                    status: values.status,
+                    status: map.get(values.status),
                 }
 
                 if (props.id === 'new')

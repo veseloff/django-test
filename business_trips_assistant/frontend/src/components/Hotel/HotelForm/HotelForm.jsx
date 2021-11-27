@@ -106,7 +106,7 @@ const HotelForm = (props) => {
                             type="number"
                             placeholder="Кол-во звёзд..."
                             label="Звёзды"
-                            disabled={selectedOption === null || selectedOption.value === "airbnb"}
+                            disabled={selectedOption.value === "airbnb"}
                         />
                         <button type="submit" className={cn(classes.button, classes.save)}>
                             Поиск

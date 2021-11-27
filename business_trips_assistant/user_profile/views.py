@@ -129,7 +129,7 @@ def update_business_trip(request):
     """
     body = get_body_request(request)
     b_t = BusinessTrip.objects.get(pk=body['idBT'])
-    insert_value_business_trip(b_t, body)
+    insert_value_business_trip(b_t, body['bt'])
     return HttpResponse('ok')
 
 

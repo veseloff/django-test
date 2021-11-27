@@ -129,8 +129,8 @@ def update_business_trip(request):
     """
     body = get_body_request(request)
     b_t = BusinessTrip.objects.get(pk=body['idBT'])
-    insert_value_business_trip(b_t, body['bt'])
-    return HttpResponse(b_t.pk)
+    insert_value_business_trip(b_t, body)
+    return HttpResponse('ok')
 
 
 def update_trip(request):
@@ -146,7 +146,8 @@ def update_trip(request):
     id_b_t = int(body['idBT'])
     is_first = int(body['isFirst'])
     trip = Trip.objects.filter(business_trip_id=id_b_t).get(is_first=is_first)
-    insert_value_trip(trip, request)
+    insert_value_trip(trip, body)
+    return HttpResponse('ok')
 
 
 def update_hotel(request):
@@ -161,7 +162,8 @@ def update_hotel(request):
     body = get_body_request(request)
     id_b_t = body['idBT']
     hotel = Hotel.objects.get(business_trip_id=id_b_t)
-    insert_value_hotel(hotel, request)
+    insert_value_hotel(hotel, body)
+    return HttpResponse('ok')
 
 
 def delete_business_trip(request):
@@ -176,7 +178,7 @@ def delete_business_trip(request):
     body = get_body_request(request)
     b_t = BusinessTrip.objects.get(pk=body['idBT'])
     b_t.delete()
-    return HttpResponse("ok")
+    return HttpResponse('ok')
 
 
 def create_business_trip(request):
@@ -198,7 +200,7 @@ def create_business_trip(request):
         credit=body.get('budget'),
         date_start=datetime.strptime(body['begin'], '%Y-%m-%d').date(),
         date_finish=datetime.strptime(body['end'], '%Y-%m-%d').date(),
-        status=1
+        status=body['status']
     )
     b_t.save()
     return HttpResponse(b_t.pk)
@@ -215,7 +217,7 @@ def create_trip(request):
     """
     body = get_body_request(request)
     trip = Trip.objects.create(
-        business_trip_id=int(request.POST['idBT']),
+        business_trip_id=int(body['idBT']),
         transport=int(body['transport']),
         price_ticket=int(body['priceTicket']),
         is_first=int(body['isFirst']),
@@ -251,6 +253,7 @@ def create_hotel(request):
         date_departure=datetime.strptime(body['checkOut'], '%Y-%m-%d').date()
     )
     hotel.save()
+    return HttpResponse(hotel)
 
 
 def get_csrf(request):

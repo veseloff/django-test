@@ -11,12 +11,17 @@ const HotelConstructor = (props) => {
                     {props.name}
                 </div>
             </div>
-            <div className={classes.centering}>
-                <div className={classes.name}>
-                    Оценка:
+            <div>
+                <div className={classes.centering}>
+                    <div className={classes.name}>
+                        Оценка:
+                    </div>
+                    <div className={classes.name}>
+                        {props.evaluation || "Нет оценок"}
+                    </div>
                 </div>
-                <div className={classes.name}>
-                    {props.evaluation}
+                <div className={classes.centering}>
+                    {props.star !== undefined ? props.star + " звезды" : null}
                 </div>
             </div>
             <div className={classes.centering}>

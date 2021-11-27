@@ -129,7 +129,8 @@ def update_business_trip(request):
     """
     body = get_body_request(request)
     b_t = BusinessTrip.objects.get(pk=body['idBT'])
-    insert_value_business_trip(b_t, body['bt'])
+    insert_value_business_trip(b_t, body)
+    return HttpResponse('ok')
 
 
 def update_trip(request):
@@ -145,7 +146,8 @@ def update_trip(request):
     id_b_t = int(body['idBT'])
     is_first = int(body['isFirst'])
     trip = Trip.objects.filter(business_trip_id=id_b_t).get(is_first=is_first)
-    insert_value_trip(trip, body['bt'])
+    insert_value_trip(trip, body)
+    return HttpResponse('ok')
 
 
 def update_hotel(request):
@@ -160,7 +162,8 @@ def update_hotel(request):
     body = get_body_request(request)
     id_b_t = body['idBT']
     hotel = Hotel.objects.get(business_trip_id=id_b_t)
-    insert_value_hotel(hotel, body['bt'])
+    insert_value_hotel(hotel, body)
+    return HttpResponse('ok')
 
 
 def delete_business_trip(request):
@@ -175,6 +178,7 @@ def delete_business_trip(request):
     body = get_body_request(request)
     b_t = BusinessTrip.objects.get(pk=body['idBT'])
     b_t.delete()
+    return HttpResponse('ok')
 
 
 def create_business_trip(request):
@@ -187,16 +191,15 @@ def create_business_trip(request):
 
     """
     body = get_body_request(request)
-    body_bt = body['bt']
     b_t = BusinessTrip.objects.create(
-        user_id=body_bt['userId'],
-        name=body_bt['name'],
-        from_city=body_bt['fromCity'],
-        to_city=body_bt['toCity'],
-        credit=body_bt.get('budget'),
-        date_start=datetime.strptime(body_bt['begin'], '%Y-%m-%d').date(),
-        date_finish=datetime.strptime(body_bt['end'], '%Y-%m-%d').date(),
-        status=body_bt['status']
+        user_id=body['userId'],
+        name=body['name'],
+        from_city=body['fromCity'],
+        to_city=body['toCity'],
+        credit=body.get('budget'),
+        date_start=datetime.strptime(body['begin'], '%Y-%m-%d').date(),
+        date_finish=datetime.strptime(body['end'], '%Y-%m-%d').date(),
+        status=body['status']
     )
     b_t.save()
     return HttpResponse(b_t)
@@ -212,19 +215,18 @@ def create_trip(request):
 
     """
     body = get_body_request(request)
-    body_bt = body['trip']
     trip = Trip.objects.create(
         business_trip_id=int(body['idBT']),
-        transport=int(body_bt['transport']),
-        price_ticket=int(body_bt['priceTicket']),
-        is_first=int(body_bt['isFirst']),
-        transport_number=body_bt['transportNumber'],
-        date_departure=datetime.strptime(body_bt['dateDeparture'], '%Y-%m-%d').date(),
-        date_arrival=datetime.strptime(body_bt['dateArrival'], '%Y-%m-%d').date(),
-        city_from_id=City.objects.get(pk=int(body_bt['cityFrom'])),
-        city_to_id=City.objects.get(pk=int(body_bt['cityTo'])),
-        station_from=body_bt['stationFrom'],
-        station_to=body_bt['stationTo']
+        transport=int(body['transport']),
+        price_ticket=int(body['priceTicket']),
+        is_first=int(body['isFirst']),
+        transport_number=body['transportNumber'],
+        date_departure=datetime.strptime(body['dateDeparture'], '%Y-%m-%d').date(),
+        date_arrival=datetime.strptime(body['dateArrival'], '%Y-%m-%d').date(),
+        city_from_id=City.objects.get(pk=int(body['cityFrom'])),
+        city_to_id=City.objects.get(pk=int(body['cityTo'])),
+        station_from=body['stationFrom'],
+        station_to=body['stationTo']
     )
     trip.save()
     return HttpResponse(trip)
@@ -240,17 +242,17 @@ def create_hotel(request):
 
     """
     body = get_body_request(request)
-    body_bt = body['hotel']
     hotel = Hotel.objects.create(
-        business_trip_id=int(body_bt['idBT']),
-        link=body_bt['link'],
-        name=body_bt['name'],
-        price=float(body_bt['price']),
-        address=body_bt.get('address'),
-        date_check_in=datetime.strptime(body_bt['checkIn'], '%Y-%m-%d').date(),
-        date_departure=datetime.strptime(body_bt['checkOut'], '%Y-%m-%d').date()
+        business_trip_id=int(body['idBT']),
+        link=body['link'],
+        name=body['name'],
+        price=float(body['price']),
+        address=body.get('address'),
+        date_check_in=datetime.strptime(body['checkIn'], '%Y-%m-%d').date(),
+        date_departure=datetime.strptime(body['checkOut'], '%Y-%m-%d').date()
     )
     hotel.save()
+    return HttpResponse(hotel)
 
 
 def get_csrf(request):

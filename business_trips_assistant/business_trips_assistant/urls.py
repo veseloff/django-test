@@ -21,4 +21,5 @@ urlpatterns = [
     path('account/', include('user_profile.urls')),
     path('railways/', include('railways_api.urls')),
     path('hotel/', include('hotel_api.urls')),
+    path('aviasales/', include('aviasales_api.urls')),
 ]

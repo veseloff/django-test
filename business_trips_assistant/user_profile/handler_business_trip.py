@@ -43,8 +43,10 @@ def get_date_depart(trips):
     Returns:
 
     """
-    date_depart = {0: list(filter(lambda trip: trip.is_first == 0, trips))[0] if len(trips) > 0 else None,
-                   1: list(filter(lambda trip: trip.is_first == 1, trips))[0] if len(trips) > 0 else None}
+    date_depart = {0: list(filter(lambda trip: trip.is_first == 0, trips))[0].date_departure
+                   if len(trips) > 0 else None,
+                   1: list(filter(lambda trip: trip.is_first == 1, trips))[0].date_departure
+                   if len(trips) > 0 else None}
     return date_depart
 
 
@@ -104,7 +106,6 @@ def insert_value_hotel(hotel, body):
     hotel.link = body['link']
     hotel.name = body['name']
     hotel.price = float(body['price'])
-    hotel.address = body.get('address')
     hotel.date_check_in = datetime.strptime(body['checkIn'], '%Y-%m-%d').date()
     hotel.date_check_out = datetime.strptime(body['checkOut'], '%Y-%m-%d').date()
     hotel.save()
@@ -167,8 +168,7 @@ def serialize_hotel(hotel: Hotel):
     Returns:
 
     """
-    info_trip = {'link': hotel.link, 'address': hotel.address,
-                 'name': hotel.name, 'price': hotel.price,
+    info_trip = {'link': hotel.link, 'name': hotel.name, 'price': hotel.price,
                  'checkIn': str(hotel.date_check_in), 'checkOut': str(hotel.date_check_out)}
     return info_trip
 

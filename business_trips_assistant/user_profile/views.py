@@ -248,7 +248,6 @@ def create_hotel(request):
         link=body['link'],
         name=body['name'],
         price=float(body['price']),
-        address=body.get('address'),
         date_check_in=datetime.strptime(body['checkIn'], '%Y-%m-%d').date(),
         date_departure=datetime.strptime(body['checkOut'], '%Y-%m-%d').date()
     )

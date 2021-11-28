@@ -249,7 +249,7 @@ def create_hotel(request):
         name=body['name'],
         price=float(body['price']),
         date_check_in=datetime.strptime(body['checkIn'], '%Y-%m-%d').date(),
-        date_departure=datetime.strptime(body['checkOut'], '%Y-%m-%d').date()
+        date_check_out=datetime.strptime(body['checkOut'], '%Y-%m-%d').date()
     )
     hotel.save()
     return HttpResponse(hotel)

@@ -28,8 +28,8 @@ def get_business_trip_information(id_user):
                                for transport in trips]))
         date_depart = get_date_depart(trips)
         info_trip['transport'] = transports
-        info_trip['dateDeparture0'] = date_depart[0]
-        info_trip['dateDeparture1'] = date_depart[1]
+        info_trip['dateDeparture0'] = str(date_depart[0])
+        info_trip['dateDeparture1'] = str(date_depart[1])
         business_trips.append(info_trip)
     return business_trips
 

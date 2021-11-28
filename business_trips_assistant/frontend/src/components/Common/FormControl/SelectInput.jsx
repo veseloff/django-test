@@ -41,7 +41,7 @@ const SelectInput = ({label, ...props}) => {
                             borderRadius: 15,
                             minHeight: 0,
                             height: 30,
-                            zIndex: 10,
+                            zIndex: 2,
                         }),
                         singleValue: (provided) => ({
                             ...provided,

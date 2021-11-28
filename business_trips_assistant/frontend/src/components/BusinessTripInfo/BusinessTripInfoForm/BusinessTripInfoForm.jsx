@@ -48,18 +48,20 @@ const BusinessTripInfoForm = (props) => {
     map.set("Действующая", 1);
     map.set("Будущая", 2);
 
-    const businessTrip = props.businessTrips.find((bt) => bt.id === props.id) || {
-        userId: 2,
-        name: '',
-        fromCity: '',
-        toCity: '',
-        begin: '',
-        end: '',
-        budget: '',
-        transport: [""],
-        hotel: "Неизвестно",
-        status: "Будущая",
-    }
+    const businessTrip = props.businessTrip.name !== undefined
+        ? props.businessTrip
+        : {
+            userId: 2,
+            name: '',
+            fromCity: '',
+            toCity: '',
+            begin: '',
+            end: '',
+            budget: '',
+            transport: [""],
+            hotel: "Неизвестно",
+            status: "Будущая",
+        }
 
     const options = [
         {value: 'Будущая', label: 'Будущая'},

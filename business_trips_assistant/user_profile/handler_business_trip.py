@@ -15,17 +15,37 @@ def get_business_trip_information(id_user):
     Returns:
         Список командировок
     """
-    business_trips = BusinessTrip.objects.filter(user_id=id_user)
-    trips = []
-    for business_trip in business_trips:
+    business_trips_from_db = BusinessTrip.objects.filter(user_id=id_user)
+    business_trips = []
+    for business_trip in business_trips_from_db:
         info_trip = serialize_business_trip(business_trip)
+
         hotels = Hotel.objects.filter(business_trip=business_trip)
         info_trip['hotel'] = hotels[0].name if len(hotels) > 0 else None
-        transport = list(set([TRANSPORT_NAME_MAPPING[transport.transport]
-                         for transport in Trip.objects.filter(business_trip_id=business_trip)]))
-        info_trip['transport'] = transport
-        trips.append(info_trip)
-    return trips
+
+        trips = Trip.objects.filter(business_trip_id=business_trip)
+        transports = list(set([TRANSPORT_NAME_MAPPING[transport.transport]
+                               for transport in trips]))
+        date_depart = get_date_depart(trips)
+        info_trip['transport'] = transports
+        info_trip['dateDeparture0'] = date_depart[0]
+        info_trip['dateDeparture1'] = date_depart[1]
+        business_trips.append(info_trip)
+    return business_trips
+
+
+def get_date_depart(trips):
+    """
+    Находит дату отправления
+    Args:
+        trips:
+
+    Returns:
+
+    """
+    date_depart = {0: list(filter(lambda trip: trip.is_first == 0, trips))[0] if len(trips) > 0 else None,
+                   1: list(filter(lambda trip: trip.is_first == 1, trips))[0] if len(trips) > 0 else None}
+    return date_depart
 
 
 def insert_value_business_trip(b_t, body):

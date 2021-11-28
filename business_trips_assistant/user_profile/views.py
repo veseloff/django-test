@@ -280,9 +280,9 @@ def get_full_info_business_trip(request):
     id_b_t = request.GET['idBT']
     b_t = BusinessTrip.objects.get(pk=id_b_t)
     trips = Trip.objects.filter(business_trip_id=b_t.id)
-    hotel = Hotel.objects.filter(business_trip_id=b_t.id)[0]
+    hotel = Hotel.objects.filter(business_trip_id=b_t.id)
     answer = {'businessTrip': serialize_business_trip(b_t),
               'trip': [serialize_trip(trip) for trip in trips],
-              'hotel': serialize_hotel(hotel)}
+              'hotel': serialize_hotel(hotel[0]) if len(hotel) > 0 else None}
     answer_json = json.dumps(answer, ensure_ascii=False)
     return HttpResponse(answer_json, content_type='application/json', charset='utf-8')

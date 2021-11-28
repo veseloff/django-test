@@ -31,7 +31,7 @@ class Trip(models.Model):
 
 class Hotel(models.Model):
     business_trip = models.ForeignKey(BusinessTrip, on_delete=models.CASCADE)
-    link = models.URLField(max_length=500)
+    link = models.URLField(max_length=1000)
     name = models.CharField(max_length=150)
     price = models.FloatField()
     date_check_in = models.DateField()

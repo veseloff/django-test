@@ -98,12 +98,14 @@ const TransportForm = (props) => {
                     <SmartTextInput
                         name="fromStation"
                         type="text"
+                        label="Станция/Аэропорт"
                         placeholder="Станция/Аэропорт..."
                         disabled={checkboxFrom}
                     />
                     <SmartTextInput
                         name="toStation"
                         type="text"
+                        label="Станция/Аэропорт"
                         placeholder="Станция/Аэропорт..."
                         disabled={checkboxTo}
                     />

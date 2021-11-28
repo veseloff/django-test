@@ -1,5 +1,5 @@
 import classes from "./App.module.css";
-import {connect, Provider} from "react-redux";
+import {Provider} from "react-redux";
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import Header from "./components/Header/Header";
 import BusinessTrips from "./components/BusinessTrips/BusinessTrips";

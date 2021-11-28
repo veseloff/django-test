@@ -29,7 +29,7 @@ const Paginator = (props) => {
                         <div key={i} className={cn({
                             [classes.selectedPage]: props.currentPage === p,
                             [classes.hoverPage]: !(p === '...'
-                            || (p === '>' && props.currentPage === pagesCount || p === '<' && props.currentPage === 1)),
+                            || ((p === '>' && props.currentPage === pagesCount) || (p === '<' && props.currentPage === 1))),
                         })}
                              onClick={() => {
                                  if (p !== '...' && p !== '>' && p !== '<')

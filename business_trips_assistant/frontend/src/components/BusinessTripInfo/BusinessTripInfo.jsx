@@ -15,11 +15,13 @@ const BusinessTripInfo = (props) => {
     const id = isNaN(Number(props.match.params.businessTripId))
         ? (props.businessTrip.id || 'new')
         : Number(props.match.params.businessTripId);
-    console.log(id)
+
     useEffect(() => {
-        if (id !== 'new')
-            props.setBusinessTripInfoTC(id);
-    }, [id])
+            if (id !== 'new')
+                props.setBusinessTripInfoTC(id);
+        },
+        // eslint-disable-next-line
+        [id]);
 
     return (
         <div className={classes.body_container}>

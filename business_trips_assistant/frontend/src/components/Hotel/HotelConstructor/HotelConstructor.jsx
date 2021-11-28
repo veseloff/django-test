@@ -30,7 +30,7 @@ const HotelConstructor = (props) => {
                 </div>
             </div>
             <div className={classes.centering}>
-                <a href={props.link} className={classes.button} target="_blank">
+                <a href={props.link} className={classes.button} target="_blank" rel="noreferrer">
                     Забронировать
                 </a>
             </div>

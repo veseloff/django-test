@@ -22,7 +22,7 @@ variables_env = ['CHROMEDRIVER', 'PASSWORD_DATA_BASE', 'NAME_DATA_BASE',
 for variable in variables_env:
     if os.environ.get(variable) is None:
         not_exist_names.append(variable)
-assert not not_exist_names, '{}'.format(not_exist_names)
+assert not not_exist_names, f'not_exist_names'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

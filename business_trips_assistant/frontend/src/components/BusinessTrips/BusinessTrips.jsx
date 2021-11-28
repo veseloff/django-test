@@ -10,8 +10,10 @@ const BusinessTrips = (props) => {
     const [status, setStatus] = useState("Все");
 
     useEffect(() => {
-        props.setBusinessTripsTC();
-    }, []);
+            props.setBusinessTripsTC();
+        },
+        // eslint-disable-next-line
+        []);
 
     const onDelete = (id) => {
         props.deleteBusinessTripsTC(id);
@@ -57,9 +59,9 @@ const BusinessTrips = (props) => {
                     props.businessTrips !== undefined
                         ? props.businessTrips
                             .filter(bt => (bt.status === status || status === "Все"))
-                            .map((businessTrip) =>
+                            .map((businessTrip, index) =>
                                 <BusinessTripConstructor businessTrip={businessTrip}
-                                                         onDelete={onDelete}/>)
+                                                         onDelete={onDelete} key={index}/>)
                         : null
                 }
             </div>

@@ -1,7 +1,4 @@
 import classes from "./HotelConstructor.module.css";
-import cn from "classnames";
-import {NavLink} from "react-router-dom";
-import {useState} from "react";
 
 const HotelConstructor = (props) => {
     return (
@@ -33,7 +30,7 @@ const HotelConstructor = (props) => {
                 </div>
             </div>
             <div className={classes.centering}>
-                <a href={props.link} className={classes.button} target="_blank">
+                <a href={props.link} className={classes.button} target="_blank" rel="noreferrer">
                     Забронировать
                 </a>
             </div>

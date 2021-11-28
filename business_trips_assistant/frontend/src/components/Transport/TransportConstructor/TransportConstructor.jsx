@@ -1,5 +1,4 @@
 import classes from "./TransportConstructor.module.css";
-import cn from "classnames";
 import {NavLink} from "react-router-dom";
 import {useState} from "react";
 

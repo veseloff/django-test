@@ -29,6 +29,12 @@ export const setBusinessTripsTC = () => async (dispatch) => {
         dispatch(setBusinessTrips(data));
 }
 
+export const setBusinessTripInfoTC = (id) => async (dispatch) => {
+    const data = await businessTripsAPI.getBusinessTripInfo(id);
+    if (data !== undefined)
+        dispatch(setBusinessTripInfo(data));
+}
+
 export const setCsrfTC = () => async (dispatch) => {
     const data = await businessTripsAPI.getCsrf();
     console.log(data);
@@ -64,7 +70,7 @@ export const deleteBusinessTripsTC = (id) => async (dispatch) => {
 }
 
 const setBusinessTrips = (items) => ({type: SET_BTs, items: items});
-const setBusinessTrip = (items) => ({type: SET_BT, items: items});
+const setBusinessTripInfo = (items) => ({type: SET_BT, items: items});
 const setBusinessTripId = (item) => ({type: SET_ID, item: item});
 
 export default BusinessTripsReducer;

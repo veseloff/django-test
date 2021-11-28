@@ -17,8 +17,8 @@ const Transport = (props) => {
                 {
                     props.businessTrips !== undefined
                         ? props.businessTrips
-                            .map((businessTrip) =>
-                                <TransportConstructor businessTrip={businessTrip}/>)
+                            .map((businessTrip, index) =>
+                                <TransportConstructor businessTrip={businessTrip} key={index}/>)
                         : null
                 }
             </div>

@@ -5,7 +5,7 @@ function Expenses() {
     return (
         <header className={classes.header}>
             <div className={classes.header_container}>
-                <img src={logo}/>
+                <img src={logo} alt='logo'/>
                 <div className={classes.profile_name_container}>
                     <div>
                         ProfileName

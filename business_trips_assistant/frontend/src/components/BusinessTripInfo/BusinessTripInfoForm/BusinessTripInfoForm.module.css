@@ -1,12 +1,15 @@
+.body_container {
+    padding-top: 5px;
+}
+
 .body_container>div {
     height: 50px;
 }
 
-.first_row {
+.first_row_second_group {
     display: grid;
     grid-template-columns: 1fr 30px;
     gap: 25px;
-    margin-top: 5px;
 }
 
 .exit {
@@ -23,13 +26,7 @@
     width: 130px;
 }
 
-.second_row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-}
-
-.third_row {
+.row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;

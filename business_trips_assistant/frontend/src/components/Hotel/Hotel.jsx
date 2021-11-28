@@ -17,11 +17,13 @@ const Hotel = (props) => {
     const pageSize = 25;
 
     useEffect(() => {
-        const info = {...props.hotelsDataSearch};
-        info.offset = (currentPage - 1) * 25;
-        props.setHotelsTC(info);
-        }, [currentPage]
-    );
+            const info = {...props.hotelsDataSearch};
+            info.offset = (currentPage - 1) * 25;
+            if (info.city !== undefined)
+                props.setHotelsTC(info);
+        },
+        // eslint-disable-next-line
+        [currentPage]);
 
     return (
         <div className={classes.body_container}>
@@ -30,8 +32,8 @@ const Hotel = (props) => {
                 {
                     props.hotels !== undefined
                         ? props.hotels
-                            .map((hotel) =>
-                                <HotelConstructor {...hotel}/>)
+                            .map((hotel, index) =>
+                                <HotelConstructor {...hotel} key={index}/>)
                         : null
                 }
                 <Paginator count={props.count} pageSize={pageSize} currentPage={currentPage}

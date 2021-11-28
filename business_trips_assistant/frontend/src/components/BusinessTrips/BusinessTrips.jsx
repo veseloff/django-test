@@ -23,15 +23,15 @@ const BusinessTrips = (props) => {
     const changeFilter = () => {
         switch (status) {
             case "Все":
-                setStatus("Активная");
+                setStatus("Действующая");
                 return;
-            case "Активная":
-                setStatus("Запланированная");
+            case "Действующая":
+                setStatus("Закончена");
                 return;
-            case "Запланированная":
-                setStatus("Завершённая");
+            case "Закончена":
+                setStatus("Будущая");
                 return;
-            case "Завершённая":
+            case "Будущая":
                 setStatus("Все");
                 return;
             default:

@@ -1,6 +1,6 @@
 import json
-from .models import City
 from django.core.exceptions import ObjectDoesNotExist
+from .models import City
 
 
 # python manage.py loaddata airports.json чтобы применить фикстуры

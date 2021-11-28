@@ -1,22 +1,24 @@
 """Модуль обрабатывает запросы с клиента, связанные с API Aviasales"""
-from .handler import get_request, get_information_flight
+import json
 from django.http import HttpResponse
+from .handler import get_request
 from .models import City
 
 
 def get_air_ticket(request):
     """
-    Метод находит информацию о самом дешёвом прямом авиарейсе туда-обратно с заданными параметрами
+    Метод находит информацию о самых дешёвых авиарейсах с заданными параметрами
     Args:
         request: Request содержит информацию о дате поездки, месте отправления и месте прибытия
-    Returns: JSON файл с информацией о рейсе
+    Returns: JSON файл с информацией о рейсах
     """
     name_city_departure = request.GET.get('cityFrom').upper()
     name_city_arrival = request.GET.get('cityTo').upper()
     depart_date = request.GET.get('dateDepart')
     return_date = request.GET.get('dateReturn')
-    response = get_request(name_city_departure, name_city_arrival, depart_date, return_date)
-    result = get_information_flight(response)
+    is_direct = request.GET.get('isDirect')
+    response = get_request(name_city_departure, name_city_arrival, depart_date, return_date, is_direct)
+    result = json.dumps(response.json())
     return HttpResponse(result, content_type='application/json', charset='utf-8')
 
 

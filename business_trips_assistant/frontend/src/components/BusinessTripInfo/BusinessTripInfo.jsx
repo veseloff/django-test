@@ -6,7 +6,7 @@ import {
     setCsrfTC,
     postBusinessTripsTC,
     putBusinessTripsTC,
-    setBusinessTripInfoTC
+    setBusinessTripInfoTC, initializeBTInfo, uninitializedSuccess
 } from "../../redux/businessTripsReducer";
 import BusinessTripInfoForm from "./BusinessTripInfoForm/BusinessTripInfoForm";
 import {useEffect} from "react";
@@ -17,11 +17,33 @@ const BusinessTripInfo = (props) => {
         : Number(props.match.params.businessTripId);
 
     useEffect(() => {
-            if (id !== 'new')
-                props.setBusinessTripInfoTC(id);
+            props.initializeBTInfo(id);
         },
         // eslint-disable-next-line
-        [id]);
+        []);
+
+    if (!props.initialized)
+        return null
+
+    const map = new Map();
+    map.set(0, "Самолёт");
+    map.set(1, "Поезд");
+
+    const firstTrip = props.businessTrip.trip !== undefined
+        ? props.businessTrip.trip.find(trip => trip.isFirst === 0)
+        : undefined;
+    const secondTrip = props.businessTrip.trip !== undefined
+        ? props.businessTrip.trip.find(trip => trip.isFirst === 1)
+        : undefined;
+
+    const convertDate = (date) => {
+        if (!(date === undefined || date === 'None')) {
+            const parseDate = date.split("-");
+            if (parseDate.length === 3)
+                return `${parseDate[2]}.${parseDate[1]}.${parseDate[0]}`;
+            return date;
+        }
+    };
 
     return (
         <div className={classes.body_container}>
@@ -35,37 +57,82 @@ const BusinessTripInfo = (props) => {
                             </div>
                             <NavLink to={`/business-trips/${id}/transport/there`}>
                                 Туда:
-                                <div className={classes.description}>
-                                    <div>Поезд 025А</div>
-                                    <div>Санкт-Петербург - Москва</div>
-                                    <div>30.09.2021 - 1.10.2021</div>
-                                </div>
+                                {
+                                    props.businessTrip.trip === undefined || props.businessTrip.trip.length === 0
+                                        ? " Выбрать..."
+                                        : <div className={classes.description}>
+                                            <div>{map.get(firstTrip.transport)} {firstTrip.transportNumber}</div>
+                                            <div>{firstTrip.cityFrom} - {firstTrip.cityTo}</div>
+                                            <div>
+                                                {convertDate(firstTrip.dateArrival)} - {convertDate(firstTrip.dateDeparture)}
+                                            </div>
+                                        </div>
+                                }
                             </NavLink>
                             <NavLink to={`/business-trips/${id}/transport/back`}>
                                 Обратно:
-                                <div className={classes.description}>
-                                    <div>Самолёт SU 38</div>
-                                    <div>Москва - Санкт-Петербург</div>
-                                    <div>10.10.2021 - 10.10.2021</div>
-                                </div>
+                                {
+                                    props.businessTrip.trip === undefined || props.businessTrip.trip.length === 0
+                                        ? " Выбрать..."
+                                        : <div className={classes.description}>
+                                            <div>{map.get(secondTrip.transport)} {secondTrip.transportNumber}</div>
+                                            <div>{secondTrip.cityFrom} - {secondTrip.cityTo}</div>
+                                            <div>
+                                                {convertDate(secondTrip.dateArrival)} - {convertDate(secondTrip.dateDeparture)}
+                                            </div>
+                                        </div>
+                                }
+
                             </NavLink>
                             <div className={classes.footer}>
-                                Общий расход: 10000
+                                Общий расход:
+                                {
+                                    props.businessTrip.trip === undefined || props.businessTrip.trip.length === 0
+                                        ? "Неизвестно"
+                                        : firstTrip.priceTicket + secondTrip.priceTicket
+                                }
                             </div>
                         </div>
                         <div className={classes.board_container}>
                             <div className={classes.header}>
                                 Отель
                             </div>
-                            <NavLink to={`/business-trips/${id}/hotel`}>
-                                КОСМОС
-                            </NavLink>
-                            <NavLink to={`/business-trips/${id}/hotel`}>
-                                Ленинградский
-                            </NavLink>
-                            <NavLink to={`/business-trips/${id}/hotel`} className={classes.footer}>
-                                Centeral
-                            </NavLink>
+                            {
+                                props.businessTrip.hotel === undefined || props.businessTrip.hotel.name === undefined
+                                    ? <div>
+                                        Отель не выбран
+                                    </div>
+                                    : <a href={props.businessTrip.hotel.link} target="_blank" rel="noreferrer">
+                                        <div>
+                                            Информация:
+                                            <div className={classes.description}>
+                                                Отель: {props.businessTrip.hotel.name}
+                                            </div>
+                                            <div className={classes.description}>
+                                                Заселение: {props.businessTrip.hotel.checkIn}
+                                            </div>
+                                            <div className={classes.description}>
+                                                Выселение: {props.businessTrip.hotel.checkOut}
+                                            </div>
+                                        </div>
+                                    </a>
+                            }
+                            {
+                                props.businessTrip.hotel === undefined || props.businessTrip.hotel.name === undefined
+                                    ? <NavLink to={`/business-trips/${id}/hotel`}>
+                                        Выбрать...
+                                    </NavLink>
+                                    : <NavLink to={`/business-trips/${id}/hotel`}>
+                                        Изменить...
+                                    </NavLink>
+                            }
+                            <div className={classes.footer}>
+                                {
+                                    props.businessTrip.hotel === undefined || props.businessTrip.hotel.price === undefined
+                                        ? "Общий расход: Неизвестно"
+                                        : "Общий расход: " + props.businessTrip.hotel.price + "р"
+                                }
+                            </div>
                         </div>
                         <div className={classes.board_container}>
                             <div className={classes.header}>
@@ -92,10 +159,12 @@ const BusinessTripInfo = (props) => {
 
 const mapStateToProps = (state) => {
     return {
+        initialized: state.businessTripsData.initialized,
         businessTrips: state.businessTripsData.businessTrips,
         businessTrip: state.businessTripsData.businessTrip,
     }
 };
 
 export default compose(connect(mapStateToProps,
-    {postBusinessTripsTC, putBusinessTripsTC, setCsrfTC, setBusinessTripInfoTC}), withRouter)(BusinessTripInfo);
+        {initializeBTInfo, postBusinessTripsTC, putBusinessTripsTC, setCsrfTC, setBusinessTripInfoTC}),
+    withRouter)(BusinessTripInfo);

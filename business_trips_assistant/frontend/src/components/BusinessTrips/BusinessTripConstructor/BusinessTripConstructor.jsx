@@ -2,12 +2,13 @@ import classes from "./BusinessTripConstructor.module.css";
 import cn from "classnames";
 import {NavLink} from "react-router-dom";
 import {useState} from "react";
+import Window from "../../Common/Window/Window";
 
 const BusinessTripConstructor = (props) => {
     const [visibility, setVisibility] = useState(false);
 
     const convertDate = (date) => {
-        if (date !== undefined) {
+        if (!(date === undefined || date === 'None')) {
             const parseDate = date.split("-");
             if (parseDate.length === 3)
                 return `${parseDate[2]}.${parseDate[1]}.${parseDate[0]}`;
@@ -17,26 +18,9 @@ const BusinessTripConstructor = (props) => {
 
     return (
         <div className={classes.business_trip}>
-            <div className={cn(classes.delete_wrapper, {
-                [classes.hidden]: !visibility,
-                [classes.visible]: visibility,
-            })}>
-                <div className={classes.delete_container}>
-                    <div>Вы уверенны, что хотите удалить командировку "{props.businessTrip.name}"?</div>
-                    <div className={classes.button_wrapper}>
-                        <button className={cn(classes.button, classes.delete)} onClick={() => {
-                            props.onDelete(props.businessTrip.id);
-                            setVisibility(false)
-                        }}>
-                            Удалить
-                        </button>
-                        <button className={classes.button} onClick={() => {
-                            setVisibility(false)
-                        }}>Отмена
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <Window label={`Вы уверенны, что хотите удалить командировку "${props.businessTrip.name}"?`}
+                    visibility={visibility} setVisibility={setVisibility} action={props.onDelete}
+                    item={props.businessTrip.id} agree="Удалить" disagree="Отмена"/>
             <div>
                 <div className={classes.name}>
                     {props.businessTrip.name}
@@ -46,6 +30,9 @@ const BusinessTripConstructor = (props) => {
                 </div>
                 <div>
                     Статус: {props.businessTrip.status || "Неизвестно"}
+                </div>
+                <div>
+                    Бюджет: {props.businessTrip.budget || "Неизвестно"}р
                 </div>
             </div>
             <div>
@@ -61,10 +48,10 @@ const BusinessTripConstructor = (props) => {
             </div>
             <div>
                 <div>
-                    Туда: {convertDate(props.businessTrip.dateFrom) || "Неизвестно"}
+                    Туда: {convertDate(props.businessTrip.dateDeparture0) || "Неизвестно"}
                 </div>
                 <div>
-                    Обратно: {convertDate(props.businessTrip.dateTo) || "Неизвестно"}
+                    Обратно: {convertDate(props.businessTrip.dateDeparture1) || "Неизвестно"}
                 </div>
             </div>
             <div className={classes.button_container}>

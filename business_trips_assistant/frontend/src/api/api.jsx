@@ -7,6 +7,12 @@ export const businessTripsAPI = {
             .then(data => data)
             .catch(error => console.error(error))
     },
+    async getBusinessTripInfo(idBT) {
+        return await fetch(`/account/info_business_trip?idBT=${idBT}`)
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error(error))
+    },
     async getCsrf() {
         return await fetch('/account/get_csrf/')
             .then(response => response.text())

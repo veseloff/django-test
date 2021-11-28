@@ -3,6 +3,8 @@ import {NavLink} from "react-router-dom";
 import {Formik, Form} from 'formik';
 import cn from "classnames";
 import TextInput from "../../Common/FormControl/TextInput";
+import {useState} from "react";
+import SelectInput from "../../Common/FormControl/SelectInput";
 
 const validate = (values) => {
     const errors = {};
@@ -33,6 +35,10 @@ const validate = (values) => {
         errors.end = 'Обязательно';
     }
 
+    if (!values.budget) {
+        errors.budget = 'Обязательно';
+    }
+
     return errors;
 };
 
@@ -55,6 +61,14 @@ const BusinessTripInfoForm = (props) => {
         status: "Будущая",
     }
 
+    const options = [
+        {value: 'Будущая', label: 'Будущая'},
+        {value: 'Закончена', label: 'Закончена'},
+        {value: 'Действующая', label: 'Действующая'},
+    ]
+
+    const [selectedOption, setSelectedOption] = useState(options.find(option => option.value === businessTrip.status));
+
     return (
         <Formik
             initialValues={businessTrip}
@@ -71,7 +85,7 @@ const BusinessTripInfoForm = (props) => {
                     budget: values.budget,
                     transport: values.transport,
                     hotel: values.hotel,
-                    status: map.get(values.status),
+                    status: map.get(selectedOption.value),
                 }
 
                 if (props.id === 'new')
@@ -80,18 +94,30 @@ const BusinessTripInfoForm = (props) => {
                     props.putBusinessTripsTC(props.id, bt);
             }}>
             <Form className={classes.body_container}>
-                <div className={classes.first_row}>
+                <div className={classes.row}>
                     <TextInput
                         name="name"
                         type="text"
                         placeholder="Название командировки..."
                         label="Название командировки"
                     />
-                    <NavLink to={`/business-trips`} className={cn(classes.button, classes.exit)}>
-                        &#8592; {/*todo: exit icon*/}
-                    </NavLink>
+                    <div className={classes.first_row_second_group}>
+                        <SelectInput
+                            label="Статус"
+                            placeholder="Обязательно"
+                            name="option"
+                            type="text"
+                            options={options}
+                            classNamePrefix="select"
+                            defaultValue={selectedOption}
+                            onChange={setSelectedOption}
+                        />
+                        <NavLink to={`/business-trips`} className={cn(classes.button, classes.exit)}>
+                            &#8592; {/*todo: exit icon*/}
+                        </NavLink>
+                    </div>
                 </div>
-                <div className={classes.second_row}>
+                <div className={classes.row}>
                     <TextInput
                         name="fromCity"
                         type="text"
@@ -105,7 +131,7 @@ const BusinessTripInfoForm = (props) => {
                         label="Куда"
                     />
                 </div>
-                <div className={classes.third_row}>
+                <div className={classes.row}>
                     <div className={classes.third_row_first_group}>
                         <TextInput
                             name="begin"

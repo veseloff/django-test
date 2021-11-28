@@ -1,7 +1,4 @@
 import classes from "./HotelConstructor.module.css";
-import cn from "classnames";
-import {NavLink} from "react-router-dom";
-import {useState} from "react";
 
 const HotelConstructor = (props) => {
     return (

@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from railways_api.models import Station, City
 from .handler import get_trains
 
-# Create your views here.
+
 def get_path_to_city(request):
     """
     Запускает работу с api ржд и находит все возможные поезда из одного места в другое

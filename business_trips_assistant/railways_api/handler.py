@@ -43,13 +43,14 @@ def get_code_and_date(kwargs):
         codes_stations_to: список кодов станций прибытия
         date: дата отправления
     """
-    city_from = kwargs['cityFrom'].upper() if kwargs['cityFrom'] is not None else None
-    city_to = kwargs['cityTo'].upper() if kwargs['cityTo'] is not None else None
-    station_from = kwargs['stationFrom'].upper() if kwargs['stationFrom'] is not None else None
-    station_to = kwargs['stationTo'].upper() if kwargs['stationTo'] is not None else None
-    code_station_to = int(kwargs['codeStationTo']) if kwargs['codeStationTo'] is not None else None
-    code_station_from = int(kwargs['codeStationFrom']) if kwargs['codeStationFrom'] is not None else None
-    date = kwargs['date']
+    city_from = kwargs['city_from'].upper() if kwargs['city_from'] is not None else None
+    city_to = kwargs['city_to'].upper() if kwargs['city_to'] is not None else None
+    station_from = kwargs['station_from'].upper() if kwargs['station_from'] is not None else None
+    station_to = kwargs['station_to'].upper() if kwargs['station_to'] is not None else None
+    code_station_to = int(kwargs['code_station_to']) if kwargs['code_station_to'] is not None else None
+    code_station_from = int(kwargs['code_station_from']) if kwargs['code_station_from'] is not None else None
+    date = kwargs['date'].split('-')
+    date = '.'.join(date[::-1])
     codes_stations_from = get_codes(code_station_from, city_from, station_from)
     codes_stations_to = get_codes(code_station_to, city_to, station_to)
     return codes_stations_from, codes_stations_to, date
@@ -126,20 +127,44 @@ def set_train_information(response_json):
         словарь, в котором хранится информация о поездах:
         время отправления, время прибытия, время в пути, номер поезда и т.д.
     """
-    train_information = {}
+    url = 'https://www.tutu.ru/poezda/wizard/seats/?dep_st=2000003&arr_st=2060500&tn=016Х&date=10.12.2021'
+    train_information = []
     for answer in response_json:
+        list_station = {'fromCode': answer['fromCode'], 'whereCode': answer['whereCode']}
         for key, value in answer.items():
             if key == 'list':
                 for info in value:
-                    train_information[info['number']] = {}
-                    train_information[info['number']]['station0'] = info['station0']
-                    train_information[info['number']]['station1'] = info['station1']
-                    train_information[info['number']]['localDate0'] = info.get('localDate0', info['date0'])
-                    train_information[info['number']]['localTime0'] = info.get('localTime0', info['time0'])
-                    train_information[info['number']]['localDate1'] = info.get('localDate1', info['date1'])
-                    train_information[info['number']]['localTime1'] = info.get('localTime1', info['time1'])
-                    train_information[info['number']]['timeDeltaString0'] = info.get('timeDeltaString0', 'МСК')
-                    train_information[info['number']]['timeDeltaString1'] = info.get('timeDeltaString1', 'МСК')
-                    train_information[info['number']]['timeInWay'] = info['timeInWay']
-
+                    train_number = info['number']
+                    list_station[train_number] = {}
+                    list_station[train_number]['station0'] = info['station0']
+                    list_station[train_number]['station1'] = info['station1']
+                    list_station[train_number]['localDate0'] = info.get('localDate0', info['date0'])
+                    list_station[train_number]['localTime0'] = info.get('localTime0', info['time0'])
+                    list_station[train_number]['localDate1'] = info.get('localDate1', info['date1'])
+                    list_station[train_number]['localTime1'] = info.get('localTime1', info['time1'])
+                    list_station[train_number]['timeDeltaString0'] = info.get('timeDeltaString0', 'МСК')
+                    list_station[train_number]['timeDeltaString1'] = info.get('timeDeltaString1', 'МСК')
+                    list_station[train_number]['timeInWay'] = info['timeInWay']
+                    cars = info.get('cars')
+                    list_station[train_number]['cars'] = find_price(cars) if cars else None
+                    link = f'https://www.tutu.ru/poezda/wizard/seats/?dep_st={answer["fromCode"]}' \
+                           f'&arr_st={answer["whereCode"]}&tn={train_number}&date={answer["date"]}'
+                    list_station[train_number]['link'] = link if cars else 'https://www.rzd.ru'
+        train_information.append(list_station)
     return train_information
+
+
+def find_price(wagons):
+    """
+    Находим цены в поезде
+    Args:
+        wagons:
+
+    Returns:
+
+    """
+    cars = []
+    for wagon in wagons:
+        car = {'typeLoc': wagon.get('typeLoc'), 'tariff': wagon.get('tariff')}
+        cars.append(car)
+    return cars

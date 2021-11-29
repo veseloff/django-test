@@ -30,8 +30,8 @@ const BusinessTripsReducer = (state = initialState, action) => {
     }
 }
 
-export const setBusinessTripsTC = () => async (dispatch) => {
-    const data = await businessTripsAPI.getBusinessTrips(2);
+export const setBusinessTripsTC = (userId) => async (dispatch) => {
+    const data = await businessTripsAPI.getBusinessTrips(userId);
     if (data !== undefined)
         dispatch(setBusinessTrips(data));
 }
@@ -42,64 +42,37 @@ export const setBusinessTripInfoTC = (id) => async (dispatch) => {
         dispatch(setBusinessTripInfo({...data.businessTrip, hotel: {...data.hotel}, trip: [...data.trip]}));
 }
 
-export const setCsrfTC = () => async (dispatch) => {
-    const data = await businessTripsAPI.getCsrf();
-    console.log(data);
-    dispatch(() => Cookies.set('csrftoken', data));
-}
-
 export const postBusinessTripsTC = (bt) => async (dispatch) => {
-    const dataCsrf = await businessTripsAPI.getCsrf();
-    if (dataCsrf !== undefined) {
-        dispatch(() => Cookies.set('csrftoken', dataCsrf));
-        await businessTripsAPI.postBusinessTrips(bt).then(result => {
-            dispatch(setBusinessTripId(result));
-        });
-    }
+    await businessTripsAPI.postBusinessTrips(bt).then(result => {
+        dispatch(setBusinessTripId(result));
+    });
 }
 
 export const putBusinessTripsTC = (idBT, bt) => async (dispatch) => {
-    const dataCsrf = await businessTripsAPI.getCsrf();
-    if (dataCsrf !== undefined) {
-        dispatch(() => Cookies.set('csrftoken', dataCsrf));
-        await businessTripsAPI.putBusinessTrips(idBT, bt)
-    }
+    await businessTripsAPI.putBusinessTrips(idBT, bt);
 }
 
-export const deleteBusinessTripsTC = (id) => async (dispatch) => {
-    const data = await businessTripsAPI.getCsrf();
-    if (data !== undefined) {
-        dispatch(() => Cookies.set('csrftoken', data));
-        await businessTripsAPI.deleteBusinessTrips(id).then(() => {
-            dispatch(setBusinessTripsTC());
-        });
-    }
+export const deleteBusinessTripsTC = (userId, id) => async (dispatch) => {
+    await businessTripsAPI.deleteBusinessTrips(id).then(() => {
+        dispatch(setBusinessTripsTC(userId));
+    });
 }
 
 export const postHotelInfoTC = (info) => async (dispatch) => {
-    const dataCsrf = await businessTripsAPI.getCsrf();
-    if (dataCsrf !== undefined) {
-        dispatch(() => Cookies.set('csrftoken', dataCsrf));
-        await businessTripsAPI.postHotelInfo(info).then(() => {
-            dispatch(setBusinessTripInfo({hotel: info}));
-        });
-    }
+    await businessTripsAPI.postHotelInfo(info).then(() => {
+        dispatch(setBusinessTripInfo({hotel: info}));
+    });
 }
 
 export const putHotelInfoTC = (info) => async (dispatch) => {
-    const dataCsrf = await businessTripsAPI.getCsrf();
-    if (dataCsrf !== undefined) {
-        dispatch(() => Cookies.set('csrftoken', dataCsrf));
-        await businessTripsAPI.putHotelInfo(info)
-    }
+    await businessTripsAPI.putHotelInfo(info)
 }
 
 export const initializeBTInfo = (id) => (dispatch) => {
     if (id !== 'new') {
         const isDone = dispatch(setBusinessTripInfoTC(id));
         Promise.all([isDone]).then(() => dispatch(initializedSuccess()));
-    }
-    else
+    } else
         dispatch(initializedSuccess())
 }
 

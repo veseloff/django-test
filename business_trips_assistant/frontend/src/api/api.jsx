@@ -1,5 +1,40 @@
 import Cookies from 'js-cookie';
 
+export const authAPI = {
+    async postAuthLogin(data) {
+        const csrftoken = Cookies.get('csrftoken');
+        return await fetch(`/account/login/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify(data),
+        }).then(response => response.json())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+    async deleteAuthLogin() {
+        const csrftoken = Cookies.get('csrftoken');
+        return await fetch(`auth/login`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify(),
+        }).then(response => response.text())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+    async getCsrf() {
+        return await fetch('/account/get_csrf/')
+            .then(response => response.text())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+}
+
 export const businessTripsAPI = {
     async getBusinessTrips(userId) {
         return await fetch(`/account/all_business_trip?userId=${userId}`)
@@ -10,12 +45,6 @@ export const businessTripsAPI = {
     async getBusinessTripInfo(idBT) {
         return await fetch(`/account/info_business_trip?idBT=${idBT}`)
             .then(response => response.json())
-            .then(data => data)
-            .catch(error => console.error(error))
-    },
-    async getCsrf() {
-        return await fetch('/account/get_csrf/')
-            .then(response => response.text())
             .then(data => data)
             .catch(error => console.error(error))
     },

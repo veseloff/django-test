@@ -51,7 +51,6 @@ const BusinessTripInfoForm = (props) => {
     const businessTrip = props.businessTrip.name !== undefined
         ? props.businessTrip
         : {
-            userId: 2,
             name: '',
             fromCity: '',
             toCity: '',
@@ -78,7 +77,7 @@ const BusinessTripInfoForm = (props) => {
 
             onSubmit={(values) => {
                 const bt = {
-                    userId: 2,
+                    userId: props.userId,
                     name: values.name,
                     fromCity: values.fromCity,
                     toCity: values.toCity,

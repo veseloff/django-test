@@ -2,9 +2,10 @@ import classes from "./Transport.module.css";
 import TransportForm from "./TransportForm/TransportForm";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {postBusinessTripsTC, setCsrfTC} from "../../redux/businessTripsReducer";
+import {postBusinessTripsTC} from "../../redux/businessTripsReducer";
 import {withRouter} from "react-router-dom";
 import TransportConstructor from "./TransportConstructor/TransportConstructor";
+import withLoginRedirect from "../../Hoc/LoginRedirect";
 
 const Transport = (props) => {
     const id = isNaN(Number(props.match.params.businessTripId))
@@ -33,4 +34,4 @@ const mapStateToProps = (state) => {
 };
 
 export default compose(connect(mapStateToProps,
-    {postBusinessTripsTC, setCsrfTC}), withRouter)(Transport);
+    {postBusinessTripsTC}), withLoginRedirect, withRouter)(Transport);

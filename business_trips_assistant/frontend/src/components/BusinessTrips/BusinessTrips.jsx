@@ -5,19 +5,20 @@ import {deleteBusinessTripsTC, setBusinessTripsTC, uninitializedSuccess} from ".
 import BusinessTripConstructor from "./BusinessTripConstructor/BusinessTripConstructor";
 import {NavLink} from "react-router-dom";
 import {useEffect, useState} from "react";
+import withLoginRedirect from "../../Hoc/LoginRedirect";
 
 const BusinessTrips = (props) => {
     const [status, setStatus] = useState("Все");
 
     useEffect(() => {
-            props.setBusinessTripsTC();
+            props.setBusinessTripsTC(props.userId);
             props.uninitializedSuccess();
         },
         // eslint-disable-next-line
         []);
 
     const onDelete = (id) => {
-        props.deleteBusinessTripsTC(id);
+        props.deleteBusinessTripsTC(props.userId, id);
     }
 
     const changeFilter = () => {
@@ -73,6 +74,7 @@ const BusinessTrips = (props) => {
 const mapStateToProps = (state) => {
     return {
         businessTrips: state.businessTripsData.businessTrips,
+        userId: state.auth.userId,
     }
 };
 
@@ -80,4 +82,4 @@ export default compose(connect(mapStateToProps, {
     setBusinessTripsTC,
     deleteBusinessTripsTC,
     uninitializedSuccess,
-}))(BusinessTrips);
+}), withLoginRedirect)(BusinessTrips);

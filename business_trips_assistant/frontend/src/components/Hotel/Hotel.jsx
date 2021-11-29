@@ -8,6 +8,7 @@ import {setHotelsTC} from "../../redux/hotelReducer";
 import Paginator from "../Common/Paginator/Paginator";
 import {useEffect, useState} from "react";
 import {postHotelInfoTC, putHotelInfoTC} from "../../redux/businessTripsReducer";
+import withLoginRedirect from "../../Hoc/LoginRedirect";
 
 const Hotel = (props) => {
     const id = isNaN(Number(props.match.params.businessTripId))
@@ -29,7 +30,7 @@ const Hotel = (props) => {
     const onBooking = (data) => {
         const info = {...props.hotelsDataSearch};
         if (id !== 'new' && info.checkIn !== undefined) {
-            if (props.businessTrip.hotel === undefined)
+            if (props.businessTrip.hotel === undefined || props.businessTrip.hotel.name === undefined)
                 props.postHotelInfoTC({
                     idBT: id,
                     link: data.link,
@@ -78,4 +79,4 @@ const mapStateToProps = (state) => {
 };
 
 export default compose(connect(mapStateToProps,
-    {setHotelsTC, postHotelInfoTC, putHotelInfoTC}), withRouter)(Hotel);
+    {setHotelsTC, postHotelInfoTC, putHotelInfoTC}), withLoginRedirect, withRouter)(Hotel);

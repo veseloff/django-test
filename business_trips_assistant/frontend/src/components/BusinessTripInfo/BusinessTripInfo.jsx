@@ -3,13 +3,13 @@ import classes from "./BusinessTripInfo.module.css";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {
-    setCsrfTC,
     postBusinessTripsTC,
     putBusinessTripsTC,
-    setBusinessTripInfoTC, initializeBTInfo, uninitializedSuccess
+    setBusinessTripInfoTC, initializeBTInfo
 } from "../../redux/businessTripsReducer";
 import BusinessTripInfoForm from "./BusinessTripInfoForm/BusinessTripInfoForm";
 import {useEffect} from "react";
+import withLoginRedirect from "../../Hoc/LoginRedirect";
 
 const BusinessTripInfo = (props) => {
     const id = isNaN(Number(props.match.params.businessTripId))
@@ -162,9 +162,10 @@ const mapStateToProps = (state) => {
         initialized: state.businessTripsData.initialized,
         businessTrips: state.businessTripsData.businessTrips,
         businessTrip: state.businessTripsData.businessTrip,
+        userId: state.auth.userId,
     }
 };
 
 export default compose(connect(mapStateToProps,
-        {initializeBTInfo, postBusinessTripsTC, putBusinessTripsTC, setCsrfTC, setBusinessTripInfoTC}),
+        {initializeBTInfo, postBusinessTripsTC, putBusinessTripsTC, setBusinessTripInfoTC}), withLoginRedirect,
     withRouter)(BusinessTripInfo);

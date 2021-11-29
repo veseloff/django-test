@@ -1,12 +1,15 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import BusinessTripsReducer from "./businessTripsReducer";
 import hotelReducer from "./hotelReducer";
+import AppReducer from "./appReducer";
+import AuthReducer from "./authReducer";
 import thunkMiddleware from "redux-thunk";
-//import {reducer as formReducer} from "redux-form";
 
 const reducers = combineReducers({
     businessTripsData: BusinessTripsReducer,
     hotelsData: hotelReducer,
+    app: AppReducer,
+    auth: AuthReducer,
 });
 
 

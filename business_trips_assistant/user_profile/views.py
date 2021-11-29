@@ -82,8 +82,9 @@ def user_login(request):
 
     """
     if request.method == "POST":
-        user = authenticate(request, username=request.POST["username"],
-                            password=request.POST["password"])
+        body = get_body_request(request)
+        user = authenticate(request, username=body["username"],
+                            password=body["password"])
         if user is not None:
             login(request, user)
             return HttpResponse(user.pk)

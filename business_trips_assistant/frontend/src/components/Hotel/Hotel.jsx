@@ -7,6 +7,7 @@ import HotelConstructor from "./HotelConstructor/HotelConstructor";
 import {setHotelsTC} from "../../redux/hotelReducer";
 import Paginator from "../Common/Paginator/Paginator";
 import {useEffect, useState} from "react";
+import {postHotelInfoTC, putHotelInfoTC} from "../../redux/businessTripsReducer";
 
 const Hotel = (props) => {
     const id = isNaN(Number(props.match.params.businessTripId))
@@ -25,6 +26,30 @@ const Hotel = (props) => {
         // eslint-disable-next-line
         [currentPage]);
 
+    const onBooking = (data) => {
+        const info = {...props.hotelsDataSearch};
+        if (id !== 'new' && info.checkIn !== undefined) {
+            if (props.businessTrip.hotel === undefined)
+                props.postHotelInfoTC({
+                    idBT: id,
+                    link: data.link,
+                    name: data.name,
+                    price: data.price,
+                    checkIn: info.checkIn,
+                    checkOut: info.checkOut,
+                });
+            else
+                props.putHotelInfoTC({
+                    idBT: id,
+                    link: data.link,
+                    name: data.name,
+                    price: data.price,
+                    checkIn: info.checkIn,
+                    checkOut: info.checkOut,
+                });
+        }
+    }
+
     return (
         <div className={classes.body_container}>
             <HotelForm {...props} id={id} currentPage={currentPage}/>
@@ -33,7 +58,7 @@ const Hotel = (props) => {
                     props.hotels !== undefined
                         ? props.hotels
                             .map((hotel, index) =>
-                                <HotelConstructor {...hotel} key={index}/>)
+                                <HotelConstructor {...hotel} key={index} onBooking={onBooking}/>)
                         : null
                 }
                 <Paginator count={props.count} pageSize={pageSize} currentPage={currentPage}
@@ -53,4 +78,4 @@ const mapStateToProps = (state) => {
 };
 
 export default compose(connect(mapStateToProps,
-    {setHotelsTC}), withRouter)(Hotel);
+    {setHotelsTC, postHotelInfoTC, putHotelInfoTC}), withRouter)(Hotel);

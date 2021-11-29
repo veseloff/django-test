@@ -1,7 +1,7 @@
 import classes from "./BusinessTrips.module.css";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {deleteBusinessTripsTC, setBusinessTripsTC} from "../../redux/businessTripsReducer";
+import {deleteBusinessTripsTC, setBusinessTripsTC, uninitializedSuccess} from "../../redux/businessTripsReducer";
 import BusinessTripConstructor from "./BusinessTripConstructor/BusinessTripConstructor";
 import {NavLink} from "react-router-dom";
 import {useEffect, useState} from "react";
@@ -11,6 +11,7 @@ const BusinessTrips = (props) => {
 
     useEffect(() => {
             props.setBusinessTripsTC();
+            props.uninitializedSuccess();
         },
         // eslint-disable-next-line
         []);
@@ -22,15 +23,15 @@ const BusinessTrips = (props) => {
     const changeFilter = () => {
         switch (status) {
             case "Все":
-                setStatus("Активная");
+                setStatus("Действующая");
                 return;
-            case "Активная":
-                setStatus("Запланированная");
+            case "Действующая":
+                setStatus("Закончена");
                 return;
-            case "Запланированная":
-                setStatus("Завершённая");
+            case "Закончена":
+                setStatus("Будущая");
                 return;
-            case "Завершённая":
+            case "Будущая":
                 setStatus("Все");
                 return;
             default:
@@ -78,4 +79,5 @@ const mapStateToProps = (state) => {
 export default compose(connect(mapStateToProps, {
     setBusinessTripsTC,
     deleteBusinessTripsTC,
+    uninitializedSuccess,
 }))(BusinessTrips);

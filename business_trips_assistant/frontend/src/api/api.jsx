@@ -10,7 +10,7 @@ export const businessTripsAPI = {
     async getBusinessTripInfo(idBT) {
         return await fetch(`/account/info_business_trip?idBT=${idBT}`)
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => data)
             .catch(error => console.error(error))
     },
     async getCsrf() {
@@ -58,6 +58,34 @@ export const businessTripsAPI = {
             },
             body: JSON.stringify({idBT}),
         }).then(response => response.text())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+    async postHotelInfo(info) {
+        const url = '/account/create_hotel/';
+        const csrftoken = Cookies.get('csrftoken');
+        return await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify(info),
+        }).then(response => response.json())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+    async putHotelInfo(info) {
+        const url = '/account/update_hotel/';
+        const csrftoken = Cookies.get('csrftoken');
+        return await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify(info),
+        }).then(response => response.json())
             .then(data => data)
             .catch(error => console.error(error))
     },

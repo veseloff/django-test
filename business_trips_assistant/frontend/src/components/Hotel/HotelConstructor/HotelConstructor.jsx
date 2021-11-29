@@ -1,8 +1,15 @@
 import classes from "./HotelConstructor.module.css";
+import {useState} from "react";
+import Window from "../../Common/Window/Window";
 
 const HotelConstructor = (props) => {
+    const [visibility, setVisibility] = useState(false);
+
     return (
         <div className={classes.hotels}>
+            <Window label={`Вы забронировали место в "${props.name}"?`}
+                    visibility={visibility} setVisibility={setVisibility} action={props.onBooking}
+                    item={props} agree="Да" disagree="Нет"/>
             <div>
                 <div className={classes.name}>
                     {props.name}
@@ -30,7 +37,9 @@ const HotelConstructor = (props) => {
                 </div>
             </div>
             <div className={classes.centering}>
-                <a href={props.link} className={classes.button} target="_blank" rel="noreferrer">
+                <a href={props.link} className={classes.button} target="_blank" rel="noreferrer" onClick={() => {
+                    setVisibility(true);
+                }}>
                     Забронировать
                 </a>
             </div>

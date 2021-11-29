@@ -1,0 +1,2714 @@
+[
+    {
+        "fields": {
+            "airport": "ПОДКАМЕННАЯ ТУНГУСКА",
+            "city": "БОР"
+        },
+        "pk": "TGP",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ХИБИНЫ",
+            "city": "КИРОВСК (АПАТИТЫ)"
+        },
+        "pk": "KVK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВАСЬКОВО",
+            "city": "АРХАНГЕЛЬСК"
+        },
+        "pk": "ВСЬ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КОЛЬЦОВО",
+            "city": "ЕКАТЕРИНБУРГ"
+        },
+        "pk": "SVX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТУЛА",
+            "city": "ТУЛА"
+        },
+        "pk": "TYA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПУЛКОВО",
+            "city": "САНКТ-ПЕТЕРБУРГ"
+        },
+        "pk": "LED",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СВЕТЛЫЙ [ПРУ]",
+            "city": "none"
+        },
+        "pk": "СЛЙ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КНЕВИЧИ",
+            "city": "ВЛАДИВОСТОК"
+        },
+        "pk": "VVO",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТУТОНЧАНЫ",
+            "city": "none"
+        },
+        "pk": "ТНЧ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЛАВРЕНТИЯ",
+            "city": "none"
+        },
+        "pk": "ЗЛА",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МОМА",
+            "city": "ХОНУУ"
+        },
+        "pk": "МОМ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УСИНСК",
+            "city": "УСИНСК"
+        },
+        "pk": "USK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧЕРЕПОВЕЦ",
+            "city": "ЧЕРЕПОВЕЦ"
+        },
+        "pk": "CEE",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ГРОЗНЫЙ",
+            "city": "ГРОЗНЫЙ"
+        },
+        "pk": "GRV",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЕЛИЗОВО",
+            "city": "ПЕТРОПАВЛОВСК-КАМЧАТСКИЙ"
+        },
+        "pk": "PKC",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧЕХЛОМЕЙ",
+            "city": "none"
+        },
+        "pk": "ЧЕХ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БРАТСК",
+            "city": "БРАТСК"
+        },
+        "pk": "BTK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УРАЙ",
+            "city": "УРАЙ"
+        },
+        "pk": "URJ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВАНАВАРА",
+            "city": "none"
+        },
+        "pk": "ВРЯ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МАРКОВО",
+            "city": "none"
+        },
+        "pk": "МКО",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ДОНСКОЕ",
+            "city": "ТАМБОВ"
+        },
+        "pk": "TBW",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЮЖНО-САХАЛИНСК",
+            "city": "ЮЖНО-САХАЛИНСК"
+        },
+        "pk": "UUS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОРСК",
+            "city": "ОРСК"
+        },
+        "pk": "OSW",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КИСЛОКАН",
+            "city": "none"
+        },
+        "pk": "КСЮ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КРАСНЫЙ ЧИКОЙ",
+            "city": "none"
+        },
+        "pk": "КСЧ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЯМБУРГ",
+            "city": "none"
+        },
+        "pk": "ЯМБ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КЕДРОВЫЙ",
+            "city": "none"
+        },
+        "pk": "КДД",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БЕЛОРУССКИЙ ВОКЗАЛ",
+            "city": "МОСКВА"
+        },
+        "pk": "JQO",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТУРЛАТОВО",
+            "city": "РЯЗАНЬ"
+        },
+        "pk": "RZN",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧАРА",
+            "city": "none"
+        },
+        "pk": "ЧАР",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "САБЕТТА",
+            "city": "САБЕТТА"
+        },
+        "pk": "SBT",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СВЕТЛАЯ",
+            "city": "none"
+        },
+        "pk": "СЕЯ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "САРАТОВ ЦЕНТРАЛЬНЫЙ",
+            "city": "САРАТОВ"
+        },
+        "pk": "RTW",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "РОЩИНО",
+            "city": "ТЮМЕНЬ"
+        },
+        "pk": "TJM",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ДАЛЬНЕГОРСК",
+            "city": "ДАЛЬНЕГОРСК"
+        },
+        "pk": "DHG",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БЫЛИНО",
+            "city": "none"
+        },
+        "pk": "БЫЛ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧУЛЬМАН",
+            "city": "НЕРЮНГРИ"
+        },
+        "pk": "NER",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "САРАНСК",
+            "city": "САРАНСК"
+        },
+        "pk": "SKX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БОГОРОДСКОЕ",
+            "city": "БОГОРОДСКОЕ"
+        },
+        "pk": "BQG",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БОГАШЁВО",
+            "city": "ТОМСК"
+        },
+        "pk": "TOF",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "САККЫРЫР",
+            "city": "БАТАГАЙ-АЛЫТА"
+        },
+        "pk": "SUK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КАЗАНЬ",
+            "city": "КАЗАНЬ"
+        },
+        "pk": "KZN",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СПИЧЕНКОВО",
+            "city": "НОВОКУЗНЕЦК"
+        },
+        "pk": "NOZ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВЕЛИКИЕ ЛУКИ",
+            "city": "ВЕЛИКИЕ ЛУКИ"
+        },
+        "pk": "VLU",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЙОШКАР-ОЛА",
+            "city": "ЙОШКАР-ОЛА"
+        },
+        "pk": "JOK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АБАКАН",
+            "city": "АБАКАН"
+        },
+        "pk": "ABA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ФИНЛЯНДСКИЙ ВОКЗАЛ",
+            "city": "САНКТ-ПЕТЕРБУРГ"
+        },
+        "pk": "FVS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СУСУМАН",
+            "city": "none"
+        },
+        "pk": "ССМ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ХЕРПУЧИ",
+            "city": "none"
+        },
+        "pk": "ХРП",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КУРУМОЧ",
+            "city": "САМАРА"
+        },
+        "pk": "KUF",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НИЖНЕАНГАРСК",
+            "city": "none"
+        },
+        "pk": "НЖГ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МЕЗЕНЬ",
+            "city": "none"
+        },
+        "pk": "МЗН",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СЕЙМЧАН",
+            "city": "none"
+        },
+        "pk": "СМЧ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТАЛАГИ",
+            "city": "АРХАНГЕЛЬСК"
+        },
+        "pk": "ARH",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВАМПУГОЛЬСК",
+            "city": "none"
+        },
+        "pk": "ВМП",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КУЮМБА",
+            "city": "none"
+        },
+        "pk": "КЮМ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "РАДУЖНЫЙ",
+            "city": "РАДУЖНЫЙ"
+        },
+        "pk": "RAT",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СУЛОМАЙ",
+            "city": "СУЛОМАЙ"
+        },
+        "pk": "САЙ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МЕНДЕЛЕЕВО",
+            "city": "ЮЖНО-КУРИЛЬСК"
+        },
+        "pk": "DEE",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТОЛМАЧЁВО",
+            "city": "НОВОСИБИРСК"
+        },
+        "pk": "OVB",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВЕЛИКИЙ УСТЮГ",
+            "city": "ВЕЛИКИЙ УСТЮГ"
+        },
+        "pk": "VUS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОХА",
+            "city": "ОХА"
+        },
+        "pk": "OHH",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧУМИКАН",
+            "city": "none"
+        },
+        "pk": "ЧМИ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СЫКТЫВКАР",
+            "city": "СЫКТЫВКАР"
+        },
+        "pk": "SCW",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УСТЬ-КАМЧАТСК",
+            "city": "none"
+        },
+        "pk": "УКЧ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БЕГИШЕВО",
+            "city": "НАБЕРЕЖНЫЕ ЧЕЛНЫ (НИЖНЕКАМСК)"
+        },
+        "pk": "NBC",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ИГНАТЬЕВО",
+            "city": "БЛАГОВЕЩЕНСК"
+        },
+        "pk": "BQS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НОГЛИКИ",
+            "city": "НОГЛИКИ"
+        },
+        "pk": "NGK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БЕЛАЯ ГОРА",
+            "city": "БЕЛАЯ ГОРА"
+        },
+        "pk": "BGN",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СЕВЕРО-ЭВЕНСК",
+            "city": "none"
+        },
+        "pk": "СВЕ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КРАСНОСЕЛЬКУП",
+            "city": "КРАСНОСЕЛЬКУП"
+        },
+        "pk": "KKQ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БАЙКИТ",
+            "city": "none"
+        },
+        "pk": "БКТ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВОЛГОДОНСК",
+            "city": "ВОЛГОДОНСК"
+        },
+        "pk": "VLK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БАЛАКОВО",
+            "city": "БАЛАКОВО"
+        },
+        "pk": "BWO",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БАТАГАЙ",
+            "city": "БАТАГАЙ"
+        },
+        "pk": "BQJ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ШЕРЕМЕТЬЕВО",
+            "city": "МОСКВА"
+        },
+        "pk": "SVO",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТАЛОВКА",
+            "city": "none"
+        },
+        "pk": "ТЛО",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АВТОСТАНЦИЯ ЯРОСЛАВЛЬ ГЛАВНЫЙ",
+            "city": "ЯРОСЛАВЛЬ"
+        },
+        "pk": "ЯРЖ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КРЫМСК",
+            "city": "НОВОРОССИЙСК"
+        },
+        "pk": "NOI",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СТАРЫЙ ОСКОЛ",
+            "city": "none"
+        },
+        "pk": "СОЛ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НЕФТЕКАМСК",
+            "city": "НЕФТЕКАМСК"
+        },
+        "pk": "NEF",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КАВАЛЕРОВО",
+            "city": "КАВАЛЕРОВО"
+        },
+        "pk": "KVR",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КОТЛАС",
+            "city": "КОТЛАС"
+        },
+        "pk": "KSZ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КОДИНСК",
+            "city": "none"
+        },
+        "pk": "КЗИ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОССОРА",
+            "city": "none"
+        },
+        "pk": "ОСО",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЯКУТСК",
+            "city": "ЯКУТСК"
+        },
+        "pk": "YKS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЗЕЯ",
+            "city": "none"
+        },
+        "pk": "ЗЕЯ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МОТЫГИНО",
+            "city": "none"
+        },
+        "pk": "МТГ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВАГАЙ",
+            "city": "none"
+        },
+        "pk": "ВАГ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БУРЕВЕСТНИК",
+            "city": "ИТУРУП"
+        },
+        "pk": "BVV",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ШАХТЁРСК",
+            "city": "ШАХТЁРСК"
+        },
+        "pk": "EKS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МАКСИМОВКА",
+            "city": "none"
+        },
+        "pk": "МКИ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОЛЁКМИНСК",
+            "city": "ОЛЁКМИНСК"
+        },
+        "pk": "OLZ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НАРИМАНОВО",
+            "city": "АСТРАХАНЬ"
+        },
+        "pk": "ASF",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПЕЧОРА",
+            "city": "ПЕЧОРА"
+        },
+        "pk": "PEX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "none",
+            "city": "МЫС-КАМЕННЫЙ"
+        },
+        "pk": "YMK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТАКСИМО",
+            "city": "none"
+        },
+        "pk": "ТИО",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УСТЬ-МАЯ",
+            "city": "УСТЬ-МАЯ"
+        },
+        "pk": "UMS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НИКОЛЬСКОЕ",
+            "city": "none"
+        },
+        "pk": "НИК",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПАЛАНА",
+            "city": "none"
+        },
+        "pk": "ПАН",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧИРИНДА",
+            "city": "none"
+        },
+        "pk": "ЧИР",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СЕВЕРО-ЕНИСЕЙСКИЙ",
+            "city": "none"
+        },
+        "pk": "СЕН",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "САВЕЛОВСКИЙ ВОКЗАЛ",
+            "city": "МОСКВА"
+        },
+        "pk": "JQF",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЮКТА",
+            "city": "none"
+        },
+        "pk": "ЮКТ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ГАГАРИН",
+            "city": "САРАТОВ"
+        },
+        "pk": "GSV",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧКАЛОВСКИЙ",
+            "city": "ЧКАЛОВСКИЙ"
+        },
+        "pk": "CKL",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СТРЕЖЕВОЙ",
+            "city": "СТРЕЖЕВОЙ"
+        },
+        "pk": "SWT",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПАШКОВСКИЙ",
+            "city": "КРАСНОДАР"
+        },
+        "pk": "KRR",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЛАРЬЯК",
+            "city": "none"
+        },
+        "pk": "ЛРЯ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧЕМДАЛЬСК",
+            "city": "none"
+        },
+        "pk": "ЧЕМ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НЮРБА",
+            "city": "НЮРБА"
+        },
+        "pk": "NYR",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БУГУЛЬМА",
+            "city": "БУГУЛЬМА"
+        },
+        "pk": "UUA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ШУШЕНСКОЕ",
+            "city": "none"
+        },
+        "pk": "ШУШ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НЯГАНЬ",
+            "city": "НЯГАНЬ"
+        },
+        "pk": "NYA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МВЛ",
+            "city": "none"
+        },
+        "pk": "ТРЛ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТУГУР",
+            "city": "none"
+        },
+        "pk": "ТУУ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "САМАРГА",
+            "city": "none"
+        },
+        "pk": "СМГ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТОБОЛЬСК",
+            "city": "ТОБОЛЬСК"
+        },
+        "pk": "TOX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СУРИНДА",
+            "city": "none"
+        },
+        "pk": "СДР",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВОСТОЧНЫЙ",
+            "city": "КУРСК"
+        },
+        "pk": "URS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МИХАЙЛОВКА",
+            "city": "БАРНАУЛ"
+        },
+        "pk": "BAX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МАМА",
+            "city": "none"
+        },
+        "pk": "МАМ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОШАРОВО",
+            "city": "none"
+        },
+        "pk": "ОША",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БЕСЛАН",
+            "city": "ВЛАДИКАВКАЗ"
+        },
+        "pk": "OGZ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УСТЬ-КУЙГА",
+            "city": "УСТЬ-КУЙГА"
+        },
+        "pk": "UKG",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЕМЕЛЬЯНОВО (Д.А. ХВОРОСТОВСКОГО)",
+            "city": "КРАСНОЯРСК"
+        },
+        "pk": "KJA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЖЕЛЕЗНОГОРСК",
+            "city": "none"
+        },
+        "pk": "ЖЕЗ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВНУКОВО",
+            "city": "МОСКВА"
+        },
+        "pk": "VKO",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НЕФТЕЮГАНСК",
+            "city": "НЕФТЕЮГАНСК"
+        },
+        "pk": "NFG",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БОЛЬШОЙ ЛАРЬЯК",
+            "city": "none"
+        },
+        "pk": "БОК",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СОВЕТСКАЯ ГАВАНЬ",
+            "city": "СОВЕТСКАЯ ГАВАНЬ"
+        },
+        "pk": "GVN",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ДАЛЬНЕРЕЧЕНСК",
+            "city": "none"
+        },
+        "pk": "ДЛЧ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ГОРНО-АЛТАЙСК",
+            "city": "ГОРНО-АЛТАЙСК"
+        },
+        "pk": "RGK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "РОСТОВ-НА-ДОНУ",
+            "city": "РОСТОВ-НА-ДОНУ"
+        },
+        "pk": "RVI",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЕССЕЙ",
+            "city": "none"
+        },
+        "pk": "ЕСИ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ИРКУТСК",
+            "city": "ИРКУТСК"
+        },
+        "pk": "IKT",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ИВАНОВО",
+            "city": "ИВАНОВО"
+        },
+        "pk": "IWA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЗАЛИВ КРЕСТА",
+            "city": "none"
+        },
+        "pk": "ЭГТ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АЯН",
+            "city": "none"
+        },
+        "pk": "АЯН",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МАГАС",
+            "city": "НАЗРАНЬ"
+        },
+        "pk": "IGT",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БЕРЕЗОВО",
+            "city": "БЕРЁЗОВО"
+        },
+        "pk": "EZV",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЭКОНДА",
+            "city": "none"
+        },
+        "pk": "ЭКО",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "РЫБИНСК",
+            "city": "РЫБИНСК"
+        },
+        "pk": "RYB",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УСТЬ-ИЛИМСК",
+            "city": "УСТЬ-ИЛИМСК"
+        },
+        "pk": "UIK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПРОВЕДЕНИЯ",
+            "city": "ПОСЁЛОК ПРОВИДЕНИЯ"
+        },
+        "pk": "PVS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БЕЛОКУРИХА",
+            "city": "none"
+        },
+        "pk": "БИХ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БУРНЫЙ",
+            "city": "none"
+        },
+        "pk": "БУЫ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НИЖНЕВАРТОВСК",
+            "city": "НИЖНЕВАРТОВСК"
+        },
+        "pk": "NJC",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЖУКОВСКИЙ",
+            "city": "МОСКВА"
+        },
+        "pk": "ZIA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БАРАТАЕВКА",
+            "city": "УЛЬЯНОВСК"
+        },
+        "pk": "ULV",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОХОТСК",
+            "city": "ОХОТСК"
+        },
+        "pk": "OHO",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВЛАДИМИР",
+            "city": "none"
+        },
+        "pk": "ВЛМ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МИРНЫЙ",
+            "city": "МИРНЫЙ"
+        },
+        "pk": "MJZ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПОЛИНЫ ОСИПЕНКО",
+            "city": "none"
+        },
+        "pk": "ПОС",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЕРБОГАЧЁН",
+            "city": "ЕРБОГАЧЁН"
+        },
+        "pk": "ЕГЧ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БОГУЧАНЫ",
+            "city": "none"
+        },
+        "pk": "БОЧ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЯРОСЛАВЛЬ",
+            "city": "ЯРОСЛАВЛЬ"
+        },
+        "pk": "IAR",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧЕРСКИЙ",
+            "city": "ЧЕРСКИЙ"
+        },
+        "pk": "CYX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МИРЮГА",
+            "city": "none"
+        },
+        "pk": "МГА",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЕРБОГАЧЁН",
+            "city": "ЕРБОГАЧЁН"
+        },
+        "pk": "ERG",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КОЛЕКЪЕГАН",
+            "city": "none"
+        },
+        "pk": "КЛК",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТУРУХАНСК",
+            "city": "ТУРУХАНСК"
+        },
+        "pk": "THX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КЕМЕРОВО",
+            "city": "КЕМЕРОВО"
+        },
+        "pk": "KEJ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТОБОЛЬСК (РЕМЕЗОВ)",
+            "city": "ТОБОЛЬСК"
+        },
+        "pk": "RMZ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АЭРОДРОМ БОРОВАЯ",
+            "city": "СУРГУТ"
+        },
+        "pk": "БОЯ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПАХАЧИ",
+            "city": "none"
+        },
+        "pk": "ПАЧ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АПУКА",
+            "city": "none"
+        },
+        "pk": "АПУ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МАГАН",
+            "city": "МАГАН"
+        },
+        "pk": "GYG",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НОРИЛЬСК",
+            "city": "НОРИЛЬСК"
+        },
+        "pk": "NSK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЛЕНСК",
+            "city": "ЛЕНСК"
+        },
+        "pk": "ULK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТАЛАКАН",
+            "city": "ТАЛАКАН"
+        },
+        "pk": "TLK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СРЕДНЕКОЛЫМСК",
+            "city": "СРЕДНЕКОЛЫМСК"
+        },
+        "pk": "SEK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТИЛИЧИКИ",
+            "city": "none"
+        },
+        "pk": "ТИЛ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МИГАЛОВО",
+            "city": "ТВЕРЬ"
+        },
+        "pk": "KLD",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МУРМАНСК",
+            "city": "МУРМАНСК"
+        },
+        "pk": "MMK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ХАИЛИНО",
+            "city": "none"
+        },
+        "pk": "ХАИ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "САНГАР",
+            "city": "none"
+        },
+        "pk": "САГ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ИНТА",
+            "city": "ИНТА"
+        },
+        "pk": "INA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТРОИЦКО-ПЕЧОРСК",
+            "city": "none"
+        },
+        "pk": "ТЦП",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СРЕДНИЕ ПАХАЧИ",
+            "city": "none"
+        },
+        "pk": "СПХ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КАЗАЧИНСК",
+            "city": "none"
+        },
+        "pk": "КЗЧ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НИКОЛАЕВСК-НА-АМУРЕ",
+            "city": "НИКОЛАЕВСК-НА-АМУРЕ"
+        },
+        "pk": "NLI",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТИГИЛЬ",
+            "city": "none"
+        },
+        "pk": "ТИГ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СМОЛЕНСК",
+            "city": "СМОЛЕНСК"
+        },
+        "pk": "LNX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БАЙКАЛ",
+            "city": "УЛАН-УДЭ"
+        },
+        "pk": "UUD",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УСТЬ-ХАЙРЮЗОВО",
+            "city": "none"
+        },
+        "pk": "УХЙ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НОВОГОРОД",
+            "city": "ВЕЛИКИЙ НОВГОРОД"
+        },
+        "pk": "NVR",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "none",
+            "city": "ЗОНАЛЬНОЕ"
+        },
+        "pk": "ZZO",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НАДЫМ",
+            "city": "НАДЫМ"
+        },
+        "pk": "NYM",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УДСКОЕ",
+            "city": "none"
+        },
+        "pk": "УДС",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ГЕЛЕНДЖИК",
+            "city": "ГЕЛЕНДЖИК"
+        },
+        "pk": "GDZ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СОКОЛ",
+            "city": "МАГАДАН"
+        },
+        "pk": "GDX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АЛДАН",
+            "city": "АЛДАН"
+        },
+        "pk": "ADH",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УСТЬ-КУТ",
+            "city": "УСТЬ-КУТ"
+        },
+        "pk": "UKX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КРАСНОКАМЕНСК",
+            "city": "none"
+        },
+        "pk": "КНК",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АГЗУ",
+            "city": "none"
+        },
+        "pk": "АЗУ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КОРЛИКИ",
+            "city": "none"
+        },
+        "pk": "КИЮ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УСТЬ-НЕРА",
+            "city": "УСТЬ-НЕРА"
+        },
+        "pk": "USR",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КЕПЕРВЕЕМ",
+            "city": "КЕПЕРВЕЕМ"
+        },
+        "pk": "КПМ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОРЕНБУРГ",
+            "city": "ОРЕНБУРГ"
+        },
+        "pk": "REN",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СТРИГИНО",
+            "city": "НИЖНИЙ НОВГОРОД"
+        },
+        "pk": "GOJ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТОЛЬКА",
+            "city": "none"
+        },
+        "pk": "ТЬК",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ХРАБРОВО",
+            "city": "КАЛИНИНГРАД"
+        },
+        "pk": "KGD",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БОЛЬШОЕ САВИНО",
+            "city": "ПЕРМЬ"
+        },
+        "pk": "PEE",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СОВЕТСКИЙ",
+            "city": "СОВЕТСКИЙ"
+        },
+        "pk": "OVS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ИТУРУП",
+            "city": "ИТУРУП"
+        },
+        "pk": "ITU",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КРАСНЫЙ КУТ",
+            "city": "none"
+        },
+        "pk": "КСЫ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧЕГДОМЫН",
+            "city": "none"
+        },
+        "pk": "ЧГД",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "САСКЫЛАХ",
+            "city": "САСКЫЛАХ"
+        },
+        "pk": "СЫХ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БЕЛГОРОД",
+            "city": "БЕЛГОРОД"
+        },
+        "pk": "EGO",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СОСНОВЫЙ БОР",
+            "city": "none"
+        },
+        "pk": "СБР",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ГЛАВНЫЙ",
+            "city": "none"
+        },
+        "pk": "БГГ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АЯНКА",
+            "city": "none"
+        },
+        "pk": "АЯК",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВИЛЮЙСК",
+            "city": "ВИЛЮЙСК"
+        },
+        "pk": "VYI",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УГОЛЬНЫЙ",
+            "city": "АНАДЫРЬ"
+        },
+        "pk": "DYR",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СТАВРОПОЛЬ",
+            "city": "СТАВРОПОЛЬ"
+        },
+        "pk": "STW",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МИНЕРАЛЬНЫЕ ВОДЫ",
+            "city": "МИНЕРАЛЬНЫЕ ВОДЫ"
+        },
+        "pk": "MRV",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СОЛОВКИ",
+            "city": "СОЛОВЕЦКИЙ"
+        },
+        "pk": "CSH",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПАВЕЛЕЦКИЙ ВОКЗАЛ",
+            "city": "МОСКВА"
+        },
+        "pk": "XRK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТИКСИ",
+            "city": "ТИКСИ"
+        },
+        "pk": "IKS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КАМЕНОГОРСК (УСТЬ-ЦИЛЬМА)",
+            "city": "УСТЬ-ЦИЛЬМА"
+        },
+        "pk": "UTS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НОЯБРЬСК",
+            "city": "НОЯБРЬСК"
+        },
+        "pk": "NOJ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КЫЗЫЛ",
+            "city": "КЫЗЫЛ"
+        },
+        "pk": "KYZ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КУЗЬМОВКА",
+            "city": "none"
+        },
+        "pk": "КЗВ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ДОМОДЕДОВО",
+            "city": "МОСКВА"
+        },
+        "pk": "DME",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БЕЛОЯРСКИЙ",
+            "city": "БЕЛОЯРСКИЙ"
+        },
+        "pk": "EYK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЕНИСЕЙСК",
+            "city": "ЕНИСЕЙСК"
+        },
+        "pk": "EIE",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ФИЛИАЛ ФКП \"А/П ЧУКОТКИ\"",
+            "city": "none"
+        },
+        "pk": "БНГ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВУКТЫЛ",
+            "city": "none"
+        },
+        "pk": "ВТЛ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПЕНЗА",
+            "city": "ПЕНЗА"
+        },
+        "pk": "PEZ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НОВОКУРОВКА",
+            "city": "none"
+        },
+        "pk": "НУВ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КРЕСТЫ",
+            "city": "ПСКОВ"
+        },
+        "pk": "PKV",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БРЯНСК",
+            "city": "БРЯНСК"
+        },
+        "pk": "BZK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЕДИНКА",
+            "city": "none"
+        },
+        "pk": "ЕДИ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВОСТОЧНЫЙ",
+            "city": "УЛЬЯНОВСК"
+        },
+        "pk": "ULY",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БЕСОВЕЦ",
+            "city": "ПЕТРОЗАВОДСК"
+        },
+        "pk": "PES",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧОКУРДАХ",
+            "city": "ЧОКУРДАХ"
+        },
+        "pk": "CKH",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СЛАУТНОЕ",
+            "city": "none"
+        },
+        "pk": "СЛУ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БАЛАНДИНО",
+            "city": "ЧЕЛЯБИНСК"
+        },
+        "pk": "CEK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КУРГАН",
+            "city": "КУРГАН"
+        },
+        "pk": "KRO",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ГУМРАК",
+            "city": "ВОЛГОГРАД"
+        },
+        "pk": "VOG",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УХТА",
+            "city": "УХТА"
+        },
+        "pk": "UCT",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЭЛИСТА",
+            "city": "ЭЛИСТА"
+        },
+        "pk": "ESL",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ИГРИМ",
+            "city": "ИГРИМ"
+        },
+        "pk": "IRM",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КОГАЛЫМ",
+            "city": "КОГАЛЫМ"
+        },
+        "pk": "KGP",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АДЛЕР",
+            "city": "СОЧИ"
+        },
+        "pk": "AER",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СТРЕЛКА-ЧУНЯ",
+            "city": "none"
+        },
+        "pk": "СЧУ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПОБЕДИЛОВО",
+            "city": "КИРОВ"
+        },
+        "pk": "KVX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МАНИЛЫ",
+            "city": "none"
+        },
+        "pk": "МИЛ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УЧАМИ",
+            "city": "none"
+        },
+        "pk": "УМИ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АМДЕРМА",
+            "city": "АМДЕРМА"
+        },
+        "pk": "AMV",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВЕРХНЕВИЛЮЙСК",
+            "city": "ВЕРХНЕВИЛЮЙСК"
+        },
+        "pk": "VHV",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СОБОЛЕВО",
+            "city": "none"
+        },
+        "pk": "СБО",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БОДАЙБО",
+            "city": "БОДАЙБО"
+        },
+        "pk": "ODO",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТЕРНЕЙ",
+            "city": "none"
+        },
+        "pk": "ТЕЙ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КИРЕНСК",
+            "city": "КИРЕНСК"
+        },
+        "pk": "KCK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КОМСОМОЛЬСК-НА-АМУРЕ",
+            "city": "КОМСОМОЛЬСК-НА-АМУРЕ"
+        },
+        "pk": "KXK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОКТЯБРЬСКИЙ",
+            "city": "ОКТЯБРЬСКИЙ"
+        },
+        "pk": "OKT",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОЛЕНЁК",
+            "city": "ОЛЕНЁК"
+        },
+        "pk": "ОЛН",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПУГ-ЮГ",
+            "city": "none"
+        },
+        "pk": "ПУГ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ГОРНЫЙ",
+            "city": "none"
+        },
+        "pk": "ТАУ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЭВЕНСК",
+            "city": "ЭВЕНСК"
+        },
+        "pk": "SWV",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СУРГУТ",
+            "city": "СУРГУТ"
+        },
+        "pk": "SGC",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АМГУ",
+            "city": "none"
+        },
+        "pk": "АМУ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НЕЛЬКАН",
+            "city": "none"
+        },
+        "pk": "НЛН",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "РОСТОВ-НА-ДОНУ (ПЛАТОВ)",
+            "city": "РОСТОВ-НА-ДОНУ"
+        },
+        "pk": "ROV",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "САЛЕХАРД",
+            "city": "САЛЕХАРД"
+        },
+        "pk": "SLY",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КУСКУРГУЛЬ",
+            "city": "none"
+        },
+        "pk": "КГЬ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УСТЬ-КОЛИКЪЕГАН",
+            "city": "none"
+        },
+        "pk": "УТЕ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЯРЦЕВО",
+            "city": "none"
+        },
+        "pk": "ЯРЦ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БЕЛОРЕЦК",
+            "city": "БЕЛОРЕЦК"
+        },
+        "pk": "BCX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "САСКЫЛАХ",
+            "city": "САСКЫЛАХ"
+        },
+        "pk": "SYS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СУНТАР",
+            "city": "СУНТАР"
+        },
+        "pk": "SUY",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КАДАЛА",
+            "city": "ЧИТА"
+        },
+        "pk": "HTA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВОЛОГДА",
+            "city": "ВОЛОГДА"
+        },
+        "pk": "VGD",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОЗЕРНАЯ",
+            "city": "none"
+        },
+        "pk": "ОЗР",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АВТОСТАНЦИЯ НИЖНИЙ НОВГОРОД",
+            "city": "НИЖНИЙ НОВГОРОД"
+        },
+        "pk": "ННЖ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УЙТАШ",
+            "city": "МАХАЧКАЛА"
+        },
+        "pk": "MCX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВЕРШИНСКИЕ",
+            "city": "none"
+        },
+        "pk": "ВЕШ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПОКУР",
+            "city": "none"
+        },
+        "pk": "ПУР",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ИГАРКА",
+            "city": "ИГАРКА"
+        },
+        "pk": "IAA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ХАРУТА",
+            "city": "none"
+        },
+        "pk": "ХАУ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КОСТРОМА",
+            "city": "КОСТРОМА"
+        },
+        "pk": "KMW",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЛЕШУКОНСКОЕ",
+            "city": "ЛЕШУКОНСКОЕ"
+        },
+        "pk": "LDG",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПЛАСТУН",
+            "city": "ПЛАСТУН"
+        },
+        "pk": "TLY",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПЕВЕК",
+            "city": "ПЕВЕК"
+        },
+        "pk": "PWE",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ДИКСОН",
+            "city": "ДИКСОН"
+        },
+        "pk": "DKS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НАЛЬЧИК",
+            "city": "НАЛЬЧИК"
+        },
+        "pk": "NAL",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АДАМОВКА",
+            "city": "none"
+        },
+        "pk": "АДМ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КАМЕНСКОЕ",
+            "city": "none"
+        },
+        "pk": "КДУ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АЧАЙВАЯМ",
+            "city": "none"
+        },
+        "pk": "АЧВ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ГРАБЦЕВО",
+            "city": "КАЛУГА"
+        },
+        "pk": "KLF",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УФА",
+            "city": "УФА"
+        },
+        "pk": "UFA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧЕРТОВИЦКОЕ",
+            "city": "ВОРОНЕЖ"
+        },
+        "pk": "VOZ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЮЖНЫЙ",
+            "city": "ТАГАНРОГ"
+        },
+        "pk": "TGK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "none",
+            "city": "ТАРКО-САЛЕ"
+        },
+        "pk": "TQL",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КОСЛАН",
+            "city": "none"
+        },
+        "pk": "КОС",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "АЧИНСК",
+            "city": "АЧИНСК"
+        },
+        "pk": "ACS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПОЛИГУС",
+            "city": "none"
+        },
+        "pk": "ПГУ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ХАНТЫ-МАНСИЙСК",
+            "city": "ХАНТЫ-МАНСИЙСК"
+        },
+        "pk": "HMA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЖИГАНСК",
+            "city": "ЖИГАНСК"
+        },
+        "pk": "ZIX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МОМА",
+            "city": "ХОНУУ"
+        },
+        "pk": "MQJ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПОДВОЛОЧНОЕ",
+            "city": "none"
+        },
+        "pk": "ПДВ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОРЕЛ",
+            "city": "ОРЁЛ"
+        },
+        "pk": "OEL",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПРЕОБРАЖЕНИЕ",
+            "city": "ПРЕОБРАЖЕНИЕ"
+        },
+        "pk": "RZH",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОМСУКЧАН",
+            "city": "none"
+        },
+        "pk": "ОСУ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "РЖЕВКА",
+            "city": "САНКТ-ПЕТЕРБУРГ"
+        },
+        "pk": "RVH",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ДАЛЬНЕГОРСК",
+            "city": "ДАЛЬНЕГОРСК"
+        },
+        "pk": "ДНГ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОМОЛОН",
+            "city": "none"
+        },
+        "pk": "ООЛ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ИЖЕВСК",
+            "city": "ИЖЕВСК"
+        },
+        "pk": "IJK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧЕРЕМШАНКА",
+            "city": "КРАСНОЯРСК"
+        },
+        "pk": "КЯС",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ХАТАНГА",
+            "city": "ХАТАНГА"
+        },
+        "pk": "HTG",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "УСТЬ-КОКСА",
+            "city": "none"
+        },
+        "pk": "УКО",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЛАЙТАМАК",
+            "city": "none"
+        },
+        "pk": "ЛАЙ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОЛЕНЁК",
+            "city": "ОЛЕНЁК"
+        },
+        "pk": "ONK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПОЛЯРНЫЙ",
+            "city": "УДАЧНЫЙ"
+        },
+        "pk": "PYJ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "СВЕТЛОГОРСК",
+            "city": "none"
+        },
+        "pk": "СЕГ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МОСКОВСКИЙ ВОКЗАЛ",
+            "city": "САНКТ-ПЕТЕРБУРГ"
+        },
+        "pk": "ZLK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НАРЬЯН-МАР",
+            "city": "НАРЬЯН-МАР"
+        },
+        "pk": "NNM",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЗЫРЯНКА",
+            "city": "ЗЫРЯНКА"
+        },
+        "pk": "ZKP",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ТЫНДА",
+            "city": "ТЫНДА"
+        },
+        "pk": "TYD",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЛИПЕЦК",
+            "city": "ЛИПЕЦК"
+        },
+        "pk": "LPK",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "НОВЫЙ УРЕНГОЙ",
+            "city": "НОВЫЙ УРЕНГОЙ"
+        },
+        "pk": "NUX",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МАГДАГАЧИ",
+            "city": "МАГДАГАЧИ"
+        },
+        "pk": "GDG",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧЕБОКСАРЫ",
+            "city": "ЧЕБОКСАРЫ"
+        },
+        "pk": "CSY",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВОРКУТА",
+            "city": "ВОРКУТА"
+        },
+        "pk": "VKT",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ХУЖИР",
+            "city": "none"
+        },
+        "pk": "ХЖР",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "МАГНИТОГОРСК",
+            "city": "МАГНИТОГОРСК"
+        },
+        "pk": "MQF",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ХАБАРОВСК",
+            "city": "ХАБАРОВСК"
+        },
+        "pk": "KHV",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ПОБЕДА",
+            "city": "none"
+        },
+        "pk": "ПБЕ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ВИТЯЗЕВО",
+            "city": "АНАПА"
+        },
+        "pk": "AAQ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ДЕПУТАТСКИЙ",
+            "city": "ДЕПУТАТСКИЙ"
+        },
+        "pk": "DPT",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ОМСК",
+            "city": "ОМСК"
+        },
+        "pk": "OMS",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БЫКОВО",
+            "city": "МОСКВА"
+        },
+        "pk": "BKA",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "КЕПЕРВЕЕМ",
+            "city": "КЕПЕРВЕЕМ"
+        },
+        "pk": "KPW",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЛЕНИНГРАДСКИЙ ВОКЗАЛ",
+            "city": "МОСКВА"
+        },
+        "pk": "ZKD",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ЧЕРЕМШАНКА",
+            "city": "none"
+        },
+        "pk": "КЯС",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "ГОРНЫЙ",
+            "city": "none"
+        },
+        "pk": "ТАУ",
+        "model": "aviasales_api.airport"
+    },
+    {
+        "fields": {
+            "airport": "БАЙКИТ",
+            "city": "none"
+        },
+        "pk": "БКТ",
+        "model": "aviasales_api.airport"
+    }
+]

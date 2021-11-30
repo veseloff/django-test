@@ -15,15 +15,8 @@ export const authAPI = {
             .catch(error => console.error(error))
     },
     async deleteAuthLogin() {
-        const csrftoken = Cookies.get('csrftoken');
-        return await fetch(`auth/login`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8',
-                'X-CSRFToken': csrftoken,
-            },
-            body: JSON.stringify(),
-        }).then(response => response.text())
+        return await fetch(`/account/logout/`)
+            .then(response => response.text())
             .then(data => data)
             .catch(error => console.error(error))
     },

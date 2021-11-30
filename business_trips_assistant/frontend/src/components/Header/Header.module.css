@@ -6,9 +6,12 @@
 
 .profile_name_container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    width: 130px;
+}
+
+.profile_name_container>div {
+    margin-right: 5px;
 }
 
 .logo_container {

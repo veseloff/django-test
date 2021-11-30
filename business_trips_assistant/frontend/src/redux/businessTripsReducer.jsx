@@ -78,7 +78,7 @@ export const initializeBTInfo = (id) => (dispatch) => {
 
 const initializedSuccess = () => ({type: INITIALIZED_SUCCESS});
 export const uninitializedSuccess = () => ({type: UNINITIALIZED_SUCCESS});
-const setBusinessTrips = (items) => ({type: SET_BTs, items: items});
+export const setBusinessTrips = (items) => ({type: SET_BTs, items: items});
 const setBusinessTripInfo = (items) => ({type: SET_BT, items: items});
 const setBusinessTripId = (item) => ({type: SET_ID, item: item});
 

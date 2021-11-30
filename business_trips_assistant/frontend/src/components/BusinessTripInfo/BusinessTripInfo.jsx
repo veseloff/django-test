@@ -9,7 +9,6 @@ import {
 } from "../../redux/businessTripsReducer";
 import BusinessTripInfoForm from "./BusinessTripInfoForm/BusinessTripInfoForm";
 import {useEffect} from "react";
-import withLoginRedirect from "../../Hoc/LoginRedirect";
 
 const BusinessTripInfo = (props) => {
     const id = isNaN(Number(props.match.params.businessTripId))
@@ -167,5 +166,5 @@ const mapStateToProps = (state) => {
 };
 
 export default compose(connect(mapStateToProps,
-        {initializeBTInfo, postBusinessTripsTC, putBusinessTripsTC, setBusinessTripInfoTC}), withLoginRedirect,
+        {initializeBTInfo, postBusinessTripsTC, putBusinessTripsTC, setBusinessTripInfoTC}),
     withRouter)(BusinessTripInfo);

@@ -5,7 +5,6 @@ import {connect} from "react-redux";
 import {postBusinessTripsTC} from "../../redux/businessTripsReducer";
 import {withRouter} from "react-router-dom";
 import TransportConstructor from "./TransportConstructor/TransportConstructor";
-import withLoginRedirect from "../../Hoc/LoginRedirect";
 
 const Transport = (props) => {
     const id = isNaN(Number(props.match.params.businessTripId))
@@ -34,4 +33,4 @@ const mapStateToProps = (state) => {
 };
 
 export default compose(connect(mapStateToProps,
-    {postBusinessTripsTC}), withLoginRedirect, withRouter)(Transport);
+    {postBusinessTripsTC}), withRouter)(Transport);

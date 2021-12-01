@@ -12,8 +12,15 @@ import store from "./redux/reduxStore";
 import cn from "classnames";
 import {initializeApp} from "./redux/appReducer";
 import Login from "./components/Login/Login";
+import {useEffect} from "react";
 
-const App = () => {
+const App = (props) => {
+    useEffect(() => {
+        props.initializeApp()
+    }, []);
+
+    if (!props.initialized)
+        return null
     return (
         <Switch>
             <Route path={"/login"} render={() => <Login/>}/>
@@ -46,7 +53,7 @@ const App = () => {
 
 const mapStateToProps = (state) => {
     return {
-
+        initialized: state.app.initialized,
     }
 }
 

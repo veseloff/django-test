@@ -161,7 +161,7 @@ const mapStateToProps = (state) => {
         initialized: state.businessTripsData.initialized,
         businessTrips: state.businessTripsData.businessTrips,
         businessTrip: state.businessTripsData.businessTrip,
-        userId: state.auth.userId,
+        userId: state.auth.id,
     }
 };
 

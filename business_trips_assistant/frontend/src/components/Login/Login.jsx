@@ -1,6 +1,6 @@
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {postAuthLoginTC} from "../../redux/authReducer";
+import {getAuthMeTC, postAuthLoginTC} from "../../redux/authReducer";
 import classes from "./Login.module.css";
 import LoginForm from "./LoginForm";
 import AuthRedirect from "../../Hoc/AuthRedirect";
@@ -25,8 +25,8 @@ let mapStateToProps = (state) => {
         isAuth: state.auth.isAuth,
         email: state.auth.email,
         username: state.auth.username,
-        userId: state.auth.userId,
+        userId: state.auth.id,
     }
 }
 
-export default compose(connect(mapStateToProps, {postAuthLoginTC}), AuthRedirect)(Login);
+export default compose(connect(mapStateToProps, {postAuthLoginTC, getAuthMeTC}), AuthRedirect)(Login);

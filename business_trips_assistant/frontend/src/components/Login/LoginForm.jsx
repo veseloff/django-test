@@ -2,7 +2,7 @@ import {Formik, Form} from 'formik';
 import classes from "./Login.module.css";
 import TextInput from "../Common/FormControl/TextInput";
 import {NavLink} from "react-router-dom";
-import {postAuthLoginTC} from "../../redux/authReducer";
+import {getAuthMeTC, postAuthLoginTC} from "../../redux/authReducer";
 
 const validate = (values) => {
     const errors = {};
@@ -35,7 +35,10 @@ const LoginForm = (props) => {
                     password: values.password,
                 }
 
-                props.postAuthLoginTC(data);
+                props.postAuthLoginTC(data).then(response => {
+                    if (response.status === "Success")
+                        props.getAuthMeTC()
+                });
             }}>
             <Form className={classes.form}>
                 <div>

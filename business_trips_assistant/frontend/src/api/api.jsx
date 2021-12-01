@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 export const authAPI = {
     async postAuthLogin(data) {
         const csrftoken = Cookies.get('csrftoken');
-        return await fetch(`/account/login/`, {
+        return await fetch(`/account/api/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
@@ -17,6 +17,12 @@ export const authAPI = {
     async deleteAuthLogin() {
         return await fetch(`/account/logout/`)
             .then(response => response.text())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+    async getAuthMe() {
+        return await fetch('/account/api/user')
+            .then(response => response.json())
             .then(data => data)
             .catch(error => console.error(error))
     },

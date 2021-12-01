@@ -1,4 +1,4 @@
-import {postAuthLoginTC} from "./authReducer";
+import {getAuthMeTC} from "./authReducer";
 
 
 const INITIALIZED_SUCCESS = "APP/INITIALIZED-SUCCESS";
@@ -19,7 +19,7 @@ const AppReducer = (state = initialState, action) => {
 const initializedSuccess = () => ({type: INITIALIZED_SUCCESS});
 
 export const initializeApp = () => (dispatch) => {
-    const authMe = dispatch(postAuthLoginTC());
+    const authMe = dispatch(getAuthMeTC());
     Promise.all([authMe]).then(() => dispatch(initializedSuccess()));
 }
 

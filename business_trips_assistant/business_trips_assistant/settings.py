@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'rest_framework',
+    'rest_framework.authtoken',
     'railways_api.apps.RailwaysApiConfig',
     'user_profile.apps.UserProfileConfig',
     'hotel_api.apps.HotelApiConfig',

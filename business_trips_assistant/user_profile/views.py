@@ -82,6 +82,9 @@ def register_telegram(request):
     return Response(user.pk)
 
 
+@api_view()
+@permission_classes([IsAuthenticated])
+@authentication_classes([SessionAuthentication])
 def user_logout(request):
     """
     Выход пользователя из системы

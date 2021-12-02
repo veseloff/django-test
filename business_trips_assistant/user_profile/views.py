@@ -10,7 +10,7 @@ from railways_api.models import City
 from .handler_business_trip import get_business_trip_information, insert_value_business_trip, \
     insert_value_hotel, insert_value_trip, get_body_request, serialize_hotel, serialize_trip, \
     serialize_business_trip
-from .models import BusinessTrip, Trip, Hotel, UserTelegram, Cheque
+from .models import BusinessTrip, Trip, Hotel, UserTelegram
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
@@ -25,13 +25,10 @@ class RegisterUserView(CreateAPIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
-        print(request.data)
         serializer = RegisterSerializer(data=request.data)
-        data = {}
         if serializer.is_valid():
             serializer.save()
-            data['response'] = True
-            return Response(data, status=status.HTTP_200_OK)
+            return Response({'status': 'Success'}, status=status.HTTP_200_OK)
         else:
             data = serializer.errors
             return Response(data)
@@ -62,6 +59,8 @@ def get_user(request: Request):
     return Response({'data': UserSerializer(request.user).data})
 
 
+@api_view(['POST'])
+@permission_classes([AllowAny])
 def register_telegram(request):
     """
     Регистрация через телеграм
@@ -71,32 +70,16 @@ def register_telegram(request):
     Returns:
 
     """
-    body = get_body_request(request)
-    if request.method == 'POST':
-        username = body['username']
-        telegram_id = body['telegramId']
-        first_name = body.get('firstName')
-        last_name = body.get('lastName')
-        user = User.objects.create_user(username, first_name=first_name, last_name=last_name)
-        user.save()
-        user_telegram = UserTelegram.objects.create(user=user, id_telegram=telegram_id)
-        user_telegram.save()
-        return HttpResponse(user)
-    return HttpResponse(None)
-
-
-def login_telegram(request):
-    """
-    Логинизация через телеграм
-    Args:
-        request:
-
-    Returns:
-
-    """
-    id_telegram = request.POST['id_telegram']
-    user_telegram = UserTelegram.objects.get(id_telegram=id_telegram)
-    return HttpResponse(user_telegram.user)
+    body = request.data
+    username = body['username']
+    telegram_id = body['telegramId']
+    first_name = body.get('firstName')
+    last_name = body.get('lastName')
+    user = User.objects.create_user(username, first_name=first_name, last_name=last_name)
+    user.save()
+    user_telegram = UserTelegram.objects.create(user=user, id_telegram=telegram_id)
+    user_telegram.save()
+    return Response(user.pk)
 
 
 def user_logout(request):

@@ -257,6 +257,7 @@ class CreateBusinessTripView(CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         if request.user.id == int(request.data['user']):
+            print(request.data)
             serializer = CreateBusinessTripSerializer(data=request.data)
             if serializer.is_valid():
                 b_t = serializer.save()

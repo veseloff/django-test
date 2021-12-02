@@ -25,6 +25,7 @@ const setUserId = (data, isAuth) => ({type: SET_USER_DATA, data, isAuth});
 
 export const getAuthMeTC = () => async (dispatch) => {
     const data = await authAPI.getAuthMe()
+    console.log(data)
     if (data.detail !== 'Authentication credentials were not provided.') {
         dispatch(setUserId(data.data, true));
         const newDataCsrf = await authAPI.getCsrf();

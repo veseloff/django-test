@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 export const authAPI = {
     async postAuthLogin(data) {
         const csrftoken = Cookies.get('csrftoken');
-        return await fetch(`/account/api/login`, {
+        return await fetch(`/account/login/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
@@ -21,7 +21,7 @@ export const authAPI = {
             .catch(error => console.error(error))
     },
     async getAuthMe() {
-        return await fetch('/account/api/user')
+        return await fetch('/account/user')
             .then(response => response.json())
             .then(data => data)
             .catch(error => console.error(error))

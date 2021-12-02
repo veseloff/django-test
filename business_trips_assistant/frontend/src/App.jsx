@@ -13,6 +13,7 @@ import cn from "classnames";
 import {initializeApp} from "./redux/appReducer";
 import Login from "./components/Login/Login";
 import {useEffect} from "react";
+import Register from "./components/Register/Register";
 
 const App = (props) => {
     useEffect(() => {
@@ -24,6 +25,7 @@ const App = (props) => {
     return (
         <Switch>
             <Route path={"/login"} render={() => <Login/>}/>
+            <Route path={"/register"} render={() => <Register/>}/>
             <Route exact path={"/"}>
                 <Redirect to={"/login"}/>
             </Route>

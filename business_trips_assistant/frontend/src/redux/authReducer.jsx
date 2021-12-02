@@ -1,12 +1,11 @@
-import {authAPI, businessTripsAPI} from "../api/api";
+import {authAPI} from "../api/api";
 import Cookies from "js-cookie";
 import {setBusinessTrips} from "./businessTripsReducer";
 
-const SET_USER_DATA = "auth/SET_USER_DATA";
-const SET_PROFILE = "auth/SET_PROFILE";
+const SET_USER_DATA = "AUTH/SET_USER_DATA";
 
 let initialState = {
-    userId: null,
+    id: null,
     email: null,
     username: null,
     isAuth: false,
@@ -16,23 +15,18 @@ let initialState = {
 const AuthReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_DATA:
-            return {...state, userId: action.userId, isAuth: action.isAuth, username: action.username};
-        case SET_PROFILE:
-            return {...state, ...action.data};
+            return {...state, ...action.data, isAuth: action.isAuth};
         default:
             return state;
     }
 }
 
-const setUserId = (userId, isAuth, username) => ({type: SET_USER_DATA, userId, isAuth, username});
-const setProfileData = (data) => ({type: SET_PROFILE, data});
+const setUserId = (data, isAuth) => ({type: SET_USER_DATA, data, isAuth});
 
-export const postAuthLoginTC = (info) => async (dispatch) => {
-    const dataCsrf = await authAPI.getCsrf();
-    if (dataCsrf !== undefined) {
-        dispatch(() => Cookies.set('csrftoken', dataCsrf));
-        const data = await authAPI.postAuthLogin(info)
-        dispatch(setUserId(data, true, info.username));
+export const getAuthMeTC = () => async (dispatch) => {
+    const data = await authAPI.getAuthMe()
+    if (data.detail !== 'Authentication credentials were not provided.') {
+        dispatch(setUserId(data.data, true));
         const newDataCsrf = await authAPI.getCsrf();
         if (newDataCsrf !== undefined) {
             dispatch(() => Cookies.set('csrftoken', newDataCsrf));
@@ -40,9 +34,17 @@ export const postAuthLoginTC = (info) => async (dispatch) => {
     }
 }
 
+export const postAuthLoginTC = (info) => async (dispatch) => {
+    const dataCsrf = await authAPI.getCsrf();
+    if (dataCsrf !== undefined) {
+        dispatch(() => Cookies.set('csrftoken', dataCsrf));
+        return await authAPI.postAuthLogin(info)
+    }
+}
+
 export const deleteAuthLoginTC = () => async (dispatch) => {
     const data = await authAPI.deleteAuthLogin();
-    dispatch(setUserId(null, false, null));
+    dispatch(setUserId({id: null, email: null, username: null}, false));
     dispatch(setBusinessTrips([]))
 }
 

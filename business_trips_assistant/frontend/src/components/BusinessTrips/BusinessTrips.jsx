@@ -73,7 +73,7 @@ const BusinessTrips = (props) => {
 const mapStateToProps = (state) => {
     return {
         businessTrips: state.businessTripsData.businessTrips,
-        userId: state.auth.userId,
+        userId: state.auth.id,
     }
 };
 

@@ -1,9 +1,10 @@
-import json
-from django.http import HttpResponse
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from .parser_booking import get_hotels as get_hotels_booking
 from .parser_airbnb import get_hotels as get_hotels_airbnb
 
 
+@api_view()
 def get_hotels_booking_json(request):
     """
     Метод запускает парсинга сайта booking.com с переданными параметрами для запроса
@@ -21,10 +22,10 @@ def get_hotels_booking_json(request):
     hotel, count_hotels = get_hotels_booking(star=star, offset=offset,
                                              city=city, check_in=check_in, check_out=check_out)
     answer = {'count_hotels': count_hotels, 'hotels': hotel}
-    answer_json = json.dumps(answer, ensure_ascii=False)
-    return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
+    return Response(answer)
 
 
+@api_view()
 def get_hotels_airbnb_json(request):
     """
     Метод запускает парсинга сайта airbnb.ru с переданными параметрами для запроса
@@ -41,5 +42,4 @@ def get_hotels_airbnb_json(request):
     hotel, count_hotels = get_hotels_airbnb(offset=offset, city=city,
                                             check_in=check_in, check_out=check_out)
     answer = {'count_hotels': count_hotels, 'hotels': hotel}
-    answer_json = json.dumps(answer, ensure_ascii=False)
-    return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
+    return Response(answer)

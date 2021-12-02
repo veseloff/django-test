@@ -5,66 +5,84 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.middleware import csrf
+from rest_framework.generics import CreateAPIView
+from rest_framework import status
 from railways_api.models import City
 from .handler_business_trip import get_business_trip_information, insert_value_business_trip, \
     insert_value_hotel, insert_value_trip, get_body_request, serialize_hotel, serialize_trip, \
     serialize_business_trip
 from .models import BusinessTrip, Trip, Hotel, UserTelegram
-
-
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.authentication import SessionAuthentication
-from .serializer import UserSerializer, LoginRequestSerializer
+from .serializer import UserSerializer, LoginRequestSerializer, RegisterSerializer, CreateBusinessTripSerializer
 
 
-@api_view(['POST'])
-@permission_classes([AllowAny])
-def login_user(request: Request):
-    serializer = LoginRequestSerializer(data=request.data)
-    if serializer.is_valid():
-        authenticated_user = authenticate(**serializer.validated_data)
-        if authenticated_user is not None:
-            login(request, authenticated_user)
-            return Response({'status': 'Success'})
+class RegisterUserView(CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = RegisterSerializer
+    permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        serializer = RegisterSerializer(data=request.data)
+        data = {}
+        if serializer.is_valid():
+            serializer.save()
+            data['response'] = True
+            return Response(data, status=status.HTTP_200_OK)
         else:
-            return Response({'error': 'Invalid credentials'}, status=403)
-    else:
-        return Response(serializer.errors, status=400)
+            data = serializer.errors
+            return Response(data)
+
+
+class LoginUserView(CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = LoginRequestSerializer
+    permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        serializer = LoginRequestSerializer(data=request.data)
+        if serializer.is_valid():
+            authenticated_user = authenticate(**serializer.validated_data)
+            if authenticated_user is not None:
+                login(request, authenticated_user)
+                return Response({'status': 'Success'})
+            else:
+                return Response({'error': 'Invalid credentials'}, status=403)
+        else:
+            return Response(serializer.errors, status=400)
+
+
+# @api_view(['POST'])
+# @permission_classes([AllowAny])
+# def login_user(request: Request):
+#     """
+#     Логинизаци пользователя
+#     Args:
+#         request:
+#
+#     Returns:
+#
+#     """
+#     serializer = LoginRequestSerializer(data=request.data)
+#     if serializer.is_valid():
+#         authenticated_user = authenticate(**serializer.validated_data)
+#         if authenticated_user is not None:
+#             login(request, authenticated_user)
+#             return Response({'status': 'Success'})
+#         else:
+#             return Response({'error': 'Invalid credentials'}, status=403)
+#     else:
+#         return Response(serializer.errors, status=400)
 
 
 @api_view()
 @permission_classes([IsAuthenticated])
 @authentication_classes([SessionAuthentication])
-def user(request: Request):
-    return Response({
-        'data': UserSerializer(request.user).data
-    })
-
-
-def register(request):
-    """
-    Регистрация пользователя
-    Args:
-        request: Request
-
-    Returns:
-
-    """
-    if request.method == 'POST':
-        body = get_body_request(request)
-        password = body['password']
-        username = body['username']
-        email = body['email']
-        first_name = body.get('firstName')
-        last_name = body.get('lastName')
-        user = User.objects.create_user(username, email,
-                                        password, first_name=first_name, last_name=last_name)
-        user.save()
-        return HttpResponse(user)
-    return HttpResponse(None)
+def get_user(request: Request):
+    return Response({'data': UserSerializer(request.user).data})
 
 
 def register_telegram(request):
@@ -104,25 +122,6 @@ def login_telegram(request):
     return HttpResponse(user_telegram.user)
 
 
-def user_login(request):
-    """
-    Аутентификация пользователя
-    Args:
-        request:
-
-    Returns:
-
-    """
-    if request.method == "POST":
-        body = get_body_request(request)
-        user = authenticate(request, username=body["username"],
-                            password=body["password"])
-        if user is not None:
-            login(request, user)
-            return HttpResponse(user.pk)
-    return HttpResponse(None)
-
-
 def user_logout(request):
     """
     Выход пользователя из системы
@@ -133,12 +132,13 @@ def user_logout(request):
 
     """
     logout(request)
-    return HttpResponse(status=200)
+    return Response(status=status.HTTP_200_OK)
 
 
+@api_view()
 @permission_classes([IsAuthenticated])
 @authentication_classes([SessionAuthentication])
-def get_business_trip(request):
+def get_business_trip(request: Request):
     """
     Метод возвращает краткую информацию о всех командировках пользователя
     Args:
@@ -147,13 +147,15 @@ def get_business_trip(request):
     Returns:
     Json ответ со списком всех командировок пользователя и краткой информцией о них
     """
-    id_user = int(request.GET['userId'])
+    id_user = request.user.id
     information = get_business_trip_information(id_user)
-    answer_json = json.dumps(information, ensure_ascii=False).encode('utf-8')
-    return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
+    return Response(information)
 
 
-def update_business_trip(request):
+@api_view()
+@permission_classes([IsAuthenticated])
+@authentication_classes([SessionAuthentication])
+def update_business_trip(request: Request):
     """
     Обновление записи о командировке
     Args:
@@ -162,10 +164,11 @@ def update_business_trip(request):
     Returns:
 
     """
+    print(request.data)
     body = get_body_request(request)
     b_t = BusinessTrip.objects.get(pk=body['idBT'])
     insert_value_business_trip(b_t, body['bt'])
-    return HttpResponse('ok')
+    return Response(status=status.HTTP_200_OK)
 
 
 def update_trip(request):
@@ -216,29 +219,52 @@ def delete_business_trip(request):
     return HttpResponse('ok')
 
 
-def create_business_trip(request):
-    """
-    Создание командировки
-    Args:
-        request:
+# @api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+# @authentication_classes([SessionAuthentication])
+# def create_business_trip(request):
+#     """
+#     Создание командировки
+#     Args:
+#         request:
+#
+#     Returns:
+#
+#     """
+#
+#     print(request.data)
+#     # body = get_body_request(request)
+#     # b_t = BusinessTrip.objects.create(
+#     #     user_id=body['userId'],
+#     #     name=body['name'],
+#     #     from_city=body['fromCity'],
+#     #     to_city=body['toCity'],
+#     #     credit=body.get('budget'),
+#     #     date_start=datetime.strptime(body['begin'], '%Y-%m-%d').date(),
+#     #     date_finish=datetime.strptime(body['end'], '%Y-%m-%d').date(),
+#     #     status=body['status']
+#     # )
+#     # b_t.save()
+#     # return HttpResponse(b_t.pk)
+#     return Response('ok')
 
-    Returns:
 
-    """
+class CreateBusinessTripView(CreateAPIView):
+    queryset = BusinessTrip.objects.all()
+    serializer_class = CreateBusinessTripSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [SessionAuthentication]
 
-    body = get_body_request(request)
-    b_t = BusinessTrip.objects.create(
-        user_id=body['userId'],
-        name=body['name'],
-        from_city=body['fromCity'],
-        to_city=body['toCity'],
-        credit=body.get('budget'),
-        date_start=datetime.strptime(body['begin'], '%Y-%m-%d').date(),
-        date_finish=datetime.strptime(body['end'], '%Y-%m-%d').date(),
-        status=body['status']
-    )
-    b_t.save()
-    return HttpResponse(b_t.pk)
+    def post(self, request, *args, **kwargs):
+        if request.user.id == int(request.data['user']):
+            serializer = CreateBusinessTripSerializer(data=request.data)
+            if serializer.is_valid():
+                b_t = serializer.save()
+                return Response(b_t.id)
+            else:
+                return Response(serializer.errors, status=400)
+        else:
+            return Response('Не верный пользователь', status=400)
 
 
 def create_trip(request):
@@ -302,6 +328,9 @@ def get_csrf(request):
     return HttpResponse(csrf.get_token(request), content_type="text/plain")
 
 
+@api_view()
+@permission_classes([IsAuthenticated])
+@authentication_classes([SessionAuthentication])
 def get_full_info_business_trip(request):
     """
     Возвращает полную информацию о конкретной поездке
@@ -313,10 +342,12 @@ def get_full_info_business_trip(request):
     """
     id_b_t = request.GET['idBT']
     b_t = BusinessTrip.objects.get(pk=id_b_t)
-    trips = Trip.objects.filter(business_trip_id=b_t.id)
-    hotel = Hotel.objects.filter(business_trip_id=b_t.id)
-    answer = {'businessTrip': serialize_business_trip(b_t),
-              'trip': [serialize_trip(trip) for trip in trips],
-              'hotel': serialize_hotel(hotel[0]) if len(hotel) > 0 else None}
-    answer_json = json.dumps(answer, ensure_ascii=False)
-    return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
+    if request.user.id == b_t.user.pk:
+        trips = Trip.objects.filter(business_trip_id=b_t.id)
+        hotel = Hotel.objects.filter(business_trip_id=b_t.id)
+        answer = {'businessTrip': serialize_business_trip(b_t),
+                  'trip': [serialize_trip(trip) for trip in trips],
+                  'hotel': serialize_hotel(hotel[0]) if len(hotel) > 0 else None}
+        return Response(answer)
+    else:
+        return Response(status=400)

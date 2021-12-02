@@ -10,7 +10,7 @@ from railways_api.models import City
 from .handler_business_trip import get_business_trip_information, insert_value_business_trip, \
     insert_value_hotel, insert_value_trip, get_body_request, serialize_hotel, serialize_trip, \
     serialize_business_trip
-from .models import BusinessTrip, Trip, Hotel, UserTelegram
+from .models import BusinessTrip, Trip, Hotel, UserTelegram, Cheque
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
@@ -25,6 +25,7 @@ class RegisterUserView(CreateAPIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
+        print(request.data)
         serializer = RegisterSerializer(data=request.data)
         data = {}
         if serializer.is_valid():
@@ -128,7 +129,7 @@ def get_business_trip(request: Request):
     return Response(information)
 
 
-@api_view()
+@api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 @authentication_classes([SessionAuthentication])
 def update_business_trip(request: Request):
@@ -140,12 +141,19 @@ def update_business_trip(request: Request):
     Returns:
 
     """
-    body = get_body_request(request)
-    b_t = BusinessTrip.objects.get(pk=body['idBT'])
-    insert_value_business_trip(b_t, body['bt'])
-    return Response(status=status.HTTP_200_OK)
+    body = request.data
+    id_b_t = int(body['idBT'])
+    b_t = BusinessTrip.objects.get(pk=id_b_t)
+    if request.user.id == b_t.user.pk:
+        insert_value_business_trip(b_t, body)
+        return Response(status=status.HTTP_200_OK)
+    else:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+@authentication_classes([SessionAuthentication])
 def update_trip(request):
     """
     Обновление поездки
@@ -155,14 +163,19 @@ def update_trip(request):
     Returns:
 
     """
-    body = get_body_request(request)
+    body = request.data
     id_b_t = int(body['idBT'])
-    is_first = int(body['isFirst'])
-    trip = Trip.objects.filter(business_trip_id=id_b_t).get(is_first=is_first)
-    insert_value_trip(trip, body)
-    return HttpResponse('ok')
+    b_t = BusinessTrip.objects.get(pk=id_b_t)
+    if request.user.id == b_t.user.pk:
+        is_first = int(body['isFirst'])
+        trip = Trip.objects.filter(business_trip_id=id_b_t).get(is_first=is_first)
+        insert_value_trip(trip, body)
+        return HttpResponse('ok')
 
 
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+@authentication_classes([SessionAuthentication])
 def update_hotel(request):
     """
     Обновление данных об отеле
@@ -172,13 +185,20 @@ def update_hotel(request):
     Returns:
 
     """
-    body = get_body_request(request)
-    id_b_t = body['idBT']
-    hotel = Hotel.objects.get(business_trip_id=id_b_t)
-    insert_value_hotel(hotel, body)
-    return HttpResponse('ok')
+    body = request.data
+    id_b_t = int(body['idBT'])
+    b_t = BusinessTrip.objects.get(pk=id_b_t)
+    if request.user.id == b_t.user.pk:
+        hotel = Hotel.objects.get(business_trip_id=id_b_t)
+        insert_value_hotel(hotel, body)
+        return Response(status=status.HTTP_200_OK)
+    else:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
+@api_view()
+@permission_classes([IsAuthenticated])
+@authentication_classes([SessionAuthentication])
 def delete_business_trip(request):
     """
     Удаление записи о командировке
@@ -189,39 +209,9 @@ def delete_business_trip(request):
 
     """
     body = get_body_request(request)
-    b_t = BusinessTrip.objects.get(pk=body['idBT'])
+    b_t = BusinessTrip.objects.get(pk=int(body['idBT']))
     b_t.delete()
     return HttpResponse('ok')
-
-
-# @api_view(['POST'])
-# @permission_classes([IsAuthenticated])
-# @authentication_classes([SessionAuthentication])
-# def create_business_trip(request):
-#     """
-#     Создание командировки
-#     Args:
-#         request:
-#
-#     Returns:
-#
-#     """
-#
-#     print(request.data)
-#     # body = get_body_request(request)
-#     # b_t = BusinessTrip.objects.create(
-#     #     user_id=body['userId'],
-#     #     name=body['name'],
-#     #     from_city=body['fromCity'],
-#     #     to_city=body['toCity'],
-#     #     credit=body.get('budget'),
-#     #     date_start=datetime.strptime(body['begin'], '%Y-%m-%d').date(),
-#     #     date_finish=datetime.strptime(body['end'], '%Y-%m-%d').date(),
-#     #     status=body['status']
-#     # )
-#     # b_t.save()
-#     # return HttpResponse(b_t.pk)
-#     return Response('ok')
 
 
 class CreateBusinessTripView(CreateAPIView):
@@ -242,6 +232,9 @@ class CreateBusinessTripView(CreateAPIView):
             return Response('Не верный пользователь', status=400)
 
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+@authentication_classes([SessionAuthentication])
 def create_trip(request):
     """
     Создание поездки
@@ -251,24 +244,31 @@ def create_trip(request):
     Returns:
 
     """
-    body = get_body_request(request)
-    trip = Trip.objects.create(
-        business_trip_id=int(body['idBT']),
-        transport=int(body['transport']),
-        price_ticket=int(body['priceTicket']),
-        is_first=int(body['isFirst']),
-        transport_number=body['transportNumber'],
-        date_departure=datetime.strptime(body['dateDeparture'], '%Y-%m-%d').date(),
-        date_arrival=datetime.strptime(body['dateArrival'], '%Y-%m-%d').date(),
-        city_from_id=City.objects.get(pk=int(body['cityFrom'])),
-        city_to_id=City.objects.get(pk=int(body['cityTo'])),
-        station_from=body['stationFrom'],
-        station_to=body['stationTo']
-    )
-    trip.save()
-    return HttpResponse(trip)
+    body = request.data
+    b_t = BusinessTrip.objects.get(pk=int(body['idBT']))
+    if b_t.user.pk == request.user.id:
+        trip = Trip.objects.create(
+            business_trip_id=int(body['idBT']),
+            transport=int(body['transport']),
+            price_ticket=int(body['priceTicket']),
+            is_first=int(body['isFirst']),
+            transport_number=body['transportNumber'],
+            date_departure=datetime.strptime(body['dateDeparture'], '%Y-%m-%d').date(),
+            date_arrival=datetime.strptime(body['dateArrival'], '%Y-%m-%d').date(),
+            city_from_id=City.objects.get(pk=int(body['cityFrom'])),
+            city_to_id=City.objects.get(pk=int(body['cityTo'])),
+            station_from=body['stationFrom'],
+            station_to=body['stationTo']
+        )
+        trip.save()
+        return Response(trip.pk)
+    else:
+        Response(status=status.HTTP_400_BAD_REQUEST)
 
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+@authentication_classes([SessionAuthentication])
 def create_hotel(request):
     """
     Создание отеля
@@ -278,17 +278,21 @@ def create_hotel(request):
     Returns:
 
     """
-    body = get_body_request(request)
-    hotel = Hotel.objects.create(
-        business_trip_id=int(body['idBT']),
-        link=body['link'],
-        name=body['name'],
-        price=float(body['price']),
-        date_check_in=datetime.strptime(body['checkIn'], '%Y-%m-%d').date(),
-        date_check_out=datetime.strptime(body['checkOut'], '%Y-%m-%d').date()
-    )
-    hotel.save()
-    return HttpResponse(hotel)
+    body = request.data
+    b_t = BusinessTrip.objects.get(pk=int(body['idBT']))
+    if b_t.user.pk == request.user.id:
+        hotel = Hotel.objects.create(
+            business_trip_id=int(body['idBT']),
+            link=body['link'],
+            name=body['name'],
+            price=float(body['price']),
+            date_check_in=datetime.strptime(body['checkIn'], '%Y-%m-%d').date(),
+            date_check_out=datetime.strptime(body['checkOut'], '%Y-%m-%d').date()
+        )
+        hotel.save()
+        return Response(hotel.pk)
+    else:
+        Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 def get_csrf(request):

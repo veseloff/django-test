@@ -1,5 +1,4 @@
 """Представление модуль отвечающего за акаунт пользователя и его командировки"""
-import json
 from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
@@ -53,29 +52,6 @@ class LoginUserView(CreateAPIView):
                 return Response({'error': 'Invalid credentials'}, status=403)
         else:
             return Response(serializer.errors, status=400)
-
-
-# @api_view(['POST'])
-# @permission_classes([AllowAny])
-# def login_user(request: Request):
-#     """
-#     Логинизаци пользователя
-#     Args:
-#         request:
-#
-#     Returns:
-#
-#     """
-#     serializer = LoginRequestSerializer(data=request.data)
-#     if serializer.is_valid():
-#         authenticated_user = authenticate(**serializer.validated_data)
-#         if authenticated_user is not None:
-#             login(request, authenticated_user)
-#             return Response({'status': 'Success'})
-#         else:
-#             return Response({'error': 'Invalid credentials'}, status=403)
-#     else:
-#         return Response(serializer.errors, status=400)
 
 
 @api_view()
@@ -164,7 +140,6 @@ def update_business_trip(request: Request):
     Returns:
 
     """
-    print(request.data)
     body = get_body_request(request)
     b_t = BusinessTrip.objects.get(pk=body['idBT'])
     insert_value_business_trip(b_t, body['bt'])
@@ -257,7 +232,6 @@ class CreateBusinessTripView(CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         if request.user.id == int(request.data['user']):
-            print(request.data)
             serializer = CreateBusinessTripSerializer(data=request.data)
             if serializer.is_valid():
                 b_t = serializer.save()

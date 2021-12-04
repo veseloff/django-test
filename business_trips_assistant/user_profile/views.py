@@ -183,7 +183,7 @@ def update_hotel(request):
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view()
+@api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 @authentication_classes([SessionAuthentication])
 def delete_business_trip(request):
@@ -195,7 +195,7 @@ def delete_business_trip(request):
     Returns:
 
     """
-    body = get_body_request(request)
+    body = request.data
     b_t = BusinessTrip.objects.get(pk=int(body['idBT']))
     b_t.delete()
     return HttpResponse('ok')

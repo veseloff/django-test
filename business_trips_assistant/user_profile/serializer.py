@@ -52,12 +52,12 @@ class CreateBusinessTripSerializer(ModelSerializer):
 
     class Meta:
         model = BusinessTrip
-        fields = ['name', 'user', 'fromCity', 'toCity', 'budget', 'begin', 'end', 'status']
+        fields = ['name', 'user', 'fromCity', 'toCity', 'budget', 'begin', 'end']
 
     def is_valid_date(self):
         start = datetime.strptime(self.data['begin'], '%Y-%m-%d').date(),
         finish = datetime.strptime(self.data['end'], '%Y-%m-%d').date(),
-        return start < finish
+        return datetime.today().date() < start[0] < finish[0]
 
     def save(self, *args, **kwargs):
         b_t = BusinessTrip.objects.create(
@@ -68,7 +68,6 @@ class CreateBusinessTripSerializer(ModelSerializer):
             credit=self.validated_data.get('businesstrip_credit'),
             date_start=datetime.strptime(self.data['begin'], '%Y-%m-%d').date(),
             date_finish=datetime.strptime(self.data['end'], '%Y-%m-%d').date(),
-            status=self.validated_data['status']
         )
         b_t.save()
         return b_t

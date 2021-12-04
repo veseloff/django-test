@@ -21,7 +21,7 @@ export const authAPI = {
             .catch(error => console.error(error))
     },
     async getAuthMe() {
-        return await fetch('/account/user')
+        return await fetch('/account/user/')
             .then(response => response.json())
             .then(data => data)
             .catch(error => console.error(error))
@@ -29,6 +29,19 @@ export const authAPI = {
     async getCsrf() {
         return await fetch('/account/get_csrf/')
             .then(response => response.text())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+    async postAuthRegister(data) {
+        const csrftoken = Cookies.get('csrftoken');
+        return await fetch(`/account/registration/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify(data),
+        }).then(response => response.json())
             .then(data => data)
             .catch(error => console.error(error))
     },

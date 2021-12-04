@@ -43,6 +43,14 @@ export const postAuthLoginTC = (info) => async (dispatch) => {
     }
 }
 
+export const postAuthRegisterTC = (info) => async (dispatch) => {
+    const dataCsrf = await authAPI.getCsrf();
+    if (dataCsrf !== undefined) {
+        dispatch(() => Cookies.set('csrftoken', dataCsrf));
+        return await authAPI.postAuthRegister(info)
+    }
+}
+
 export const deleteAuthLoginTC = () => async (dispatch) => {
     const data = await authAPI.deleteAuthLogin();
     dispatch(setUserId({id: null, email: null, username: null}, false));

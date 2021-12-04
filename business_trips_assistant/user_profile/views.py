@@ -1,5 +1,7 @@
 """Представление модуль отвечающего за акаунт пользователя и его командировки"""
 from datetime import datetime
+import requests
+import os
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib.auth.models import User
@@ -16,7 +18,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.authentication import SessionAuthentication
-from .serializer import UserSerializer, LoginRequestSerializer, RegisterSerializer, CreateBusinessTripSerializer
+from .serializer import UserSerializer, LoginRequestSerializer,\
+    RegisterSerializer, CreateBusinessTripSerializer, UserTelegramSerializer
 
 
 class RegisterUserView(CreateAPIView):
@@ -71,7 +74,7 @@ def register_telegram(request):
 
     """
     body = request.data
-    username = body['username']
+    username = body.get('username')
     telegram_id = body['telegramId']
     first_name = body.get('firstName')
     last_name = body.get('lastName')
@@ -316,3 +319,27 @@ def get_full_info_business_trip(request):
         return Response(answer)
     else:
         return Response(status=400)
+
+
+@api_view()
+@permission_classes([IsAuthenticated])
+@authentication_classes([SessionAuthentication])
+def add_telegram_data(request):
+    """
+    Добавляем информацию из телеграмма пользователя
+    Args:
+        request:
+
+    Returns:
+
+    """
+    id_telegram = request.data['idTelegram']
+    user = request.user
+    serializer = UserTelegramSerializer()
+    if serializer.is_valid():
+        user_tg = UserTelegram.objects.create(user, id_telegram)
+        user_tg.save()
+        return Response({'status': 'Success'}, status=status.HTTP_200_OK)
+    else:
+        data = serializer.errors
+        return Response(data)

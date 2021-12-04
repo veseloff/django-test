@@ -1,7 +1,5 @@
 """Представление модуль отвечающего за акаунт пользователя и его командировки"""
 from datetime import datetime
-import requests
-import os
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib.auth.models import User
@@ -212,7 +210,7 @@ class CreateBusinessTripView(CreateAPIView):
     def post(self, request, *args, **kwargs):
         if request.user.id == int(request.data['user']):
             serializer = CreateBusinessTripSerializer(data=request.data)
-            if serializer.is_valid():
+            if serializer.is_valid() and serializer.is_valid_date():
                 b_t = serializer.save()
                 return Response(b_t.id)
             else:

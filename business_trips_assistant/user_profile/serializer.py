@@ -47,12 +47,17 @@ class CreateBusinessTripSerializer(ModelSerializer):
     fromCity = CharField(source='businesstrip_from_city')
     toCity = CharField(source='businesstrip_to_city')
     budget = serializers.IntegerField(source='businesstrip_credit')
-    begin = serializers.DateField(source='businesstrip_date_finish')
+    begin = serializers.DateField(source='businesstrip_date_start')
     end = serializers.DateField(source='businesstrip_date_finish')
 
     class Meta:
         model = BusinessTrip
         fields = ['name', 'user', 'fromCity', 'toCity', 'budget', 'begin', 'end', 'status']
+
+    def is_valid_date(self):
+        start = datetime.strptime(self.data['begin'], '%Y-%m-%d').date(),
+        finish = datetime.strptime(self.data['end'], '%Y-%m-%d').date(),
+        return start < finish
 
     def save(self, *args, **kwargs):
         b_t = BusinessTrip.objects.create(

@@ -57,7 +57,7 @@ const BusinessTripInfo = (props) => {
                             <NavLink to={`/business-trips/${id}/transport/there`}>
                                 Туда:
                                 {
-                                    props.businessTrip.trip === undefined || props.businessTrip.trip.length === 0
+                                    props.businessTrip?.trip.length === 0
                                         ? " Выбрать..."
                                         : <div className={classes.description}>
                                             <div>{map.get(firstTrip.transport)} {firstTrip.transportNumber}</div>
@@ -71,7 +71,7 @@ const BusinessTripInfo = (props) => {
                             <NavLink to={`/business-trips/${id}/transport/back`}>
                                 Обратно:
                                 {
-                                    props.businessTrip.trip === undefined || props.businessTrip.trip.length === 0
+                                    props.businessTrip?.trip.length === 0
                                         ? " Выбрать..."
                                         : <div className={classes.description}>
                                             <div>{map.get(secondTrip.transport)} {secondTrip.transportNumber}</div>
@@ -86,7 +86,7 @@ const BusinessTripInfo = (props) => {
                             <div className={classes.footer}>
                                 Общий расход:
                                 {
-                                    props.businessTrip.trip === undefined || props.businessTrip.trip.length === 0
+                                    props.businessTrip?.trip.length === 0
                                         ? "Неизвестно"
                                         : firstTrip.priceTicket + secondTrip.priceTicket
                                 }
@@ -97,7 +97,7 @@ const BusinessTripInfo = (props) => {
                                 Отель
                             </div>
                             {
-                                props.businessTrip.hotel === undefined || props.businessTrip.hotel.name === undefined
+                                props.businessTrip?.hotel?.name === undefined
                                     ? <div>
                                         Отель не выбран
                                     </div>
@@ -117,7 +117,7 @@ const BusinessTripInfo = (props) => {
                                     </a>
                             }
                             {
-                                props.businessTrip.hotel === undefined || props.businessTrip.hotel.name === undefined
+                                props.businessTrip?.hotel?.name === undefined
                                     ? <NavLink to={`/business-trips/${id}/hotel`}>
                                         Выбрать...
                                     </NavLink>
@@ -127,7 +127,7 @@ const BusinessTripInfo = (props) => {
                             }
                             <div className={classes.footer}>
                                 {
-                                    props.businessTrip.hotel === undefined || props.businessTrip.hotel.price === undefined
+                                    props.businessTrip?.hotel?.price === undefined
                                         ? "Общий расход: Неизвестно"
                                         : "Общий расход: " + props.businessTrip.hotel.price + "р"
                                 }
@@ -137,9 +137,9 @@ const BusinessTripInfo = (props) => {
                             <div className={classes.header}>
                                 Расходы
                             </div>
-                            <div className={classes.footer}>
+                            <NavLink to={`/business-trips/${id}/expenses`} className={classes.footer}>
                                 Посмотреть
-                            </div>
+                            </NavLink>
                         </div>
                         <div className={classes.board_container}>
                             <div className={classes.header}>

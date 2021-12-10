@@ -4,9 +4,11 @@ import hotelReducer from "./hotelReducer";
 import AppReducer from "./appReducer";
 import AuthReducer from "./authReducer";
 import thunkMiddleware from "redux-thunk";
+import ExpensesReducer from "./expensesReducer";
 
 const reducers = combineReducers({
     businessTripsData: BusinessTripsReducer,
+    expensesData: ExpensesReducer,
     hotelsData: hotelReducer,
     app: AppReducer,
     auth: AuthReducer,

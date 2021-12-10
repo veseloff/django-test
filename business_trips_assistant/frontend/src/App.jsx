@@ -7,7 +7,6 @@ import BusinessTripInfo from "./components/BusinessTripInfo/BusinessTripInfo";
 import Transport from "./components/Transport/Transport";
 import Hotel from "./components/Hotel/Hotel";
 import Expenses from "./components/Expenses/Expenses";
-import Report from "./components/Report/Report";
 import store from "./redux/reduxStore";
 import cn from "classnames";
 import {initializeApp} from "./redux/appReducer";
@@ -34,7 +33,7 @@ const App = (props) => {
                     <div className={cn(classes.app_content_wrapper, classes.header_wrapper)}>
                         <Header/>
                     </div>
-                    <div className={cn(classes.app_content_wrapper, classes.body_wrapper)}>
+                    <div className={cn(classes.app_content_wrapper, classes.app_body_wrapper)}>
                         <Switch>
                             <Route exact path={"/business-trips"} render={() => <BusinessTrips/>}/>
                             <Route exact path={"/business-trips/:businessTripId?"}
@@ -44,7 +43,6 @@ const App = (props) => {
                             <Route exact path={"/business-trips/:businessTripId?/hotel"} render={() => <Hotel/>}/>
                             <Route exact path={"/business-trips/:businessTripId?/expenses"}
                                    render={() => <Expenses/>}/>
-                            <Route path={"/business-trips/:businessTripId?/report"} render={() => <Report/>}/>
                         </Switch>
                     </div>
                 </div>

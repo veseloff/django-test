@@ -1,11 +1,5 @@
 .body_container {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 0 25px;
-    width: 875px;
-    background-color: #F9F9F9;
+    composes: body_container from "../../App.module.css";
 }
 
 .body_wrapper {
@@ -19,7 +13,6 @@
 .board_container {
     width: 100%;
     border-radius: 15px;
-    /*border: 1px solid #C4C4C4;*/
     background-color: white;
 }
 

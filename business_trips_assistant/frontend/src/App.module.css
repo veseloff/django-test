@@ -19,7 +19,7 @@
     background-color: #ffffff;
 }
 
-.body_wrapper {
+.app_body_wrapper {
     margin-top: 55px;
     margin-bottom: -55px;
     padding: 0;
@@ -49,6 +49,23 @@
 
 .button:active {
     background-color: #163e56;
+}
+
+.body_container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 25px;
+    width: 875px;
+    background-color: #F9F9F9;
+}
+
+.body_wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 25px;
 }
 
 .body_content_wrapper {

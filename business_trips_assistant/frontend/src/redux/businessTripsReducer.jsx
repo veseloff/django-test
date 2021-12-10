@@ -1,5 +1,4 @@
 import {businessTripsAPI} from "../api/api";
-import Cookies from 'js-cookie';
 
 const SET_BTs = "BT/SET-BTs";
 const SET_BT = "BT/SET-BT";

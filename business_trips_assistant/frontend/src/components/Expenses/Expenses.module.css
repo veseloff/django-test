@@ -1,28 +1,30 @@
-.header {
-    display: flex;
-    justify-content: space-around;
-    height: 55px;
-    width: 100%;
-    color: #000000;
-    background-color: #ffffff;
+.body_container {
+    composes: body_container from "../../App.module.css";
 }
 
-.header_container {
-    display: flex;
-    justify-content: space-between;
-    width: 875px;
-}
-
-.profile_name_container {
+.first_row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 130px;
+    margin-top: 5px;
+    height: 50px;
+    font-family: Roboto, monospace;
+    font-size: 20px;
+    font-style: normal;
 }
 
-.avatar {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background-color: grey;
+.first_row>div {
+    margin-top: 20px;
+    width: 30px;
+    font-size: 20px;
+}
+
+.exit {
+    font-size: 20px;
+    width: 30px;
+}
+
+.button {
+    margin-top: 20px;
+    composes: button from "../../App.module.css";
 }

@@ -1,16 +1,7 @@
 .body_container {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 0 25px;
-    width: 875px;
-    background-color: #F9F9F9;
+    composes: body_container from "../../App.module.css";
 }
 
 .body_wrapper {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    margin-top: 25px;
+    composes: body_wrapper from "../../App.module.css";
 }

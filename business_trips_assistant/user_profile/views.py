@@ -132,7 +132,7 @@ def update_business_trip(request: Request):
     id_b_t = int(body['idBT'])
     b_t = BusinessTrip.objects.get(pk=id_b_t)
     if request.user.id == b_t.user.pk:
-        insert_value_business_trip(b_t, body)
+        insert_value_business_trip(b_t, body['bt'])
         return Response(status=status.HTTP_200_OK)
     else:
         return Response(status=status.HTTP_400_BAD_REQUEST)

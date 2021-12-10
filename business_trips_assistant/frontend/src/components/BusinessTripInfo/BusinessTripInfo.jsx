@@ -57,7 +57,8 @@ const BusinessTripInfo = (props) => {
                             <NavLink to={`/business-trips/${id}/transport/there`}>
                                 Туда:
                                 {
-                                    props.businessTrip?.trip.length === 0
+                                    props.businessTrip?.trip?.length === undefined ||
+                                    props.businessTrip?.trip?.length === 0
                                         ? " Выбрать..."
                                         : <div className={classes.description}>
                                             <div>{map.get(firstTrip.transport)} {firstTrip.transportNumber}</div>
@@ -71,7 +72,8 @@ const BusinessTripInfo = (props) => {
                             <NavLink to={`/business-trips/${id}/transport/back`}>
                                 Обратно:
                                 {
-                                    props.businessTrip?.trip.length === 0
+                                    props.businessTrip?.trip?.length === undefined ||
+                                    props.businessTrip?.trip?.length === 0
                                         ? " Выбрать..."
                                         : <div className={classes.description}>
                                             <div>{map.get(secondTrip.transport)} {secondTrip.transportNumber}</div>
@@ -86,7 +88,8 @@ const BusinessTripInfo = (props) => {
                             <div className={classes.footer}>
                                 Общий расход:
                                 {
-                                    props.businessTrip?.trip.length === 0
+                                    props.businessTrip?.trip?.length === undefined ||
+                                    props.businessTrip?.trip?.length === 0
                                         ? "Неизвестно"
                                         : firstTrip.priceTicket + secondTrip.priceTicket
                                 }

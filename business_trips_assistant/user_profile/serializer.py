@@ -74,7 +74,7 @@ class CreateBusinessTripSerializer(ModelSerializer):
 
 
 class UserTelegramSerializer(ModelSerializer):
-    idTelegram = serializers.IntegerField(source='id_telegram')
+    idTelegram = serializers.IntegerField(source='usertelegram_id_telegram')
 
     class Meta:
         model = UserTelegram

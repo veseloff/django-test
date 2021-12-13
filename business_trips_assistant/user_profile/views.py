@@ -333,9 +333,9 @@ def add_telegram_data(request):
     """
     id_telegram = request.data['idTelegram']
     user = request.user
-    serializer = UserTelegramSerializer(request.data)
+    serializer = UserTelegramSerializer(data={'user': user.pk, 'idTelegram': id_telegram})
     if serializer.is_valid():
-        user_tg = UserTelegram.objects.create(user, id_telegram)
+        user_tg = UserTelegram.objects.create(user=user, id_telegram=id_telegram)
         user_tg.save()
         return Response({'status': 'Success'}, status=status.HTTP_200_OK)
     else:

@@ -47,5 +47,5 @@ class Cheque(models.Model):
 
 class UserTelegram(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    id_telegram = models.IntegerField(max_length=9)
+    id_telegram = models.IntegerField()
     telephone = models.CharField(max_length=11, blank=True)

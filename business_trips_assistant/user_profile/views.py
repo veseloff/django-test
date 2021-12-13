@@ -333,7 +333,7 @@ def add_telegram_data(request):
     """
     id_telegram = request.data['idTelegram']
     user = request.user
-    serializer = UserTelegramSerializer()
+    serializer = UserTelegramSerializer(request.data)
     if serializer.is_valid():
         user_tg = UserTelegram.objects.create(user, id_telegram)
         user_tg.save()

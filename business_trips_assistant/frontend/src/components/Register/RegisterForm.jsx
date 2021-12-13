@@ -2,7 +2,7 @@ import {Formik, Form} from 'formik';
 import classes from "./Register.module.css";
 import TextInput from "../Common/FormControl/TextInput";
 import {NavLink} from "react-router-dom";
-import {getAuthMeTC, postAuthLoginTC} from "../../redux/authReducer";
+import {getAuthMeTC, postAuthLoginTC, postTelegramTC} from "../../redux/authReducer";
 
 const validate = (values) => {
     const errors = {};
@@ -52,6 +52,7 @@ const RegisterForm = (props) => {
         password: '',
         repeatPassword: '',
         email: '',
+        tgId: '',
         firstname: '',
         lastname: '',
     }
@@ -70,14 +71,18 @@ const RegisterForm = (props) => {
                     lastname: values.lastname,
                 }
 
-                props.postAuthRegisterTC(data).then(response => {
-                    if (response.status === "Success")
-                        props.postAuthLoginTC({username: data.username, password: data.password})
-                            .then(response => {
-                                if (response.status === "Success")
-                                    props.getAuthMeTC()
-                            });
-                });
+                props.postAuthRegisterTC(data)
+                    .then(response => {
+                        if (response.status === "Success")
+                            return props.postAuthLoginTC({username: data.username, password: data.password})
+                    })
+                    .then(response => {
+                        if (response.status === "Success")
+                            return props.getAuthMeTC()
+                    })
+                    .then(response => {
+                        props.postTelegramTC({idTelegram: values.tgId});
+                    })
             }}>
             <Form className={classes.form}>
                 <div>
@@ -128,12 +133,20 @@ const RegisterForm = (props) => {
                         label="Подтверждение пароля"
                     />
                 </div>
+                <div>
+                    <TextInput
+                        name="tgId"
+                        type="number"
+                        placeholder="Telegram ID..."
+                        label="Ваш ID Telegram"
+                    />
+                </div>
+                <div className={classes.description}>
+                    Получить ID можно через нашего телеграм бота @tenzor_scaner_bot
+                </div>
                 <button type="submit" className={classes.button}>
                     Зарегистрироваться
                 </button>
-                <NavLink to={`#`} className={classes.button}>
-                    Зарегистрироваться ТГ
-                </NavLink>
             </Form>
         </Formik>
     );

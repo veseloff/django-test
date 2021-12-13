@@ -1,6 +1,6 @@
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {getAuthMeTC, postAuthLoginTC, postAuthRegisterTC} from "../../redux/authReducer";
+import {getAuthMeTC, postAuthLoginTC, postAuthRegisterTC, postTelegramTC} from "../../redux/authReducer";
 import classes from "./Register.module.css";
 import RegisterForm from "./RegisterForm";
 import AuthRedirect from "../../Hoc/AuthRedirect";
@@ -29,4 +29,9 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default compose(connect(mapStateToProps, {postAuthRegisterTC, getAuthMeTC, postAuthLoginTC}), AuthRedirect)(Register);
+export default compose(connect(mapStateToProps, {
+    postAuthRegisterTC,
+    getAuthMeTC,
+    postAuthLoginTC,
+    postTelegramTC,
+}), AuthRedirect)(Register);

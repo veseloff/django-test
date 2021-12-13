@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import withLoginRedirect from "../../Hoc/LoginRedirect";
 import {deleteAuthLoginTC} from "../../redux/authReducer";
 import {useState} from "react";
+import cn from "classnames";
 
 const Header = (props) => {
     const [exitMode, setMode] = useState(false);
@@ -19,19 +20,18 @@ const Header = (props) => {
             <div className={classes.logo_container}>
                 <img src={logo} alt="logo"/>
             </div>
-            <button className={classes.profile_name_container} onClick={() => setMode(true)}
-                 onBlur={() => setMode(false)}>
+            <button className={cn(classes.profile_name_container, {[classes.exit_mode]: exitMode})}
+                    onClick={() => setMode(true)} onBlur={() => setMode(false)}>
                 <div className={classes.profile_name_content}>
                     <div>
                         {props.username}
                     </div>
-                    <div className={classes.avatar}/>
                 </div>
                 {
                     exitMode && props.isAuth
                         ? <div className={classes.exit_container}>
                             <div onClick={onExit}>
-                                Exit
+                                Выйти
                             </div>
                         </div>
                         : null

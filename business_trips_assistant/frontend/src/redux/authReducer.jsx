@@ -57,4 +57,12 @@ export const deleteAuthLoginTC = () => async (dispatch) => {
     dispatch(setBusinessTrips([]))
 }
 
+export const postTelegramTC = (info) => async (dispatch) => {
+    const dataCsrf = await authAPI.getCsrf();
+    if (dataCsrf !== undefined) {
+        dispatch(() => Cookies.set('csrftoken', dataCsrf));
+        return await authAPI.postTelegram(info);
+    }
+}
+
 export default AuthReducer;

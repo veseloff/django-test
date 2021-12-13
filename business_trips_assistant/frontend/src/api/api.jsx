@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+import {postTelegramTC} from "../redux/authReducer";
 
 export const authAPI = {
     async postAuthLogin(data) {
@@ -35,6 +36,19 @@ export const authAPI = {
     async postAuthRegister(data) {
         const csrftoken = Cookies.get('csrftoken');
         return await fetch(`/account/registration/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify(data),
+        }).then(response => response.json())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+    async postTelegram(data) {
+        const csrftoken = Cookies.get('csrftoken');
+        return await fetch(`/account/add_tg_user/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',

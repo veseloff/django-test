@@ -319,7 +319,7 @@ def get_full_info_business_trip(request):
         return Response(status=400)
 
 
-@api_view()
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 @authentication_classes([SessionAuthentication])
 def add_telegram_data(request):

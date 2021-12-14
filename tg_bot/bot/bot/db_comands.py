@@ -1,5 +1,6 @@
 """Модуль взаимодействия с базой данных"""
 from loader import db
+from datetime import date
 
 
 class DBCommands:
@@ -7,9 +8,11 @@ class DBCommands:
     ADD_NEW_CHEQUE = "INSERT INTO user_profile_cheque (amount, date_time, report, business_trip_id) " \
                      "VALUES ($1, $2, $3, $4)"
 
-    FIND_BUSINESS_TRIP = "SELECT * FROM user_profile_businesstrip WHERE status=1 AND user_id=$1"
+    FIND_BUSINESS_TRIP = f"SELECT * FROM user_profile_businesstrip WHERE date_start <= $2 " \
+                         f"AND $2 <= date_finish AND user_id=$1"
 
-    FIND_CLOSE_BUSINESS_TRIP = "SELECT * FROM user_profile_businesstrip WHERE status=0 AND user_id=$1"
+    FIND_CLOSE_BUSINESS_TRIP = f"SELECT * FROM user_profile_businesstrip WHERE $2 > date_finish " \
+                               f"AND user_id=$1"
 
     FIND_USER_ID_IN_SYSTEM = "SELECT user_id FROM user_profile_usertelegram WHERE id_telegram=$1"
 
@@ -39,7 +42,7 @@ class DBCommands:
 
         """
         command = self.FIND_BUSINESS_TRIP
-        return await self.pool.fetchrow(command, user_id)
+        return await self.pool.fetchrow(command, user_id, date.today())
 
     async def find_user_id(self, telegram_id):
         """
@@ -87,4 +90,4 @@ class DBCommands:
 
         """
         command = self.FIND_CLOSE_BUSINESS_TRIP
-        return await self.pool.fetch(command, user_id)
+        return await self.pool.fetch(command, user_id, date.today())

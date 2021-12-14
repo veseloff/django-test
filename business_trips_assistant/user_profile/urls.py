@@ -17,4 +17,5 @@ urlpatterns = [
     path('get_csrf/', get_csrf),
     path('info_business_trip/', get_full_info_business_trip),
     path('add_tg_user/', add_telegram_data),
+    path('get_list_expenses/', get_list_expenses),
 ]

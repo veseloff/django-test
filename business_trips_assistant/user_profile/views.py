@@ -10,7 +10,7 @@ from railways_api.models import City
 from .handler_business_trip import get_business_trip_information, insert_value_business_trip, \
     insert_value_hotel, insert_value_trip, get_body_request, serialize_hotel, serialize_trip, \
     serialize_business_trip
-from .models import BusinessTrip, Trip, Hotel, UserTelegram
+from .models import BusinessTrip, Trip, Hotel, UserTelegram, Cheque
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
@@ -18,6 +18,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.authentication import SessionAuthentication
 from .serializer import UserSerializer, LoginRequestSerializer,\
     RegisterSerializer, CreateBusinessTripSerializer, UserTelegramSerializer
+from itertools import groupby
 
 
 class RegisterUserView(CreateAPIView):
@@ -341,3 +342,30 @@ def add_telegram_data(request):
     else:
         data = serializer.errors
         return Response(data)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+@authentication_classes([SessionAuthentication])
+def get_list_expenses(request: Request):
+    """
+    Возврат отчёта
+    Args:
+        request:
+
+    Returns:
+
+    """
+    id_bt = request.GET['idBT']
+    if BusinessTrip.objects.get(pk=id_bt).user == request.user:
+        cheque = Cheque.objects.filter(business_trip=id_bt)
+        report_short = []
+        report_full = []
+        for key, group in groupby(cheque, key=lambda x: x.date_time.date()):
+            report_short.append({'date': str(key), 'Рублей': sum([e.amount for e in group])})
+        for e in cheque:
+            report_full.append({'datetime': str(e.date_time), 'summary': e.amount, 'report': e.report})
+        answer = {'reportShort': report_short, 'reportFull': report_full}
+        return Response(answer)
+    else:
+        return Response(status=status.HTTP_400_BAD_REQUEST)

@@ -1,6 +1,6 @@
 from rest_framework.serializers import Serializer, ModelSerializer, CharField
 from django.contrib.auth.models import User
-from user_profile.models import BusinessTrip, UserTelegram
+from user_profile.models import BusinessTrip, UserTelegram, Cheque
 from rest_framework import serializers
 from datetime import datetime
 
@@ -79,3 +79,4 @@ class UserTelegramSerializer(ModelSerializer):
     class Meta:
         model = UserTelegram
         fields = ['user', 'idTelegram']
+

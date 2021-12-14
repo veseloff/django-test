@@ -28,7 +28,7 @@ def get_trains(**kwargs):
                                     params=params, cookies=cookies)
             response_json = response.json().get('tp')
             if response_json is not None:
-                train_information.append(set_train_information(response_json))
+                train_information += set_train_information(response_json)
     return train_information
 
 
@@ -127,30 +127,29 @@ def set_train_information(response_json):
         словарь, в котором хранится информация о поездах:
         время отправления, время прибытия, время в пути, номер поезда и т.д.
     """
-    url = 'https://www.tutu.ru/poezda/wizard/seats/?dep_st=2000003&arr_st=2060500&tn=016Х&date=10.12.2021'
     train_information = []
     for answer in response_json:
-        list_station = {'fromCode': answer['fromCode'], 'whereCode': answer['whereCode']}
         for key, value in answer.items():
             if key == 'list':
                 for info in value:
+                    list_station = {'fromCode': answer['fromCode'], 'whereCode': answer['whereCode']}
                     train_number = info['number']
-                    list_station[train_number] = {}
-                    list_station[train_number]['station0'] = info['station0']
-                    list_station[train_number]['station1'] = info['station1']
-                    list_station[train_number]['localDate0'] = info.get('localDate0', info['date0'])
-                    list_station[train_number]['localTime0'] = info.get('localTime0', info['time0'])
-                    list_station[train_number]['localDate1'] = info.get('localDate1', info['date1'])
-                    list_station[train_number]['localTime1'] = info.get('localTime1', info['time1'])
-                    list_station[train_number]['timeDeltaString0'] = info.get('timeDeltaString0', 'МСК')
-                    list_station[train_number]['timeDeltaString1'] = info.get('timeDeltaString1', 'МСК')
-                    list_station[train_number]['timeInWay'] = info['timeInWay']
+                    list_station['number'] = train_number
+                    list_station['station0'] = info['station0']
+                    list_station['station1'] = info['station1']
+                    list_station['localDate0'] = info.get('localDate0', info['date0'])
+                    list_station['localTime0'] = info.get('localTime0', info['time0'])
+                    list_station['localDate1'] = info.get('localDate1', info['date1'])
+                    list_station['localTime1'] = info.get('localTime1', info['time1'])
+                    list_station['timeDeltaString0'] = info.get('timeDeltaString0', 'МСК')
+                    list_station['timeDeltaString1'] = info.get('timeDeltaString1', 'МСК')
+                    list_station['timeInWay'] = info['timeInWay']
                     cars = info.get('cars')
-                    list_station[train_number]['cars'] = find_price(cars) if cars else None
+                    list_station['cars'] = find_price(cars) if cars else None
                     link = f'https://www.tutu.ru/poezda/wizard/seats/?dep_st={answer["fromCode"]}' \
                            f'&arr_st={answer["whereCode"]}&tn={train_number}&date={answer["date"]}'
-                    list_station[train_number]['link'] = link if cars else 'https://www.rzd.ru'
-        train_information.append(list_station)
+                    list_station['link'] = link if cars else 'https://www.rzd.ru'
+                    train_information.append(list_station)
     return train_information
 
 

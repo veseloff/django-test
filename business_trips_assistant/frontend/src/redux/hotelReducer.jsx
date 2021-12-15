@@ -22,9 +22,10 @@ const HotelReducer = (state = initialState, action) => {
 
 export const setHotelsTC = (info) => async (dispatch) => {
     const data = await hotelsAPI.getHotels(info.city, info.offset, info.star, info.option, info.checkIn, info.checkOut);
-    if (data !== undefined)
+    if (data !== undefined) {
         dispatch(setHotels(data.count_hotels, data.hotels));
         dispatch(setHotelsDataSearch(info));
+    }
 }
 
 const setHotels = (count, items) => ({type: SET_HOTEL, count, items});

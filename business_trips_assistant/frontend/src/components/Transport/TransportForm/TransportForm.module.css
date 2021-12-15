@@ -37,21 +37,6 @@
     grid-template-columns: 1fr 1fr;
     gap: 25px;
 }
-
-.checkbox_row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    height: 20px !important;
-}
-
-.last_row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    margin-top: 10px;
-}
-
 .third_row_first_group {
     display: grid;
     grid-template-columns: 1fr 1fr;

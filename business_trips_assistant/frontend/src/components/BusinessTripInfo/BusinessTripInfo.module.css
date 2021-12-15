@@ -37,7 +37,7 @@
     justify-content: center;
     border: 1px solid #C4C4C4;
     border-bottom: 0;
-    padding-left: 10px;
+    padding: 0 10px;
     height: 75px
 }
 
@@ -47,8 +47,27 @@
     justify-content: center;
     border: 1px solid #C4C4C4;
     border-bottom: 0;
+    padding: 0 10px;
+    height: 75px;
+}
+
+.board_container>.option {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.option>a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid #C4C4C4;
+    border-bottom: 0;
     padding-left: 10px;
     height: 75px;
+}
+
+a {
     color: black;
     text-decoration: none;
 }

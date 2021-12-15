@@ -44,6 +44,9 @@ const BusinessTripInfo = (props) => {
         }
     };
 
+    const firstTripPrice = firstTrip === undefined ? 0 : firstTrip.priceTicket;
+    const secondTripPrice = secondTrip === undefined ? 0 : secondTrip.priceTicket;
+
     return (
         <div className={classes.body_container}>
             <BusinessTripInfoForm {...props} id={id}/>
@@ -54,44 +57,45 @@ const BusinessTripInfo = (props) => {
                             <div className={classes.header}>
                                 Транспорт
                             </div>
-                            <NavLink to={`/business-trips/${id}/transport/there`}>
-                                Туда:
-                                {
-                                    props.businessTrip?.trip?.length === undefined ||
-                                    props.businessTrip?.trip?.length === 0
-                                        ? " Выбрать..."
-                                        : <div className={classes.description}>
-                                            <div>{map.get(firstTrip.transport)} {firstTrip.transportNumber}</div>
-                                            <div>{firstTrip.cityFrom} - {firstTrip.cityTo}</div>
-                                            <div>
-                                                {convertDate(firstTrip.dateArrival)} - {convertDate(firstTrip.dateDeparture)}
+                            {
+                                firstTrip === undefined
+                                    ? <NavLink to={`/business-trips/${id}/transport/there`}>Туда: Выбрать...</NavLink>
+                                    : <div className={classes.option}>
+                                        <div>
+                                            Туда:
+                                            <div className={classes.description}>
+                                                <div>{map.get(firstTrip.transport)} {firstTrip.transportNumber}</div>
+                                                <div>{firstTrip.cityFrom} - {firstTrip.cityTo}</div>
+                                                <div>
+                                                    {convertDate(firstTrip.dateArrival)} - {convertDate(firstTrip.dateDeparture)}
+                                                </div>
                                             </div>
                                         </div>
-                                }
-                            </NavLink>
-                            <NavLink to={`/business-trips/${id}/transport/back`}>
-                                Обратно:
-                                {
-                                    props.businessTrip?.trip?.length === undefined ||
-                                    props.businessTrip?.trip?.length === 0
-                                        ? " Выбрать..."
-                                        : <div className={classes.description}>
-                                            <div>{map.get(secondTrip.transport)} {secondTrip.transportNumber}</div>
-                                            <div>{secondTrip.cityFrom} - {secondTrip.cityTo}</div>
-                                            <div>
-                                                {convertDate(secondTrip.dateArrival)} - {convertDate(secondTrip.dateDeparture)}
-                                            </div>
-                                        </div>
-                                }
+                                        <NavLink to={`/business-trips/${id}/transport/there`}>Изменить...</NavLink>
+                                    </div>
 
-                            </NavLink>
+                            }
+                            {
+                                secondTrip === undefined
+                                    ? <NavLink to={`/business-trips/${id}/transport/back`}>Обратно: Выбрать...</NavLink>
+                                    : <div className={classes.option}>
+                                        <div>
+                                            Туда:
+                                            <div className={classes.description}>
+                                                <div>{map.get(secondTrip.transport)} {secondTrip.transportNumber}</div>
+                                                <div>{secondTrip.cityFrom} - {secondTrip.cityTo}</div>
+                                                <div>
+                                                    {convertDate(secondTrip.dateArrival)} - {convertDate(secondTrip.dateDeparture)}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <NavLink to={`/business-trips/${id}/transport/back`}>Изменить...</NavLink>
+                                    </div>
+                            }
                             <div className={classes.footer}>
                                 Общий расход:
                                 {
-                                    props.businessTrip?.trip?.length === undefined ||
-                                    props.businessTrip?.trip?.length === 0
-                                        ? "Неизвестно"
-                                        : firstTrip.priceTicket + secondTrip.priceTicket
+                                    ' ' + (firstTripPrice + secondTripPrice) + " руб"
                                 }
                             </div>
                         </div>
@@ -131,8 +135,8 @@ const BusinessTripInfo = (props) => {
                             <div className={classes.footer}>
                                 {
                                     props.businessTrip?.hotel?.price === undefined
-                                        ? "Общий расход: Неизвестно"
-                                        : "Общий расход: " + props.businessTrip.hotel.price + "р"
+                                        ? "Общий расход: 0 руб"
+                                        : "Общий расход: " + props.businessTrip.hotel.price + " руб"
                                 }
                             </div>
                         </div>

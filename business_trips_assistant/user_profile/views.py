@@ -236,6 +236,7 @@ def create_trip(request):
 
     """
     body = request.data
+    print(body)
     b_t = BusinessTrip.objects.get(pk=int(body['idBT']))
     if b_t.user.pk == request.user.id:
         trip = Trip.objects.create(

@@ -29,7 +29,7 @@ const validate = (values) => {
 
 const HotelForm = (props) => {
     const initialData = {
-        city: '',
+        city: props.businessTrip.toCity,
         checkIn: '',
         checkOut: '',
         offset: props.currentPage,

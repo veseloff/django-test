@@ -3,71 +3,75 @@ import {NavLink} from "react-router-dom";
 import {Formik, Form} from 'formik';
 import cn from "classnames";
 import TextInput from "../../Common/FormControl/TextInput";
-import CheckBox from "../../Common/FormControl/CheckBox";
 import {useState} from "react";
-import SmartTextInput from "../../Common/FormControl/SmartTextInput";
+import SelectInput from "../../Common/FormControl/SelectInput";
 
 const validate = (values) => {
     const errors = {};
 
-    if (!values.name) {
-        errors.name = 'Обязательно';
-    } else if (values.name.length > 30) {
-        errors.name = 'Должно быть 30 символов или меньше';
-    }
-
-    if (!values.begin) {
-        errors.begin = 'Обязательно';
-    }
-
-    if (!values.end) {
-        errors.end = 'Обязательно';
+    if (!values.date) {
+        errors.date = 'Обязательно';
     }
 
     return errors;
 };
 
 const TransportForm = (props) => {
-    const businessTrip = props.businessTrips.find((bt) => bt.id === props.id) || {
-        id: props.id,
-        name: '',
-        fromCity: '',
-        toCity: '',
-        fromStation: '',
+    const initialData = {
+        toCity: props.direction === 'there' ? props.businessTrip.toCity : props.businessTrip.fromCity,
+        fromCity: props.direction === 'there' ? props.businessTrip.fromCity : props.businessTrip.toCity,
         toStation: '',
-        begin: '',
-        end: '',
-        budget: '',
-        transport: [""],
-        hotel: "Неизвестно",
-        status: "Запланирована",
+        fromStation: '',
+        type: '',
+        date: '',
+        fromAnyStation: false,
+        toAnyStation: false,
     }
-    const [checkboxTo, setCheckboxTo] = useState(false);
-    const [checkboxFrom, setCheckboxFrom] = useState(false);
+
+    const options = [
+        {value: 1, label: 'РЖД'},
+        {value: 0, label: 'Aviasales'}
+    ]
+
+    const [selectedOption, setSelectedOption] = useState(options[0]);
+
+    const stationsFrom = props.stationsFrom?.map((station) => {
+            return {
+                label: station.station,
+                value: station.station,
+                code: station.code,
+            }
+        })
+
+    const [selectedStationFrom, setSelectedStationFrom] = useState('');
+
+    const stationsTo = props.stationsTo?.map((station) => {
+            return {
+                label: station.station,
+                value: station.station,
+                code: station.code,
+            }
+        })
+
+    const [selectedStationTo, setSelectedStationTo] = useState('');
+
     return (
         <Formik
-            initialValues={businessTrip}
+            initialValues={initialData}
             validate={validate}
 
             onSubmit={(values) => {
-                const bt = {
-                    user_id: 2,
-                    id: values.id,
-                    name: values.name,
-                    fromCity: values.fromCity,
-                    toCity: values.toCity,
-                    begin: values.begin,
-                    end: values.end,
-                    budget: values.budget,
-                    transport: values.transport,
-                    hotel: values.hotel,
-                    status: values.status,
+                const info = {
+                    cityT: values.toCity,
+                    cityF: values.fromCity,
+                    stationT: selectedStationTo?.value,
+                    stationF: selectedStationFrom?.value,
+                    codeST: selectedStationTo?.code,
+                    codeSF: selectedStationFrom?.code,
+                    date: values.date,
+                    type: selectedOption?.value,
                 }
-
-                if (props.id === 'new') {
-                    props.postBusinessTripsTC(bt);
-                } else
-                    props.editBusinessTrip(props.id, bt);
+                props.setRZDTC(info);
             }}>
             <Form className={classes.body_container}>
                 <div className={classes.first_row}>
@@ -95,37 +99,36 @@ const TransportForm = (props) => {
                     />
                 </div>
                 <div className={classes.row}>
-                    <SmartTextInput
+                    <SelectInput
                         name="fromStation"
                         type="text"
                         label="Станция/Аэропорт"
                         placeholder="Станция/Аэропорт..."
-                        disabled={checkboxFrom}
+                        options={props.direction === 'there' ? stationsFrom : stationsTo}
+                        classNamePrefix="select"
+                        defaultValue={selectedStationFrom}
+                        onChange={setSelectedStationFrom}
+                        isClearable={true}
+                        zind={5}
                     />
-                    <SmartTextInput
+                    <SelectInput
                         name="toStation"
                         type="text"
                         label="Станция/Аэропорт"
                         placeholder="Станция/Аэропорт..."
-                        disabled={checkboxTo}
+                        options={props.direction === 'there' ? stationsTo : stationsFrom}
+                        classNamePrefix="select"
+                        defaultValue={selectedStationTo}
+                        onChange={setSelectedStationTo}
+                        isClearable={true}
                     />
                 </div>
-                <div className={classes.checkbox_row}>
-                    <CheckBox
-                        name="fromAnyStation"
-                        type="checkbox"
-                        label="Любая станция/аэропорт"
-                        onClick={() => setCheckboxFrom(!checkboxFrom)}
-                    />
-                    <CheckBox
-                        name="toAnyStation"
-                        type="checkbox"
-                        label="Любая станция/аэропорт"
-                        onClick={() => setCheckboxTo(!checkboxTo)}
-                    />
-                </div>
-                <div className={classes.last_row}>
-                    <TextInput
+                <div className={classes.row}>
+                    <SelectInput
+                        options={options}
+                        classNamePrefix="select"
+                        defaultValue={selectedOption}
+                        onChange={setSelectedOption}
                         name="type"
                         type="text"
                         placeholder="Вид транспорта..."
@@ -133,12 +136,12 @@ const TransportForm = (props) => {
                     />
                     <div className={classes.third_row_second_group}>
                         <TextInput
-                            name="end"
+                            name="date"
                             type="date"
                             label="Отправление"
                         />
                         <button type="submit" className={cn(classes.button, classes.save)}>
-                            Сохранить
+                            Поиск
                         </button>
                     </div>
                 </div>

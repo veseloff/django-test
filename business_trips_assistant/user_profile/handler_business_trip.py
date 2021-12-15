@@ -43,10 +43,10 @@ def get_date_depart(trips):
     Returns:
 
     """
-    date_depart = {0: list(filter(lambda trip: trip.is_first == 0, trips))[0].date_departure
-                   if len(trips) > 0 else None,
-                   1: list(filter(lambda trip: trip.is_first == 1, trips))[0].date_departure
-                   if len(trips) > 0 else None}
+    dd0 = list(filter(lambda trip: trip.is_first == 0, trips))
+    dd1 = list(filter(lambda trip: trip.is_first == 1, trips))
+    date_depart = {0: dd0[0].date_departure if len(dd0) > 0 else None,
+                   1: dd1[0].date_departure if len(trips) > 0 else None}
     return date_depart
 
 

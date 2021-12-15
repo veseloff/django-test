@@ -246,8 +246,8 @@ def create_trip(request):
             transport_number=body['transportNumber'],
             date_departure=datetime.strptime(body['dateDeparture'], '%Y-%m-%d').date(),
             date_arrival=datetime.strptime(body['dateArrival'], '%Y-%m-%d').date(),
-            city_from_id=City.objects.get(pk=int(body['cityFrom'])),
-            city_to_id=City.objects.get(pk=int(body['cityTo'])),
+            city_from_id=int(body['cityFrom']),
+            city_to_id=int(body['cityTo']),
             station_from=body['stationFrom'],
             station_to=body['stationTo']
         )

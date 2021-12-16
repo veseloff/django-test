@@ -9,10 +9,7 @@ const BusinessTripConstructor = (props) => {
 
     const convertDate = (date) => {
         if (!(date === undefined || date === 'None')) {
-            const parseDate = date.split("-");
-            if (parseDate.length === 3)
-                return `${parseDate[2]}.${parseDate[1]}.${parseDate[0]}`;
-            return date;
+            return date.replace(/-/g, "." )
         }
     };
 

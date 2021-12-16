@@ -5,11 +5,19 @@ import {connect} from "react-redux";
 import ExpensesConstructor from "./ExpensesConstructor/ExpensesConstructor";
 import {NavLink, withRouter} from "react-router-dom";
 import cn from "classnames";
+import {setExpensesDataTC} from "../../redux/expensesReducer";
+import {useEffect} from "react";
 
 const Expenses = (props) => {
     const id = isNaN(Number(props.match.params.businessTripId))
         ? (props.businessTrip.id || 'new')
         : Number(props.match.params.businessTripId);
+
+    useEffect(() => {
+            props.setExpensesDataTC(id);
+        },
+        // eslint-disable-next-line
+        [])
 
     return (
         <div className={classes.body_container}>
@@ -92,4 +100,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default compose(connect(mapStateToProps, {}), withRouter)(Expenses);
+export default compose(connect(mapStateToProps, {setExpensesDataTC}), withRouter)(Expenses);

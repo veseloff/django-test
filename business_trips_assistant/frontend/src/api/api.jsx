@@ -211,3 +211,13 @@ export const transportAPI = {
             .catch(error => console.error(error))
     },
 }
+
+export const expensesAPI = {
+    async getExpenses(idBT) {
+        const url = `/account/get_list_expenses?idBT=${idBT}`;
+        return await fetch(url)
+            .then(response => response.json())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+}

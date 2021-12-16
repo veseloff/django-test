@@ -152,9 +152,9 @@ const BusinessTripInfo = (props) => {
                             <div className={classes.header}>
                                 Отчёт
                             </div>
-                            <div className={classes.footer}>
+                            <a href='http://127.0.0.1:8000/account/some/' className={classes.footer}>
                                 Сформировать отчёт
-                            </div>
+                            </a>
                         </div>
                     </div>
                     : null

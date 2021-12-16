@@ -1,67 +1,28 @@
+import {expensesAPI} from "../api/api";
+
+const SET_DATA = "EXPENSES/SET-DATA";
+
 let initialState = {
-    fullExpensesData: [
-        {
-            date: "07.12.2021",
-            "Рублей": 122,
-        },
-        {
-            date: "08.12.2021",
-            "Рублей": 704,
-        },
-        {
-            date: "09.12.2021",
-            "Рублей": 1909,
-        },
-        {
-            date: "10.12.2021",
-            "Рублей": 700,
-        },
-        {
-            date: "11.12.2021",
-            "Рублей": 152,
-        },
-        {
-            date: "12.12.2021",
-            "Рублей": 1670,
-        },
-        {
-            date: "13.12.2021",
-            "Рублей": 2000,
-        }
-    ],
-    lastExpensesData: [
-        {
-            name: ["Телефон"],
-            summary: 62488.00,
-            date: "11.12.2021",
-            time: "12:00",
-        },
-        {
-            name: ["Еда"],
-            summary: 3288.10,
-            date: "12.12.2021",
-            time: "18:00",
-        },
-        {
-            name: ["Шава"],
-            summary: 128.00,
-            date: "13.12.2021",
-            time: "12:00",
-        },
-        {
-            name: ["Чехол"],
-            summary: 2488.00,
-            date: "13.12.2021",
-            time: "13:00",
-        },
-    ],
+    fullExpensesData: [],
+    lastExpensesData: [],
 }
 
 const ExpensesReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_DATA:
+            return {...state, fullExpensesData: [...action.fullExpenses], lastExpensesData: [...action.lastExpenses]};
         default:
             return state;
     }
 }
+
+export const setExpensesDataTC = (idBT) => async (dispatch)  => {
+    const data = await expensesAPI.getExpenses(idBT);
+    console.log(data);
+    if (data !== undefined)
+        dispatch(setExpensesData(data.reportShort, data.reportFull));
+}
+
+const setExpensesData = (fullExpenses, lastExpenses) => ({type: SET_DATA, fullExpenses, lastExpenses});
 
 export default ExpensesReducer;

@@ -64,13 +64,23 @@ export const postHotelInfoTC = (info) => async (dispatch) => {
 }
 
 export const putHotelInfoTC = (info) => async (dispatch) => {
-    await businessTripsAPI.putHotelInfo(info)
+    await businessTripsAPI.putHotelInfo(info).then(() => {
+        dispatch(setBusinessTripInfo({hotel: info}));
+    });
+}
+
+export const postTransportInfoTC = (info) => async (dispatch) => {
+    await businessTripsAPI.postTransportInfo(info)
+}
+
+export const putTransportInfoTC = (info) => async (dispatch) => {
+    await businessTripsAPI.putTransportInfo(info)
 }
 
 export const initializeBTInfo = (id) => (dispatch) => {
     if (id !== 'new') {
         const isDone = dispatch(setBusinessTripInfoTC(id));
-        Promise.all([isDone]).then(() => dispatch(initializedSuccess()));
+        return Promise.all([isDone]).then(() => dispatch(initializedSuccess()));
     } else
         dispatch(initializedSuccess())
 }

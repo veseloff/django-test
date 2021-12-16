@@ -3,8 +3,6 @@ import {NavLink} from "react-router-dom";
 import {Formik, Form} from 'formik';
 import cn from "classnames";
 import TextInput from "../../Common/FormControl/TextInput";
-import {useState} from "react";
-import SelectInput from "../../Common/FormControl/SelectInput";
 
 const validate = (values) => {
     const errors = {};
@@ -35,6 +33,10 @@ const validate = (values) => {
         errors.end = 'Обязательно';
     }
 
+    if (values.begin > values.end) {
+        errors.end = 'Некорректная дата';
+    }
+
     if (!values.budget) {
         errors.budget = 'Обязательно';
     }
@@ -62,14 +64,6 @@ const BusinessTripInfoForm = (props) => {
             status: "Будущая",
         }
 
-    const options = [
-        {value: 'Будущая', label: 'Будущая'},
-        {value: 'Закончена', label: 'Закончена'},
-        {value: 'Действующая', label: 'Действующая'},
-    ]
-
-    const [selectedOption, setSelectedOption] = useState(options.find(option => option.value === businessTrip.status));
-
     return (
         <Formik
             initialValues={businessTrip}
@@ -86,7 +80,6 @@ const BusinessTripInfoForm = (props) => {
                     budget: values.budget,
                     transport: values.transport,
                     hotel: values.hotel,
-                    status: map.get(selectedOption.value),
                 }
 
                 if (props.id === 'new')
@@ -103,15 +96,11 @@ const BusinessTripInfoForm = (props) => {
                         label="Название командировки"
                     />
                     <div className={classes.first_row_second_group}>
-                        <SelectInput
+                        <TextInput
                             label="Статус"
-                            placeholder="Обязательно"
-                            name="option"
+                            name="status"
                             type="text"
-                            options={options}
-                            classNamePrefix="select"
-                            defaultValue={selectedOption}
-                            onChange={setSelectedOption}
+                            disabled={true}
                         />
                         <NavLink to={`/business-trips`} className={cn(classes.button, classes.exit)}>
                             &#8592; {/*todo: exit icon*/}

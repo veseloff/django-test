@@ -1,5 +1,4 @@
 import Cookies from 'js-cookie';
-import {postTelegramTC} from "../redux/authReducer";
 
 export const authAPI = {
     async postAuthLogin(data) {
@@ -144,11 +143,68 @@ export const businessTripsAPI = {
             .then(data => data)
             .catch(error => console.error(error))
     },
+    async postTransportInfo(info) {
+        const url = '/account/create_trip/';
+        const csrftoken = Cookies.get('csrftoken');
+        return await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify(info),
+        }).then(response => response.json())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+    async putTransportInfo(info) {
+        const url = '/account/update_trip/';
+        const csrftoken = Cookies.get('csrftoken');
+        return await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify(info),
+        }).then(response => response.json())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
 }
 
 export const hotelsAPI = {
     async getHotels(city, offset, star, option, checkIn, checkOut) {
         const url = `/hotel/hotels_${option}?city=${city}&offset=${offset}&star=${star}&check_in=${checkIn}&check_out=${checkOut}`;
+        return await fetch(url)
+            .then(response => response.json())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+}
+
+export const transportAPI = {
+    async getRZD(cityT, cityF, stationT, stationF, codeST, codeSF, date) {
+        const url = [`/railways/list_trains?cityTo=${cityT}&cityFrom=${cityF}&date=${date}`,
+            stationT === '' || stationT === undefined ? '' : `&stationTo=${stationT}` ,
+            stationF === '' || stationF === undefined ?' ' : `&stationFrom=${stationF}`,
+            codeST === '' || codeST === undefined ? '' : `&codeStationTo=${codeST}`,
+            codeSF === '' || codeSF === undefined ? '' : `&codeStationFrom=${codeSF}`
+        ];
+        return await fetch(url.join(""))
+            .then(response => response.json())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+    async getCodeCity(city) {
+        const url = `/railways/cities_list?prefix=${city}`
+        return await fetch(url)
+            .then(response => response.json())
+            .then(data => data)
+            .catch(error => console.error(error))
+    },
+    async getStations(code) {
+        const url = `/railways/stations_list?code=${code}`
         return await fetch(url)
             .then(response => response.json())
             .then(data => data)

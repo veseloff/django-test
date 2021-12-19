@@ -9,7 +9,7 @@ const BusinessTripConstructor = (props) => {
 
     const convertDate = (date) => {
         if (!(date === undefined || date === 'None')) {
-            return date.replace(/-/g, "." )
+            return date.replace(/-/g, ".")
         }
     };
 
@@ -37,13 +37,21 @@ const BusinessTripConstructor = (props) => {
             </div>
             <div>
                 <div>
-                    Транспорт: {props.businessTrip.transport.join(", ")} {/*todo: add icon*/}
-                </div>
-                <div>
-                    Отель: {props.businessTrip.hotel} {/*todo: add break-word (https://css-live.ru/articles/gde-vsyo-slozhno-s-perenosami-strok-vot-vse-css-i-html-xitrosti-dlya-etogo.html)*/}
+                    Отель: {props.businessTrip.hotel || "Неизвестно"}
                 </div>
             </div>
             <div>
+                {
+                    props.businessTrip.transport?.length !== 0
+                        ? <div className={classes.trip}>
+                            Транспорт: {props.businessTrip.transport?.map((t, index) =>
+                            <div className={cn(classes.icon, {
+                                [classes.airplane]: t === "Самолёт",
+                                [classes.train]: t === "Поезд",
+                            })} key={index}/>)} {/*todo: add icon*/}
+                        </div>
+                        : null
+                }
                 <div>
                     Туда: {convertDate(props.businessTrip.dateDeparture0) || "Неизвестно"}
                 </div>

@@ -3,6 +3,43 @@
     composes: body_content_wrapper from '../../../App.module.css';
 }
 
+.trip {
+    display: flex;
+    flex-direction: row;
+}
+
+.trip>div {
+    margin-left: 3px;
+}
+
+.airplane {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: none;
+    background-position: 0;
+}
+
+.train {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: none;
+    background-position: -20px;}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 60px;
+    background-image: url("../../../assets/icon.png");
+    background-color: transparent;
+}
+
 .name {
     font-family: Roboto, monospace;
     font-size: 20px;

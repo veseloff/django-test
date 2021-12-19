@@ -12,19 +12,21 @@ const ExpensesConstructor = (props) => {
     return (
         <div className={classes.business_trip}>
             <div>
-                <div className={classes.name}>
+                <div>
                     {props.expenses.report}
                 </div>
+            </div>
+            <div>
                 <div>
                     Сумма: {props.expenses.summary || "Неизвестно"} р
                 </div>
             </div>
             <div>
-                <div className={classes.name}>
-                    {time[0] + ':' + time[1]}
+                <div>
+                    {date}
                 </div>
                 <div>
-                    {date || "Неизвестно"}
+                    {time[0] + ':' + time[1]}
                 </div>
             </div>
         </div>

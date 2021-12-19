@@ -43,10 +43,10 @@ def get_date_depart(trips):
     Returns:
 
     """
-    date_depart = {0: list(filter(lambda trip: trip.is_first == 0, trips))[0].date_departure
-                   if len(trips) > 0 else None,
-                   1: list(filter(lambda trip: trip.is_first == 1, trips))[0].date_departure
-                   if len(trips) > 0 else None}
+    dd0 = list(filter(lambda trip: trip.is_first == 0, trips))
+    dd1 = list(filter(lambda trip: trip.is_first == 1, trips))
+    date_depart = {0: dd0[0].date_departure if len(dd0) > 0 else None,
+                   1: dd1[0].date_departure if len(dd1) > 0 else None}
     return date_depart
 
 
@@ -66,7 +66,6 @@ def insert_value_business_trip(b_t, body):
     b_t.credit = body['budget']
     b_t.date_start = datetime.strptime(body['begin'], '%Y-%m-%d').date()
     b_t.date_finish = datetime.strptime(body['end'], '%Y-%m-%d').date()
-    b_t.status = body['status']
     b_t.save()
 
 
@@ -125,7 +124,7 @@ def get_body_request(request):
     return body
 
 
-def serialize_business_trip(business_trip):
+def serialize_business_trip(business_trip: BusinessTrip):
     """
     Возвращает сериализованную информацию о поездке
     Args:
@@ -134,9 +133,16 @@ def serialize_business_trip(business_trip):
     Returns:
 
     """
+    status = 2
+    if business_trip.date_start <= datetime.today().date():
+        if business_trip.date_finish < datetime.today().date():
+            status = 0
+        else:
+            status = 1
+
     info_trip = {'id': business_trip.pk, 'name': business_trip.name,
                  'begin': str(business_trip.date_start),
-                 'status': BUSINESS_TRIP_STATUS_MAPPING[business_trip.status],
+                 'status': BUSINESS_TRIP_STATUS_MAPPING[status],
                  'end': str(business_trip.date_finish), 'fromCity': business_trip.from_city,
                  'toCity': business_trip.to_city, 'budget': business_trip.credit}
     return info_trip

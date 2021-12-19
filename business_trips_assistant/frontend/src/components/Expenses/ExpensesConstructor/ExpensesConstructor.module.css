@@ -1,0 +1,48 @@
+.business_trip {
+    grid-template-columns: 2fr repeat(3, 1fr) 130px;
+    composes: body_content_wrapper from '../../../App.module.css';
+}
+
+.name {
+    font-family: Roboto, monospace;
+    font-size: 20px;
+    font-style: normal;
+    text-align: left;
+    color: black;
+}
+
+.button_container {
+    display: grid;
+    gap: 10px;
+    grid-template-rows: 20px 1fr;
+}
+
+.button_container>div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    composes: button from "./../../../App.module.css";
+}
+
+.delete_button {
+    width: 20px;
+    height: 20px;
+}
+
+.delete {
+    background-color: #B04632;
+}
+
+.delete:hover {
+    background-color: #933B27;
+}
+
+.delete:active {
+    background-color: #6E2F1A;
+}
+
+
+
+

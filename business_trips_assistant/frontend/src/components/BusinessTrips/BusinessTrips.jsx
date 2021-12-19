@@ -10,14 +10,14 @@ const BusinessTrips = (props) => {
     const [status, setStatus] = useState("Все");
 
     useEffect(() => {
-            props.setBusinessTripsTC();
+            props.setBusinessTripsTC(props.userId);
             props.uninitializedSuccess();
         },
         // eslint-disable-next-line
         []);
 
     const onDelete = (id) => {
-        props.deleteBusinessTripsTC(id);
+        props.deleteBusinessTripsTC(props.userId, id);
     }
 
     const changeFilter = () => {
@@ -73,6 +73,7 @@ const BusinessTrips = (props) => {
 const mapStateToProps = (state) => {
     return {
         businessTrips: state.businessTripsData.businessTrips,
+        userId: state.auth.id,
     }
 };
 

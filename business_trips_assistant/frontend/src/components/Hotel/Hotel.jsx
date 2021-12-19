@@ -29,7 +29,7 @@ const Hotel = (props) => {
     const onBooking = (data) => {
         const info = {...props.hotelsDataSearch};
         if (id !== 'new' && info.checkIn !== undefined) {
-            if (props.businessTrip.hotel === undefined)
+            if (props.businessTrip.hotel === undefined || props.businessTrip.hotel.name === undefined)
                 props.postHotelInfoTC({
                     idBT: id,
                     link: data.link,

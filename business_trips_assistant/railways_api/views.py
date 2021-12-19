@@ -1,10 +1,11 @@
 """Модуль обрабатывает запросы с фронта связанные с api ржд"""
-import json
-from django.http import HttpResponse
 from railways_api.models import Station, City
 from .handler import get_trains
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
-# Create your views here.
+
+@api_view()
 def get_path_to_city(request):
     """
     Запускает работу с api ржд и находит все возможные поезда из одного места в другое
@@ -28,10 +29,10 @@ def get_path_to_city(request):
                         station_to=station_to,
                         code_station_to=code_station_to,
                         code_station_from=code_station_from)
-    answer_json = json.dumps(answer, ensure_ascii=False)
-    return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
+    return Response(answer)
 
 
+@api_view()
 def get_city_by_prefix(request):
     """
     Метод помогает найти город по переданному префиксу
@@ -43,11 +44,11 @@ def get_city_by_prefix(request):
     """
     prefix = request.GET['prefix'].upper()
     cities = City.objects.filter(city__startswith=prefix)
-    stations_to_json = [{'city': e.city, 'cityCode': e.id} for e in cities]
-    answer_json = json.dumps(stations_to_json, ensure_ascii=False).encode('utf-8')
-    return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
+    stations = [{'city': e.city, 'cityCode': e.id} for e in cities]
+    return Response(stations)
 
 
+@api_view()
 def get_station_by_city(request):
     """
     Метод находит все станции в переданном городе
@@ -66,5 +67,4 @@ def get_station_by_city(request):
 
     stations = [{"station": station.station, "code": station.code}
                 for station in Station.objects.filter(city=code)]
-    answer_json = json.dumps(stations, ensure_ascii=False).encode('utf-8')
-    return HttpResponse(answer_json, content_type='application/json', charset='utf-8')
+    return Response(stations)

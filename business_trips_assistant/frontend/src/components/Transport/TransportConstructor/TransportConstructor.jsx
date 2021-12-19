@@ -1,57 +1,64 @@
 import classes from "./TransportConstructor.module.css";
-import {NavLink} from "react-router-dom";
 import {useState} from "react";
+import Window from "../../Common/Window/Window";
 
 const TransportConstructor = (props) => {
     const [visibility, setVisibility] = useState(false);
 
-    const convertDate = (date) => {
-        if (date !== undefined) {
-            const parseDate = date.split("-");
-            if (parseDate.length === 3)
-                return `${parseDate[2]}.${parseDate[1]}.${parseDate[0]}`;
-            return date;
+    const convertTime = (time) => {
+        if (time !== undefined) {
+            const parseTime = time.split(":");
+            if (parseTime.length === 2) {
+                const day = Math.floor(parseTime[0] / 24)
+                return `${day !== 0 ? day + ' д' : ''} ${parseTime[0] % 24} ч ${parseTime[1]} м`;
+            }
+            return time;
         }
     };
 
     return (
         <div className={classes.business_trip}>
+            <Window label={`Вы купили билет на поезд "${props.trip.number}"?`}
+                    visibility={visibility} setVisibility={setVisibility} action={props.onBuying}
+                    item={props} agree="Да" disagree="Нет"/>
             <div>
                 <div className={classes.name}>
-                    777А Санкт-Петербург - Москва
+                    {props.trip.number} {props.transportDataSearch.cityF} - {props.transportDataSearch.cityT}
                 </div>
             </div>
             <div>
                 <div className={classes.name}>
-                    19:10
+                    {props.trip.localTime0} ({props.trip.timeDeltaString0})
                 </div>
                 <div>
-                    30.09.2021
+                    {props.trip.localDate0}
                 </div>
                 <div>
-                    Московский вокзал
+                    {props.trip.station0}
                 </div>
             </div>
             <div className={classes.centering}>
                 <div>
-                    4 ч 5 мин
+                    {convertTime(props.trip.timeInWay)}
                 </div>
             </div>
             <div>
                 <div className={classes.name}>
-                    23:15
+                    {props.trip.localTime1} ({props.trip.timeDeltaString1})
                 </div>
                 <div>
-                    30.09.2021
+                    {props.trip.localDate1}
                 </div>
                 <div>
-                    Ленинградский вокзал
+                    {props.trip.station1}
                 </div>
             </div>
             <div className={classes.centering}>
-                <NavLink to={`#`} className={classes.button}>
-                    Купить билет
-                </NavLink>
+                <a href={props.trip.link} className={classes.button} target="_blank" rel="noreferrer"onClick={() => {
+                    setVisibility(true);
+                }}>
+                   Купить билет
+                </a>
             </div>
         </div>
     );

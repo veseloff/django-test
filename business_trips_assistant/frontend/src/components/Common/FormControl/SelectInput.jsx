@@ -2,6 +2,7 @@ import classes from "./TextInput.module.css";
 import Select from "react-select";
 
 const SelectInput = ({label, ...props}) => {
+    const zind = props.zind !== undefined ? props.zind : 0;
     return (
         <>
             <div className={classes.input_text_wrapper}>
@@ -24,6 +25,7 @@ const SelectInput = ({label, ...props}) => {
                             borderTopLeftRadius: 0,
                             borderTopRightRadius: 0,
                             borderBottomRightRadius: 15,
+                            zIndex: 1 + zind,
                         }),
                         input: (provided) => ({
                             ...provided,
@@ -41,7 +43,7 @@ const SelectInput = ({label, ...props}) => {
                             borderRadius: 15,
                             minHeight: 0,
                             height: 30,
-                            zIndex: 2,
+                            zIndex: 2 + zind,
                         }),
                         singleValue: (provided) => ({
                             ...provided,

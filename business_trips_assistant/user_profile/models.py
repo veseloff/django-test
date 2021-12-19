@@ -12,7 +12,7 @@ class BusinessTrip(models.Model):
     credit = models.IntegerField(blank=True)
     date_start = models.DateField()
     date_finish = models.DateField()
-    status = models.IntegerField()
+    # status = models.IntegerField()
 
 
 class Trip(models.Model):

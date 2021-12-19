@@ -14,7 +14,7 @@ def get_code_city(name_city):
     return city_inf.code
 
 
-def get_request(name_city_departure, name_city_arrival, depart_date, return_date, is_direct):
+def get_request(name_city_departure, name_city_arrival, depart_date, is_direct):
     """
     Метод отправляет запрос на API Aviasales и получает информацию
     о самых дешёвых билетах на рейс с указанными параметрами
@@ -32,7 +32,6 @@ def get_request(name_city_departure, name_city_arrival, depart_date, return_date
     querystring = {"origin": get_code_city(name_city_departure),
                    "destination": get_code_city(name_city_arrival),
                    "departure_at": depart_date,
-                   "return_at": return_date,
                    "currency": "rub",
                    "direct": is_direct,
                    "limit": "30",

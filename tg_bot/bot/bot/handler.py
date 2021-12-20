@@ -169,13 +169,13 @@ async def handle_docs_photo(message: Message, state: FSMContext):
     client = data['client']
     ticket = client.get_ticket(qr_code)
     date_answer, items, check_amount, date_db = parser_fns(ticket)
-    report = f'Дата покупки: {date_answer}\n'
+    report_for_db = ''
     for item in items:
-        report += f'{item}\n'
-    report += f'Сумма покупки {check_amount}'
+        report_for_db += f'{item}\n'
+    report = f'Дата покупки: {date_answer}\n' + report_for_db + f'Сумма покупки {check_amount}'
     await message.answer(report, reply_markup=close_all)
 
-    arg_to_db = (check_amount, date_db, report, id_b_t)
+    arg_to_db = (check_amount, date_db, report_for_db, id_b_t)
     await db.add_new_cheque(arg_to_db)
     await message.answer('Чек успешно добавлен.', reply_markup=close_all)
 

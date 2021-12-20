@@ -16,6 +16,20 @@
     justify-content: space-around;
 }
 
+.head {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    width: 100%;
+}
+
+.exit_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
 .content {
     width: 270px;
     display: flex;
@@ -29,6 +43,7 @@
 
 .content h1 {
     margin: 0;
+    text-align: center;
 }
 
 .form {
@@ -42,8 +57,13 @@
 
 .button {
     composes: button from "../../App.module.css";
-    width: 100%;
     margin-top: 10px;
+    width: 100%;
+}
+
+.exit {
+    font-size: 20px;
+    width: 30px;
 }
 
 .error_log {

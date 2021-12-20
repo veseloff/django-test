@@ -55,8 +55,8 @@ export const initializeTransport = (cityFrom, cityTo) => (dispatch) => {
 
 export const setStationsTC = (city, from) => async (dispatch) => {
     const data = await transportAPI.getCodeCity(city)
-    dispatch(setCodeCity(from ? SET_CITY_FROM : SET_CITY_TO, data[0].cityCode));
     if (data !== undefined) {
+        dispatch(setCodeCity(from ? SET_CITY_FROM : SET_CITY_TO, data[0].cityCode));
         await transportAPI.getStations(data[0].cityCode)
             .then(response => {
                 dispatch(setStations(from ? SET_STATIONS_FROM : SET_STATIONS_TO, response));

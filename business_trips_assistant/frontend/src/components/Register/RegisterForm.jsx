@@ -74,14 +74,17 @@ const RegisterForm = (props) => {
                 props.postAuthRegisterTC(data)
                     .then(response => {
                         if (response.status === "Success")
-                            return props.postAuthLoginTC({username: data.username, password: data.password})
-                    })
-                    .then(response => {
-                        if (response.status === "Success")
-                            return props.getAuthMeTC()
-                    })
-                    .then(response => {
-                        props.postTelegramTC({idTelegram: values.tgId});
+                            props.postAuthLoginTC({username: data.username, password: data.password})
+                                .then(response => {
+                                    if (response.status === "Success")
+                                        props.getAuthMeTC().then(response => {
+                                            props.postTelegramTC({idTelegram: values.tgId});
+                                        })
+                                    else
+                                        alert(response);
+                                })
+                        else
+                            alert(response.username[0]);
                     })
             }}>
             <Form className={classes.form}>

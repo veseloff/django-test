@@ -6,7 +6,12 @@ import {withRouter} from "react-router-dom";
 import TransportConstructor from "./TransportConstructor/TransportConstructor";
 import {initializeTransport, setRZDTC, setStationsTC} from "../../redux/transportReducer";
 import {useEffect} from "react";
-import {initializeBTInfo, postTransportInfoTC, putTransportInfoTC} from "../../redux/businessTripsReducer";
+import {
+    initializeBTInfo,
+    postTransportInfoTC,
+    putTransportInfoTC,
+    uninitializedSuccess
+} from "../../redux/businessTripsReducer";
 
 const Transport = (props) => {
     const id = isNaN(Number(props.match.params.businessTripId))
@@ -16,9 +21,17 @@ const Transport = (props) => {
     const direction = props.match.params.direction
 
     useEffect(() => {
+            props.uninitializedSuccess();
+        },
+        // eslint-disable-next-line
+        []);
+
+    useEffect(() => {
             props.initializeBTInfo(id).then(() => {
-                if (props.initializedBT)
-                    props.initializeTransport(props.businessTrip.fromCity, props.businessTrip.toCity)
+                if (props.initializedBT) {
+                    if (!!props.businessTrip.fromCity && !!props.businessTrip.toCity)
+                        props.initializeTransport(props.businessTrip.fromCity, props.businessTrip.toCity)
+                }
             });
         },
         // eslint-disable-next-line
@@ -92,5 +105,6 @@ export default compose(connect(mapStateToProps,
         initializeTransport,
         setStationsTC,
         postTransportInfoTC,
-        putTransportInfoTC
+        putTransportInfoTC,
+        uninitializedSuccess
     }), withRouter)(Transport);

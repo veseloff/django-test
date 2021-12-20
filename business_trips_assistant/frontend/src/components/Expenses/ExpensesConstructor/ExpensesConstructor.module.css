@@ -1,16 +1,14 @@
 .business_trip {
-    grid-template-columns: 2fr repeat(3, 1fr) 130px;
+    grid-template-columns: 2fr repeat(2, 1fr);
     composes: body_content_wrapper from '../../../App.module.css';
-}
-
-.name {
+    border-top: 1px solid #C4C4C4;
+    border-bottom: 0;
     font-family: Roboto, monospace;
     font-size: 20px;
     font-style: normal;
     text-align: left;
     color: black;
 }
-
 .button_container {
     display: grid;
     gap: 10px;

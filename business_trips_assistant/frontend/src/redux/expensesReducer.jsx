@@ -18,9 +18,11 @@ const ExpensesReducer = (state = initialState, action) => {
 
 export const setExpensesDataTC = (idBT) => async (dispatch)  => {
     const data = await expensesAPI.getExpenses(idBT);
-    console.log(data);
-    if (data !== undefined)
-        dispatch(setExpensesData(data.reportShort, data.reportFull));
+    if (data !== undefined) {
+        const fullExpenses = data.reportShort.sort((a, b) => new Date(a.date) - new Date(b.date));
+        const lastExpenses = data.reportFull.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
+        dispatch(setExpensesData(fullExpenses, lastExpenses));
+    }
 }
 
 const setExpensesData = (fullExpenses, lastExpenses) => ({type: SET_DATA, fullExpenses, lastExpenses});

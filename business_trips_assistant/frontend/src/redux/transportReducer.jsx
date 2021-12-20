@@ -7,6 +7,7 @@ const SET_STATIONS_TO = "TRANSPORT/SET-STATIONS-TO";
 const SET_CITY_FROM = "TRANSPORT/SET-CITY-FROM";
 const SET_CITY_TO = "TRANSPORT/SET-CITY-TO";
 const INITIALIZED_SUCCESS = "TRANSPORT/INITIALIZED-SUCCESS";
+const UNINITIALIZED_SUCCESS = "TRANSPORT/UNINITIALIZED-SUCCESS";
 
 let initialState = {
     initialized: false,
@@ -34,6 +35,8 @@ const TransportReducer = (state = initialState, action) => {
             return {...state, codeCityTo: action.item};
         case INITIALIZED_SUCCESS:
             return {...state, initialized: true}
+        case UNINITIALIZED_SUCCESS:
+            return {...state, initialized: false, transport: []}
         default:
             return state;
     }
@@ -65,6 +68,7 @@ export const setStationsTC = (city, from) => async (dispatch) => {
 }
 
 const initializedSuccess = () => ({type: INITIALIZED_SUCCESS});
+export const uninitializedTransportSuccess = () => ({type: UNINITIALIZED_SUCCESS});
 const setTransport = (items) => ({type: SET_TRANSPORT, items});
 const setTransportDataSearch = (items) => ({type: SET_DATA, items});
 const setStations = (type, items) => ({type: type, items});

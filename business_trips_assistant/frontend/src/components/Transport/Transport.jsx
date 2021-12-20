@@ -4,7 +4,12 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import TransportConstructor from "./TransportConstructor/TransportConstructor";
-import {initializeTransport, setRZDTC, setStationsTC} from "../../redux/transportReducer";
+import {
+    initializeTransport,
+    setRZDTC,
+    setStationsTC,
+    uninitializedTransportSuccess
+} from "../../redux/transportReducer";
 import {useEffect} from "react";
 import {
     initializeBTInfo,
@@ -22,6 +27,7 @@ const Transport = (props) => {
 
     useEffect(() => {
             props.uninitializedSuccess();
+            props.uninitializedTransportSuccess();
         },
         // eslint-disable-next-line
         []);
@@ -106,5 +112,6 @@ export default compose(connect(mapStateToProps,
         setStationsTC,
         postTransportInfoTC,
         putTransportInfoTC,
-        uninitializedSuccess
+        uninitializedSuccess,
+        uninitializedTransportSuccess
     }), withRouter)(Transport);

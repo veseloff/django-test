@@ -83,7 +83,7 @@ const BusinessTripInfo = (props) => {
                                             Обратно:
                                             <div className={classes.description}>
                                                 <div>{map.get(secondTrip.transport)} {secondTrip.transportNumber}</div>
-                                                <div>{secondTrip.cityFrom} - {secondTrip.cityTo}</div>
+                                                <div>{secondTrip.cityTo} - {secondTrip.cityFrom}</div>
                                                 <div>
                                                     {convertDate(secondTrip.dateArrival)} - {convertDate(secondTrip.dateDeparture)}
                                                 </div>

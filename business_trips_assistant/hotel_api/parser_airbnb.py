@@ -102,10 +102,11 @@ def parse_hotels(items):
         hotel = {}
         div = item.find('div', class_='_gig1e7').find('div', class_='c1tbui0o ltlgcp dir dir-ltr')
         hotel['link'] = constant + div.find('a').get('href')
-        hotel['name'] = div.find('div', class_='_12oal24')\
+        hotel['name'] = div.find('div', class_='i55ff1m dir dir-ltr').find('div', class_='k1pnia7m dir dir-ltr')\
+            .find('div', class_='c1fwz84r dir dir-ltr')\
             .find('span', class_='t16jmdcf t5nhi1p t174r01n dir dir-ltr').get_text()
         hotel['price'] = get_amount(div)
-        val = div.find('div', class_='_1hxyyw3')
+        val = div.find('div', class_='s1hj3bst dir dir-ltr')
         hotel['evaluation'] \
             = val.find('span', class_='r1g2zmv6 dir dir-ltr').get_text() if val is not None else None
         hotels.append(hotel)
@@ -121,8 +122,8 @@ def get_amount(div):
     Returns:
         amount = str
     """
-    amount = div.find('div', class_='_ls0e43').find('div', class_='_ati8ih')\
-        .find('div', class_='_10d7v0r').find('div', class_='_tt122m').find('span').get_text()
+    amount = div.find('div', class_='b1odgil1 dir dir-ltr').find('div', class_='pe02y3d dir dir-ltr')\
+        .find('div', class_='_ati8ih').find('div', class_='_1n700sq').find('span').get_text()
     amount = ''.join(re.findall(r'\d+', amount))
     return amount
 

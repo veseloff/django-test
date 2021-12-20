@@ -8,12 +8,11 @@ const ExpensesConstructor = (props) => {
     const dateTime = props.expenses.datetime.split(' ');
     const date = dateTime[0].replace(/-/g, "." );
     const time = dateTime[1].split(':');
-
     return (
         <div className={classes.business_trip}>
             <div>
                 <div>
-                    {props.expenses.report}
+                    {props.expenses.report.split('* ').map((s, i) => <div>{s}</div> )}
                 </div>
             </div>
             <div>

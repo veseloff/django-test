@@ -67,7 +67,7 @@ const BusinessTripInfo = (props) => {
                                                 <div>{map.get(firstTrip.transport)} {firstTrip.transportNumber}</div>
                                                 <div>{firstTrip.cityFrom} - {firstTrip.cityTo}</div>
                                                 <div>
-                                                    {convertDate(firstTrip.dateArrival)} - {convertDate(firstTrip.dateDeparture)}
+                                                    {convertDate(firstTrip.dateDeparture)} - {convertDate(firstTrip.dateArrival)}
                                                 </div>
                                             </div>
                                         </div>
@@ -80,12 +80,12 @@ const BusinessTripInfo = (props) => {
                                     ? <NavLink to={`/business-trips/${id}/transport/back`}>Обратно: Выбрать...</NavLink>
                                     : <div className={classes.option}>
                                         <div>
-                                            Туда:
+                                            Обратно:
                                             <div className={classes.description}>
                                                 <div>{map.get(secondTrip.transport)} {secondTrip.transportNumber}</div>
-                                                <div>{secondTrip.cityFrom} - {secondTrip.cityTo}</div>
+                                                <div>{secondTrip.cityTo} - {secondTrip.cityFrom}</div>
                                                 <div>
-                                                    {convertDate(secondTrip.dateArrival)} - {convertDate(secondTrip.dateDeparture)}
+                                                    {convertDate(secondTrip.dateDeparture)} - {convertDate(secondTrip.dateArrival)}
                                                 </div>
                                             </div>
                                         </div>

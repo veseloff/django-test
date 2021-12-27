@@ -39,6 +39,7 @@ def get_params(kwargs):
     date_check_out = kwargs['check_out'].split('-')
     set_date('checkin_year', 'checkin_month', 'checkin_monthday', date_check_in, params)
     set_date('checkout_year', 'checkout_month', 'checkout_monthday', date_check_out, params)
+    params['nflt'] = kwargs['conveniences']
     return params
 
 

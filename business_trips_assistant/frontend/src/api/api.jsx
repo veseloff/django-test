@@ -174,8 +174,9 @@ export const businessTripsAPI = {
 }
 
 export const hotelsAPI = {
-    async getHotels(city, offset, star, option, checkIn, checkOut) {
-        const url = `/hotel/hotels_${option}?city=${city}&offset=${offset}&star=${star}&check_in=${checkIn}&check_out=${checkOut}`;
+    async getHotels(city, offset, star, option, checkIn, checkOut, conveniences) {
+        const url = `/hotel/hotels_${option}?city=${city}&offset=${offset}&star=${star}&check_in=${checkIn}` +
+        `&check_out=${checkOut}` + (conveniences.length !== 0 ? `&conveniences=${conveniences.join('%3B')}` : '');
         return await fetch(url)
             .then(response => response.json())
             .then(data => data)

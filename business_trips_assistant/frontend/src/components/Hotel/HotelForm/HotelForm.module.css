@@ -52,7 +52,21 @@
 
 .third_row_second_group {
     display: grid;
-    grid-template-columns: 1fr 130px;
+    grid-template-columns: 50px 1fr 130px;
     gap: 25px;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.group>div {
+    margin-right: 25px;
+}
+
+.group>div:last-of-type {
+    margin-right: 0;
 }
 

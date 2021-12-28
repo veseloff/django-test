@@ -40,7 +40,7 @@ def get_url(kwargs):
     params = {
         'tab_id': 'home_tab', 'refinement_paths%5B%5D': '%2Fhomes', 'date_picker_type': 'calendar',
         'adults': 1, 'source': 'structured_search_input_header',
-        'search_type': 'autocomplete_click', 'section_offset': 2}
+        'search_type': 'filter_change', 'section_offset': 2}
     city = kwargs['city']
     url = f'https://www.airbnb.ru/s/{city}/homes?'
     params['city'] = city
@@ -48,6 +48,10 @@ def get_url(kwargs):
     params['checkin'] = kwargs['check_in']
     params['checkout'] = kwargs['check_out']
     url = create_url_by_params(url, params)
+    if kwargs['parking'] is not None:
+        url += 'amenities%5B%5D=9&'
+    if kwargs['wifi'] is not None:
+        url += 'amenities%5B%5D=4&'
     return url
 
 

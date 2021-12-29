@@ -1,0 +1,17 @@
+<uwsgi>
+    <socket>/var/www/uwsgi/uwsgi.sock</socket>
+    <plugins>python3</plugins>
+    <pythonpath>/var/www</pythonpath>
+    <pythonpath>/var/www/uwsgi</pythonpath>
+    <module>wsgi</module>
+    <processes>5</processes>
+    <max-requests>5000</max-requests>
+    <buffer-size>32768</buffer-size>
+    <harakiri>30</harakiri>
+    <reload-mercy>8</reload-mercy>
+    <master />
+    <no-orphans />
+    <env>LANG=en_US.UTF-8</env>
+    <uid>www-data</uid>
+    <gid>www-data</gid>
+</uwsgi>

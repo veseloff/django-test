@@ -115,7 +115,7 @@ WSGI_APPLICATION = 'business_trips_assistant.wsgi.application'
 DATABASES = {
     'default': {
         'NAME': os.getenv('NAME_DATA_BASE'),
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': os.getenv('DB_ENGINE') or 'django.db.backends.postgresql_psycopg2',
         'USER': os.getenv('USER_DATA_BASE'),
         'PASSWORD': os.getenv('PASSWORD_DATA_BASE'),
         'HOST': os.getenv('HOST_DATA_BASE'),
